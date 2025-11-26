@@ -12,19 +12,24 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: godotengine/setup-godot@v2
-      with:
-        godot-version: 4.4.1
+    - name: Download Godot
+      run: |
+        wget https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_macos.universal.zip
+        unzip Godot_v4.4.1-stable_macos.universal.zip
+        mkdir -p ~/bin
+        mv Godot.app ~/bin/
+        echo "$HOME/bin/Godot.app/Contents/MacOS" >> $GITHUB_PATH
 
     - name: Download and Install Export Templates
       run: |
-        curl -L -o templates.tpz https://downloads.tuxfamily.org/godotengine/4.4.1/Godot_v4.4.1-stable_export_templates.tpz
-        mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable/
-        unzip templates.tpz -d ~/.local/share/godot/export_templates/4.4.1.stable/
+        wget https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+        mkdir -p ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
+        unzip Godot_v4.4.1-stable_export_templates.tpz
+        mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
 
     - name: Install CocoaPods
       run: |
-        gem install cocoapods
+        sudo gem install cocoapods
 
     - name: Run AdMob Pod Script
       run: |
@@ -32,15 +37,12 @@ jobs:
         chmod +x update_and_install.sh
         ./update_and_install.sh
 
-    - uses: mak448a/build-ios@main
-      with:
-        project-path: project.godot
-        export-preset: "iOS"
-        output: "TestAdMobApp.ipa"
-        unsigned: true
-        godot-version: "4.4.1"
+    - name: Export iOS Project
+      run: |
+        mkdir -p build
+        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-release "iOS" build/TestAdMobApp.ipa
 
     - uses: actions/upload-artifact@v4
       with:
         name: ios-ipa
-        path: TestAdMobApp.ipa
+        path: build/TestAdMobApp.ipa
