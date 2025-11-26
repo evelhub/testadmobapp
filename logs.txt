@@ -2,8 +2,8 @@
 Export iOS Project:
 
 Run mkdir -p build
+  
 Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
-
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
@@ -156,8 +156,11 @@ update_script_paths_documentation: begin: Updating scripts documentation steps: 
 	update_script_paths_documentation: step 10: AdPosition.gd
 	update_script_paths_documentation: step 11: AdRequest.gd
 	update_script_paths_documentation: step 12: AdSize.gd
+Invalid plugin config file poing-godot-admob-ads.gdip
 	update_script_paths_documentation: step 13: LoadAdError.gd
+Invalid plugin config file poing-godot-admob-vungle.gdip
 	update_script_paths_documentation: step 14: RequestConfiguration.gd
+Invalid plugin config file poing-godot-admob-meta.gdip
 	update_script_paths_documentation: step 15: ResponseInfo.gd
 	update_script_paths_documentation: step 16: RewardedItem.gd
 	update_script_paths_documentation: step 17: ServerSideVerificationOptions.gd
@@ -195,26 +198,11 @@ update_script_paths_documentation: begin: Updating scripts documentation steps: 
 	update_script_paths_documentation: step 49: FormError.gd
 	update_script_paths_documentation: step 50: admob.gd
 	update_script_paths_documentation: step 51: version_helper.gd
-SCRIPT ERROR: Parse Error: Cannot assign a value of type Node to variable "top_banner" with specified type AdView.
-          at: GDScript::reload (res://Main.gd:3)
-SCRIPT ERROR: Parse Error: Cannot assign a value of type Node to variable "bottom_banner" with specified type AdView.
-          at: GDScript::reload (res://Main.gd:4)
-SCRIPT ERROR: Parse Error: Could not find type "RewardItem" in the current scope.
-          at: GDScript::reload (res://Main.gd:48)
-SCRIPT ERROR: Parse Error: Cannot find member "TOP" in base "AdPosition".
-          at: GDScript::reload (res://Main.gd:28)
-SCRIPT ERROR: Parse Error: Cannot find member "BOTTOM" in base "AdPosition".
-          at: GDScript::reload (res://Main.gd:33)
-ERROR: Failed to load script "res://Main.gd" with error "Parse error".
-   at: load (modules/gdscript/gdscript.cpp:3022)
 	update_script_paths_documentation: step 52: Main.gd
 update_script_paths_documentation: end
 reimport: begin: (Re)Importing Assets steps: 20
 	reimport: step 0: Executing post-reimport operations...
 reimport: end
-Invalid plugin config file poing-godot-admob-ads.gdip
-Invalid plugin config file poing-godot-admob-vungle.gdip
-Invalid plugin config file poing-godot-admob-meta.gdip
 Exporting Poing AdMob '.cfg' file
 export: begin: Exporting for iOS steps: 5
 	export: step 0: Making .pck
@@ -277,8 +265,11 @@ savepack: begin: Packing steps: 102
 	savepack: step 45: Storing File: res://addons/admob/src/api/core/AdPosition.gdc
 	savepack: step 47: Storing File: res://addons/admob/src/api/core/AdRequest.gdc
 	savepack: step 48: Storing File: res://addons/admob/src/api/core/AdSize.gdc
+Invalid plugin config file poing-godot-admob-ads.gdip
 	savepack: step 49: Storing File: res://addons/admob/src/api/core/LoadAdError.gdc
+Invalid plugin config file poing-godot-admob-vungle.gdip
 	savepack: step 50: Storing File: res://addons/admob/src/api/core/RequestConfiguration.gdc
+Invalid plugin config file poing-godot-admob-meta.gdip
 	savepack: step 52: Storing File: res://addons/admob/src/api/core/ResponseInfo.gdc
 	savepack: step 53: Storing File: res://addons/admob/src/api/core/RewardedItem.gdc
 	savepack: step 54: Storing File: res://addons/admob/src/api/core/ServerSideVerificationOptions.gdc
@@ -319,10 +310,6 @@ savepack: begin: Packing steps: 102
 	savepack: step 98: Storing File: res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex
 	savepack: step 98: Storing File: res://icon.svg.import
 	savepack: step 99: Storing File: res://Main.gdc
-ERROR: Cannot get class 'AdView'.
-   at: _instantiate_internal (core/object/class_db.cpp:549)
-ERROR: Cannot get class 'AdView'.
-   at: _instantiate_internal (core/object/class_db.cpp:549)
 	savepack: step 100: Storing File: res://.godot/exported/133200997/export-bcb0d2eb5949c52b6a65bfe9de3e985b-Main.scn
 	savepack: step 100: Storing File: res://addons/admob/sample/tabs/Banner.gd.remap
 	savepack: step 100: Storing File: res://addons/admob/sample/tabs/Banner.tscn.remap
@@ -392,9 +379,6 @@ savepack: end
 	export: step 1: Extracting and configuring Xcode project
 Static framework: libgodot.ios.release.xcframework
 Unzipping...
-Invalid plugin config file poing-godot-admob-ads.gdip
-Invalid plugin config file poing-godot-admob-vungle.gdip
-Invalid plugin config file poing-godot-admob-meta.gdip
 READ: data.pck
 READ: godot_ios/
 READ: godot_ios/Images.xcassets/
@@ -488,56 +472,37 @@ Invalid plugin config file poing-godot-admob-meta.gdip
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
-Invalid plugin config file poing-godot-admob-ads.gdip
-Invalid plugin config file poing-godot-admob-vungle.gdip
-Invalid plugin config file poing-godot-admob-meta.gdip
 xcodebuild (.xcarchive):
 Command line invocation:
     /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/xcodebuild -project build/TestAdMobApp.xcodeproj -scheme TestAdMobApp -sdk iphoneos -configuration Release -destination generic/platform=iOS archive -allowProvisioningUpdates -archivePath build/TestAdMobApp.xcarchive
-
 User defaults from command line:
     IDEArchivePathOverride = /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp.xcarchive
     IDEPackageSupportUseBuiltinSCM = YES
-
 Build settings from command line:
     SDKROOT = iphoneos17.5
-
 Prepare packages
-
 ComputeTargetDependencyGraph
 note: Building targets in dependency order
 note: Target dependency graph (1 target)
-    Target 'TestAdMobApp' in project 'TestAdMobApp' (no dependencies)
-
-GatherProvisioningInputs
-
-CreateBuildDescription
-
-ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c++ -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
-
-ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp/Images.xcassets
 ERROR: Xcode Build: Xcode project build failed, see editor log for details.
    at: add_message (editor/export/editor_export_platform.h:243)
-ERROR: Project export for preset "iOS" failed.
-   at: _fs_changed (editor/editor_node.cpp:1103)
-
+    Target 'TestAdMobApp' in project 'TestAdMobApp' (no dependencies)
+GatherProvisioningInputs
+CreateBuildDescription
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c++ -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp/Images.xcassets
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --version --output-format xml1
-
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c -c /dev/null
-
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
-
-Build description signature: 09aaf90b7dbd8d36a4835e1de9b5c481
-Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/TestAdMobApp-dxftrpqkrphawvazjvywuayeupax/Build/Intermediates.noindex/ArchiveIntermediates/TestAdMobApp/IntermediateBuildFilesPath/XCBuildData/09aaf90b7dbd8d36a4835e1de9b5c481.xcbuilddata
+Build description signature: 9b04462f8e8fa1460769976e37a47613
+Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/TestAdMobApp-dxftrpqkrphawvazjvywuayeupax/Build/Intermediates.noindex/ArchiveIntermediates/TestAdMobApp/IntermediateBuildFilesPath/XCBuildData/9b04462f8e8fa1460769976e37a47613.xcbuilddata
 /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp.xcodeproj: error: TestAdMobApp has conflicting provisioning settings. TestAdMobApp is automatically signed for development, but a conflicting code signing identity iPhone Distribution has been manually specified. Set the code signing identity value to "Apple Development" in the build settings editor, or switch to manual signing in the Signing & Capabilities editor. (in target 'TestAdMobApp' from project 'TestAdMobApp')
 ** ARCHIVE FAILED **
-
-
 export: end
+ERROR: Project export for preset "iOS" failed.
+   at: _fs_changed (editor/editor_node.cpp:1103)
 loading_editor_layout: begin: Loading editor steps: 5
 	loading_editor_layout: step 0: Loading editor layout...
 loading_editor_layout: end
@@ -547,5 +512,7 @@ Invalid plugin config file poing-godot-admob-meta.gdip
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
+Invalid plugin config file poing-godot-admob-ads.gdip
+Invalid plugin config file poing-godot-admob-vungle.gdip
+Invalid plugin config file poing-godot-admob-meta.gdip
 Error: Process completed with exit code 1.
-...
