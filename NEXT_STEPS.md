@@ -3,7 +3,10 @@
 ## ✅ Что уже сделано:
 
 1. ✅ Создан Main.gd с логикой AdMob (баннеры + rewarded)
-2. ✅ Обновлен Main.tscn с AdView нодами и кнопкой WATCH
+   - Баннеры создаются программно через AdView.new()
+   - Используется adaptive banner (full width)
+   - Rewarded реклама загружается через RewardedAdLoader
+2. ✅ Обновлен Main.tscn с кнопкой WATCH
 3. ✅ Настроен project.godot (Main.tscn как главная сцена)
 4. ✅ Создан GitHub Actions workflow для автоматической сборки IPA
 5. ✅ Настроен .gitignore

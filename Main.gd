@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var top_banner: AdView = $AdMobBannerTop
-@onready var bottom_banner: AdView = $AdMobBannerBottom
 @onready var watch_button: Button = $Button
 
+var top_banner: AdView
+var bottom_banner: AdView
 var rewarded_ad: RewardedAd
 var rewarded_load_callback: RewardedAdLoadCallback = RewardedAdLoadCallback.new()
 
@@ -23,14 +23,12 @@ func _ready():
 	
 	# Banners (test ID)
 	var banner_id = "ca-app-pub-3940256099942544/2934735716"
-	top_banner.ad_unit_id = banner_id
-	top_banner.ad_size = AdSize.BANNER
-	top_banner.position = AdPosition.TOP
+	var ad_size = AdSize.get_current_orientation_anchored_adaptive_banner_ad_size(AdSize.FULL_WIDTH)
+	
+	top_banner = AdView.new(banner_id, ad_size, AdPosition.Values.TOP)
 	top_banner.load_ad(AdRequest.new())
 	
-	bottom_banner.ad_unit_id = banner_id
-	bottom_banner.ad_size = AdSize.BANNER
-	bottom_banner.position = AdPosition.BOTTOM
+	bottom_banner = AdView.new(banner_id, ad_size, AdPosition.Values.BOTTOM)
 	bottom_banner.load_ad(AdRequest.new())
 	
 	# Rewarded (test ID, mediation fallback)
@@ -45,5 +43,5 @@ func _on_watch_pressed():
 	else:
 		print("Rewarded not loaded — wait/VPN")
 
-func _on_rewarded_earned(reward: RewardItem):
+func _on_rewarded_earned(reward: RewardedItem):
 	print("Reward: " + str(reward.amount) + " " + reward.type)
