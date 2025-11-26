@@ -27,16 +27,6 @@ jobs:
         unzip Godot_v4.4.1-stable_export_templates.tpz
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
 
-    - name: Install CocoaPods
-      run: |
-        sudo gem install cocoapods
-
-    - name: Run AdMob Pod Script
-      run: |
-        cd ios/plugins/ads/scripts/
-        chmod +x update_and_install.sh
-        ./update_and_install.sh
-
     - name: Export iOS Project
       run: |
         mkdir -p build
