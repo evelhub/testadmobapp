@@ -27,10 +27,32 @@ jobs:
         unzip Godot_v4.4.1-stable_export_templates.tpz
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
 
-    - name: Export iOS Project
+    - name: Export iOS Xcode Project
       run: |
         mkdir -p build
-        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-release "iOS" build/TestAdMobApp.ipa
+        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/TestAdMobApp.xcodeproj
+
+    - name: Build Unsigned IPA
+      run: |
+        cd build
+        
+        # Build without code signing
+        xcodebuild -project TestAdMobApp.xcodeproj \
+          -scheme TestAdMobApp \
+          -configuration Release \
+          -sdk iphoneos \
+          -derivedDataPath DerivedData \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO \
+          DEVELOPMENT_TEAM="" \
+          build
+        
+        # Create IPA from .app
+        mkdir -p Payload
+        cp -r DerivedData/Build/Products/Release-iphoneos/TestAdMobApp.app Payload/
+        zip -r TestAdMobApp.ipa Payload
+        rm -rf Payload
 
     - uses: actions/upload-artifact@v4
       with:
