@@ -1,9 +1,12 @@
 ...
-Export iOS Project:
+Export iOS Xcode Project:
 
 Run mkdir -p build
   
 Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+Invalid plugin config file poing-godot-admob-ads.gdip
+Invalid plugin config file poing-godot-admob-vungle.gdip
+Invalid plugin config file poing-godot-admob-meta.gdip
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
@@ -121,7 +124,6 @@ reimport: begin: (Re)Importing Assets steps: 20
 	reimport: step 19: Preparing files to reimport...
 	reimport: step 0: Executing pre-reimport operations...
 	reimport: step 0: arial.ttf
-	reimport: step 1: orange_juice_2_0.ttf
 	reimport: step 2: music.ogg
 	reimport: step 3: arial.ttf
 	reimport: step 4: orange_juice_2_0.ttf
@@ -151,8 +153,11 @@ update_script_paths_documentation: begin: Updating scripts documentation steps: 
 	update_script_paths_documentation: step 5: Ump.gd
 	update_script_paths_documentation: step 6: Main.gd
 	update_script_paths_documentation: step 7: AdapterResponseInfo.gd
+Invalid plugin config file poing-godot-admob-ads.gdip
 	update_script_paths_documentation: step 8: AdapterStatus.gd
+Invalid plugin config file poing-godot-admob-vungle.gdip
 	update_script_paths_documentation: step 9: AdError.gd
+Invalid plugin config file poing-godot-admob-meta.gdip
 	update_script_paths_documentation: step 10: AdPosition.gd
 	update_script_paths_documentation: step 11: AdRequest.gd
 	update_script_paths_documentation: step 12: AdSize.gd
@@ -167,8 +172,11 @@ update_script_paths_documentation: begin: Updating scripts documentation steps: 
 	update_script_paths_documentation: step 21: OnInitializationCompleteListener.gd
 	update_script_paths_documentation: step 22: OnUserEarnedRewardListener.gd
 	update_script_paths_documentation: step 23: RewardedAdLoadCallback.gd
+Invalid plugin config file poing-godot-admob-ads.gdip
 	update_script_paths_documentation: step 24: RewardedInterstitialAdLoadCallback.gd
+Invalid plugin config file poing-godot-admob-vungle.gdip
 	update_script_paths_documentation: step 25: AdView.gd
+Invalid plugin config file poing-godot-admob-meta.gdip
 	update_script_paths_documentation: step 26: InitializationStatus.gd
 	update_script_paths_documentation: step 27: InterstitialAd.gd
 	update_script_paths_documentation: step 28: InterstitialAdLoader.gd
@@ -200,10 +208,7 @@ update_script_paths_documentation: end
 reimport: begin: (Re)Importing Assets steps: 20
 	reimport: step 0: Executing post-reimport operations...
 reimport: end
-Invalid plugin config file poing-godot-admob-ads.gdip
-Invalid plugin config file poing-godot-admob-vungle.gdip
 Exporting Poing AdMob '.cfg' file
-Invalid plugin config file poing-godot-admob-meta.gdip
 export: begin: Exporting for iOS steps: 5
 	export: step 0: Making .pck
 savepack: begin: Packing steps: 102
@@ -374,11 +379,8 @@ savepack: begin: Packing steps: 102
 	savepack: step 100: Storing File: res://project.binary
 savepack: end
 	export: step 1: Extracting and configuring Xcode project
-Static framework: libgodot.ios.release.xcframework
+Static framework: libgodot.ios.debug.xcframework
 Unzipping...
-Invalid plugin config file poing-godot-admob-ads.gdip
-Invalid plugin config file poing-godot-admob-vungle.gdip
-Invalid plugin config file poing-godot-admob-meta.gdip
 READ: data.pck
 READ: godot_ios/
 READ: godot_ios/Images.xcassets/
@@ -420,31 +422,32 @@ Creating build/TestAdMobApp.xcodeproj/project.xcworkspace
 READ: godot_ios.xcodeproj/xcshareddata/
 READ: godot_ios.xcodeproj/xcshareddata/xcschemes/
 READ: godot_ios.xcodeproj/xcshareddata/xcschemes/godot_ios.xcscheme
-ADDING: TestAdMobApp.xcodeproj/xcshareddata/xcschemes/TestAdMobApp.xcscheme size: 3492
+ADDING: TestAdMobApp.xcodeproj/xcshareddata/xcschemes/TestAdMobApp.xcscheme size: 3482
 Creating build/TestAdMobApp.xcodeproj/xcshareddata/xcschemes
 READ: godot_ios.xcodeproj/project.pbxproj
 ADDING: TestAdMobApp.xcodeproj/project.pbxproj size: 15977
 READ: libgodot.ios.debug.xcframework/
 READ: libgodot.ios.debug.xcframework/Info.plist
+ADDING: TestAdMobApp.xcframework/Info.plist size: 1028
+Creating build/TestAdMobApp.xcframework
 READ: libgodot.ios.debug.xcframework/ios-arm64/
 READ: libgodot.ios.debug.xcframework/ios-arm64/empty
 READ: libgodot.ios.debug.xcframework/ios-arm64/libgodot.a
+ADDING: TestAdMobApp.xcframework/ios-arm64/libgodot.a size: 178406376
+Creating build/TestAdMobApp.xcframework/ios-arm64
 READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/
 READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/empty
 READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/libgodot.a
+ADDING: TestAdMobApp.xcframework/ios-arm64_x86_64-simulator/libgodot.a size: 168024600
+Creating build/TestAdMobApp.xcframework/ios-arm64_x86_64-simulator
 READ: libgodot.ios.release.xcframework/
 READ: libgodot.ios.release.xcframework/ios-arm64/
 READ: libgodot.ios.release.xcframework/ios-arm64/empty
 READ: libgodot.ios.release.xcframework/ios-arm64/libgodot.a
-ADDING: TestAdMobApp.xcframework/ios-arm64/libgodot.a size: 167520728
-Creating build/TestAdMobApp.xcframework/ios-arm64
 READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/
 READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/empty
 READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/libgodot.a
-ADDING: TestAdMobApp.xcframework/ios-arm64_x86_64-simulator/libgodot.a size: 155629720
-Creating build/TestAdMobApp.xcframework/ios-arm64_x86_64-simulator
 READ: libgodot.ios.release.xcframework/Info.plist
-ADDING: TestAdMobApp.xcframework/Info.plist size: 1028
 READ: MoltenVK.xcframework/
 READ: MoltenVK.xcframework/ios-arm64/
 READ: MoltenVK.xcframework/ios-arm64/libMoltenVK.a
@@ -478,12 +481,12 @@ Invalid plugin config file poing-godot-admob-meta.gdip
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
-ERROR: Xcode Build: Xcode project build failed, see editor log for details.
 xcodebuild (.xcarchive):
+ERROR: Xcode Build: Xcode project build failed, see editor log for details.
    at: add_message (editor/export/editor_export_platform.h:243)
 Command line invocation:
 ERROR: Project export for preset "iOS" failed.
-    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/xcodebuild -project build/TestAdMobApp.xcodeproj -scheme TestAdMobApp -sdk iphoneos -configuration Release -destination generic/platform=iOS archive -allowProvisioningUpdates -archivePath build/TestAdMobApp.xcarchive
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/xcodebuild -project build/TestAdMobApp.xcodeproj -scheme TestAdMobApp -sdk iphoneos -configuration Debug -destination generic/platform=iOS archive -allowProvisioningUpdates -archivePath build/TestAdMobApp.xcarchive
    at: _fs_changed (editor/editor_node.cpp:1103)
 User defaults from command line:
     IDEArchivePathOverride = /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp.xcarchive
@@ -498,24 +501,24 @@ note: Target dependency graph (1 target)
 GatherProvisioningInputs
 CreateBuildDescription
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c++ -c /dev/null
-ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/testadmobapp/testadmobapp/build/TestAdMobApp/Images.xcassets
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --version --output-format xml1
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -x c -c /dev/null
 ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
-Build description signature: ee2d6a03e3aabfe24f664cb934ba0282
-Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/TestAdMobApp-dxftrpqkrphawvazjvywuayeupax/Build/Intermediates.noindex/ArchiveIntermediates/TestAdMobApp/IntermediateBuildFilesPath/XCBuildData/ee2d6a03e3aabfe24f664cb934ba0282.xcbuilddata
+Build description signature: 8cece69d0c5dc5b4264d9736657668cb
+Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/TestAdMobApp-dxftrpqkrphawvazjvywuayeupax/Build/Intermediates.noindex/ArchiveIntermediates/TestAdMobApp/IntermediateBuildFilesPath/XCBuildData/8cece69d0c5dc5b4264d9736657668cb.xcbuilddata
 error: Ad Hoc code signing is not allowed with SDK 'iOS 17.5'. (in target 'TestAdMobApp' from project 'TestAdMobApp')
 ** ARCHIVE FAILED **
 export: end
 loading_editor_layout: begin: Loading editor steps: 5
-Invalid plugin config file poing-godot-admob-ads.gdip
 	loading_editor_layout: step 0: Loading editor layout...
+loading_editor_layout: end
+Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
 Invalid plugin config file poing-godot-admob-ads.gdip
 Invalid plugin config file poing-godot-admob-vungle.gdip
 Invalid plugin config file poing-godot-admob-meta.gdip
-loading_editor_layout: end
 Error: Process completed with exit code 1.
