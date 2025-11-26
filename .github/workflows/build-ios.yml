@@ -1,0 +1,46 @@
+name: Build Unsigned iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: godotengine/setup-godot@v2
+      with:
+        godot-version: 4.4.1
+
+    - name: Download and Install Export Templates
+      run: |
+        curl -L -o templates.tpz https://downloads.tuxfamily.org/godotengine/4.4.1/Godot_v4.4.1-stable_export_templates.tpz
+        mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable/
+        unzip templates.tpz -d ~/.local/share/godot/export_templates/4.4.1.stable/
+
+    - name: Install CocoaPods
+      run: |
+        gem install cocoapods
+
+    - name: Run AdMob Pod Script
+      run: |
+        cd ios/plugins/ads/scripts/
+        chmod +x update_and_install.sh
+        ./update_and_install.sh
+
+    - uses: mak448a/build-ios@main
+      with:
+        project-path: project.godot
+        export-preset: "iOS"
+        output: "TestAdMobApp.ipa"
+        unsigned: true
+        godot-version: "4.4.1"
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: ios-ipa
+        path: TestAdMobApp.ipa

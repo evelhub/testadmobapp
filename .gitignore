@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+/android/build/
+
+# iOS build artifacts
+/ios/bin/
+*.ipa
+*.dSYM
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*~
