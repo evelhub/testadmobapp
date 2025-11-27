@@ -12,6 +12,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    
+    - name: Select Xcode 16.0
+      run: |
+        echo "🔧 Selecting Xcode 16.0..."
+        sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
+        xcodebuild -version
+        swift --version
+        echo "✅ Xcode 16.0 selected"
 
     - name: Download Godot
       run: |
@@ -122,6 +130,9 @@ jobs:
           CODE_SIGNING_ALLOWED=NO \
           DEVELOPMENT_TEAM="" \
           ONLY_ACTIVE_ARCH=NO \
+          BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+          SWIFT_COMPILATION_MODE=wholemodule \
+          SWIFT_OPTIMIZATION_LEVEL="-O" \
           build
         
         echo "✅ Build completed"
