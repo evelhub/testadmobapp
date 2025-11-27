@@ -82,13 +82,13 @@ jobs:
         echo "📥 Downloading Yandex Mobile Ads XCFramework..."
         cd "$XCODE_PROJECT_DIR"
         
-        # Download Yandex Mobile Ads 7.5.0 (stable version)
-        wget -q https://github.com/yandex/mobileads-ios/releases/download/7.5.0/YandexMobileAds.xcframework.zip
-        unzip -q YandexMobileAds.xcframework.zip
-        rm YandexMobileAds.xcframework.zip
+        # Download official Yandex Mobile Ads 7.17.1 XCFramework from S3
+        wget -q https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAds/7.17.1/spm/5177c6a0-8b16-4da1-8d24-8cb968316b04.zip -O YandexMobileAds.zip
+        unzip -q YandexMobileAds.zip
+        rm YandexMobileAds.zip
         
         echo "✅ Yandex XCFramework downloaded"
-        ls -la
+        ls -la *.xcframework || ls -la
 
     - name: Install CocoaPods Dependencies
       run: |

@@ -1,0 +1,33 @@
+Привет! Я собрал актуальную информацию по Yandex Mobile Ads SDK для iOS на основе официальных источников (данные на ноябрь 2025 года). Учитывая твой контекст с проблемами в CocoaPods (из-за VGSLFundamentals и Swift compilation), я сосредоточился на альтернативах, таких как Swift Package Manager (SPM) или потенциальная ручная интеграция. К сожалению, официально Yandex не предоставляет прямые скачивания готового XCFramework в виде бинарных файлов (например, .xcframework.zip) — распределение идёт через source code в GitHub, который интегрируется via SPM. Нет отдельных pre-built бинарников для прямой загрузки в CI/CD. Подробности ниже.
+
+### 1. Последняя стабильная версия в 2024-2025 году
+- **Версия**: 7.17.1
+- **Дата релиза**: 18 ноября 2025 года
+- **Изменения**: Улучшена стабильность библиотеки для различных устройств. Полный changelog доступен здесь: https://ads.yandex.com/helpcenter/en/dev/ios/changelog-ios.
+
+### 2. Где официально скачать готовый XCFramework (не через CocoaPods)
+- Официально **нет прямых ссылок на скачивание готового XCFramework** (бинарного файла). Yandex распространяет SDK как source code через GitHub, и рекомендуется интеграция via SPM (Swift Package Manager), который автоматически скачивает и собирает фреймворк из репозитория во времяビルда в Xcode или CI/CD.
+- **Прямая ссылка на GitHub releases**: https://github.com/yandexmobile/yandex-ads-sdk-ios/releases/tag/7.17.1 (или общий releases: https://github.com/yandexmobile/yandex-ads-sdk-ios/releases). Здесь нет attached assets (бинарников), только теги для версий и changelog. Для автоматической загрузки в GitHub Actions ты можешь скачать весь репозиторий как ZIP (https://github.com/yandexmobile/yandex-ads-sdk-ios/archive/refs/tags/7.17.1.zip), но это source code, который нужно будет собрать в XCFramework вручную (см. пункт 4).
+- **Официальный сайт Yandex с загрузками**: Нет отдельного раздела с downloads для бинарников. Всё перенаправляет на GitHub или документацию: https://ads.yandex.com/helpcenter/en/dev/ios/quick-start.
+
+Для CI/CD в GitHub Actions: Если переключиться на SPM, нет нужды в ручном скачивании — Xcode (через `xcodebuild`) автоматически resolved зависимости из GitHub во времяビルда. Пример workflow шаг: `xcodebuild -resolvePackageDependencies` перед build. Это решает проблемы с CocoaPods.
+
+### 3. Формат распространения
+- **Основной формат**: Source code в виде Swift Package (Package.swift в репозитории). Нет pre-built .xcframework.zip или отдельных файлов для скачивания.
+- **Через какой репозиторий**: https://github.com/yandexmobile/yandex-ads-sdk-ios (основной репозиторий для iOS SDK). Releases — это теги без attached бинарников; SPM pulls source оттуда и строит XCFramework локально.
+- Если нужно сгенерировать XCFramework вручную: Скачай source из ZIP (ссылка выше), затем используй `xcodebuild` дляビルда (пример команды: `xcodebuild -create-xcframework ...`), но это не готовый бинарник.
+
+### 4. Официальная документация по ручной интеграции XCFramework в Xcode проект
+- Да, есть документация по интеграции без CocoaPods — через SPM (это считается "ручной" альтернативой). Шаги:
+  1. В Xcode: File > Add Package Dependencies.
+  2. Введи URL: https://github.com/yandexmobile/yandex-ads-sdk-ios.
+  3. Выбери версию (например, 7.17.1).
+  4. В Build Settings таргета добавь Other Linker Flags: `-ObjC`.
+  5. Свяжи таргет с `YandexMobileAdsPackage` в Link Binary With Libraries.
+- **Прямая ссылка на док**: https://ads.yandex.com/helpcenter/en/dev/ios/quick-start (раздел "Swift Package Manager").
+- Для полностью ручной интеграции (без SPM): Официально не описано, так как Yandex рекомендует SPM. Если нужно, собери XCFramework из source (см. выше), затем добавь в проект: Drag & drop в Xcode, embed в таргет, добавь в Build Phases. Но это неофициально и может вызвать те же compilation issues с зависимостями вроде VGSLFundamentals.
+
+### 5. Минимальная версия iOS
+- **iOS 13.0** и выше для версии 7.17.1.
+
+Рекомендация: Перейди на SPM в твоём проекте — это должно обойти проблемы CocoaPods, так как SPM лучше обрабатывает Swift зависимости. Если compilation issues persist (например, с VGSL), проверь Xcode версию (минимум 16.1 для последних релизов) и обнови зависимости. Если нужно, открой issue в GitHub repo Yandex для поддержки. Если есть дополнительные детали по ошибкам, могу помочь разобраться!

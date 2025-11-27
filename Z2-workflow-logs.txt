@@ -1,0 +1,17 @@
+Run echo "📥 Downloading Yandex Mobile Ads XCFramework..."
+  echo "📥 Downloading Yandex Mobile Ads XCFramework..."
+  cd "$XCODE_PROJECT_DIR"
+  
+  # Download Yandex Mobile Ads 7.5.0 (stable version)
+  wget -q https://github.com/yandex/mobileads-ios/releases/download/7.5.0/YandexMobileAds.xcframework.zip
+  unzip -q YandexMobileAds.xcframework.zip
+  rm YandexMobileAds.xcframework.zip
+  
+  echo "✅ Yandex XCFramework downloaded"
+  ls -la
+  shell: /bin/bash -e {0}
+  env:
+    XCODE_PROJECT_PATH: build/ios_xcode.xcodeproj
+    XCODE_PROJECT_DIR: build
+📥 Downloading Yandex Mobile Ads XCFramework...
+Error: Process completed with exit code 8.
