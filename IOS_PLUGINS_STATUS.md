@@ -55,10 +55,10 @@
 ## ⏳ ЧТО ОСТАЛОСЬ:
 
 ### 1. GitHub Actions Workflow
-- [ ] Добавить `pod install` шаг
-- [ ] Включить iOS plugins в export
-- [ ] Настроить unsigned IPA сборку
-- [ ] Добавить upload artifacts
+- [x] Добавить `pod install` шаг ✅
+- [x] Включить iOS plugins в export ✅
+- [x] Настроить unsigned IPA сборку ✅
+- [x] Добавить upload artifacts ✅
 
 ### 2. Тестирование
 - [ ] Push в GitHub

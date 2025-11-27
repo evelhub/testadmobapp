@@ -1,4 +1,4 @@
-name: Build Unsigned iOS IPA
+name: Build iOS IPA with Yandex & VK Ads
 
 on:
   push:
@@ -10,34 +10,83 @@ jobs:
     runs-on: macos-14
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Download Godot
       run: |
-        wget https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_macos.universal.zip
-        unzip Godot_v4.4.1-stable_macos.universal.zip
+        echo "📥 Downloading Godot 4.4.1..."
+        wget -q https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_macos.universal.zip
+        unzip -q Godot_v4.4.1-stable_macos.universal.zip
         mkdir -p ~/bin
         mv Godot.app ~/bin/
         echo "$HOME/bin/Godot.app/Contents/MacOS" >> $GITHUB_PATH
+        echo "✅ Godot installed"
 
-    - name: Download and Install Export Templates
+    - name: Download Export Templates
       run: |
-        wget https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+        echo "📥 Downloading export templates..."
+        wget -q https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
         mkdir -p ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
-        unzip Godot_v4.4.1-stable_export_templates.tpz
+        unzip -q Godot_v4.4.1-stable_export_templates.tpz
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
+        echo "✅ Export templates installed"
+
+    - name: Install CocoaPods
+      run: |
+        echo "📦 Installing CocoaPods..."
+        sudo gem install cocoapods -v 1.15.2
+        pod --version
+        echo "✅ CocoaPods installed"
 
     - name: Export iOS Xcode Project
       run: |
+        echo "🔨 Exporting iOS Xcode project..."
         mkdir -p build
-        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/TestAdMobApp.xcodeproj
+        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/ios_xcode
+        echo "✅ Xcode project exported"
 
-    - name: Build Unsigned IPA
+    - name: List exported files
       run: |
-        cd build
+        echo "📂 Checking exported files..."
+        ls -la build/
+        if [ -d "build/ios_xcode" ]; then
+          ls -la build/ios_xcode/
+        fi
+
+    - name: Install CocoaPods Dependencies
+      run: |
+        echo "📦 Installing Pods (Yandex & VK SDKs)..."
+        cd build/ios_xcode
+        
+        # Check if Podfile exists
+        if [ ! -f "Podfile" ]; then
+          echo "⚠️ Podfile not found, copying from project..."
+          cp ../../ios/Podfile .
+        fi
+        
+        # Install pods
+        pod install --repo-update
+        echo "✅ Pods installed"
+        
+        # List installed pods
+        echo "📋 Installed pods:"
+        pod list
+
+    - name: Build IPA (unsigned)
+      run: |
+        echo "🔨 Building unsigned IPA..."
+        cd build/ios_xcode
+        
+        # Use workspace if exists, otherwise project
+        if [ -f "TestAdMobApp.xcworkspace" ]; then
+          BUILD_TARGET="-workspace TestAdMobApp.xcworkspace"
+        else
+          BUILD_TARGET="-project TestAdMobApp.xcodeproj"
+        fi
         
         # Build without code signing
-        xcodebuild -project TestAdMobApp.xcodeproj \
+        xcodebuild $BUILD_TARGET \
           -scheme TestAdMobApp \
           -configuration Release \
           -sdk iphoneos \
@@ -46,15 +95,53 @@ jobs:
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO \
           DEVELOPMENT_TEAM="" \
+          ONLY_ACTIVE_ARCH=NO \
           build
         
-        # Create IPA from .app
-        mkdir -p Payload
-        cp -r DerivedData/Build/Products/Release-iphoneos/TestAdMobApp.app Payload/
-        zip -r TestAdMobApp.ipa Payload
-        rm -rf Payload
+        echo "✅ Build completed"
 
-    - uses: actions/upload-artifact@v4
+    - name: Create IPA
+      run: |
+        echo "📦 Creating IPA package..."
+        cd build/ios_xcode
+        
+        # Create Payload directory
+        mkdir -p Payload
+        
+        # Copy .app to Payload
+        APP_PATH="DerivedData/Build/Products/Release-iphoneos/TestAdMobApp.app"
+        if [ -d "$APP_PATH" ]; then
+          cp -r "$APP_PATH" Payload/
+          echo "✅ App copied to Payload"
+        else
+          echo "❌ App not found at $APP_PATH"
+          echo "📂 Searching for .app..."
+          find DerivedData -name "*.app" -type d
+          exit 1
+        fi
+        
+        # Create IPA
+        zip -r TestAdMobApp.ipa Payload
+        echo "✅ IPA created"
+        
+        # Show IPA size
+        ls -lh TestAdMobApp.ipa
+
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
       with:
-        name: ios-ipa
-        path: build/TestAdMobApp.ipa
+        name: TestAdMobApp-iOS
+        path: build/ios_xcode/TestAdMobApp.ipa
+        if-no-files-found: error
+
+    - name: Build Summary
+      if: success()
+      run: |
+        echo "🎉 Build successful!"
+        echo "📱 Download IPA from Artifacts"
+        echo "🔧 Install via Sideloadly"
+        echo ""
+        echo "✅ Included SDKs:"
+        echo "  - Yandex Mobile Ads"
+        echo "  - VK Ads (MyTarget)"
+        echo "  - AdMob"
