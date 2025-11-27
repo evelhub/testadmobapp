@@ -53,17 +53,17 @@
 
 ---
 
-## 🍎 ЭТАП 2: iOS (ОЖИДАЕТ)
+## 🍎 ЭТАП 2: iOS (В ПРОЦЕССЕ)
 
 ### 2.1 Создание iOS плагинов
-- [ ] Создать структуру для Yandex iOS plugin
-  - `addons/yandex_ads_ios/`
-  - `yandex_ads_ios.mm` (Objective-C bridge)
-  - `yandex_ads_ios.gdextension`
-- [ ] Создать структуру для VK iOS plugin
-  - `addons/vk_ads_ios/`
-  - `vk_ads_ios.mm` (Objective-C bridge)
-  - `vk_ads_ios.gdextension`
+- [x] Создать структуру для Yandex iOS plugin
+  - `ios/plugins/yandex_ads/` ✅
+  - `yandex_ads.mm` (Objective-C++ код) ✅
+  - `yandex_ads.gdip` (конфигурация) ✅
+- [x] Создать структуру для VK iOS plugin
+  - `ios/plugins/vk_ads/` ✅
+  - `vk_ads.mm` (Objective-C++ код) ✅
+  - `vk_ads.gdip` (конфигурация) ✅
 
 ### 2.2 Интеграция SDK через CocoaPods
 - [ ] Создать `Podfile` в `ios/`
@@ -131,9 +131,10 @@
 
 ## 🚨 ТЕКУЩИЙ СТАТУС
 
-**Этап:** iOS - Выбор стратегии  
+**Этап:** iOS - Native plugins созданы! 🔥  
 **Android APK:** ✅ Готов (96 MB)  
-**Следующее действие:** Выбрать вариант iOS интеграции (см. IOS_NATIVE_SETUP.md)
+**iOS Plugins:** ✅ Yandex + VK Objective-C код готов  
+**Следующее действие:** Обновить GDScript обертки и GitHub Actions workflow
 
 ---
 

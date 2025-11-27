@@ -1,0 +1,16 @@
+[config]
+
+name="VkAds"
+binary="vk_ads.a"
+
+initialization="vk_ads_init"
+deinitialization="vk_ads_deinit"
+
+[dependencies]
+
+linked=["MyTargetSDK"]
+system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework", "AVFoundation.framework"]
+
+[plist]
+
+NSUserTrackingUsageDescription="This app uses advertising ID for personalized ads"

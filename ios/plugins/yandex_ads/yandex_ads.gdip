@@ -1,0 +1,16 @@
+[config]
+
+name="YandexAds"
+binary="yandex_ads.a"
+
+initialization="yandex_ads_init"
+deinitialization="yandex_ads_deinit"
+
+[dependencies]
+
+linked=["YandexMobileAds"]
+system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework"]
+
+[plist]
+
+NSUserTrackingUsageDescription="This app uses advertising ID for personalized ads"
