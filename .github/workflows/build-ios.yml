@@ -54,40 +54,58 @@ jobs:
           ls -la build/ios_xcode/
         fi
 
+    - name: Find Xcode Project
+      run: |
+        echo "🔍 Searching for Xcode project..."
+        find build -name "*.xcodeproj" -type d
+        
+        # Find the actual xcodeproj
+        XCODE_PROJ=$(find build -name "*.xcodeproj" -type d | head -1)
+        if [ -z "$XCODE_PROJ" ]; then
+          echo "❌ No .xcodeproj found!"
+          exit 1
+        fi
+        
+        echo "✅ Found: $XCODE_PROJ"
+        echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
+        echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
+
     - name: Install CocoaPods Dependencies
       run: |
         echo "📦 Installing Pods (Yandex & VK SDKs)..."
-        cd build/ios_xcode
+        cd "$XCODE_PROJECT_DIR"
         
-        # Check if Podfile exists
-        if [ ! -f "Podfile" ]; then
-          echo "⚠️ Podfile not found, copying from project..."
-          cp ../../ios/Podfile .
-        fi
+        # Copy Podfile
+        cp ../ios/Podfile .
+        
+        # Get project name
+        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
+        echo "📝 Project name: $PROJ_NAME"
+        
+        # Update Podfile with correct project name
+        sed -i '' "s/TestAdMobApp/$PROJ_NAME/g" Podfile
         
         # Install pods
         pod install --repo-update
         echo "✅ Pods installed"
-        
-        # List installed pods
-        echo "📋 Installed pods:"
-        pod list
 
     - name: Build IPA (unsigned)
       run: |
         echo "🔨 Building unsigned IPA..."
-        cd build/ios_xcode
+        cd "$XCODE_PROJECT_DIR"
+        
+        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         
         # Use workspace if exists, otherwise project
-        if [ -f "TestAdMobApp.xcworkspace" ]; then
-          BUILD_TARGET="-workspace TestAdMobApp.xcworkspace"
+        if [ -f "${PROJ_NAME}.xcworkspace" ]; then
+          BUILD_TARGET="-workspace ${PROJ_NAME}.xcworkspace"
         else
-          BUILD_TARGET="-project TestAdMobApp.xcodeproj"
+          BUILD_TARGET="-project ${PROJ_NAME}.xcodeproj"
         fi
         
         # Build without code signing
         xcodebuild $BUILD_TARGET \
-          -scheme TestAdMobApp \
+          -scheme $PROJ_NAME \
           -configuration Release \
           -sdk iphoneos \
           -derivedDataPath DerivedData \
@@ -103,13 +121,15 @@ jobs:
     - name: Create IPA
       run: |
         echo "📦 Creating IPA package..."
-        cd build/ios_xcode
+        cd "$XCODE_PROJECT_DIR"
+        
+        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         
         # Create Payload directory
         mkdir -p Payload
         
         # Copy .app to Payload
-        APP_PATH="DerivedData/Build/Products/Release-iphoneos/TestAdMobApp.app"
+        APP_PATH="DerivedData/Build/Products/Release-iphoneos/${PROJ_NAME}.app"
         if [ -d "$APP_PATH" ]; then
           cp -r "$APP_PATH" Payload/
           echo "✅ App copied to Payload"
@@ -131,7 +151,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TestAdMobApp-iOS
-        path: build/ios_xcode/TestAdMobApp.ipa
+        path: ${{ env.XCODE_PROJECT_DIR }}/TestAdMobApp.ipa
         if-no-files-found: error
 
     - name: Build Summary
