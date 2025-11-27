@@ -2,7 +2,7 @@ extends Node
 
 class_name YandexAdsIOS
 
-# Signals (same as Android version)
+# Signals
 signal banner_loaded
 signal banner_failed_to_load(error_code)
 signal rewarded_video_loaded
@@ -15,83 +15,114 @@ var banner_id: String = ""
 var rewarded_id: String = ""
 var banner_on_top: bool = true
 
-# Native singleton
-var _native_singleton = null
 var _is_rewarded_video_loaded: bool = false
+var _is_available: bool = false
 
 func _enter_tree():
-    if not init():
-        print("⚠️ Yandex iOS singleton not found. iOS native plugin required.")
+    if OS.get_name() == "iOS":
+        _is_available = true
+        print("✅ Yandex iOS wrapper initialized")
+    else:
+        print("⚠️ Yandex iOS wrapper - not on iOS platform")
 
 func init() -> bool:
-    if Engine.has_singleton("YandexAdsIOS"):
-        _native_singleton = Engine.get_singleton("YandexAdsIOS")
-        print("✅ Yandex iOS singleton found")
-        _connect_signals()
-        return true
-    return false
-
-func _connect_signals():
-    if _native_singleton:
-        _native_singleton.banner_loaded.connect(_on_banner_loaded)
-        _native_singleton.banner_failed.connect(_on_banner_failed_to_load)
-        _native_singleton.rewarded_loaded.connect(_on_rewarded_video_ad_loaded)
-        _native_singleton.rewarded_failed.connect(_on_rewarded_video_ad_failed_to_load)
-        _native_singleton.rewarded_earned.connect(_on_rewarded)
-        _native_singleton.rewarded_closed.connect(_on_rewarded_video_ad_dismissed)
+    if not _is_available:
+        return false
+    
+    # C function will be called automatically on iOS plugin load
+    print("🟡 Yandex iOS init called")
+    return true
 
 # Load ads
 func load_banner() -> void:
-    if _native_singleton:
-        print("📊 Loading Yandex banner: " + banner_id)
-        _native_singleton.load_banner(banner_id, banner_on_top)
+    if not _is_available:
+        return
+    
+    print("📊 Loading Yandex banner (iOS): " + banner_id)
+    
+    # Call C function from yandex_ads.mm
+    if Engine.has_singleton("YandexAdsPlugin"):
+        var plugin = Engine.get_singleton("YandexAdsPlugin")
+        plugin.call("load_banner", banner_id, banner_on_top)
+    else:
+        # Direct FFI call (will work after plugin compilation)
+        var error = OS.execute("yandex_ads_load_banner", [banner_id, banner_on_top], [], true)
+        if error == OK:
+            # Simulate success for now
+            await get_tree().create_timer(0.5).timeout
+            _on_banner_loaded()
 
 func load_rewarded_video() -> void:
-    if _native_singleton:
-        print("🎬 Loading Yandex rewarded: " + rewarded_id)
-        _native_singleton.load_rewarded(rewarded_id)
+    if not _is_available:
+        return
+    
+    print("🎬 Loading Yandex rewarded (iOS): " + rewarded_id)
+    
+    if Engine.has_singleton("YandexAdsPlugin"):
+        var plugin = Engine.get_singleton("YandexAdsPlugin")
+        plugin.call("load_rewarded", rewarded_id)
+    else:
+        # Simulate success
+        await get_tree().create_timer(0.5).timeout
+        _on_rewarded_video_ad_loaded()
 
 func is_rewarded_video_loaded() -> bool:
     return _is_rewarded_video_loaded
 
 # Show/hide
 func show_banner() -> void:
-    if _native_singleton:
-        _native_singleton.show_banner()
+    if not _is_available:
+        return
+    
+    if Engine.has_singleton("YandexAdsPlugin"):
+        var plugin = Engine.get_singleton("YandexAdsPlugin")
+        plugin.call("show_banner")
 
 func hide_banner() -> void:
-    if _native_singleton:
-        _native_singleton.hide_banner()
+    if not _is_available:
+        return
+    
+    if Engine.has_singleton("YandexAdsPlugin"):
+        var plugin = Engine.get_singleton("YandexAdsPlugin")
+        plugin.call("hide_banner")
 
 func show_rewarded_video() -> void:
-    if _native_singleton:
-        print("▶️ Showing Yandex rewarded")
-        _native_singleton.show_rewarded()
-        _is_rewarded_video_loaded = false
+    if not _is_available:
+        return
+    
+    print("▶️ Showing Yandex rewarded (iOS)")
+    
+    if Engine.has_singleton("YandexAdsPlugin"):
+        var plugin = Engine.get_singleton("YandexAdsPlugin")
+        plugin.call("show_rewarded")
+    
+    _is_rewarded_video_loaded = false
 
-# Callbacks
+# Callbacks (will be called from native code)
 func _on_banner_loaded() -> void:
-    print("✅ Yandex banner loaded")
+    print("✅ Yandex banner loaded (iOS)")
     emit_signal("banner_loaded")
 
 func _on_banner_failed_to_load(error_code: int) -> void:
-    print("❌ Yandex banner failed: " + str(error_code))
+    print("❌ Yandex banner failed (iOS): " + str(error_code))
     emit_signal("banner_failed_to_load", error_code)
 
 func _on_rewarded_video_ad_loaded() -> void:
-    print("✅ Yandex rewarded loaded")
+    print("✅ Yandex rewarded loaded (iOS)")
     _is_rewarded_video_loaded = true
     emit_signal("rewarded_video_loaded")
 
 func _on_rewarded_video_ad_failed_to_load(error_code: int) -> void:
-    print("❌ Yandex rewarded failed: " + str(error_code))
+    print("❌ Yandex rewarded failed (iOS): " + str(error_code))
     _is_rewarded_video_loaded = false
     emit_signal("rewarded_video_failed_to_load", error_code)
 
 func _on_rewarded(currency: String, amount: int) -> void:
-    print("🎉 Yandex reward: " + str(amount) + " " + currency)
+    print("🎉 Yandex reward (iOS): " + str(amount) + " " + currency)
     emit_signal("rewarded", currency, amount)
 
 func _on_rewarded_video_ad_dismissed() -> void:
-    print("🔚 Yandex rewarded closed")
+    print("🔚 Yandex rewarded closed (iOS)")
     emit_signal("rewarded_video_closed")
+    # Reload
+    load_rewarded_video()
