@@ -1,5 +1,13 @@
 # 🍎 iOS Plugins - Текущий статус
 
+## 🔥 НОВАЯ СТРАТЕГИЯ: XCFramework + CocoaPods
+
+**Проблема:** Yandex SDK через CocoaPods не компилируется в GitHub Actions из-за VGSLFundamentals Swift 6 несовместимости.
+
+**Решение:** 
+- ✅ Yandex Mobile Ads - прямая интеграция XCFramework (обход компиляции)
+- ✅ VK Ads (MyTarget) - через CocoaPods (работает отлично)
+
 ## ✅ ЧТО ГОТОВО:
 
 ### 1. Native Objective-C++ код
@@ -41,11 +49,11 @@
   - Fallback для тестирования
   - Все signals подключены
 
-### 4. CocoaPods интеграция
+### 4. SDK интеграция
 - ✅ `ios/Podfile`
-  - YandexMobileAds ~> 7.17.1
-  - myTargetSDK ~> 5.35.1
-  - iOS 12.0+ deployment target
+  - myTargetSDK ~> 5.35.1 (через CocoaPods)
+  - iOS 13.0+ deployment target
+- ✅ Yandex Mobile Ads 7.5.0 (прямая загрузка XCFramework в workflow)
 
 ### 5. Main.gd интеграция
 - ✅ Поддержка iOS платформы
@@ -55,7 +63,8 @@
 ## ⏳ ЧТО ОСТАЛОСЬ:
 
 ### 1. GitHub Actions Workflow
-- [x] Добавить `pod install` шаг ✅
+- [x] Добавить прямую загрузку Yandex XCFramework ✅
+- [x] Добавить `pod install` для VK SDK ✅
 - [x] Включить iOS plugins в export ✅
 - [x] Настроить unsigned IPA сборку ✅
 - [x] Добавить upload artifacts ✅

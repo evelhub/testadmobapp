@@ -77,9 +77,22 @@ jobs:
         echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
         echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
 
+    - name: Download Yandex Mobile Ads XCFramework
+      run: |
+        echo "📥 Downloading Yandex Mobile Ads XCFramework..."
+        cd "$XCODE_PROJECT_DIR"
+        
+        # Download Yandex Mobile Ads 7.5.0 (stable version)
+        wget -q https://github.com/yandex/mobileads-ios/releases/download/7.5.0/YandexMobileAds.xcframework.zip
+        unzip -q YandexMobileAds.xcframework.zip
+        rm YandexMobileAds.xcframework.zip
+        
+        echo "✅ Yandex XCFramework downloaded"
+        ls -la
+
     - name: Install CocoaPods Dependencies
       run: |
-        echo "📦 Installing Pods (Yandex & VK SDKs)..."
+        echo "📦 Installing Pods (VK SDK)..."
         cd "$XCODE_PROJECT_DIR"
         
         # Copy Podfile
@@ -92,9 +105,22 @@ jobs:
         # Update Podfile with correct project name
         sed -i '' "s/TestAdMobApp/$PROJ_NAME/g" Podfile
         
-        # Install pods
+        # Install pods (only VK SDK now)
         pod install --repo-update
         echo "✅ Pods installed"
+
+    - name: Link Yandex XCFramework
+      run: |
+        echo "🔗 Linking Yandex XCFramework to project..."
+        cd "$XCODE_PROJECT_DIR"
+        
+        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
+        
+        # Add XCFramework to project using xcodebuild
+        # This adds it to FRAMEWORK_SEARCH_PATHS
+        echo "FRAMEWORK_SEARCH_PATHS = \$(inherited) \$(PROJECT_DIR)" >> "${PROJ_NAME}.xcodeproj/project.pbxproj"
+        
+        echo "✅ Yandex XCFramework linked"
 
     - name: Build IPA (unsigned)
       run: |
@@ -118,7 +144,7 @@ jobs:
         echo "📝 Build target: $BUILD_TARGET"
         echo "📝 Scheme: $PROJ_NAME"
         
-        # Build without code signing
+        # Build without code signing, with Yandex XCFramework
         xcodebuild $BUILD_TARGET \
           -scheme $PROJ_NAME \
           -configuration Release \
@@ -132,6 +158,7 @@ jobs:
           BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
           SWIFT_COMPILATION_MODE=wholemodule \
           SWIFT_OPTIMIZATION_LEVEL="-O" \
+          FRAMEWORK_SEARCH_PATHS="\$(inherited) \$(PROJECT_DIR)" \
           build
         
         echo "✅ Build completed"
