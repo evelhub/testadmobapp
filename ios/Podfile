@@ -9,7 +9,7 @@ target 'TestAdMobApp' do
   use_frameworks!
   
   # Yandex Mobile Ads SDK (requires iOS 13+)
-  pod 'YandexMobileAds', '~> 7.17.1'
+  pod 'YandexMobileAds', '~> 7.8.0'
   
   # VK Ads (MyTarget) SDK
   pod 'myTargetSDK', '~> 5.35.1'
@@ -23,6 +23,10 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      
+      # Swift 6 compatibility fixes
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+      config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
     end
   end
 end
