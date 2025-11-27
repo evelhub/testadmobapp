@@ -7,19 +7,18 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-15
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Select Xcode 16.0
+    - name: Setup Xcode
       run: |
-        echo "🔧 Selecting Xcode 16.0..."
-        sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
+        echo "🔧 Setting up Xcode..."
         xcodebuild -version
         swift --version
-        echo "✅ Xcode 16.0 selected"
+        echo "✅ Xcode ready"
 
     - name: Download Godot
       run: |
