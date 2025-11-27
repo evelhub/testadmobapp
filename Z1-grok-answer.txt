@@ -1,33 +1,124 @@
-Привет! Я собрал актуальную информацию по Yandex Mobile Ads SDK для iOS на основе официальных источников (данные на ноябрь 2025 года). Учитывая твой контекст с проблемами в CocoaPods (из-за VGSLFundamentals и Swift compilation), я сосредоточился на альтернативах, таких как Swift Package Manager (SPM) или потенциальная ручная интеграция. К сожалению, официально Yandex не предоставляет прямые скачивания готового XCFramework в виде бинарных файлов (например, .xcframework.zip) — распределение идёт через source code в GitHub, который интегрируется via SPM. Нет отдельных pre-built бинарников для прямой загрузки в CI/CD. Подробности ниже.
+Привет! Я разобрался с твоим запросом на основе официальной документации Godot и общих практик интеграции фреймворков в iOS проекты (включая обход проблем с CocoaPods). Поскольку Yandex Mobile Ads SDK официально не предоставляет pre-built XCFramework для скачивания (только source code через GitHub, как в версии 7.16.0 на ноябрь 2025), я предполагаю, что ты используешь неофициальный или internal бинарник с S3. Это может работать, но будь осторожен с совместимостью и лицензиями. Цель — собрать IPA в GitHub Actions без компиляции Swift зависимостей (типа VGSLFundamentals) — достижима через прямую интеграцию XCFramework в Godot плагин или пост-экспорт модификацию Xcode проекта.
 
-### 1. Последняя стабильная версия в 2024-2025 году
-- **Версия**: 7.17.1
-- **Дата релиза**: 18 ноября 2025 года
-- **Изменения**: Улучшена стабильность библиотеки для различных устройств. Полный changelog доступен здесь: https://ads.yandex.com/helpcenter/en/dev/ios/changelog-ios.
+Я опишу шаги для каждого вопроса, с фокусом на CI/CD в GitHub Actions. Предполагаю, что у тебя уже есть Godot проект с экспортом в Xcode, нативный плагин (yandex_ads.mm) и .gdip файл.
 
-### 2. Где официально скачать готовый XCFramework (не через CocoaPods)
-- Официально **нет прямых ссылок на скачивание готового XCFramework** (бинарного файла). Yandex распространяет SDK как source code через GitHub, и рекомендуется интеграция via SPM (Swift Package Manager), который автоматически скачивает и собирает фреймворк из репозитория во времяビルда в Xcode или CI/CD.
-- **Прямая ссылка на GitHub releases**: https://github.com/yandexmobile/yandex-ads-sdk-ios/releases/tag/7.17.1 (или общий releases: https://github.com/yandexmobile/yandex-ads-sdk-ios/releases). Здесь нет attached assets (бинарников), только теги для версий и changelog. Для автоматической загрузки в GitHub Actions ты можешь скачать весь репозиторий как ZIP (https://github.com/yandexmobile/yandex-ads-sdk-ios/archive/refs/tags/7.17.1.zip), но это source code, который нужно будет собрать в XCFramework вручную (см. пункт 4).
-- **Официальный сайт Yandex с загрузками**: Нет отдельного раздела с downloads для бинарников. Всё перенаправляет на GitHub или документацию: https://ads.yandex.com/helpcenter/en/dev/ios/quick-start.
+### 1. Как правильно интегрировать готовый XCFramework в Godot iOS проект?
+Godot поддерживает интеграцию pre-built XCFramework в iOS плагины напрямую через .gdip файл. Это автоматически добавит фреймворк в экспортированный Xcode проект, без нужды в CocoaPods или SPM. Вот шаги:
 
-Для CI/CD в GitHub Actions: Если переключиться на SPM, нет нужды в ручном скачивании — Xcode (через `xcodebuild`) автоматически resolved зависимости из GitHub во времяビルда. Пример workflow шаг: `xcodebuild -resolvePackageDependencies` перед build. Это решает проблемы с CocoaPods.
+- **Помести файлы в проект**:
+  - Разместите скачанный XCFramework (например, YandexMobileAds.xcframework) в директории `res://ios/plugins/yandex_ads/` (рядом с yandex_ads.mm и yandex_ads.gdip).
+  - Если XCFramework в ZIP, разархивируй его.
 
-### 3. Формат распространения
-- **Основной формат**: Source code в виде Swift Package (Package.swift в репозитории). Нет pre-built .xcframework.zip или отдельных файлов для скачивания.
-- **Через какой репозиторий**: https://github.com/yandexmobile/yandex-ads-sdk-ios (основной репозиторий для iOS SDK). Releases — это теги без attached бинарников; SPM pulls source оттуда и строит XCFramework локально.
-- Если нужно сгенерировать XCFramework вручную: Скачай source из ZIP (ссылка выше), затем используй `xcodebuild` дляビルда (пример команды: `xcodebuild -create-xcframework ...`), но это не готовый бинарник.
+- **Обнови .gdip файл**:
+  - В yandex_ads.gdip укажи путь к бинарнику и зависимости. Пример конфига (добавь/замени секции):
+    ```
+    [config]
+    name="YandexAds"
+    binary="YandexMobileAds.xcframework"  ; Относительный путь к XCFramework
+    initialization="YandexAds"  ; Имя класса инициализации, если нужно
 
-### 4. Официальная документация по ручной интеграции XCFramework в Xcode проект
-- Да, есть документация по интеграции без CocoaPods — через SPM (это считается "ручной" альтернативой). Шаги:
-  1. В Xcode: File > Add Package Dependencies.
-  2. Введи URL: https://github.com/yandexmobile/yandex-ads-sdk-ios.
-  3. Выбери версию (например, 7.17.1).
-  4. В Build Settings таргета добавь Other Linker Flags: `-ObjC`.
-  5. Свяжи таргет с `YandexMobileAdsPackage` в Link Binary With Libraries.
-- **Прямая ссылка на док**: https://ads.yandex.com/helpcenter/en/dev/ios/quick-start (раздел "Swift Package Manager").
-- Для полностью ручной интеграции (без SPM): Официально не описано, так как Yandex рекомендует SPM. Если нужно, собери XCFramework из source (см. выше), затем добавь в проект: Drag & drop в Xcode, embed в таргет, добавь в Build Phases. Но это неофициально и может вызвать те же compilation issues с зависимостями вроде VGSLFundamentals.
+    [dependencies]
+    embedded=["YandexMobileAds.xcframework"]  ; Embed и link фреймворк в бандл
+    linker_flags=["-ObjC"]  ; Необходим для Yandex Ads, чтобы избежать linker ошибок
+    ```
+  - `binary`: Указывает на pre-built XCFramework (Godot поддерживает .xcframework для debug/release вариантов; если есть отдельные, назови как YandexMobileAds.debug.xcframework и YandexMobileAds.release.xcframework).
+  - `embedded`: Добавит фреймворк в app bundle и свяжет его.
+  - Если нужны другие зависимости (например, system frameworks вроде UIKit), добавь в `system=["UIKit.framework"]`.
 
-### 5. Минимальная версия iOS
-- **iOS 13.0** и выше для версии 7.17.1.
+- **Экспорт в Xcode**:
+  - В Godot: Project > Export > iOS — экспортируй проект. Godot автоматически интегрирует плагин и XCFramework в сгенерированный Xcode проект (в раздел Frameworks, Libraries, and Embedded Content).
+  - Протестируй в Xcode: Открой .xcodeproj,ビルд и убедись, что нет compilation ошибок (поскольку pre-built, Swift не компилируется).
 
-Рекомендация: Перейди на SPM в твоём проекте — это должно обойти проблемы CocoaPods, так как SPM лучше обрабатывает Swift зависимости. Если compilation issues persist (например, с VGSL), проверь Xcode версию (минимум 16.1 для последних релизов) и обнови зависимости. Если нужно, открой issue в GitHub repo Yandex для поддержки. Если есть дополнительные детали по ошибкам, могу помочь разобраться!
+- **В GitHub Actions**:
+  - В workflow (.yml) после экспорта из Godot (используй godot-ci/action или аналог):
+    ```
+    - name: Export iOS Project
+      run: godot --export "iOS" path/to/export.xcodeproj --no-window
+    - name: Download and Place XCFramework  ; Если скачиваешь с S3 в CI
+      run: |
+        curl -o YandexMobileAds.xcframework.zip https://your-s3-url
+        unzip YandexMobileAds.xcframework.zip -d ios/plugins/yandex_ads/
+    - name: Build IPA
+      run: xcodebuild -project path/to/export.xcodeproj -scheme YourScheme -sdk iphoneos -configuration Release archive -archivePath build/YourApp.xcarchive
+    ```
+  - Это соберёт IPA без компиляции source (только linking pre-built).
+
+Если проблемы: Если Godot не подхватывает, добавь XCFramework вручную в Xcode после экспорта (см. пункт 4).
+
+### 2. Можно ли создать локальный Podspec, который ссылается на локальный XCFramework?
+Да, это возможно, но поскольку CocoaPods вызывает проблемы с Swift compilation, это не идеально для твоей цели (может потребовать компиляции зависимостей). Однако, если хочешь попробовать как fallback:
+
+- **Создай локальный .podspec**:
+  - В директории с XCFramework создай файл `YandexMobileAds.podspec`:
+    ```
+    Pod::Spec.new do |s|
+      s.name             = 'YandexMobileAds'
+      s.version          = '7.17.1'  ; Твоя версия
+      s.summary          = 'Yandex Mobile Ads SDK'
+      s.homepage         = 'https://ads.yandex.com'
+      s.license          = { :type => 'Proprietary', :file => 'LICENSE' }
+      s.author           = { 'Yandex' => 'ads@yandex.com' }
+      s.source           = { :path => '.' }  ; Локальный путь
+      s.platform         = :ios, '13.0'  ; Минимальный iOS
+      s.vendored_frameworks = 'YandexMobileAds.xcframework'  ; Ссылка на локальный XCFramework
+      s.frameworks       = 'UIKit', 'Foundation'  ; Добавь нужные
+      s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+    end
+    ```
+  - `vendored_frameworks`: Указывает на pre-built XCFramework, чтобы избежать компиляции source.
+
+- **Интеграция**:
+  - В Podfile проекта добавь: `pod 'YandexMobileAds', :path => 'path/to/YandexMobileAds.podspec'`
+  - Запусти `pod install` — это создаст .xcworkspace с linked XCFramework.
+
+- **В GitHub Actions**:
+  - Скачай XCFramework и .podspec в CI, затем `pod install`.
+  - Но если VGSLFundamentals — зависимость внутри Yandex, и она не pre-built в твоём XCFramework, compilation может сломаться. Лучше избегать CocoaPods.
+
+### 3. Или нужно модифицировать .gdip файл, чтобы он работал с локальным фреймворком?
+Да, это предпочтительный способ для Godot (см. пункт 1). .gdip предназначен именно для этого:
+- Укажи `binary="path/to/YandexMobileAds.xcframework"` (относительный от .gdip).
+- В `dependencies.embedded` добавь фреймворк для embedding.
+- Удали или закомментируй оригинальную dependency "YandexMobileAds:7.17.1", чтобы не тянуть из repo (это отключит CocoaPods/SPM).
+- Godot обработает это при экспорте, добавив XCFramework в Xcode проект как embedded framework.
+- Для CI: В Actions просто экспортируй проект — Godot сам интегрирует local файлы.
+
+Это обходит компиляцию Swift, так как использует pre-built бинарник.
+
+### 4. Есть ли способ добавить XCFramework в Xcode проект через command line (xcodebuild)?
+xcodebuild не имеет встроенной команды для добавления фреймворков (он дляビルда/архива), но можно модифицировать .xcodeproj файл скриптами в CI. Вот варианты:
+
+- **Используй Ruby gem xcodeproj** (рекомендую для GitHub Actions):
+  - Установи в workflow: `gem install xcodeproj`
+  - Скрипт (add_framework.rb):
+    ```
+    require 'xcodeproj'
+    project = Xcodeproj::Project.open('path/to/YourProject.xcodeproj')
+    target = project.native_targets.find { |t| t.name == 'YourTarget' }
+    framework = target.frameworks_build_phases.add_framework('YandexMobileAds.xcframework', true)  # true для embedding
+    framework.build_configuration_list.set_setting('OTHER_LDFLAGS', ['-ObjC'])
+    project.save
+    ```
+  - В Actions: `ruby add_framework.rb` после экспорта из Godot, перед `xcodebuild archive`.
+
+- **Альтернатива: plistbuddy или sed для .pbxproj**:
+  - .pbxproj — это plist файл. Можно парсить и добавлять строки для PBXFrameworksBuildFile, PBXCopyFilesBuildPhase (для embedding).
+  - Пример команды: `/usr/libexec/PlistBuddy -c "Add :objects:someUUID string YandexMobileAds.xcframework" path/to/project.pbxproj`
+  - Но это хрупко; лучше xcodeproj.
+
+- **В GitHub Actions workflow**:
+  ```
+  - name: Modify Xcode Project
+    run: |
+      gem install xcodeproj
+      ruby add_framework.rb
+  - name: Archive and Build IPA
+    run: |
+      xcodebuild -project path/to/YourProject.xcodeproj -scheme YourScheme -sdk iphoneos -configuration Release archive -archivePath build/YourApp.xcarchive
+      xcodebuild -exportArchive -archivePath build/YourApp.xcarchive -exportPath build/YourApp.ipa -exportOptionsPlist ExportOptions.plist
+  ```
+  - ExportOptions.plist: Укажи provisioning profiles, signing и т.д.
+
+Это позволит добавить XCFramework в CI без ручного вмешательства и без компиляции source. Если XCFramework имеет зависимости, убедись, что они тоже embedded.
+
+Рекомендация: Начни с модификации .gdip (пункт 1/3) — это нативно для Godot и проще в CI. Если ошибки, перейди к пост-экспорт скриптам (пункт 4). Если нужны детали по ошибкам или полный .yml, дай знать!

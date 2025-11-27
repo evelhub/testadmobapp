@@ -1,17 +1,71 @@
-Run echo "📥 Downloading Yandex Mobile Ads XCFramework..."
-  echo "📥 Downloading Yandex Mobile Ads XCFramework..."
+Run echo "🔨 Building unsigned IPA..."
+  echo "🔨 Building unsigned IPA..."
   cd "$XCODE_PROJECT_DIR"
   
-  # Download Yandex Mobile Ads 7.5.0 (stable version)
-  wget -q https://github.com/yandex/mobileads-ios/releases/download/7.5.0/YandexMobileAds.xcframework.zip
-  unzip -q YandexMobileAds.xcframework.zip
-  rm YandexMobileAds.xcframework.zip
+  PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
   
-  echo "✅ Yandex XCFramework downloaded"
-  ls -la
+  # After pod install, MUST use workspace
+  if [ -d "Pods/${PROJ_NAME}.xcworkspace" ]; then
+    BUILD_TARGET="-workspace Pods/${PROJ_NAME}.xcworkspace"
+    echo "✅ Using workspace from Pods"
+  elif [ -d "${PROJ_NAME}.xcworkspace" ]; then
+    BUILD_TARGET="-workspace ${PROJ_NAME}.xcworkspace"
+    echo "✅ Using workspace"
+  else
+    BUILD_TARGET="-project ${PROJ_NAME}.xcodeproj"
+    echo "⚠️ Using project (no workspace found)"
+  fi
+  
+  echo "📝 Build target: $BUILD_TARGET"
+  echo "📝 Scheme: $PROJ_NAME"
+  
+  # Build without code signing, with Yandex XCFramework
+  xcodebuild $BUILD_TARGET \
+    -scheme $PROJ_NAME \
+    -configuration Release \
+    -sdk iphoneos \
+    -derivedDataPath DerivedData \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGNING_ALLOWED=NO \
+    DEVELOPMENT_TEAM="" \
+    ONLY_ACTIVE_ARCH=NO \
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+    SWIFT_COMPILATION_MODE=wholemodule \
+    SWIFT_OPTIMIZATION_LEVEL="-O" \
+    FRAMEWORK_SEARCH_PATHS="\$(inherited) \$(PROJECT_DIR)" \
+    build
+  
+  echo "✅ Build completed"
   shell: /bin/bash -e {0}
   env:
     XCODE_PROJECT_PATH: build/ios_xcode.xcodeproj
     XCODE_PROJECT_DIR: build
-📥 Downloading Yandex Mobile Ads XCFramework...
-Error: Process completed with exit code 8.
+🔨 Building unsigned IPA...
+✅ Using workspace
+📝 Build target: -workspace ios_xcode.xcworkspace
+📝 Scheme: ios_xcode
+Command line invocation:
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/xcodebuild -workspace ios_xcode.xcworkspace -scheme ios_xcode -configuration Release -sdk iphoneos -derivedDataPath DerivedData CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO DEVELOPMENT_TEAM= ONLY_ACTIVE_ARCH=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES SWIFT_COMPILATION_MODE=wholemodule SWIFT_OPTIMIZATION_LEVEL=-O "FRAMEWORK_SEARCH_PATHS=$(inherited) $(PROJECT_DIR)" build
+User defaults from command line:
+    IDEDerivedDataPathOverride = /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData
+    IDEPackageSupportUseBuiltinSCM = YES
+Build settings from command line:
+    BUILD_LIBRARY_FOR_DISTRIBUTION = YES
+    CODE_SIGN_IDENTITY = 
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+    DEVELOPMENT_TEAM = 
+    FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)
+    ONLY_ACTIVE_ARCH = NO
+    SDKROOT = iphoneos17.5
+    SWIFT_COMPILATION_MODE = wholemodule
+    SWIFT_OPTIMIZATION_LEVEL = -O
+2025-11-27 14:52:21.497 xcodebuild[5865:29051] Error Domain=NSCocoaErrorDomain Code=3840 "JSON text did not start with array or object and option to allow fragments not set. around line 1, column 0." UserInfo={NSDebugDescription=JSON text did not start with array or object and option to allow fragments not set. around line 1, column 0., NSJSONSerializationErrorIndex=0}
+2025-11-27 14:52:21.497 xcodebuild[5865:29051] [MT] IDEFileReferenceDebug: [Load] <IDEFileReference, 0x600002bdca00: name:ios_xcode path:group:ios_xcode.xcodeproj> Failed to load container at path: /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.xcodeproj, Error: Error Domain=Xcode3ProjectErrorDomain Code=2 "The project ‘ios_xcode’ is damaged and cannot be opened due to a parse error. Examine the project file for invalid edits or unresolved source control conflicts.
+Path: /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.xcodeproj" UserInfo={NSLocalizedDescription=The project ‘ios_xcode’ is damaged and cannot be opened due to a parse error. Examine the project file for invalid edits or unresolved source control conflicts.
+Path: /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.xcodeproj}
+--- xcodebuild: WARNING: Unable to open project file '/Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.xcodeproj' in workspace 'ios_xcode.xcworkspace'.
+2025-11-27 14:52:27.847 xcodebuild[5865:29051] Writing error result bundle to /var/folders/8s/1jkm89h96qjdtjr7q3bll2vh0000gn/T/ResultBundle_2025-27-11_14-52-0027.xcresult
+xcodebuild: error: The workspace named "ios_xcode" does not contain a scheme named "ios_xcode". The "-list" option can be used to find the names of the schemes in the workspace.
+Error: Process completed with exit code 65.

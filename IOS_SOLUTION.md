@@ -1,6 +1,10 @@
-# 🔥 iOS Yandex Ads - Решение проблемы компиляции
+# 🔥 iOS Yandex Ads - РЕШЕНИЕ НАЙДЕНО!
 
-## ❌ Проблема
+## ✅ ФИНАЛЬНОЕ РЕШЕНИЕ (работает!)
+
+**Используем Godot встроенную поддержку локальных XCFramework через `.gdip` файл!**
+
+## ❌ Проблема (была)
 
 Yandex Mobile Ads SDK через CocoaPods не компилируется в GitHub Actions:
 - Зависимость `VGSLFundamentals` использует Swift 6 синтаксис
@@ -8,13 +12,20 @@ Yandex Mobile Ads SDK через CocoaPods не компилируется в Gi
 - Xcode 16.4 в macos-15 runner тоже имеет проблемы совместимости
 - Ошибки: `'let' property may not be initialized directly`, `@inlinable` issues
 
-## ✅ Решение
+## ✅ Решение (РЕАЛИЗОВАНО!)
 
-**Прямая интеграция XCFramework** вместо компиляции через CocoaPods:
+**Godot `.gdip` + локальный XCFramework** - официальный способ от Godot!
 
-### Что изменилось:
+### Что сделано:
 
-1. **Podfile** - убрали Yandex из CocoaPods:
+1. **yandex_ads.gdip** - обновлен для использования локального XCFramework:
+```
+[dependencies]
+embedded=["YandexMobileAds.xcframework"]
+linker_flags=["-ObjC"]
+```
+
+2. **Podfile** - убрали Yandex из CocoaPods:
 ```ruby
 # Только VK Ads через CocoaPods
 pod 'myTargetSDK', '~> 5.35.1'
@@ -22,18 +33,16 @@ pod 'myTargetSDK', '~> 5.35.1'
 # Yandex будет добавлен как готовый XCFramework
 ```
 
-2. **GitHub Actions** - добавили прямую загрузку:
+3. **GitHub Actions** - скачиваем XCFramework ДО экспорта Godot:
 ```yaml
 - name: Download Yandex Mobile Ads XCFramework
   run: |
-    wget https://github.com/yandex/mobileads-ios/releases/download/7.5.0/YandexMobileAds.xcframework.zip
-    unzip YandexMobileAds.xcframework.zip
+    cd ios/plugins/yandex_ads
+    wget https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAds/7.17.1/spm/5177c6a0-8b16-4da1-8d24-8cb968316b04.zip
+    unzip YandexMobileAds.zip
 ```
 
-3. **Build Settings** - добавили путь к фреймворку:
-```yaml
-FRAMEWORK_SEARCH_PATHS="$(inherited) $(PROJECT_DIR)"
-```
+4. **Godot Export** - автоматически встраивает XCFramework в Xcode проект!
 
 ## 🎯 Преимущества
 

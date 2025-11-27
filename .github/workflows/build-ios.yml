@@ -39,6 +39,22 @@ jobs:
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
         echo "✅ Export templates installed"
 
+    - name: Download Yandex Mobile Ads XCFramework
+      run: |
+        echo "📥 Downloading Yandex Mobile Ads XCFramework..."
+        
+        # Download to plugin directory BEFORE Godot export
+        mkdir -p ios/plugins/yandex_ads
+        cd ios/plugins/yandex_ads
+        
+        # Download official Yandex Mobile Ads 7.17.1 XCFramework from S3
+        wget -q https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAds/7.17.1/spm/5177c6a0-8b16-4da1-8d24-8cb968316b04.zip -O YandexMobileAds.zip
+        unzip -q YandexMobileAds.zip
+        rm YandexMobileAds.zip
+        
+        echo "✅ Yandex XCFramework downloaded to plugin directory"
+        ls -la
+
     - name: Install CocoaPods
       run: |
         echo "📦 Installing CocoaPods..."
@@ -77,19 +93,6 @@ jobs:
         echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
         echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
 
-    - name: Download Yandex Mobile Ads XCFramework
-      run: |
-        echo "📥 Downloading Yandex Mobile Ads XCFramework..."
-        cd "$XCODE_PROJECT_DIR"
-        
-        # Download official Yandex Mobile Ads 7.17.1 XCFramework from S3
-        wget -q https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAds/7.17.1/spm/5177c6a0-8b16-4da1-8d24-8cb968316b04.zip -O YandexMobileAds.zip
-        unzip -q YandexMobileAds.zip
-        rm YandexMobileAds.zip
-        
-        echo "✅ Yandex XCFramework downloaded"
-        ls -la *.xcframework || ls -la
-
     - name: Install CocoaPods Dependencies
       run: |
         echo "📦 Installing Pods (VK SDK)..."
@@ -108,19 +111,6 @@ jobs:
         # Install pods (only VK SDK now)
         pod install --repo-update
         echo "✅ Pods installed"
-
-    - name: Link Yandex XCFramework
-      run: |
-        echo "🔗 Linking Yandex XCFramework to project..."
-        cd "$XCODE_PROJECT_DIR"
-        
-        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
-        
-        # Add XCFramework to project using xcodebuild
-        # This adds it to FRAMEWORK_SEARCH_PATHS
-        echo "FRAMEWORK_SEARCH_PATHS = \$(inherited) \$(PROJECT_DIR)" >> "${PROJ_NAME}.xcodeproj/project.pbxproj"
-        
-        echo "✅ Yandex XCFramework linked"
 
     - name: Build IPA (unsigned)
       run: |
@@ -144,7 +134,7 @@ jobs:
         echo "📝 Build target: $BUILD_TARGET"
         echo "📝 Scheme: $PROJ_NAME"
         
-        # Build without code signing, with Yandex XCFramework
+        # Build without code signing (Yandex XCFramework embedded by Godot)
         xcodebuild $BUILD_TARGET \
           -scheme $PROJ_NAME \
           -configuration Release \
@@ -155,10 +145,6 @@ jobs:
           CODE_SIGNING_ALLOWED=NO \
           DEVELOPMENT_TEAM="" \
           ONLY_ACTIVE_ARCH=NO \
-          BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-          SWIFT_COMPILATION_MODE=wholemodule \
-          SWIFT_OPTIMIZATION_LEVEL="-O" \
-          FRAMEWORK_SEARCH_PATHS="\$(inherited) \$(PROJECT_DIR)" \
           build
         
         echo "✅ Build completed"
