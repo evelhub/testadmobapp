@@ -1,91 +1,321 @@
 extends Control
 
-@onready var watch_button: Button = $CenterContainer/VBoxContainer/Button
-@onready var status_label: Label = $CenterContainer/VBoxContainer/StatusLabel
+# UI References
+@onready var yandex_button: Button = $ScrollContainer/VBoxContainer/YandexButton
+@onready var vk_button: Button = $ScrollContainer/VBoxContainer/VKButton
+@onready var admob_button: Button = $ScrollContainer/VBoxContainer/AdMobButton
+@onready var status_label: Label = $ScrollContainer/VBoxContainer/StatusLabel
 
-var top_banner: AdView
-var bottom_banner: AdView
-var rewarded_ad: RewardedAd
-var rewarded_load_callback: RewardedAdLoadCallback = RewardedAdLoadCallback.new()
+# Ad Networks
+var yandex_ads: YandexAds
+var vk_ads: VkAds
+var admob_rewarded_ad: RewardedAd
+var admob_rewarded_callback: RewardedAdLoadCallback
+
+# Platform detection
+var is_android: bool = OS.get_name() == "Android"
+var is_ios: bool = OS.get_name() == "iOS"
 
 func _ready():
-	print("=== AdMob Test App Started ===")
-	update_status("Starting...")
+	print("=== Multi-Ad Test App Started ===")
+	print("Platform: " + OS.get_name())
+	update_status("Starting on " + OS.get_name() + "...")
 	
-	# Setup rewarded callbacks
-	rewarded_load_callback.on_ad_failed_to_load = func(ad_error: LoadAdError): 
-		print("❌ Rewarded fail: " + ad_error.message)
-		update_status("Rewarded failed: " + ad_error.message)
-	
-	rewarded_load_callback.on_ad_loaded = func(loaded_ad: RewardedAd): 
-		rewarded_ad = loaded_ad
-		rewarded_ad.on_user_earned_reward = _on_rewarded_earned
-		print("✅ Rewarded loaded!")
-		update_status("Rewarded ad ready!")
-	
-	# Connect button
-	watch_button.pressed.connect(_on_watch_pressed)
+	# Connect buttons
+	yandex_button.pressed.connect(_on_yandex_button_pressed)
+	vk_button.pressed.connect(_on_vk_button_pressed)
+	admob_button.pressed.connect(_on_admob_button_pressed)
 	
 	# Wait a bit
 	await get_tree().create_timer(1.0).timeout
-	update_status("Initializing AdMob...")
 	
-	# Initialize AdMob
-	print("📱 Initializing MobileAds...")
-	MobileAds.initialize()
-	await get_tree().create_timer(2.0).timeout
-	print("✅ MobileAds initialized")
+	# Initialize ad networks based on platform
+	if is_android:
+		_init_android_ads()
+	elif is_ios:
+		_init_ios_ads()
+	else:
+		update_status("Desktop - ads disabled")
+		print("⚠️ Running on desktop, ads disabled")
+
+# ============================================
+# ANDROID INITIALIZATION
+# ============================================
+func _init_android_ads():
+	print("📱 Initializing Android ads...")
+	update_status("Initializing Android ads...")
+	
+	# Initialize Yandex Ads
+	_init_yandex_android()
+	
+	# Initialize VK Ads
+	_init_vk_android()
+	
+	# Initialize AdMob (for testing)
+	_init_admob()
+	
+	update_status("Android ads ready!")
+
+func _init_yandex_android():
+	print("🟡 Initializing Yandex Ads (Android)...")
+	
+	yandex_ads = YandexAds.new()
+	add_child(yandex_ads)
+	
+	# Set test IDs
+	yandex_ads.banner_id = "demo-banner-yandex"
+	yandex_ads.rewarded_id = "demo-rewarded-yandex"
+	yandex_ads.banner_on_top = true
+	yandex_ads.banner_width = 320
+	yandex_ads.banner_height = 50
+	
+	# Connect signals
+	yandex_ads.banner_loaded.connect(_on_yandex_banner_loaded)
+	yandex_ads.banner_failed_to_load.connect(_on_yandex_banner_failed)
+	yandex_ads.rewarded_video_loaded.connect(_on_yandex_rewarded_loaded)
+	yandex_ads.rewarded_video_failed_to_load.connect(_on_yandex_rewarded_failed)
+	yandex_ads.rewarded.connect(_on_yandex_rewarded_earned)
 	
 	# Load banners
-	update_status("Loading banners...")
-	_load_banners()
+	yandex_ads.load_banner()
+	yandex_ads.show_banner()
 	
 	# Load rewarded
-	update_status("Loading rewarded ad...")
-	_load_rewarded()
-
-func _load_banners():
-	print("📊 Loading banners...")
-	var banner_id = "ca-app-pub-3940256099942544/2934735716"
-	var ad_size = AdSize.get_current_orientation_anchored_adaptive_banner_ad_size(AdSize.FULL_WIDTH)
+	yandex_ads.load_rewarded_video()
 	
-	# Top banner
-	print("  Creating top banner...")
-	top_banner = AdView.new(banner_id, ad_size, AdPosition.Values.TOP)
-	var ad_listener_top = AdListener.new()
-	ad_listener_top.on_ad_loaded = func(): print("✅ Top banner loaded")
-	ad_listener_top.on_ad_failed_to_load = func(error: LoadAdError): print("❌ Top banner failed: " + error.message)
-	top_banner.ad_listener = ad_listener_top
-	top_banner.load_ad(AdRequest.new())
+	print("✅ Yandex Ads initialized")
+
+func _init_vk_android():
+	print("🔵 Initializing VK Ads (Android)...")
 	
-	# Bottom banner
-	print("  Creating bottom banner...")
-	bottom_banner = AdView.new(banner_id, ad_size, AdPosition.Values.BOTTOM)
-	var ad_listener_bottom = AdListener.new()
-	ad_listener_bottom.on_ad_loaded = func(): print("✅ Bottom banner loaded")
-	ad_listener_bottom.on_ad_failed_to_load = func(error: LoadAdError): print("❌ Bottom banner failed: " + error.message)
-	bottom_banner.ad_listener = ad_listener_bottom
-	bottom_banner.load_ad(AdRequest.new())
+	vk_ads = VkAds.new()
+	add_child(vk_ads)
+	
+	# Set test IDs
+	vk_ads.banner_id = 44987  # Demo banner slot
+	vk_ads.rewarded_id = 44988  # Demo rewarded slot
+	vk_ads.banner_on_top = false  # Bottom banner
+	
+	# Connect signals
+	vk_ads.banner_loaded.connect(_on_vk_banner_loaded)
+	vk_ads.banner_failed_to_load.connect(_on_vk_banner_failed)
+	vk_ads.rewarded_video_loaded.connect(_on_vk_rewarded_loaded)
+	vk_ads.rewarded_video_failed_to_load.connect(_on_vk_rewarded_failed)
+	vk_ads.rewarded.connect(_on_vk_rewarded_earned)
+	
+	# Load banners
+	vk_ads.load_banner()
+	vk_ads.show_banner()
+	
+	# Load rewarded
+	vk_ads.load_rewarded_video()
+	
+	print("✅ VK Ads initialized")
 
-func _load_rewarded():
-	print("🎬 Loading rewarded ad...")
-	var rewarded_id = "ca-app-pub-3940256099942544/1712485313"
-	RewardedAdLoader.new().load(rewarded_id, AdRequest.new(), rewarded_load_callback)
+# ============================================
+# iOS INITIALIZATION
+# ============================================
+func _init_ios_ads():
+	print("📱 Initializing iOS ads...")
+	update_status("Initializing iOS ads...")
+	
+	# Initialize Yandex Ads (iOS)
+	_init_yandex_ios()
+	
+	# Initialize VK Ads (iOS)
+	_init_vk_ios()
+	
+	# Initialize AdMob (for testing)
+	_init_admob()
+	
+	update_status("iOS ads ready!")
 
-func _on_watch_pressed():
-	print("🎬 Watch button pressed")
-	if rewarded_ad:
-		print("  Showing rewarded ad...")
-		rewarded_ad.show()
-		update_status("Showing ad...")
+func _init_yandex_ios():
+	print("🟡 Initializing Yandex Ads (iOS)...")
+	
+	var YandexAdsIOSClass = load("res://addons/yandex_ads_ios/yandex_ads_ios.gd")
+	if YandexAdsIOSClass:
+		yandex_ads = YandexAdsIOSClass.new()
+		add_child(yandex_ads)
+		
+		# Set test IDs
+		yandex_ads.banner_id = "demo-banner-yandex"
+		yandex_ads.rewarded_id = "demo-rewarded-yandex"
+		yandex_ads.banner_on_top = true
+		
+		# Connect signals
+		yandex_ads.banner_loaded.connect(_on_yandex_banner_loaded)
+		yandex_ads.banner_failed_to_load.connect(_on_yandex_banner_failed)
+		yandex_ads.rewarded_video_loaded.connect(_on_yandex_rewarded_loaded)
+		yandex_ads.rewarded_video_failed_to_load.connect(_on_yandex_rewarded_failed)
+		yandex_ads.rewarded.connect(_on_yandex_rewarded_earned)
+		
+		# Load banners
+		yandex_ads.load_banner()
+		yandex_ads.show_banner()
+		
+		# Load rewarded
+		yandex_ads.load_rewarded_video()
+		
+		print("✅ Yandex Ads (iOS) initialized")
 	else:
-		print("  ❌ Rewarded not loaded yet")
-		update_status("Ad not ready, wait...")
+		print("❌ Yandex iOS class not found")
+		yandex_button.disabled = true
 
-func _on_rewarded_earned(reward: RewardedItem):
-	print("🎉 Reward earned: " + str(reward.amount) + " " + reward.type)
-	update_status("Reward: " + str(reward.amount) + " " + reward.type)
+func _init_vk_ios():
+	print("🔵 Initializing VK Ads (iOS)...")
+	
+	var VkAdsIOSClass = load("res://addons/vk_ads_ios/vk_ads_ios.gd")
+	if VkAdsIOSClass:
+		vk_ads = VkAdsIOSClass.new()
+		add_child(vk_ads)
+		
+		# Set test IDs
+		vk_ads.banner_id = 44987  # Demo banner slot
+		vk_ads.rewarded_id = 44988  # Demo rewarded slot
+		vk_ads.banner_on_top = false  # Bottom banner
+		
+		# Connect signals
+		vk_ads.banner_loaded.connect(_on_vk_banner_loaded)
+		vk_ads.banner_failed_to_load.connect(_on_vk_banner_failed)
+		vk_ads.rewarded_video_loaded.connect(_on_vk_rewarded_loaded)
+		vk_ads.rewarded_video_failed_to_load.connect(_on_vk_rewarded_failed)
+		vk_ads.rewarded.connect(_on_vk_rewarded_earned)
+		
+		# Load banners
+		vk_ads.load_banner()
+		vk_ads.show_banner()
+		
+		# Load rewarded
+		vk_ads.load_rewarded_video()
+		
+		print("✅ VK Ads (iOS) initialized")
+	else:
+		print("❌ VK iOS class not found")
+		vk_button.disabled = true
 
+# ============================================
+# ADMOB INITIALIZATION (iOS + Android)
+# ============================================
+func _init_admob():
+	print("🟢 Initializing AdMob...")
+	
+	admob_rewarded_callback = RewardedAdLoadCallback.new()
+	admob_rewarded_callback.on_ad_failed_to_load = func(error: LoadAdError):
+		print("❌ AdMob rewarded failed: " + error.message)
+	admob_rewarded_callback.on_ad_loaded = func(ad: RewardedAd):
+		admob_rewarded_ad = ad
+		admob_rewarded_ad.on_user_earned_reward = _on_admob_rewarded_earned
+		print("✅ AdMob rewarded loaded")
+	
+	MobileAds.initialize()
+	await get_tree().create_timer(2.0).timeout
+	
+	# Load rewarded
+	var rewarded_id = "ca-app-pub-3940256099942544/1712485313"
+	RewardedAdLoader.new().load(rewarded_id, AdRequest.new(), admob_rewarded_callback)
+	
+	print("✅ AdMob initialized")
+
+# ============================================
+# BUTTON HANDLERS
+# ============================================
+func _on_yandex_button_pressed():
+	print("🎬 Yandex button pressed")
+	if yandex_ads and yandex_ads.is_rewarded_video_loaded():
+		print("  Showing Yandex rewarded...")
+		yandex_ads.show_rewarded_video()
+		update_status("Showing Yandex ad...")
+	else:
+		print("  ❌ Yandex rewarded not loaded")
+		update_status("Yandex ad not ready")
+		# Reload
+		if yandex_ads:
+			yandex_ads.load_rewarded_video()
+
+func _on_vk_button_pressed():
+	print("🎬 VK button pressed")
+	if vk_ads and vk_ads.is_rewarded_video_loaded():
+		print("  Showing VK rewarded...")
+		vk_ads.show_rewarded_video()
+		update_status("Showing VK ad...")
+	else:
+		print("  ❌ VK rewarded not loaded")
+		update_status("VK ad not ready")
+		# Reload
+		if vk_ads:
+			vk_ads.load_rewarded_video()
+
+func _on_admob_button_pressed():
+	print("🎬 AdMob button pressed")
+	if admob_rewarded_ad:
+		print("  Showing AdMob rewarded...")
+		admob_rewarded_ad.show()
+		update_status("Showing AdMob ad...")
+	else:
+		print("  ❌ AdMob rewarded not loaded")
+		update_status("AdMob ad not ready")
+
+# ============================================
+# YANDEX CALLBACKS
+# ============================================
+func _on_yandex_banner_loaded():
+	print("✅ Yandex banner loaded")
+	update_status("Yandex banner visible")
+
+func _on_yandex_banner_failed(error_code: int):
+	print("❌ Yandex banner failed: " + str(error_code))
+	update_status("Yandex banner failed: " + str(error_code))
+
+func _on_yandex_rewarded_loaded():
+	print("✅ Yandex rewarded loaded")
+	update_status("Yandex rewarded ready!")
+
+func _on_yandex_rewarded_failed(error_code: int):
+	print("❌ Yandex rewarded failed: " + str(error_code))
+	update_status("Yandex rewarded failed: " + str(error_code))
+
+func _on_yandex_rewarded_earned(currency: String, amount: int):
+	print("🎉 Yandex reward: " + str(amount) + " " + currency)
+	update_status("Yandex reward: " + str(amount) + " " + currency)
+	# Reload for next time
+	yandex_ads.load_rewarded_video()
+
+# ============================================
+# VK CALLBACKS
+# ============================================
+func _on_vk_banner_loaded():
+	print("✅ VK banner loaded")
+	update_status("VK banner visible")
+
+func _on_vk_banner_failed(error_code: int):
+	print("❌ VK banner failed: " + str(error_code))
+	update_status("VK banner failed: " + str(error_code))
+
+func _on_vk_rewarded_loaded():
+	print("✅ VK rewarded loaded")
+	update_status("VK rewarded ready!")
+
+func _on_vk_rewarded_failed(error_code: int):
+	print("❌ VK rewarded failed: " + str(error_code))
+	update_status("VK rewarded failed: " + str(error_code))
+
+func _on_vk_rewarded_earned(type: String):
+	print("🎉 VK reward: " + type)
+	update_status("VK reward earned!")
+	# Reload for next time
+	vk_ads.load_rewarded_video()
+
+# ============================================
+# ADMOB CALLBACKS
+# ============================================
+func _on_admob_rewarded_earned(reward: RewardedItem):
+	print("🎉 AdMob reward: " + str(reward.amount) + " " + reward.type)
+	update_status("AdMob reward: " + str(reward.amount))
+
+# ============================================
+# UTILITY
+# ============================================
 func update_status(text: String):
 	status_label.text = text
 	print("📝 Status: " + text)

@@ -1,0 +1,24 @@
+# Podfile for iOS with Yandex Ads and VK Ads (MyTarget)
+
+platform :ios, '12.0'
+
+target 'TestAdMobApp' do
+  use_frameworks!
+  
+  # Yandex Mobile Ads SDK
+  pod 'YandexMobileAds', '~> 7.17.1'
+  
+  # VK Ads (MyTarget) SDK
+  pod 'myTargetSDK', '~> 5.35.1'
+  
+  # AdMob (already included via plugin)
+  # pod 'Google-Mobile-Ads-SDK'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    end
+  end
+end
