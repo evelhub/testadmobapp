@@ -96,12 +96,20 @@ jobs:
         
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         
-        # Use workspace if exists, otherwise project
-        if [ -f "${PROJ_NAME}.xcworkspace" ]; then
+        # After pod install, MUST use workspace
+        if [ -d "Pods/${PROJ_NAME}.xcworkspace" ]; then
+          BUILD_TARGET="-workspace Pods/${PROJ_NAME}.xcworkspace"
+          echo "✅ Using workspace from Pods"
+        elif [ -d "${PROJ_NAME}.xcworkspace" ]; then
           BUILD_TARGET="-workspace ${PROJ_NAME}.xcworkspace"
+          echo "✅ Using workspace"
         else
           BUILD_TARGET="-project ${PROJ_NAME}.xcodeproj"
+          echo "⚠️ Using project (no workspace found)"
         fi
+        
+        echo "📝 Build target: $BUILD_TARGET"
+        echo "📝 Scheme: $PROJ_NAME"
         
         # Build without code signing
         xcodebuild $BUILD_TARGET \
