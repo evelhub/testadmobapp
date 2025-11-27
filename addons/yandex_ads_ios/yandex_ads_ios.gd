@@ -38,33 +38,24 @@ func load_banner() -> void:
     if not _is_available:
         return
     
-    print("📊 Loading Yandex banner (iOS): " + banner_id)
+    print("📊 [YANDEX-IOS] Loading Yandex banner: " + banner_id)
+    print("📊 [YANDEX-IOS] Banner on top: " + str(banner_on_top))
     
-    # Call C function from yandex_ads.mm
-    if Engine.has_singleton("YandexAdsPlugin"):
-        var plugin = Engine.get_singleton("YandexAdsPlugin")
-        plugin.call("load_banner", banner_id, banner_on_top)
-    else:
-        # Direct FFI call (will work after plugin compilation)
-        var error = OS.execute("yandex_ads_load_banner", [banner_id, banner_on_top], [], true)
-        if error == OK:
-            # Simulate success for now
-            await get_tree().create_timer(0.5).timeout
-            _on_banner_loaded()
+    # Simulate success for testing (native calls will be added later)
+    await get_tree().create_timer(0.5).timeout
+    print("✅ [YANDEX-IOS] Banner load simulated (native SDK not connected yet)")
+    _on_banner_loaded()
 
 func load_rewarded_video() -> void:
     if not _is_available:
         return
     
-    print("🎬 Loading Yandex rewarded (iOS): " + rewarded_id)
+    print("🎬 [YANDEX-IOS] Loading Yandex rewarded: " + rewarded_id)
     
-    if Engine.has_singleton("YandexAdsPlugin"):
-        var plugin = Engine.get_singleton("YandexAdsPlugin")
-        plugin.call("load_rewarded", rewarded_id)
-    else:
-        # Simulate success
-        await get_tree().create_timer(0.5).timeout
-        _on_rewarded_video_ad_loaded()
+    # Simulate success for testing
+    await get_tree().create_timer(0.5).timeout
+    print("✅ [YANDEX-IOS] Rewarded load simulated (native SDK not connected yet)")
+    _on_rewarded_video_ad_loaded()
 
 func is_rewarded_video_loaded() -> bool:
     return _is_rewarded_video_loaded

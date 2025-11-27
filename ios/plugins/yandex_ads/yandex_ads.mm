@@ -94,17 +94,20 @@ static YandexRewardedDelegate *g_rewardedDelegate = nil;
 
 // Implementation
 void yandex_ads_init() {
-    NSLog(@"🟡 Initializing Yandex Mobile Ads SDK...");
+    NSLog(@"🟡 [YANDEX] Initializing Yandex Mobile Ads SDK...");
+    NSLog(@"🟡 [YANDEX] Plugin loaded and init called");
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [YMAMobileAds enableLogging];
         [YMAMobileAds initializeSDKWithCompletionHandler:^{
-            NSLog(@"✅ Yandex Mobile Ads SDK initialized");
+            NSLog(@"✅ [YANDEX] Yandex Mobile Ads SDK initialized successfully");
             g_isInitialized = true;
         }];
         
         g_bannerDelegate = [[YandexBannerDelegate alloc] init];
         g_rewardedDelegate = [[YandexRewardedDelegate alloc] init];
+        
+        NSLog(@"✅ [YANDEX] Delegates created");
     });
 }
 
