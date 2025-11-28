@@ -1,88 +1,48 @@
-Run echo "📦 Installing Pods (Yandex + VK SDK)..."
-  echo "📦 Installing Pods (Yandex + VK SDK)..."
-  cd "$XCODE_PROJECT_DIR"
-  
-  # Get project name
-  PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
-  echo "📝 Project name: $PROJ_NAME"
-  
-  # Copy Podfile template from workspace root
-  WORKSPACE_ROOT="${GITHUB_WORKSPACE}"
-  echo "📂 Workspace root: $WORKSPACE_ROOT"
-  
-  if [ ! -f "$WORKSPACE_ROOT/ios/Podfile.template" ]; then
-    echo "❌ Podfile.template not found at $WORKSPACE_ROOT/ios/Podfile.template"
-    ls -la "$WORKSPACE_ROOT/ios/"
-    exit 1
-  fi
-  
-  cp "$WORKSPACE_ROOT/ios/Podfile.template" ./Podfile
-  sed -i '' "s/PROJECT_NAME_PLACEHOLDER/$PROJ_NAME/g" Podfile
-  
-  echo "📄 Podfile content:"
-  cat Podfile
-  
-  # Install pods (Yandex + VK SDK with Swift support)
-  pod install --repo-update
-  
-  echo "✅ Pods installed"
-  echo "📂 Workspace created:"
-  ls -la *.xcworkspace
-  shell: /bin/bash -e {0}
-  env:
-    XCODE_PROJECT_PATH: build/ios_xcode.xcodeproj
-    XCODE_PROJECT_DIR: build
-📦 Installing Pods (Yandex + VK SDK)...
-📝 Project name: ios_xcode
-📂 Workspace root: /Users/runner/work/testadmobapp/testadmobapp
-📄 Podfile content:
-# Podfile for Godot iOS export with Yandex Mobile Ads
-# This will be copied to exported Xcode project
-
-platform :ios, '13.0'
-
-# Use static frameworks to avoid Swift compilation issues
-use_frameworks! :linkage => :static
-
-# Project name will be replaced by workflow
-target 'ios_xcode' do
-  # Yandex Mobile Ads SDK (with Swift support)
-  # Use static version to avoid VGSLFundamentals Swift compilation
-  pod 'YandexMobileAds/Static', '~> 7.17.1'
-  
-  # VK Ads (MyTarget) SDK (optional)
-  pod 'myTargetSDK', '~> 5.21.8'
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
-      config.build_settings['ENABLE_BITCODE'] = 'NO'
-      
-      # Swift compatibility
-      config.build_settings['SWIFT_VERSION'] = '5.0'
-      
-      # Fix for resource bundles - don't copy Swift libs to bundles
-      # Resource bundles have product_type :bundle
-      if target.respond_to?(:product_type) && target.product_type == 'com.apple.product-type.bundle'
-        config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'NO'
-      else
-        config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
-      end
-    end
-  end
-end
-Updating local specs repositories
-Adding spec repo `trunk` with CDN `https://cdn.cocoapods.org/`
-Analyzing dependencies
-[!] CocoaPods could not find compatible versions for pod "YandexMobileAds/Static":
-  In Podfile:
-    YandexMobileAds/Static (~> 7.17.1)
-
-None of your spec sources contain a spec satisfying the dependency: `YandexMobileAds/Static (~> 7.17.1)`.
-
-You have either:
- * mistyped the name or version.
- * not added the source repo that hosts the Podspec to your Podfile.
-Error: Process completed with exit code 31.
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-valu
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/Objects-normal/arm64/AppMetricaProtobuf_vers.o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/DerivedSources/AppMetricaProtobuf_vers.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-valu
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/Objects-normal/arm64/AppMetricaProtobuf-dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/AppMetricaProtobuf/AppMetricaProtobuf-dummy.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror\=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror\=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaPlatform.build/Objects-normal/arm64/NSBundle+ApplicationBundle.o /Users/runner/work/testadmobapp/testadmobapp/build/Pods/AppMetricaPlatform/AppMetricaPlatform/Sources/NSBundle+ApplicationBundle.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaPlatform' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror\=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror\=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate
+SwiftDriverJobDiscovery normal arm64 Compiling Log.swift (in target 'AppMetricaLogSwift' from project 'Pods')
+Libtool /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework/AppMetricaProtobuf normal (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only arm64 -D -syslibroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf -filelist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/Objects-normal/arm64/AppMetricaProtobuf.LinkFileList -framework Foundation -dependency_info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/Objects-normal/arm64/AppMetricaProtobuf_libtool_dependency_info.dat -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework/AppMetricaProtobuf
+SwiftDriver\ Compilation\ Requirements AppMetricaLogSwift normal arm64 com.apple.xcode.tools.swift.compiler (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name AppMetricaLogSwift -O -whole-module-optimization -enforce-exclusivity\=checked @/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.SwiftFileList -D COCOAPODS -sdk /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -target arm64-apple-ios13.0 -enable-bare-slash-regex -g -module-cache-path /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -swift-version 5 -I /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift -F /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift -F /Users/run
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaPlatform.build/Objects-normal/arm64/AppMetricaPlatform_vers.o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaPlatform.build/DerivedSources/AppMetricaPlatform_vers.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaPlatform' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-valu
+SwiftMergeGeneratedHeaders /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Headers/AppMetricaLogSwift-Swift.h /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift-Swift.h (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift-Swift.h -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Headers/AppMetricaLogSwift-Swift.h
+Copy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.swiftmodule /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftmodule (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftmodule /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.swiftmodule
+Copy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.swiftdoc /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftdoc (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftdoc /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.swiftdoc
+Copy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.abi.json /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.abi.json (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.abi.json /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/arm64-apple-ios.abi.json
+Copy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftsourceinfo (in target 'AppMetricaLogSwift' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaLogSwift.build/Objects-normal/arm64/AppMetricaLogSwift.swiftsourceinfo /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaLogSwift/AppMetricaLogSwift.framework/Modules/AppMetricaLogSwift.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaPlatform.build/Objects-normal/arm64/AppMetricaPlatform-dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/AppMetricaPlatform/AppMetricaPlatform-dummy.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaPlatform' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror\=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror\=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate
+CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaPlatform.build/Objects-normal/arm64/AMASecItemOperationResult.o /Users/runner/work/testadmobapp/testadmobapp/build/Pods/AppMetricaPlatform/AppMetricaPlatform/Sources/AMASecItemOperationResult.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target 'AppMetricaPlatform' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror\=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror\=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate
+** BUILD FAILED **
+The following build commands failed:
+	CompileSwift normal arm64 (in target 'VGSLFundamentals' from project 'Pods')
+	SwiftCompile normal arm64 Compiling\ Action.swift,\ AllocatedUnfairLock.swift,\ AnyAsyncSequence.swift,\ Archivable.swift,\ ArrayBuilder.swift,\ ArrayExtensions.swift,\ AsyncOperation.swift,\ Atomic.swift,\ AutodisposePool.swift,\ Cache.swift,\ CacheContent.swift,\ CacheFactory.swift,\ CacheKey.swift,\ CacheRecord.swift,\ CacheStorage.swift,\ Cancellable.swift,\ CFCasting.swift,\ Clamp.swift,\ CollectionExtensions.swift,\ Combine.swift,\ CompletionAccumulating.swift,\ CompletionAccumulator.swift,\ DebugInfo.swift,\ DictionaryExtensions.swift,\ DiskCache.swift,\ Disposable.swift,\ Either.swift,\ EncodableExtensions.swift,\ EqualByReference.swift,\ FileManaging.swift,\ FloatingPointComparison.swift,\ Functions.swift,\ Future.swift,\ FutureExtensions.swift,\ GCD.swift,\ HTTPURLResponse+Extensions.swift,\ IndexSetExtensions.swift,\ InvalidArgumentError.swift,\ JSONDictionaryExtensions.swift,\ JSONObject.swift,\ KeyValueDirectStoringSupporting.swift,\ KeyValueStorage.swift,\ Lazy.swift,\ LazyExtensions.swift,\ Li
+(2 failures)
+Error: Process completed with exit code 65.

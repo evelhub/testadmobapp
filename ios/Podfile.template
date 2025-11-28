@@ -8,9 +8,8 @@ use_frameworks! :linkage => :static
 
 # Project name will be replaced by workflow
 target 'PROJECT_NAME_PLACEHOLDER' do
-  # Yandex Mobile Ads SDK (with Swift support)
-  # Static linkage will use pre-compiled binaries
-  pod 'YandexMobileAds', '~> 7.17.1'
+  # Use older stable version that doesn't require Swift 6
+  pod 'YandexMobileAds', '7.5.0'
   
   # VK Ads (MyTarget) SDK (optional)
   pod 'myTargetSDK', '~> 5.21.8'
