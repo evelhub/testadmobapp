@@ -9,8 +9,8 @@ deinitialization="yandex_ads_deinit"
 [dependencies]
 
 embedded=["YandexMobileAds.xcframework"]
-system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework"]
-linker_flags=["-ObjC"]
+system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework", "CoreTelephony.framework", "SystemConfiguration.framework", "CoreLocation.framework"]
+linker_flags=["-ObjC", "-lswiftCore", "-lswiftFoundation", "-lswiftUIKit", "-lswiftCoreGraphics", "-lswiftDispatch", "-lswiftObjectiveC"]
 
 [plist]
 
