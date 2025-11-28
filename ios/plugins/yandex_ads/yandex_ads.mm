@@ -1,6 +1,39 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <YandexMobileAds/YandexMobileAds.h>
+
+// Forward declarations for Yandex SDK classes (avoid importing SDK during compilation)
+@class YMABannerView;
+@class YMARewardedAd;
+@class YMAAdSize;
+@class YMAAdRequestConfiguration;
+@protocol YMAReward;
+
+// Yandex SDK static methods (forward declarations)
+@interface YMAMobileAds : NSObject
++ (void)enableLogging;
++ (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
+@end
+
+@interface YMAAdSize : NSObject
++ (instancetype)stickyAdSizeWithContainerWidth:(CGFloat)width;
+@end
+
+@interface YMARewardedAd : NSObject
++ (void)loadWithRequestConfiguration:(YMAAdRequestConfiguration *)configuration
+                    completionHandler:(void (^)(YMARewardedAd *ad, NSError *error))completionHandler;
+- (void)showFromViewController:(UIViewController *)viewController;
+@property (nonatomic, weak) id delegate;
+@end
+
+@interface YMAAdRequestConfiguration : NSObject
+- (instancetype)initWithAdUnitID:(NSString *)adUnitID;
+@end
+
+@interface YMABannerView : UIView
+- (instancetype)initWithAdUnitID:(NSString *)adUnitID adSize:(YMAAdSize *)adSize;
+- (void)loadAd;
+@property (nonatomic, weak) id delegate;
+@end
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,6 +74,25 @@ static RewardedFailedCallback g_rewarded_failed_callback = nullptr;
 static RewardedEarnedCallback g_rewarded_earned_callback = nullptr;
 static RewardedClosedCallback g_rewarded_closed_callback = nullptr;
 
+// Protocol forward declarations
+@protocol YMABannerViewDelegate <NSObject>
+@optional
+- (void)bannerViewDidLoad:(YMABannerView *)bannerView;
+- (void)bannerView:(YMABannerView *)bannerView didFailLoadingWithError:(NSError *)error;
+@end
+
+@protocol YMARewardedAdDelegate <NSObject>
+@optional
+- (void)rewardedAd:(YMARewardedAd *)rewardedAd didReward:(id)reward;
+- (void)rewardedAdDidDismiss:(YMARewardedAd *)rewardedAd;
+- (void)rewardedAd:(YMARewardedAd *)rewardedAd didFailToPresentWithError:(NSError *)error;
+@end
+
+@protocol YMAReward <NSObject>
+@property (nonatomic, readonly) NSNumber *amount;
+@property (nonatomic, readonly) NSString *type;
+@end
+
 // Banner Delegate
 @interface YandexBannerDelegate : NSObject <YMABannerViewDelegate>
 @end
@@ -71,12 +123,16 @@ static YandexBannerDelegate *g_bannerDelegate = nil;
 
 @implementation YandexRewardedDelegate
 
-- (void)rewardedAd:(YMARewardedAd *)rewardedAd didReward:(id<YMAReward>)reward {
-    NSLog(@"🎉 Yandex reward earned: %@ %@", reward.amount, reward.type);
+- (void)rewardedAd:(YMARewardedAd *)rewardedAd didReward:(id)reward {
+    // Use performSelector to access properties without importing protocol
+    NSNumber *amount = [reward performSelector:@selector(amount)];
+    NSString *type = [reward performSelector:@selector(type)];
+    
+    NSLog(@"🎉 Yandex reward earned: %@ %@", amount, type);
     if (g_rewarded_earned_callback) {
-        const char* currency = [reward.type UTF8String];
-        int amount = [reward.amount intValue];
-        g_rewarded_earned_callback(currency, amount);
+        const char* currency = [type UTF8String];
+        int amountValue = [amount intValue];
+        g_rewarded_earned_callback(currency, amountValue);
     }
 }
 
