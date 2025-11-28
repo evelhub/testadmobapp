@@ -1,4 +1,5 @@
 Run echo "🔨 Compiling iOS plugins (.mm to .a)..."
+  
 🔨 Compiling iOS plugins (.mm to .a)...
 📝 Compiling yandex_ads.mm...
 📂 Looking for XCFramework...
@@ -7,7 +8,7 @@ Run echo "🔨 Compiling iOS plugins (.mm to .a)..."
 📂 XCFramework structure:
 total 8
 drwxr-xr-x   7 runner  staff   224 Nov 17 16:31 .
-drwxr-xr-x   5 runner  staff   160 Nov 28 07:55 ..
+drwxr-xr-x   5 runner  staff   160 Nov 28 07:57 ..
 -rw-r--r--   1 runner  staff  1232 Nov 17 16:31 Info.plist
 drwxr-xr-x  10 runner  staff   320 Nov 17 16:31 MobileAdsBundle.bundle
 drwxr-xr-x   7 runner  staff   224 Nov 17 16:31 _CodeSignature
@@ -28,7 +29,7 @@ drwxr-xr-x   7 runner  staff     224 Nov 17 16:31 ..
 -rw-r--r--   1 runner  staff     386 Nov 17 16:31 YandexMobileAds.h
 📂 Framework dir: ./YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework
 📂 XCFramework dir: ./YandexMobileAds.xcframework
-📂 Parent dir for -F: .
+📂 Using -F. (current directory contains XCFramework)
 yandex_ads.mm:3:9: fatal error: 'YandexMobileAds/YandexMobileAds.h' file not found
 #import <YandexMobileAds/YandexMobileAds.h>
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

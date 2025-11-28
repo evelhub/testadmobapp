@@ -1,7 +1,8 @@
 [config]
 
 name="YandexAds"
-binary="yandex_ads.a"
+binary_type="local"
+binary="yandex_ads.mm"
 
 initialization="yandex_ads_init"
 deinitialization="yandex_ads_deinit"

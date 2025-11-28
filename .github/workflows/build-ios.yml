@@ -55,82 +55,10 @@ jobs:
         echo "✅ Yandex XCFramework downloaded to plugin directory"
         ls -la
 
-    - name: Compile iOS Plugins
+    - name: Skip Plugin Compilation (Godot will compile automatically)
       run: |
-        echo "🔨 Compiling iOS plugins (.mm to .a)..."
-        
-        # Compile Yandex plugin
-        cd ios/plugins/yandex_ads
-        echo "📝 Compiling yandex_ads.mm..."
-        
-        # Find XCFramework and show structure
-        echo "📂 Looking for XCFramework..."
-        find . -name "*.xcframework" -type d
-        
-        FRAMEWORK_PATH=$(find . -name "YandexMobileAds.xcframework" -type d | head -1)
-        echo "📂 Framework path: $FRAMEWORK_PATH"
-        
-        if [ -d "$FRAMEWORK_PATH" ]; then
-          echo "📂 XCFramework structure:"
-          ls -la "$FRAMEWORK_PATH"
-          
-          # Find the correct architecture folder
-          if [ -d "$FRAMEWORK_PATH/ios-arm64" ]; then
-            HEADERS_PATH="$FRAMEWORK_PATH/ios-arm64/YandexMobileAds.framework/Headers"
-          elif [ -d "$FRAMEWORK_PATH/ios-arm64_armv7" ]; then
-            HEADERS_PATH="$FRAMEWORK_PATH/ios-arm64_armv7/YandexMobileAds.framework/Headers"
-          else
-            # List all folders to find correct one
-            echo "📂 Available architectures:"
-            ls -la "$FRAMEWORK_PATH/"
-            HEADERS_PATH=$(find "$FRAMEWORK_PATH" -name "Headers" -type d | head -1)
-          fi
-          
-          echo "📂 Headers path: $HEADERS_PATH"
-          ls -la "$HEADERS_PATH" || echo "❌ Headers not found"
-          
-          # Get framework directory (parent of Headers)
-          FRAMEWORK_DIR=$(dirname "$HEADERS_PATH")
-          XCFRAMEWORK_DIR=$(dirname "$(dirname "$FRAMEWORK_DIR")")
-          
-          echo "📂 Framework dir: $FRAMEWORK_DIR"
-          echo "📂 XCFramework dir: $XCFRAMEWORK_DIR"
-          
-          # Use -F. to point to current directory where XCFramework is located
-          echo "📂 Using -F. (current directory contains XCFramework)"
-          
-          xcrun clang -x objective-c++ \
-            -arch arm64 \
-            -fobjc-arc \
-            -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
-            -miphoneos-version-min=13.0 \
-            -F. \
-            -c yandex_ads.mm -o yandex_ads.o
-          
-          # Create static library
-          ar rcs yandex_ads.a yandex_ads.o
-          
-          echo "✅ yandex_ads.a created"
-          ls -la yandex_ads.a
-        else
-          echo "❌ XCFramework not found!"
-          exit 1
-        fi
-        
-        # Compile VK plugin
-        cd ../vk_ads
-        echo "📝 Compiling vk_ads.mm..."
-        
-        xcrun clang -x objective-c++ \
-          -arch arm64 \
-          -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
-          -mios-version-min=13.0 \
-          -c vk_ads.mm -o vk_ads.o
-        
-        ar rcs vk_ads.a vk_ads.o
-        
-        echo "✅ vk_ads.a created"
-        ls -la vk_ads.a
+        echo "📝 Godot will compile .mm files automatically during iOS export"
+        echo "✅ Skipping manual compilation step"
 
     - name: Install CocoaPods
       run: |
