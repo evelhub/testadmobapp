@@ -1,277 +1,144 @@
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework/Headers (in target 'VGSLFundamentals' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/7187679823f38a2a940e0043cdf9d637-common-args.resp
--target arm64-apple-ios13.0 '-std=gnu11' -fmodules -gmodules '-fmodules-cache-path=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex' '-fmodule-name=Pods_ios_xcode' -fpascal-strings -Os -fno-common '-DPOD_CONFIGURATION_RELEASE=1' '-DCOCOAPODS=1' -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -g -iquote /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Pods_ios_xcode-generated-files.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Pods_ios_xcode-own-target-headers.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Pods_ios_xcode-all-non-framework-target-headers.hmap -ivfsoverlay /Users/runner/work/testadmobapp/testadmobapp/build/
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/DerivedSources/Pods_ios_xcode_vers.c (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework (in target 'VGSLFundamentals' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/DerivedSources/Pods_ios_xcode_vers.c
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-project-headers.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-project-headers.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-own-target-headers.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-own-target-headers.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-generated-files.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-generated-files.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-target-headers.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-target-headers.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-non-framework-target-headers.hmap (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-non-framework-target-headers.hmap
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/all-product-headers.yaml (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/all-product-headers.yaml
-CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods_ios_xcode_vers.o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/DerivedSources/Pods_ios_xcode_vers.c normal arm64 c com.apple.compilers.llvm.clang.1_0.compiler (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework/Headers (in target 'VGSL' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-valu
-CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods-ios_xcode-dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/Pods-ios_xcode/Pods-ios_xcode-dummy.m normal arm64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework (in target 'VGSL' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror\=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror\=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate
-Libtool /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Pods_ios_xcode normal (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework/Headers (in target 'DivKit_Serialization' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only arm64 -D -syslibroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk/usr/lib/swift -filelist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods_ios_xcode.LinkFileList -framework Foundation -dependency_info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods_ios_xcode_libtool_dependency_info.dat 
-RegisterExecutionPolicyException /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework (in target 'DivKit_Serialization' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    builtin-RegisterExecutionPolicyException /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework
-Touch /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework (in target 'Pods-ios_xcode' from project 'Pods')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework/Headers (in target 'DivKit_LayoutKitInterface' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /usr/bin/touch -c /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-A16D24CBB945260D9B08D853.sh (in target 'ios_xcode' from project 'ios_xcode')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework (in target 'DivKit_LayoutKitInterface' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework/Headers (in target 'DivKit_LayoutKit' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework (in target 'DivKit_LayoutKit' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework/Headers (in target 'DivKitBinaryCompatibilityFacade' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework (in target 'DivKitBinaryCompatibilityFacade' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework/Headers (in target 'DivKit' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework (in target 'DivKit' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework
+
+ProcessXCFramework /Users/runner/work/testadmobapp/testadmobapp/build/MoltenVK.xcframework /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/libMoltenVK.a ios
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-A16D24CBB945260D9B08D853.sh
-PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-A16D24CBB945260D9B08D853.sh (in target 'ios_xcode' from project 'ios_xcode')
+    builtin-process-xcframework --xcframework /Users/runner/work/testadmobapp/testadmobapp/build/MoltenVK.xcframework --platform ios --target-path /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Frameworks (in target 'ios_xcode' from project 'ios_xcode')
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /bin/sh -c /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-A16D24CBB945260D9B08D853.sh
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/ios_xcode.LinkFileList (in target 'ios_xcode' from project 'ios_xcode')
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Frameworks
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app (in target 'ios_xcode' from project 'ios_xcode')
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/ios_xcode.LinkFileList
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/82b82416624d2658e5098eb0a28c15c5-common-args.resp (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/82b82416624d2658e5098eb0a28c15c5-common-args.resp
--target arm64-apple-ios13.0 '-std=gnu++11' '-stdlib=libc++' -fmodules -gmodules '-fmodules-cache-path=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex' -fpascal-strings -Os '-DCOCOAPODS=1' -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -g '-fvisibility=hidden' -fvisibility-inlines-hidden -iquote /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-generated-files.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-own-target-headers.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-non-framework-target-headers.hmap -ivfsoverlay /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Int
-GenerateAssetSymbols /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --platform iphoneos --compile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets --bundle-identifier com.example.game --generate-objc-asset-symbols /Users/runner/work/testadmobapp/testadmobapp/build/Deri
-/* com.apple.actool.compilation-results */
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/DerivedSources/GeneratedAssetSymbols-Index.plist
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/DerivedSources/GeneratedAssetSymbols.h
-CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode.pck /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.pck (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.pck /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app
-CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/PrivacyInfo.xcprivacy (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app
-CopyStringsFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/en.lproj/InfoPlist.strings /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/en.lproj/InfoPlist.strings (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    builtin-copyStrings --validate --outputencoding binary --outfilename InfoPlist.strings --outdir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/en.lproj -- /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/en.lproj/InfoPlist.strings
-/Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/en.lproj/InfoPlist.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'ios_xcode' from project 'ios_xcode')
-CompileStoryboard /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Launch\ Screen.storyboard (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --module ios_xcode --output-partial-info-plist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Launch\ Screen-SBPartialInfo.plist --auto-activate-custom-fonts --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --output-format human-readable-text --compilation-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Launch\ Screen.storyboard
-CompileAssetCatalog /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --platform iphoneos --compile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets
-CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/dummy.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-p
-Ld /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode normal (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -Xlinker -reproducible -target arm64-apple-ios13.0 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -Os -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk/usr/lib/swift -L. -LDerivedData -LMoltenVK.xcframework -LPods -Lios_xcode -Lios_xcode.xcframework -Lios_xcode.xcworkspace -LDerivedData/Build -LDerivedData/Logs -LMoltenVK.xcframework/ios-arm64 -LMoltenVK.xcframework/ios-arm64_x86_64-maccatalyst -LMoltenVK.xcframework/ios-arm64_x86_64-simulator -LPods/H
-ld: warning: Could not find or use auto-linked library 'swift_Builtin_float': library 'swift_Builtin_float' not found
-ld: warning: Could not find or use auto-linked library 'swift_errno': library 'swift_errno' not found
-ld: warning: Could not find or use auto-linked library 'swift_math': library 'swift_math' not found
-ld: warning: Could not find or use auto-linked library 'swift_signal': library 'swift_signal' not found
-ld: warning: Could not find or use auto-linked library 'swift_stdio': library 'swift_stdio' not found
-ld: warning: Could not find or use auto-linked library 'swift_time': library 'swift_time' not found
-ld: warning: Could not find or use auto-linked library 'swiftsys_time': library 'swiftsys_time' not found
-ld: warning: Could not find or use auto-linked library 'swiftunistd': library 'swiftunistd' not found
-ld: warning: Could not find or use auto-linked framework 'AudioUnit': framework 'AudioUnit' not found
-ld: warning: Could not find or use auto-linked framework 'CoreAudioTypes': framework 'CoreAudioTypes' not found
-ld: warning: Could not find or use auto-linked framework 'MACAVPlayer': framework 'MACAVPlayer' not found
-ld: warning: Could not find or use auto-linked framework 'MACAdsQuality': framework 'MACAdsQuality' not found
-ld: warning: Could not find or use auto-linked framework 'MACAnalytics': framework 'MACAnalytics' not found
-ld: warning: Could not find or use auto-linked framework 'MACBase': framework 'MACBase' not found
-ld: warning: Could not find or use auto-linked framework 'MACBaseUI': framework 'MACBaseUI' not found
-ld: warning: Could not find or use auto-linked framework 'MACCAChallengeHandler': framework 'MACCAChallengeHandler' not found
-ld: warning: Could not find or use auto-linked framework 'MACClientBidding': framework 'MACClientBidding' not found
-ld: warning: Could not find or use auto-linked framework 'MACConsent': framework 'MACConsent' not found
-ld: warning: Could not find or use auto-linked framework 'MACConsentManagement': framework 'MACConsentManagement' not found
-ld: warning: Could not find or use auto-linked framework 'MACConstantsKit': framework 'MACConstantsKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACDebugPanel': framework 'MACDebugPanel' not found
-ld: warning: Could not find or use auto-linked framework 'MACDependenciesUmbrella': framework 'MACDependenciesUmbrella' not found
-ld: warning: Could not find or use auto-linked framework 'MACDivKit': framework 'MACDivKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACEncryption': framework 'MACEncryption' not found
-ld: warning: Could not find or use auto-linked framework 'MACEventTracking': framework 'MACEventTracking' not found
-ld: warning: Could not find or use auto-linked framework 'MACFalseClickKit': framework 'MACFalseClickKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACFeatureFlags': framework 'MACFeatureFlags' not found
-ld: warning: Could not find or use auto-linked framework 'MACHeaderBidding': framework 'MACHeaderBidding' not found
-ld: warning: Could not find or use auto-linked framework 'MACLogging': framework 'MACLogging' not found
-ld: warning: Could not find or use auto-linked framework 'MACMediation': framework 'MACMediation' not found
-ld: warning: Could not find or use auto-linked framework 'MACMraid': framework 'MACMraid' not found
-ld: warning: Could not find or use auto-linked framework 'MACNative': framework 'MACNative' not found
-ld: warning: Could not find or use auto-linked framework 'MACNetworking': framework 'MACNetworking' not found
-ld: warning: Could not find or use auto-linked framework 'MACOpenMeasurement': framework 'MACOpenMeasurement' not found
-ld: warning: Could not find or use auto-linked framework 'MACPlatformDescriptionKit': framework 'MACPlatformDescriptionKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACSDKConfigurationKit': framework 'MACSDKConfigurationKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACStoreKit': framework 'MACStoreKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACTimeTracking': framework 'MACTimeTracking' not found
-ld: warning: Could not find or use auto-linked framework 'MACVASTKit': framework 'MACVASTKit' not found
-ld: warning: Could not find or use auto-linked framework 'MobileAdsCore': framework 'MobileAdsCore' not found
-ld: warning: Could not find or use auto-linked framework 'SwiftUICore': framework 'SwiftUICore' not found
-Undefined symbols for architecture arm64:
-  "type metadata accessor for AppMetricaLibraryAdapter.MutableLibraryAdapterConfiguration", referenced from:
-      MACAnalytics.MACAnonymousMetricaReporter.activate() -> () in YandexMobileAds[992](MACAnonymousMetricaReporter.o)
-  "AppMetricaLibraryAdapter.AppMetricaLibraryAdapter.reportEvent(sender: Swift.String, event: Swift.String, payload: Swift.String, onFailure: ((Swift.Error) -> ())?) -> ()", referenced from:
-      MACAnalytics.MACAnonymousMetricaReporter.report(event: Swift.String, parameters: [Swift.String : Any], rawImpressionData: Swift.String?) -> () in YandexMobileAds[992](MACAnonymousMetricaReporter.o)
-  "AppMetricaLibraryAdapter.AppMetricaLibraryAdapter.setLocationTracking(Swift.Bool) -> ()", referenced from:
-      MACAnalytics.MACAdsMetricaAnalyticsTrackerFactory.makeTracker(sensitiveModeEnabled: Swift.Bool) -> MACAnalytics.MACAdsMetricaAnalyticsTracker? in YandexMobileAds[994](MACAdsMetricaAnalyticsTrackerFactory.o)
-      MACAnalytics.MACMetricaAnalyticsTracker.sensitiveModeEnabled.didset : Swift.Bool in YandexMobileAds[995](MACMetricaAnalyticsTracker.o)
-  "AppMetricaLibraryAdapter.AppMetricaLibraryAdapter.setAdvertisingTracking(Swift.Bool) -> ()", referenced from:
-      MACAnalytics.MACAdsMetricaAnalyticsTrackerFactory.makeTracker(sensitiveModeEnabled: Swift.Bool) -> MACAnalytics.MACAdsMetricaAnalyticsTracker? in YandexMobileAds[994](MACAdsMetricaAnalyticsTrackerFactory.o)
-      MACAnalytics.MACMetricaAnalyticsTracker.sensitiveModeEnabled.didset : Swift.Bool in YandexMobileAds[995](MACMetricaAnalyticsTracker.o)
-  "AppMetricaLibraryAdapter.AppMetricaLibraryAdapter.shared.unsafeMutableAddressor : AppMetricaLibraryAdapter.AppMetricaLibraryAdapter", referenced from:
-      MACAnalytics.MACAnonymousMetricaReporter.__allocating_init() -> MACAnalytics.MACAnonymousMetricaReporter in YandexMobileAds[992](MACAnonymousMetricaReporter.o)
-      MACAnalytics.MACAdsMetricaAnalyticsTracker.__allocating_init(apiKey: Swift.String) -> MACAnalytics.MACAdsMetricaAnalyticsTracker? in YandexMobileAds[993](MACAdsMetricaAnalyticsTracker.o)
-  "AppMetricaLibraryAdapter.AppMetricaLibraryAdapter.activate(configuration: AppMetricaLibraryAdapter.LibraryAdapterConfiguration) -> ()", referenced from:
-      MACAnalytics.MACAnonymousMetricaReporter.activate() -> () in YandexMobileAds[992](MACAnonymousMetricaReporter.o)
-  "nominal type descriptor for AppMetricaLibraryAdapter.AppMetricaLibraryAdapter", referenced from:
-      _symbolic _____ 24AppMetricaLibraryAdapterAAC in YandexMobileAds[992](MACAnonymousMetricaReporter.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.FacadeView", referenced from:
-      _symbolic ______pSg 31DivKitBinaryCompatibilityFacade0E4ViewP in YandexMobileAds[1499](MACDivViewWrapper.o)
-  "static DivKitBinaryCompatibilityFacade.DivKitFacade.createViewSync(json: [Swift.String : Any], localImageProvider: DivKitBinaryCompatibilityFacade.LocalImageProviding?, fontProvider: DivKitBinaryCompatibilityFacade.FontProviding?, customViewFactory: DivKitBinaryCompatibilityFacade.ContentViewFactory?, wrapperConfigurators: [DivKitBinaryCompatibilityFacade.WrapperViewConfigurator], urlHandler: DivKitBinaryCompatibilityFacade.UrlHandling, urlSessionConfiguration: __C.NSURLSessionConfiguration?) -> DivKitBinaryCompatibilityFacade.FacadeView?", referenced from:
-      MACDivKit.MACDivKitViewImpl.useDesign(_: MACDivKit.MACDivKitDesign, resourceProviders: [MACDivKit.MACDivKitResourceProvider]) -> () in YandexMobileAds[1494](MACDivKitView.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.DivKitFacadeWrapperView", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1475](MACAdDivWrapperBlock.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1500](MACAdDivButtonBlockView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1501](MACAdDivImageBlockView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1502](MACAdDivLabelBlockView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1503](MACAdDivRatingBlockView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1504](MACAdDivViewBlockView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade0abE11WrapperViewMp in YandexMobileAds[1505](MACWrapperMutableLabelConfigurator.o)
-      ...
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.UrlHandling", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade11UrlHandlingMp in YandexMobileAds[1483](MACDivUrlHandler.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.FontProviding", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade13FontProvidingMp in YandexMobileAds[1481](MACDivKitFontProvider.o)
-      _symbolic ______pSg 31DivKitBinaryCompatibilityFacade13FontProvidingP in YandexMobileAds[1494](MACDivKitView.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.ContentViewFactory", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade18ContentViewFactoryMp in YandexMobileAds[1466](MACAdDivCustomBlockFactory.o)
-      _symbolic ______pSg 31DivKitBinaryCompatibilityFacade18ContentViewFactoryP in YandexMobileAds[1494](MACDivKitView.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.LocalImageProviding", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade19LocalImageProvidingMp in YandexMobileAds[1478](MACAdDivLocalImageProvider.o)
-      _symbolic ______pSg 31DivKitBinaryCompatibilityFacade19LocalImageProvidingP in YandexMobileAds[1494](MACDivKitView.o)
-  "protocol descriptor for DivKitBinaryCompatibilityFacade.WrapperViewConfigurator", referenced from:
-      l_got.$s31DivKitBinaryCompatibilityFacade23WrapperViewConfiguratorMp in YandexMobileAds[1475](MACAdDivWrapperBlock.o)
-      _symbolic _____y______pG s23_ContiguousArrayStorageC 31DivKitBinaryCompatibilityFacade23WrapperViewConfiguratorP in YandexMobileAds[1494](MACDivKitView.o)
-      l_got.$s31DivKitBinaryCompatibilityFacade23WrapperViewConfiguratorMp in YandexMobileAds[1505](MACWrapperMutableLabelConfigurator.o)
-  "Swift.withCheckedContinuation<A>(isolation: isolated Swift.Actor?, function: Swift.String, _: (Swift.CheckedContinuation<A, Swift.Never>) -> ()) async -> A", referenced from:
-      (1) suspend resume partial function for YandexMobileAds.AdRequestTokenLoader.loadRequestToken(requestConfiguration: YandexMobileAds.AdRequestTokenConfiguration) async -> Swift.String? in YandexMobileAds[40](AdRequestTokenLoader.o)
-      (1) suspend resume partial function for YandexMobileAds.BidderTokenLoader.loadBidderToken(requestConfiguration: YandexMobileAds.BidderTokenRequestConfiguration) async -> Swift.String? in YandexMobileAds[45](BidderTokenLoader.o)
-  "async function pointer to Swift.withCheckedContinuation<A>(isolation: isolated Swift.Actor?, function: Swift.String, _: (Swift.CheckedContinuation<A, Swift.Never>) -> ()) async -> A", referenced from:
-      (1) suspend resume partial function for YandexMobileAds.AdRequestTokenLoader.loadRequestToken(requestConfiguration: YandexMobileAds.AdRequestTokenConfiguration) async -> Swift.String? in YandexMobileAds[40](AdRequestTokenLoader.o)
-      (1) suspend resume partial function for YandexMobileAds.BidderTokenLoader.loadBidderToken(requestConfiguration: YandexMobileAds.BidderTokenRequestConfiguration) async -> Swift.String? in YandexMobileAds[45](BidderTokenLoader.o)
-  "_OBJC_CLASS_$_AMAAppMetrica", referenced from:
-       in YandexMobileAds[993](MACAdsMetricaAnalyticsTracker.o)
-  "_OBJC_CLASS_$_AMAPlatformDescription", referenced from:
-       in YandexMobileAds[922](MACPlatformDescription.o)
-  "_OBJC_CLASS_$_YMABannerView", referenced from:
-       in libyandex_ads_device.a[2](yandex_ads_device.o)
-  "yandex_ads_init()", referenced from:
-      godot_ios_plugins_initialize() in dummy.o
-   NOTE: found '_yandex_ads_init' in libyandex_ads_device.a[2](yandex_ads_device.o), declaration possibly missing 'extern "C"'
-  "yandex_ads_deinit()", referenced from:
-      godot_ios_plugins_deinitialize() in dummy.o
-   NOTE: found '_yandex_ads_deinit' in libyandex_ads_device.a[2](yandex_ads_device.o), declaration possibly missing 'extern "C"'
-  "__swift_FORCE_LOAD_$_swift_Builtin_float", referenced from:
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_Builtin_float_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swift_errno", referenced from:
-      __swift_FORCE_LOAD_$_swift_errno_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_errno_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swift_math", referenced from:
-      __swift_FORCE_LOAD_$_swift_math_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_math_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swift_signal", referenced from:
-      __swift_FORCE_LOAD_$_swift_signal_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_signal_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swift_stdio", referenced from:
-      __swift_FORCE_LOAD_$_swift_stdio_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_stdio_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swift_time", referenced from:
-      __swift_FORCE_LOAD_$_swift_time_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swift_time_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swiftsys_time", referenced from:
-      __swift_FORCE_LOAD_$_swiftsys_time_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swiftsys_time_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "__swift_FORCE_LOAD_$_swiftunistd", referenced from:
-      __swift_FORCE_LOAD_$_swiftunistd_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MobileAdsCore in YandexMobileAds[120](MACAdReporterFactory.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MACBase in YandexMobileAds[799](MACAccessibilityLabelProvider.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MACDependenciesUmbrella in YandexMobileAds[914](MACCompositeReportParametersProvider.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MACPlatformDescriptionKit in YandexMobileAds[919](MACBatteryInfoProvider.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MACNetworking in YandexMobileAds[931](HTTPURLResponse+Extensions.o)
-      __swift_FORCE_LOAD_$_swiftunistd_$_MACSDKConfigurationKit in YandexMobileAds[966](MACCAChallengeHandlingInfoProviderImpl.o)
-      ...
-  "_kAMADeviceIDKey", referenced from:
-      MACAnalytics.MACMetricaRawIdentifiersLoader.loadRawIndentifiers(completionQueue: __C.OS_dispatch_queue, completion: (Swift.Result<MACBase.MACRawIdentifiers, Swift.Error>) -> ()) -> () in YandexMobileAds[1004](MACMetricaRawIdentifiersLoader.o)
-      (extension in MACAnalytics):MACBase.MACRawIdentifiers.init(dict: [Swift.AnyHashable : Any]) -> MACBase.MACRawIdentifiers in YandexMobileAds[1005](MACRawIdentifiers+Init.o)
-  "_kAMAUUIDKey", referenced from:
-      MACAnalytics.MACMetricaRawIdentifiersLoader.loadRawIndentifiers(completionQueue: __C.OS_dispatch_queue, completion: (Swift.Result<MACBase.MACRawIdentifiers, Swift.Error>) -> ()) -> () in YandexMobileAds[1004](MACMetricaRawIdentifiersLoader.o)
-      (extension in MACAnalytics):MACBase.MACRawIdentifiers.init(dict: [Swift.AnyHashable : Any]) -> MACBase.MACRawIdentifiers in YandexMobileAds[1005](MACRawIdentifiers+Init.o)
-  "_swift_willThrowTypedImpl", referenced from:
-      _swift_willThrowTyped in YandexMobileAds[844](Result+Extension.o)
-      closure #1 (Swift.Result<MACBase.MACRawIdentifiers, Swift.Error>) -> () in MACAnalytics.MACIdentifiersLoaderImpl.loadIdentifiers(completionQueue: __C.OS_dispatch_queue, completion: (MACAnalytics.MACIdentifiers) -> ()) -> () in YandexMobileAds[1003](MACIdentifiersLoader.o)
-      closure #1 (Swift.Result<MACDebugPanel.MACDPServerDataResponse, Swift.Error>) -> () in closure #1 @Sendable () -> () in MACDebugPanel.MACDPDataFetcher.fetchData() -> () in YandexMobileAds[1677](MACDPDataFetcher.o)
-ld: symbol(s) not found for architecture arm64
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/all-product-headers.yaml (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/all-product-headers.yaml
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-project-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-own-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-generated-files.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-non-framework-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/all-product-headers.yaml (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/all-product-headers.yaml
+
+ProcessInfoPlistFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Info.plist /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/YandexMobileAds/ResourceBundle-YandexMobileAds_PrivacyInfo-YandexMobileAds-Info.plist (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-infoPlistUtility /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/YandexMobileAds/ResourceBundle-YandexMobileAds_PrivacyInfo-YandexMobileAds-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Info.plist
+
+CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/Pods/YandexMobileAds/static/YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/PrivacyInfo.xcprivacy (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/Pods/YandexMobileAds/static/YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-project-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-own-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-generated-files.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-non-framework-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-non-framework-target-headers.hmap
+
+CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/YandexMobileAds_PrivacyInfo --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Frameworks --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/PlugIns --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/SystemExtensions --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Extensions --platform iphoneos --toolchain /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-concurrency
+error: Build input file cannot be found: '/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/YandexMobileAds_PrivacyInfo'. Did you forget to declare this file as an output of a script phase or custom build rule which produces it? (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+
 ** BUILD FAILED **
+
+
 The following build commands failed:
-	Ld /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode normal (in target 'ios_xcode' from project 'ios_xcode')
+	CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
 (1 failure)
 Error: Process completed with exit code 65.
