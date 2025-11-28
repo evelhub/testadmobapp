@@ -89,12 +89,18 @@ jobs:
           echo "📂 Headers path: $HEADERS_PATH"
           ls -la "$HEADERS_PATH" || echo "❌ Headers not found"
           
+          # Get framework directory (parent of Headers)
+          FRAMEWORK_DIR=$(dirname "$HEADERS_PATH")
+          XCFRAMEWORK_DIR=$(dirname "$(dirname "$FRAMEWORK_DIR")")
+          
+          echo "📂 Framework dir: $FRAMEWORK_DIR"
+          echo "📂 XCFramework dir: $XCFRAMEWORK_DIR"
+          
           xcrun clang -x objective-c++ \
             -arch arm64 \
             -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
             -mios-version-min=13.0 \
-            -F. \
-            -I"$HEADERS_PATH" \
+            -F"$XCFRAMEWORK_DIR" \
             -c yandex_ads.mm -o yandex_ads.o
           
           # Create static library
