@@ -1,0 +1,347 @@
+		0: <string: 0x45cd41800> { length = 95, contents = "/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode" }
+	"Program" => <string: 0x45cd430f0> { length = 95, contents = "/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode" }
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Notice>: /private/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode[27435] ==> container
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(1) sysctl-read kern.bootargs
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0000] activating connection: mach=true listener=false peer=false name=com.apple.cfprefsd.daemon.system
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0100] activating connection: mach=true listener=false peer=false name=com.apple.cfprefsd.daemon
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libMobileGestalt.dylib)[27435] <Notice>: Cache loaded with 5895 pre-cached in CacheData and 68 items in CacheExtra.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Creating new assertion because there is no existing background assertion.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Creating new background assertion
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Created new background assertion <BKSProcessAssertion: 0x10891c770>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Initializing connection
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Removing all cached process handles
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Sending handshake request attempt #1 to server
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Creating connection to com.apple.runningboard
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0200] activating connection: mach=true listener=false peer=false name=com.apple.runningboard
+Nov 28 14:21:12 iPhone-KILURSELF backboardd(IOKit)[68] <Notice>: Connection added: IOHIDEventSystemConnection uuid:A68BE887-F8C6-429D-8921-95500FC37D87 pid:27435 process:ios_xcode type:Passive entitlements:0x0 caller:BackBoardServices: <redacted> + 280 attributes:{
+Nov 28 14:21:12 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Notice>: Adding client connection: <BKHIDClientConnection: 0x53129d180; IOHIDEventSystemConnectionRef: 0x52b4e6200; vpid: 27435(v136F0); taskPort: 0x996B7; bundleID: com.example.game.CQR5T5N8PD> for client: IOHIDEventSystemConnection uuid:A68BE887-F8C6-429D-8921-95500FC37D87 pid:27435 process:ios_xcode type:Passive entitlements:0x0 caller:BackBoardServices: <redacted> + 280 attributes:{
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1165703c0] activating connection: mach=false listener=false peer=false name=(anonymous)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Handshake succeeded
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Identity resolved as app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Incrementing reference count for background assertion <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Created background task <private>.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension _UIApplicationSceneKeyboardSettings on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneOcclusionSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneInterfaceProtectionSceneSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UIHomeAffordanceHostSceneSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension _UISystemShellSceneHostingEnvironmentSettings on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension _UISceneRenderingEnvironmentSettings on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BoardServices)[27435] <Notice>: activating monitor for service com.apple.frontboard.open
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneTransitioningHostSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneHostingContentSizePreferenceClientSettings> on FBSSceneClientSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BoardServices)[27435] <Notice>: activating monitor for service com.apple.frontboard.workspace-service
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: FBSWorkspace registering source: <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension _UISceneHostingTraitCollectionPropagationSettings on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: FBSWorkspace connected to endpoint : <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: <FBSWorkspaceScenesClient:0x11649df80 <private>> attempting immediate handshake from activate
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneHostingSheetPresentationSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: <FBSWorkspaceScenesClient:0x11649df80 <private>> sent handshake
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Added observer for process assertions expiration warning: <_RBSExpirationWarningClient: 0x1165290e0>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneHostingSheetPresentationClientSettings> on FBSSceneClientSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UISceneHostingEventDeferringSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluated capturing state as 0 on <UIScreen: 0x1165708c0> for initial
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluated capturing state as 0 on <UIScreen: 0x1165708c0> for CADisplay KVO
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <UIKit__UITypedKeyValueSceneSettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <UIKit__UITypedKeyValueSceneSettings> on FBSSceneClientSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116570640] activating connection: mach=true listener=false peer=false name=com.apple.audio.AudioSession
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension FBSSceneSettingsCore on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libAccessibility.dylib)[27435] <Notice>: Read CategoryName: per-app = 0, category name = UICTContentSizeCategoryL
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension FBSSceneClientSettingsCore on FBSSceneClientSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: UIMutableApplicationSceneSettings setting counterpart class: UIApplicationSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: UIMutableApplicationSceneClientSettings setting counterpart class: UIApplicationSceneClientSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension FBSSceneTransitionContextCore on FBSSceneTransitionContext
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(XCTTargetBootstrap)[27435] <Notice>: Registering for test daemon availability notify post.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(XCTTargetBootstrap)[27435] <Notice>: notify_get_state check indicated test daemon not ready.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(XCTTargetBootstrap)[27435] <Notice>: notify_get_state check indicated test daemon not ready.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(XCTTargetBootstrap)[27435] <Notice>: notify_get_state check indicated test daemon not ready.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Selected display: name=LCD (primary), id=1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Will add backgroundTask with taskName: <private>, expirationHandler: <__NSGlobalBlock__: 0x207e86038>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Reusing background assertion <BKSProcessAssertion: 0x10891c770>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Incrementing reference count for background assertion <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Created background task <private>.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason added: 5; deactivation reasons: 1024 -> 1056; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Should send trait collection or coordinate space update, interface style 2 -> 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BacklightServices)[27435] <Notice>: 0x1165f4b40 setDelegate:<0x1165f4b10 _UIBacklightEnvironment> hasDelegate:YES for environment:sceneID:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: [0x1165d58f0] Initialized with scene: <UIWindowScene: 0x108922680>; behavior: <_UIEventDeferringBehavior_iOS: 0x11652ac60>; systemShellManagesKeyboardFocus: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116571400] activating connection: mach=false listener=false peer=false name=(anonymous)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Setting default evaluation strategy for UIUserInterfaceIdiomPhone to LastOneWins
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: sceneOfRecord: sceneID: sceneID:com.example.game.CQR5T5N8PD-default  persistentID: FBB8870A-70D9-4CD7-BCFD-467353837424
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Ignoring already applied deactivation reason: 5; deactivation reasons: 1056
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason added: 11; deactivation reasons: 1056 -> 3104; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: startConnection
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116571b80] activating connection: mach=true listener=false peer=false name=com.apple.UIKit.KeyboardManagement.hosted
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x116588820; token: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default; status: target> was:none
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: observerPolicyDidChange: 0x116588820 -> <_UIKeyWindowSceneObserver: 0x1165f4960>
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(1) file-test-existence /private/var/Managed Preferences/mobile/com.apple.CoreMotion.plist
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: UseInterruptCal,platformDefault,<private>,overrideSet,<private>,final,<private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Adding new Device with usage pair {65280, 41}
+Nov 28 14:21:12 iPhone-KILURSELF backboardd(IOKit)[68] <Notice>: Connection added: IOHIDEventSystemConnection uuid:B0DF06EA-4B38-467B-A3C1-8D0589D13589 pid:27435 process:ios_xcode type:Rate Controlled entitlements:0x0 caller:CoreMotion: CoreMotion + 113960 attributes:{
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1165730c0] activating connection: mach=true listener=false peer=false name=com.apple.fontservicesd
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#Cohorting CohortId assignment for silo", "Silo":"CLGeomagneticModelProviderSilo", "CohortId":""}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#Manufacturing service", "event":"activity", "RequestedServiceName":"CLGeomagneticModelProvider", "EffectiveServiceName":"CLGeomagneticModelProvider"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#registerSelectorInfosAndValidateProtocolRecursively ", "protocolName":"CLGeomagneticModelProviderProtocol"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#registerSelectorInfosAndValidateProtocolRecursively ", "protocolName":"CLNotifierServiceProtocol"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#registerSelectorInfosAndValidateProtocolRecursively ", "protocolName":"CLGeomagneticModelProviderClientProtocol"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#registerSelectorInfosAndValidateProtocolRecursively ", "protocolName":"CLNotifierServiceClientProtocol"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: Starting device motion, mode=0xf,useAccelerometer=1,useGyro=1,useCompass=1,fUseNorthRef=1,buildingGYTT=0
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Adding new Device with usage pair {65292, 4}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(LocationSupport)[27435] <Notice>: {"msg":"#Manufacturing service complete", "EffectiveServiceName":"CLGeomagneticModelProvider"}
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Service for device with usage pair {65292, 4} is not ready
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Service ref with usage pair {65292, 4} is <private> with matching properties <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Property for usage pair {65292, 4}: {ReportInterval = 14286} was set successfully
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Service ref with usage pair {65292, 4} is <private> with matching properties <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLIoHidInterface] Property for usage pair {65292, 4}: {ReportInterval = 14286} was set successfully
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(FrontBoardServices)[27435] <Notice>: Realizing settings extension <_UIApplicationSceneDisplaySettings> on FBSSceneSettings
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: Fast path has been initialized,serviceRef,0x1164bbde0
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424) Scene updated orientation preferences: none -> ( Pu )
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Key window API is scene-level: YES
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: UIWindowScene: 0x108922680: Window became key in scene: UIWindow: 0x10891be50; contextId: 0x38580603: reason: UIWindowScene: 0x108922680: Window requested to become key in scene: 0x10891be50
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Key window needs update: 1; currentKeyWindowScene: 0x0; evaluatedKeyWindowScene: 0x108922680; currentApplicationKeyWindow: 0x0; evaluatedApplicationKeyWindow: 0x10891be50; reason: UIWindowScene: 0x108922680: Window requested to become key in scene: 0x10891be50
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Window did become application key: UIWindow: 0x10891be50; contextId: 0x38580603; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: [0x1165d58f0] Begin local event deferring requested for token: 0x116485b00; environments: 1; reason: UIWindowScene: 0x108922680: Begin event deferring in keyboardFocus for window: 0x10891be50
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x116588820; token: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default; status: ancestor> was:target
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: observerPolicyDidChange: 0x116588820 -> <_UIKeyWindowSceneObserver: 0x1165f4960>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreMotion)[27435] <Notice>: [CLSensorFusionService] q.x,<private>,q.y,<private>,q.z,<private>,q.w,<private>,userAccel.x,<private>,userAccel.y,<private>,userAccel.z,<private>,rotationRate.x,<private>,rotationRate.y,<private>,rotationRate.z,<private>,magneticField.x,<private>,magneticField.y,<private>,magneticField.z,<private>,magBiasEstVar.x,<private>,magBiasEstVar.y,<private>,magBiasEstVar.z,<private>,heading,<private>,accuracy,<private>,level,5,variant,15,mode,2,status,0x3714,clientID,0,timestamp,197304.744571,now,197304.749782,latency,0.005212
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>:   ServerSessionManager.mm:296   { "action":"create_session", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":{"PID":27435,"session_type":"Primary"} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>:   ServerSessionManager.mm:1063  Start process monitoring, pid = 27435, name = ios_xcode
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>:  AudioSessionServerImp.mm:400   { "action":"set_property", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":{"key":"batch_properties","value":{"AudioCategory":"AmbientSound","InterruptionStyle":0,"WantsToPauseSpokenAudio":false}} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setOrderedPropertiesInternal:usingErrorHandlingStrategy:outPropertiesErrors:]: Session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' is setting ordered properties batch
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsSetAudioCategory: Client 'sid:0x6bf5f, ios_xcode(27435), 'prim'' [0xc6b5bce00] set audioCategory to 'AmbientSound'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- MXCoreSessionSetProperty: Session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' setting InterruptionStyle to NotSet
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- MXCoreSessionSetProperty: Client 'sid:0x6bf5f, ios_xcode(27435), 'prim'' setting WantsToPauseSpokenAudio to 'NO'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSMNotificationUtilities- CMSMNotificationUtility_PostSessionAudioCategoryDidChange_block_invoke: Posting AudioCategoryDidChange to session 'sid:0x6bf5f, ios_xcode(27435), 'prim'', AudioCategory changed to 'AmbientSound'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:    AudioToolboxServers.mm:952   ================= -> RoutingBehaviorChanged process 'sid:0x6bf5f, ios_xcode(27435), 'prim'' =================
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:    AudioToolboxServers.mm:961   ================= <- RoutingBehaviorChanged process 'sid:0x6bf5f, ios_xcode(27435), 'prim'' =================
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:    AudioToolboxServers.mm:952   ================= -> RoutingBehaviorChanged process 'sid:0x6bf5f, ios_xcode(27435), 'prim'' =================
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:    AudioToolboxServers.mm:961   ================= <- RoutingBehaviorChanged process 'sid:0x6bf5f, ios_xcode(27435), 'prim'' =================
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason removed: 10; deactivation reasons: 3104 -> 2080; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason added: 12; deactivation reasons: 2080 -> 6176; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason removed: 11; deactivation reasons: 6176 -> 4128; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIIntelligenceSupport)[27435] <Notice>: establishing connection to agent
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116dd6800] activating connection: mach=true listener=false peer=false name=com.apple.commcenter.coretelephony.xpc
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116589c70] Session created.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116589c70] Session created from connection [0x1164a0800]
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0800] activating connection: mach=true listener=false peer=false name=com.apple.uiintelligencesupport.agent
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116589c70] Session activated
+Nov 28 14:21:12 iPhone-KILURSELF CommCenter[97] <Notice>: App state[ios_xcode (27435)] is moving from kUnknown to kInForegroundUnknownRestriction
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIIntelligenceSupport)[27435] <Notice>: Connection established with agent PID: 2348
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(Network)[27435] <Notice>: Create activity from XPC object <nw_activity 50:1 [F93C3FBD-02D9-431D-B248-925376097A96] (reporting strategy default)>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(Network)[27435] <Notice>: Create activity from XPC object <nw_activity 50:2 [702EFC57-88D1-423F-A256-CFE8B1D4B620] (reporting strategy default)>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(Network)[27435] <Notice>: Set activity <nw_activity 50:1 [F93C3FBD-02D9-431D-B248-925376097A96] (reporting strategy default)> as the global parent
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AggregateDictionary)[27435] <Notice>: AggregateDictionary is deprecated and has been removed. Please migrate to Core Analytics.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Ending background task with UIBackgroundTaskIdentifier: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Ending task with identifier 1 and description: <private>, _expireHandler: (null)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Decrementing reference count for assertion <private> (used by background task with identifier 1: <private>)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Event Timing Profile for Touch: ok, path="/System/Library/EventTimingProfiles/D93.Touch.plist"
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Target list changed: <CADisplay:LCD primary>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: sceneOfRecord: sceneID: sceneID:com.example.game.CQR5T5N8PD-default  persistentID: FBB8870A-70D9-4CD7-BCFD-467353837424
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Scene target of keyboard event deferring environment did change: 1; scene: UIWindowScene: 0x108922680; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: [0x1165d58f0] Scene target of event deferring environments did update: scene: 0x108922680; current systemShellManagesKeyboardFocus: 1; systemShellManagesKeyboardFocusForScene: 1; eligibleForRecordRemoval: 1;
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Scene became target of keyboard event deferring environment: UIWindowScene: 0x108922680; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Stack[KeyWindow] 0x11643bc30: Migrate scenes from LastOneWins -> SystemShellManaged
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: [0x1165d58f0] Scene target of event deferring environments did update: scene: 0x108922680; current systemShellManagesKeyboardFocus: 1; systemShellManagesKeyboardFocusForScene: 1; eligibleForRecordRemoval: 1;
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Scene became target of keyboard event deferring environment: UIWindowScene: 0x108922680; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Acom.example.game.CQR5T5N8PD-default
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: startConnection
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: sceneOfRecord: sceneID: sceneID:com.example.game.CQR5T5N8PD-default  persistentID: FBB8870A-70D9-4CD7-BCFD-467353837424
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: sceneOfRecord: sceneID: sceneID:com.example.game.CQR5T5N8PD-default  persistentID: FBB8870A-70D9-4CD7-BCFD-467353837424
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: handleKeyboardChange: set currentKeyboard:N (wasKeyboard:N)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: forceReloadInputViews
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Reloading input views for: <(null): 0x0; > force: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: isWritingToolsHandlingKeyboardTracking:Y (WT ready:Y, Arbiter ready:Y)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(Network)[27435] <Notice>: networkd_settings_read_from_file initialized networkd settings by reading plist directly
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreTelephony)[27435] <Notice>: Sending selectors to server: <private>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(Network)[27435] <Notice>: nw_path_evaluator_start [07927C44-2815-427D-AA24-540AAD70FAFC <NULL> generic, multipath service: 1, attribution: developer]
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(1) file-read-xattr /private/var
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: 1 duplicate report for Sandbox: ios_xcode(27435) deny(1) file-read-xattr /private/var
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(1) file-read-xattr /private/var/mobile
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: 1 duplicate report for Sandbox: ios_xcode(27435) deny(1) file-read-xattr /private/var/mobile
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/apt
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/sshd
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/bash
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/sh
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/ssh/sshd_config
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/cp
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/gunzip
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/gzip
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/mv
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/su
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/tar
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/clutch.conf
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/clutch_cracked.plist
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/dropbear
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/rel
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /sbin/gdb
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /sbin/lldb
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/codesign_allocate
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/killall
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/ldid
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/lldb
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/plutil
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /usr/bin/ssh
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /bin/bash
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(2) file-test-existence /private/etc/apt
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: ios_xcode(27435) deny(1) file-write-create /private/C16F4ED0-0A55-4E3F-BEB5-9A21E6170102.sb-0b4a37ea-75hKgJ
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AppTrackingTransparency)[27435] <Notice>: [ATTrackingManager] trackingAuthorizationStatus API call invoked.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libsystem_containermanager.dylib)[27435] <Notice>: Requesting container lookup; class = 13, identifier = <private>, group_identifier = <private>, create = 1, temp = 0, euid = 501, uid = 501
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libsystem_containermanager.dylib)[27435] <Notice>: Query; euid = 501, uid = 501, class = 13, identifier = [(null)](0), flags = 900000003
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: ios_xcode(27435) deny(1) file-write-create /C16F4ED0-0A55-4E3F-BEB5-9A21E6170102.sb-0b4a37ea-6R6NZ6
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libsystem_containermanager.dylib)[27435] <Notice>: container_query_get_single_result: success
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libsystem_containermanager.dylib)[27435] <Notice>: container_system_group_path_for_identifier: success
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AppTrackingTransparency)[27435] <Notice>: [ATTrackingManager] Performing TCC Access Preflight Request.
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0900] activating connection: mach=true listener=false peer=false name=com.apple.tccd
+Nov 28 14:21:12 iPhone-KILURSELF tccd[45] <Notice>: AUTHREQ_ATTRIBUTION: msgID=27435.1, attribution={requesting={TCCDProcess: identifier=com.example.game.CQR5T5N8PD, pid=27435, auid=501, euid=501, binary_path=/private/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode}, },
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0900] invalidated after the last release of the connection object
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0900] activating connection: mach=true listener=false peer=false name=com.apple.analyticsd
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116dd5b80] activating connection: mach=true listener=false peer=false name=com.apple.lsd.advertisingidentifiers
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(CoreAnalytics)[27435] <Notice>: Received configuration update from daemon (initial)
+Nov 28 14:21:12 iPhone-KILURSELF tccd[45] <Notice>: requestor: TCCDProcess: identifier=com.apple.lsd, pid=121, auid=501, euid=501, binary_path=/usr/libexec/lsd is checking access for accessor TCCDProcess: identifier=com.example.game.CQR5T5N8PD, pid=27435, auid=501, euid=501, binary_path=/private/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- CMSessionMgrHandleApplicationStateChange:16983 Client com.example.game.CQR5T5N8PD with session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] with pid '27435' is now ForegroundRunning. Background entitlement: NO ActiveLongFormVideoSession: NO IsLongFormVideoApp NO
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Not push traits update to screen for new style 2, <UIWindowScene: 0x108922680> (FBB8870A-70D9-4CD7-BCFD-467353837424)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: sceneOfRecord: sceneID: sceneID:com.example.game.CQR5T5N8PD-default  persistentID: FBB8870A-70D9-4CD7-BCFD-467353837424
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason removed: 12; deactivation reasons: 4128 -> 32; animating application lifecycle event: 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Deactivation reason removed: 5; deactivation reasons: 32 -> 0; animating application lifecycle event: 0
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Updating configuration of monitor M27435-1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0b00] activating connection: mach=true listener=false peer=false name=com.apple.hangtracermonitor
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Creating side-channel connection to com.apple.runningboard
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0c00] activating connection: mach=true listener=false peer=false name=com.apple.runningboard
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(HangTracer)[27435] <Notice>: Skip setting user action callback for 3rd party apps
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x1164a0b00] invalidated because the current process cancelled the connection by calling xpc_connection_cancel()
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Hit the server for a process handle 8137f4100006b2b that resolved to: [app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>:27435]
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Received state update for 27435 (app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>, unknown-NotVisible
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(GameController)[27435] <Notice>: Creating global game controller session...
+Nov 28 14:21:12 iPhone-KILURSELF backboardd(IOKit)[68] <Notice>: Connection added: IOHIDEventSystemConnection uuid:1BF82324-8355-4282-A7C6-4DA5D73646F7 pid:27435 process:ios_xcode type:Monitor entitlements:0x0 caller:GameControllerFoundation: <redacted> + 120 attributes:(null) state:0x0 events:0 mask:0x0 dropped:0 dropStatus:0 droppedMask:0x0 lastDroppedTime:NONE
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x116588190; process scope; status: target> was:none
+Nov 28 14:21:12 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(27435) deny(1) sysctl-read kern.bootargs
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libAudioDSP.dylib)[27435] <Notice>: cannot migrate AudioUnit assets for current process
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolbox)[27435] <Notice>: ATAudioSessionClientImpl.mm:136   initWithSession
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolbox)[27435] <Notice>: ATAudioSessionClientImpl.mm:172   setClientConfiguration
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolbox)[27435] <Notice>: ATAudioSessionClientImpl.mm:193   No Interruption listener provided
+Nov 28 14:21:12 iPhone-KILURSELF tccd[45] <Notice>: AUTHREQ_ATTRIBUTION: msgID=107.1303, attribution={accessing={TCCDProcess: identifier=com.example.game.CQR5T5N8PD, pid=27435, auid=501, euid=501, binary_path=/private/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode}, requesting={TCCDProcess: identifier=com.apple.audiomxd, pid=107, auid=501, euid=501, binary_path=/usr/libexec/audiomxd}, },
+Nov 28 14:21:12 iPhone-KILURSELF tccd[45] <Notice>: requestor: TCCDProcess: identifier=com.apple.audiomxd, pid=107, auid=501, euid=501, binary_path=/usr/libexec/audiomxd is checking access for accessor TCCDProcess: identifier=com.example.game.CQR5T5N8PD, pid=27435, auid=501, euid=501, binary_path=/private/var/containers/Bundle/Application/28F798E9-A603-4BD7-BC21-B3FC2A60B482/ios_xcode.app/ios_xcode
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolbox)[27435] <Notice>: ATAudioSessionPropertyManager.mm:60    GetProperty 1920166244 from AVAudioSession
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libEmbeddedSystemAUs.dylib)[27435] <Notice>:            AURemoteIO.cpp:442   AURemoteIO0x116630c40: reporterID=459561502495
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libEmbeddedSystemAUs.dylib)[27435] <Notice>:            AURemoteIO.cpp:1086  AURemoteIO@0x116630c40: set kAudioOutputUnitProperty_OutputChannelLayout.  Layout = tag=0x0, 0 channel descriptions [], err = 0
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>: AudioSessionServerImpPlayState.mm:542   { "action":"set_play_state", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":{"side_effect":"Attempt implicit activation by calling _CMSessionBeginInterruption_WithFlags"} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXCoreSession_Embedded- -[MXCoreSession willRouteToOnDemandVADOnActivation]: Will session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] with info {
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsSetIsActive: Resetting start and stop play time for client session sid:0x6bf5f, ios_xcode(27435), 'prim' current active state NO new active state YES
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsSetIsActive:5234 'sid:0x6bf5f, ios_xcode(27435), 'prim'' with [AmbientSound/Default] [Mixable] [System Audio] siriEndpointID: (null) going active NowPlayingApp:NO IsSharedAVAudioSessionInstance:YES
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXCoreSession_Embedded- -[MXCoreSession willRouteToOnDemandVADOnActivation]: Will session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] with info {
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_SendSessionStateAndVolumeReportToAudioStatistics: Starting reporter for session : sid:0x6bf5f, ios_xcode(27435), 'prim', reporter id = 459561502495
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXCoreSession_Embedded- -[MXCoreSession willRouteToOnDemandVADOnActivation]: Will session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] with info {
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsTakeControl: Session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' setting currentlyControllingFlags to 0x12; requires Volume_Routing; desires 0;
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsmGetAudioConfigurationsControlSessions: playingAudioFormatAndOutputSampleRateControlSession=(null) activeAudioFormatAndOutputSampleRateControlSession=sid:0x6bf5f, ios_xcode(27435), 'prim' activeAndDoesntActuallyPlayAudioFormatAndOutputSampleRateControlSession=(null) inputSampleRateAndBufferSizeControlSession=sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_CopyDeviceHintsForSession: Client sid:0x6bf5f, ios_xcode(27435), 'prim': preferredOutputSampleRate = 44100.000000, preferredIOBufferFrames = 0, preferredIOBufferDuration = 0.000000, preferredOutputSampleRatePointer = 0xc6b5bd140, getPreferredIOBufferFramesPointer = 0xc6b5bcf6c preferBufferDuration=NO
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_UpdatePlaybackVolume: Setting volume without ramp on VAD: VirtualAudioDevice_Default for session sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_UpdatePlaybackVolume: Setting volume without ramp on VAD: VirtualAudioDevice_Default for session sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>: AudioSessionServerImpPlayState.mm:697   { "action":"set_play_state", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":{"IOs":[0,0,0,0,0],"IsRecording":false,"IsRecordingMutedForRemoteDevice":false,"active":true,"modes":" Output","player":"0xc69eddc00","state":"Priming","type":"Remote IO"} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:              AQIONode.cpp:625   client <RemoteIOClient@0xc69eddc00(@0xc69eddec8); output; sid:0x6bf5f, ios_xcode(27435), 'prim'> is NOT Now Playing eligible
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>: AudioSessionServerImpPlayState.mm:342   { "action":"set_play_state", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":"entry" }
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolboxCore)[27435] <Notice>:        ACv2Workarounds.mm:51    com.example.game.CQR5T5N8PD: fix84702776_86723525_86479548_89800354_SinglePacketDesc: false
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(caulk)[27435] <Notice>: Registered notify signal com.apple.caulk.alloc.rtdump (0)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(caulk)[27435] <Notice>: Registered notify signal com.apple.caulk.alloc.audiodump (0)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(AudioToolboxCore)[27435] <Notice>:        AudioConverter.cpp:1007  Created a new in process converter -> 0x117ada670, from  2 ch,  48000 Hz, Int16, interleaved to  2 ch,  48000 Hz, Float32, deinterleaved
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libEmbeddedSystemAUs.dylib)[27435] <Notice>:            AURemoteIO.cpp:1622  Starting AURemoteIO(0x116630c40)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libEmbeddedSystemAUs.dylib)[27435] <Notice>:            AURemoteIO.cpp:1683  workgroup port 0xf603
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>: AudioSessionServerImpPlayState.mm:342   { "action":"set_play_state", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":"entry" }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InternalUse) setIsPlayingOutput:]: MXSession(1306) of type AudioSession for CoreSession sid:0x6bf5f, ios_xcode(27435), 'prim' setting IsPlayingOutput = YES
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- +[MXSession(InternalUse) updateIsPlayingOutput:]: CMSession: Setting the IsPlayingOutput property on CoreSession[sid:0x6bf5f, ios_xcode(27435), 'prim'] to YES
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- MXCoreSessionSetProperty: Client 'sid:0x6bf5f, ios_xcode(27435), 'prim'' setting IsPlayingOutput to YES
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setPropertyForKeyInternal:value:fromPropertiesBatch:]: MXSession(1306) of type AudioSession belonging to CoreSession(sid:0x6bf5f, ios_xcode(27435), 'prim'): mClientIsPlaying = STOPPED, mAudioToolboxIsPlaying = PLAYING
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InternalUse) setIsPlaying:]: Setting mIsPlaying to PLAYING for MXSession(1306) of type AudioSession belonging to CoreSession(sid:0x6bf5f, ios_xcode(27435), 'prim').
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- +[MXSession(InternalUse) updateIsPlaying:]: Setting SomeMXSessionIsPlaying on CoreSession[sid:0x6bf5f, ios_xcode(27435), 'prim'] to: YES; AudioSessionPlaying : YES, FigPlayerPlaying: NO, FigSBARPlaying : NO
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_GetCurrentConsolidatedPlayingState: client 'sid:0x6bf5f, ios_xcode(27435), 'prim'': SomeMXSessionIsPlaying = PLAYING, ClientIsPlaying = STOPPED, HapticEngineIsPlaying = STOPPED
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_RouteToPreferredRouteIfRequired: Not routing via PreferredRoute for client sid:0x6bf5f, ios_xcode(27435), 'prim' for reason SessionStartedPlaying because: TipiPriorityIsEligibleForPreferredRoute 1; IsEligibleForBTSmartRoutingConsideration 1; ActuallyPlaysAudio 1; SessionRouteEligibleForTipi 1; tipiRouteIsAvailableAndInEar 0; IsBluetoothSharingSessionEnabledForMediaPlayback 1 tipiPriority 201
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXCoreSession_Embedded- -[MXCoreSession willRouteToOnDemandVADOnActivation]: Will session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] with info {
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsTakeControl: Session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' setting currentlyControllingFlags to 0x12; requires Volume_Routing; desires 0;
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsmGetAudioConfigurationsControlSessions: playingAudioFormatAndOutputSampleRateControlSession=sid:0x6bf5f, ios_xcode(27435), 'prim' activeAudioFormatAndOutputSampleRateControlSession=(null) activeAndDoesntActuallyPlayAudioFormatAndOutputSampleRateControlSession=(null) inputSampleRateAndBufferSizeControlSession=sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_CopyDeviceHintsForSession: Client sid:0x6bf5f, ios_xcode(27435), 'prim': preferredOutputSampleRate = 44100.000000, preferredIOBufferFrames = 0, preferredIOBufferDuration = 0.000000, preferredOutputSampleRatePointer = 0xc6b5bd140, getPreferredIOBufferFramesPointer = 0xc6b5bcf6c preferBufferDuration=NO
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_UpdatePlaybackVolume: Setting volume without ramp on VAD: VirtualAudioDevice_Default for session sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_UpdatePlaybackVolume: Setting volume without ramp on VAD: VirtualAudioDevice_Default for session sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MX_RunningBoardServices- mx_runningBoardServices_createAndStoreAssertionForPIDWithInvalidationHandler: Creating assertion for pid 27435 with name MediaPlayback and explanation MediaExperience.27435."com.example.game.CQR5T5N8PD"."sid:0x6bf5f, ios_xcode(27435), 'prim'"."AmbientSound".isPlayingProcessAssertion
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSessionMgr- cmsUpdateMuteStatus: session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' being muted.
+Nov 28 14:21:12 iPhone-KILURSELF runningboardd(RunningBoard)[33] <Notice>: Acquiring assertion targeting [app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>:27435] from originator [osservice<com.apple.audiomxd>:107] with description <RBSAssertionDescriptor| "audiomxd(107).2025.11.28_14:21:12:2112.MediaExperience.27435."com.example.game.CQR5T5N8PD"."sid:0x6bf5f, ios_xcode(27435), 'prim'"."AmbientSound".isPlayingProcessAssertion" ID:33-107-140846 target:27435 attributes:[
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InternalUse) updateBadgeType]: Session <ID: 1616, PID = 27435, Name = sid:0x6bf5f, ios_xcode(27435), 'prim', BundleID = com.example.game.CQR5T5N8PD, Category = AmbientSound, Mode = Default, Active = YES, Playing = YES, Recording = NO> is not applicable for nowPlaying consideration, badgeType does not apply.
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>: AudioSessionServerImpPlayState.mm:697   { "action":"set_play_state", "session":{"ID":"0x6bf5f","name":"ios_xcode(27435)"}, "details":{"IOs":[0,1,0,0,0],"IsRecording":false,"IsRecordingMutedForRemoteDevice":false,"active":true,"modes":" Output","player":"0xc69eddc00","state":"Started","type":"Remote IO"} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSMUtilities- CMSMUtility_CreateAudioQueueOptionsDictionary: Returning AudioQueueOptions for session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] duckVolume = 1.000 fadeDuration = 0.000 isSilentMute = YES asyncFadeStartVolume = 0.000
+Nov 28 14:21:12 iPhone-KILURSELF runningboardd(RunningBoard)[33] <Notice>: Attempting to rename power assertion 37177 for target app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)> to app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>;33-107-140846:audiomxd(107).2025.11.28_14:21:12:2112.MediaExperience.27435."com.example.game.CQR5T5N8PD"."sid:0x6bf5f, ios_xcode(27435), 'prim'"."AmbientSound".isPlayingProcessAssertion;33-34-140841:FBApplicationProcess
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSMUtilities- CMSMUtility_CreateAudioQueueOptionsDictionary: Returning AudioQueueOptions for session sid:0x6bf5f, ios_xcode(27435), 'prim' [0xc6b5bce00] duckVolume = 1.000 fadeDuration = 0.000 isSilentMute = YES asyncFadeStartVolume = 0.000
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:              AQIONode.cpp:625   client <RemoteIOClient@0xc69eddc00(@0xc69eddec8); output; sid:0x6bf5f, ios_xcode(27435), 'prim'> is NOT Now Playing eligible
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InternalUse) setCurrentlyPlayingSourceFormatInfo:]: <ID: 1306, CoreSessionID = 1616 Name = sid:0x6bf5f, ios_xcode(27435), 'prim', Muted = NO, ClientIsPlaying = STOPPED, AudioToolboxIsPlaying = PLAYING, MutePriority = MutePriority_Two, PiP = NO, DoesntActuallyPlayAudio = NO, clientType = 2, IsPlayingOutput = YES Setting CurrentlyPlayingSourceFormatInfo to {
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:  MEDeviceStreamClient.cpp:227   AQME Default-InputOutput: client starting: <RemoteIOClient@0xc69eddc00(@0xc69eddec8); output; sid:0x6bf5f, ios_xcode(27435), 'prim'>; running count now 1
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Received state update for 27435 (app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>, unknown-NotVisible
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) initWithSession:]: Creating MXSession = <ID: 1307, CoreSessionID = 1616 Name = sid:0x6bf5f, ios_xcode(27435), 'prim', Muted = NO, ClientIsPlaying = STOPPED, AudioToolboxIsPlaying = STOPPED, MutePriority = MutePriority_Two, PiP = NO, DoesntActuallyPlayAudio = NO, clientType = 1, IsPlayingOutput = NO
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InternalUse) setClientType:]: MXSession with ID 1307 for CoreSession sid:0x6bf5f, ios_xcode(27435), 'prim' setting ClientType = None
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>:   ServerSessionManager.mm:296   { "action":"create_session", "session":{"ID":"0x6bf60","name":"mediaremoted(38)","sibling_of":"0x6bf5f ios_xcode(27435)"}, "details":{"PID":38,"name":"MediaRemote","session_type":"Sibling","source_session_ID":"0x6bf5f","source_session_PID":27435} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(AudioSessionServer)[107] <Notice>:  AudioSessionServerImp.mm:400   { "action":"set_property", "session":{"ID":"0x6bf60","name":"mediaremoted(38)","sibling_of":"0x6bf5f ios_xcode(27435)"}, "details":{"key":"SubscribeToNotifications","value":[]} }
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setOrderedPropertiesInternal:usingErrorHandlingStrategy:outPropertiesErrors:]: Session 'sid:0x6bf5f, ios_xcode(27435), 'prim'' is setting ordered properties batch
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_CopyConsolidatedSourceFormatInfo: Returning consolidatedSourceFormatInfo for MXCoreSession sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -CMSUtilities- CMSUtility_CopyConsolidatedSourceFormatInfo: Returning consolidatedSourceFormatInfo for MXCoreSession sid:0x6bf5f, ios_xcode(27435), 'prim'
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(BackBoardServices)[27435] <Notice>: policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x1187548c0; process scope; status: target> was:none
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(libxpc.dylib)[27435] <Notice>: [0x116dd6a80] activating connection: mach=true listener=false peer=false name=com.apple.GameController.gamecontrollerd.app
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Ending background task with UIBackgroundTaskIdentifier: 2
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Ending task with identifier 2 and description: <private>, _expireHandler: <__NSGlobalBlock__: 0x207e86038>
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Decrementing reference count for assertion <private> (used by background task with identifier 2: <private>)
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Will invalidate assertion: <BKSProcessAssertion: 0x10891c770> for task identifier: 2
+Nov 28 14:21:12 iPhone-KILURSELF ios_xcode[27435] <Error>: ERROR: Mouse is not supported by this display server.
+Nov 28 14:21:13 iPhone-KILURSELF runningboardd(RunningBoard)[33] <Notice>: Attempting to rename power assertion 37177 for target app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)> to app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>33-107-140846:audiomxd(107).2025.11.28_14:21:12:2112.MediaExperience.27435."com.example.game.CQR5T5N8PD"."sid:0x6bf5f, ios_xcode(27435), 'prim'"."AmbientSound".isPlayingProcessAssertion
+Nov 28 14:21:13 iPhone-KILURSELF ios_xcode(RunningBoardServices)[27435] <Notice>: Received state update for 27435 (app<com.example.game.CQR5T5N8PD(8B2F5EB2-0D19-44F0-B1BD-E03AE0D57CE5)>, unknown-NotVisible
+Nov 28 14:21:20 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: 78 duplicate reports for Sandbox: ios_xcode(27435) deny(1) sysctl-read kern.bootargs
+        ios_xcode.27426 contextID 3E62A846: {
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:20 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:24 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+Nov 28 14:21:25 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:25 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:25 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:25 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:26 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:26 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:26 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:26 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:28 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:29 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: TX focusApplication (peekAppEvent) stealKB:Y scene:com.example.game.CQR5T5N8PD-default
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to windows: 1
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Sending UIEvent type: 0; subtype: 0; to window: <UIWindow: 0x10891be50>; contextId: 0x38580603
+Nov 28 14:21:31 iPhone-KILURSELF ios_xcode(UIKitCore)[27435] <Notice>: Evaluating dispatch of UIEvent: 0x1165dd340; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1

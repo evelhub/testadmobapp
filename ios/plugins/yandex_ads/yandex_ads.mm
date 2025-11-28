@@ -2,16 +2,23 @@
 #import <UIKit/UIKit.h>
 #import <YandexMobileAds/YandexMobileAds.h>
 
+#ifdef __cplusplus
 extern "C" {
-    // Forward declarations
-    void yandex_ads_init();
-    void yandex_ads_deinit();
-    void yandex_ads_load_banner(const char* block_id, bool on_top);
-    void yandex_ads_show_banner();
-    void yandex_ads_hide_banner();
-    void yandex_ads_load_rewarded(const char* block_id);
-    void yandex_ads_show_rewarded();
+#endif
+
+// Forward declarations
+void yandex_ads_init();
+void yandex_ads_deinit();
+void yandex_ads_load_banner(const char* block_id, bool on_top);
+void yandex_ads_show_banner();
+void yandex_ads_hide_banner();
+void yandex_ads_load_rewarded(const char* block_id);
+void yandex_ads_show_rewarded();
+bool yandex_ads_is_initialized();
+
+#ifdef __cplusplus
 }
+#endif
 
 // Global variables
 static YMABannerView *g_bannerView = nil;
@@ -255,29 +262,39 @@ void yandex_ads_show_rewarded() {
     });
 }
 
-// Callback setters (called from GDScript)
-extern "C" {
-    void yandex_ads_set_banner_loaded_callback(BannerLoadedCallback callback) {
-        g_banner_loaded_callback = callback;
-    }
-    
-    void yandex_ads_set_banner_failed_callback(BannerFailedCallback callback) {
-        g_banner_failed_callback = callback;
-    }
-    
-    void yandex_ads_set_rewarded_loaded_callback(RewardedLoadedCallback callback) {
-        g_rewarded_loaded_callback = callback;
-    }
-    
-    void yandex_ads_set_rewarded_failed_callback(RewardedFailedCallback callback) {
-        g_rewarded_failed_callback = callback;
-    }
-    
-    void yandex_ads_set_rewarded_earned_callback(RewardedEarnedCallback callback) {
-        g_rewarded_earned_callback = callback;
-    }
-    
-    void yandex_ads_set_rewarded_closed_callback(RewardedClosedCallback callback) {
-        g_rewarded_closed_callback = callback;
-    }
+bool yandex_ads_is_initialized() {
+    return g_isInitialized;
 }
+
+// Callback setters (called from GDScript)
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void yandex_ads_set_banner_loaded_callback(BannerLoadedCallback callback) {
+    g_banner_loaded_callback = callback;
+}
+
+void yandex_ads_set_banner_failed_callback(BannerFailedCallback callback) {
+    g_banner_failed_callback = callback;
+}
+
+void yandex_ads_set_rewarded_loaded_callback(RewardedLoadedCallback callback) {
+    g_rewarded_loaded_callback = callback;
+}
+
+void yandex_ads_set_rewarded_failed_callback(RewardedFailedCallback callback) {
+    g_rewarded_failed_callback = callback;
+}
+
+void yandex_ads_set_rewarded_earned_callback(RewardedEarnedCallback callback) {
+    g_rewarded_earned_callback = callback;
+}
+
+void yandex_ads_set_rewarded_closed_callback(RewardedClosedCallback callback) {
+    g_rewarded_closed_callback = callback;
+}
+
+#ifdef __cplusplus
+}
+#endif

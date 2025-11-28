@@ -1,47 +1,123 @@
-Привет! Я разобрался с твоей проблемой на основе документации clang и Apple по работе с XCFrameworks в command line. Основная ошибка в твоей команде: флаг `-F` ожидает путь к **директории**, содержащей .xcframework (не сам файл .xcframework). Если YandexMobileAds.xcframework лежит в текущей директории, используй `-F.` (точку). Clang автоматически выберет нужный слайс (ios-arm64) на основе архитектуры (-arch arm64). Для Objective-C++ компиляции в GitHub Actions (macOS runner) также нужны флаги для iOS SDK, минимальной версии iOS и Objective-C runtime (например, -fobjc-arc, если используешь ARC).
+Привет! Я проанализировал твою проблему на основе официальной документации Godot 4.4.1 (включая разделы по iOS плагинам и GDExtension) и примеров из открытых репозиториев. Ключевой момент: в Godot 4.4.1 iOS плагины используют .gdip конфигурацию для нативных библиотек, но Godot не компилирует .mm файлы автоматически — тебе нужна pre-built статическая библиотека (.a) или .xcframework. Функции инициализации не вызываются, потому что плагин не загружается: binary в .gdip ссылается на несуществующую .a, а .mm — это source, который не интегрируется напрямую. Кроме того, в твоей .gdip есть проблемы (например, linked=["YandexMobileAds"] ожидает фреймворк, но без пути; files=["res://ios/Podfile"] — это нестандартно и может не работать).
 
-Вот ответы на вопросы:
+Я отвечу на каждый вопрос, дам конкретные инструкции и рекомендации. Всё адаптировано для Godot 4.4.1, с учётом твоего контекста (Yandex/VK Ads, экспорт в GitHub Actions). Для компиляции нужен Mac с Xcode 16+, но ты можешь интегрировать это в CI (macOS runner в Actions).
 
-### 1. Как правильно указать путь к XCFramework для clang?
-- Укажи `-F` с путём к директории, где лежит .xcframework (не к самому файлу). Clang будет искать фреймворки там, включая headers внутри (типа ios-arm64/YandexMobileAds.framework/Headers/YandexMobileAds.h).
-- Если .xcframework в текущей директории: `-F.`
-- Если в поддиректории (например, frameworks/): `-Fframeworks`
-- Это позволит #import <YandexMobileAds/YandexMobileAds.h> найти хедер без дополнительных -I.
+### 1. Компиляция плагина: Как правильно создать .a из .mm файла для iOS плагина?
+Да, Godot 4.4.1 не компилирует .mm автоматически — нужно создать статическую библиотеку (.a) в Xcode заранее. Это позволит Godot линковать её в экспортированный Xcode проект. Рекомендую создать отдельные .a для debug/release и архитектур (arm64 для устройств, x86_64/arm64 для симулятора), затем объединить в .xcframework для универсальности (лучше, чем raw .a, так как поддерживает multiple slices).
 
-### 2. Нужно ли указывать -F на ios-arm64 папку?
-- Нет, не нужно. Clang автоматически парсит структуру XCFramework и выбирает правильный слайс (ios-arm64) на основе флагов компиляции, таких как `-arch arm64` и `-isysroot` для iOS SDK. Указание -F на внутреннюю папку (ios-arm64) сломает поиск, так как clang ожидает корневую директорию с .xcframework.
+**Конкретные инструкции по компиляции yandex_ads.mm в yandex_ads.a (на Mac с Xcode):**
+1. **Подготовь Godot headers** (нужны для интеграции с Godot API, если используешь godot_cpp; если плагин чисто нативный без Godot классов — можно пропустить, но для ads SDK полезно):
+   - Скачай godot-cpp из GitHub: `git clone https://github.com/godotengine/godot-cpp --branch 4.x` (branch для 4.4.1).
+   - Скомпилируй bindings: `cd godot-cpp && scons platform=ios target=template_debug` (для debug; повтори для template_release).
+   - Получишь libgodot-cpp.ios.template_debug.arm64.a и т.д. в bin/.
 
-### 3. Или нужно использовать -I вместо -F?
-- Нет, -I используется для raw include директорий (не для фреймворков). Для XCFramework правильнее -F, чтобы clang правильно обработал фреймворк (headers, linking metadata). Если используешь -I, то укажи полный путь к Headers (например, -I./YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/Headers), но это хрупко и не рекомендуется — потеряешь преимущества фреймворка (автоматический поиск, модульность).
+2. **Создай Xcode проект для статической библиотеки**:
+   - Открой Xcode: File > New > Project > iOS > Library > Static Library. Назови "YandexAdsLib".
+   - Добавь твой yandex_ads.mm (Drag & drop в проект).
+   - Если нужен header: Создай yandex_ads.h с extern "C" декларациями функций (см. пункт 2).
+   - В Build Settings:
+     - Deployment > iOS Deployment Target: 13.0 (минимум для Yandex SDK).
+     - Architectures > Architectures: $(ARCHS_STANDARD) (arm64 для устройств).
+     - Header Search Paths: Добавь путь к godot-cpp/include (если используешь Godot API): "$(SRCROOT)/../godot-cpp/include".
+     - Other Linker Flags: -ObjC (уже в твоей .gdip).
+     - Если используешь Yandex SDK: Добавь -framework YandexMobileAds (или vendored в проект).
+   - В Build Phases > Link Binary With Libraries: Добавь system фреймворки (UIKit, Foundation и т.д., как в твоей .gdip) и YandexMobileAds.xcframework (drag & drop, если pre-built).
 
-### 4. Какие флаги нужны для компиляции против XCFramework?
-- `-F<dir>`: Для поиска XCFramework.
-- `-arch arm64`: Архитектура (для iPhone 16+ устройств).
-- `-x objective-c++`: Явно указать язык (если расширение .mm не подхватывается).
-- `-fobjc-arc`: Включить Automatic Reference Counting (стандарт для modern Objective-C; если не используешь ARC, убери).
-- `-isysroot $(xcrun --sdk iphoneos --show-sdk-path)`: Путь к iOS SDK (автоматически берётся из xcrun).
-- `-miphoneos-version-min=13.0`: Минимальная версия iOS (замени на твою, например, 13.0 для Yandex SDK).
-- `-c`: Только компиляция в .o (без linking).
-- Опционально: `-o file.o` для вывода объекта.
+3. **Скомпилируй для разных конфигураций**:
+   - Для устройства (arm64, release): Выбери scheme > Generic iOS Device > Product > Build. Получишь yandex_ads.a в Products/Release-iphoneos/.
+   - Для симулятора (arm64/x86_64, release): Выбери scheme > Any iOS Simulator Device > Product > Build. Получишь yandex_ads.a в Products/Release-iphonesimulator/.
+   - Повтори для debug (Build Settings > Debug Information Format: DWARF with dSYM).
 
-### Точная команда clang для GitHub Actions (macOS runner)
-Предполагаю, что:
-- YandexMobileAds.xcframework лежит в текущей директории.
-- Файл для компиляции: file.mm.
-- Минимальная iOS: 13.0 (как в Yandex SDK 7.17.1).
-- Используем xcrun для правильного окружения (стандарт в GitHub Actions macOS runners, где Xcode установлен).
+4. **Объедини в универсальную .a или .xcframework** (рекомендую xcframework для CI):
+   - Для универсальной .a (lipo): `lipo -create Release-iphoneos/yandex_ads.a Release-iphonesimulator/yandex_ads.a -output yandex_ads.a`
+   - Для .xcframework (лучше для Godot): 
+     ```
+     xcodebuild -create-xcframework \
+     -library path/to/Release-iphoneos/yandex_ads.a \
+     -library path/to/Release-iphonesimulator/yandex_ads.a \
+     -output yandex_ads.xcframework
+     ```
+     (Повтори для debug.)
 
-```bash
-xcrun clang -x objective-c++ -arch arm64 -fobjc-arc -isysroot $(xcrun --sdk iphoneos --show-sdk-path) -miphoneos-version-min=13.0 -F. -c file.mm -o file.o
-```
+5. **Интеграция в Godot**:
+   - Скопируй yandex_ads.a (или .xcframework) в res://ios/plugins/yandex_ads/.
+   - В .gdip укажи binary="yandex_ads.a" (или "yandex_ads.xcframework" для фреймворка).
+   - В GitHub Actions (macos-latest runner): Добавь шаг для build .a с xcodebuild (пример: `xcodebuild build -project YandexAdsLib.xcodeproj -scheme YandexAdsLib -configuration Release -sdk iphoneos`).
 
-- **Как использовать в GitHub Actions workflow (.yml)**:
-  ```yaml
-  - name: Compile Objective-C++ file
-    run: |
-      # Предполагаем, что xcframework скачан/скопирован в текущую директорию
-      xcrun clang -x objective-c++ -arch arm64 -fobjc-arc -isysroot $(xcrun --sdk iphoneos --show-sdk-path) -miphoneos-version-min=13.0 -F. -c file.mm -o file.o
+Если плагин чисто нативный (без Godot классов), это достаточно — init вызовется автоматически при app start.
+
+### 2. Регистрация типов: Нужен ли файл register_types.cpp с функциями register_yandex_ads_types() и unregister_yandex_ads_types()? Или достаточно простых C функций?
+Зависит от сложности плагина:
+- Если плагин — просто нативные C функции (как твой yandex_ads_init, без создания Godot nodes/classes/signals), то достаточно простых extern "C" функций в .mm/.h. Godot вызовет initialization из .gdip автоматически при запуске приложения (в AppDelegate или аналогично). Нет нужды в register_types.cpp.
+- Если нужно регистрировать Godot классы (например, для сигналов от SDK или свойств в Inspector), то да: Добавь register_types.mm (Objective-C++ equivalent of .cpp) с функциями:
+  ```objective-c
+  #include <godot_cpp/core/class_db.hpp>  // Из godot-cpp
+  void initialize_yandex_ads_module(godot::ModuleInitializationLevel p_level) {
+      if (p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE) return;
+      godot::ClassDB::register_class<YandexAdsClass>();  // Если есть класс
+      godot::Engine::get_singleton()->register_singleton("YandexAds", memnew(YandexAdsClass));
+  }
+  void uninitialize_yandex_ads_module(godot::ModuleInitializationLevel p_level) {
+      if (p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE) return;
+      // Cleanup
+  }
   ```
-- Если ошибка persists: Проверь наличие xcframework (`ls YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/Headers/YandexMobileAds.h`). Добавь -v для verbose вывода clang (чтобы увидеть поиск путей). Если нужны другие фреймворки (например, UIKit), добавь -framework UIKit.
+  - В .gdip: initialization="initialize_yandex_ads_module" (замени на твою).
+  - Это как в AdMob примере (register_poing_godot_admob_ads_types).
 
-Если после этого ошибка в логах, кинь детали — уточню команду!
+В твоём случае (простая init SDK) — достаточно C функций. Если init не вызывается, проблема в binary (не слинкован) или плагине не включён в экспорте.
+
+### 3. Вызов из GDScript: Как GDScript код должен вызывать нативные функции?
+- Если зарегистрировал как singleton (через register_types, см. выше): 
+  ```gdscript
+  if Engine.has_singleton("YandexAds"):
+      var yandex_ads = Engine.get_singleton("YandexAds")
+      yandex_ads.some_method()  // Если есть методы
+  ```
+- Если просто C функции без классов: Нет прямого FFI в GDScript — функции доступны только внутри плагина. Init вызывается автоматически, а для других функций используй Godot сигналы или зарегистрируй методы в _bind_methods() (требует класс).
+- Для ads: Обычно init в initialization, а вызовы (show_ad) через singleton.
+
+### 4. Альтернативный подход: Может быть проще использовать Godot iOS modules вместо plugins? Или создать XCFramework?
+- **Modules**: Нет, сложнее — требует recompilation всего engine (scons с custom modules). Подходит для core изменений, не для ads SDK. Избегай.
+- **XCFramework**: Да, проще и рекомендуется вместо .a (поддерживает arm64 + simulator). См. инструкции в пункте 1 (xcodebuild -create-xcframework). В .gdip: binary="yandex_ads.xcframework". Это решит проблемы с архитектурами в CI.
+
+### 5. Podfile интеграция: Можно ли заставить CocoaPods скомпилировать .mm файлы и создать .a библиотеку автоматически?
+Да, но не рекомендуется для плагина — CocoaPods предназначен для зависимостей, не для твоего кода. Вместо этого:
+- Добавь Podfile в res://ios/ с pods для YandexMobileAds ('YandexMobileAds', '~> 7.17.1').
+- В .gdip: Убери files=["res://ios/Podfile"] — Godot не обрабатывает Podfile автоматически. Вместо этого, в экспорте (или CI) запусти `pod install` после экспорта проекта.
+- Для компиляции .mm: Добавь свой код в Podspec (local pod), но это overkill. Лучше компилируй вручную в Xcode (п.1), а Pods используй для SDK (linked в .gdip: linked=["Pods/YandexMobileAds"] после pod install).
+
+### Правильная настройка .gdip файла
+Исправленная версия для твоего yandex_ads.gdip (аналогично для VK):
+```
+[config]
+name="YandexAds"  ; Доступно как singleton
+binary="yandex_ads.xcframework"  ; Или .a; путь от res://ios/plugins/yandex_ads/
+initialization="yandex_ads_init"
+deinitialization="yandex_ads_deinit"
+
+[dependencies]
+embedded=["YandexMobileAds.xcframework"]  ; Если SDK pre-built, embed его
+system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework"]
+linker_flags=["-ObjC"]
+```
+- Убрал linked=["YandexMobileAds"] — используй embedded для фреймворков.
+- Нет files=["res://ios/Podfile"] — обрабатывай Pods отдельно в CI.
+
+### Структура кода для регистрации плагина
+- yandex_ads.h: 
+  ```objective-c
+  extern "C" void yandex_ads_init();
+  extern "C" void yandex_ads_deinit();
+  ```
+- yandex_ads.mm: Твой код + #include "yandex_ads.h".
+- Если нужно Godot интеграция: Добавь класс (наследуй от godot::RefCounted), bind_methods для методов.
+
+### Готовые примеры простых iOS плагинов для Godot 4.x
+- https://github.com/cengiz-pz/godot-ios-plugin-template: Шаблон с Xcode + SCons для build .a/.xcframework. Адаптируй для Objective-C++.
+- https://github.com/DrMoriarty/godot_ios_plugin_template: Поддержка Objective-C/Swift, glue с C++ для Godot internals.
+- https://github.com/hrk4649/godot_ios_plugin_iap: Простой IAP плагин с .gdip и pre-built .a.
+- https://github.com/kyoz/godot-haptics: Haptics с нативным кодом.
+- Форумный гайд: https://godotforums.org/d/33835-demoguide-for-implementing-ios-plugins-with-godot-40.
+
+Рекомендация: Начни с компиляции .xcframework в Xcode, обнови .gdip, экспортируй и проверь логи (idevicesyslog). Если init не вызывается — добавь NSLog в начало init и проверь linker errors в Xcode build. Если нужны детали CI workflow, дай знать!

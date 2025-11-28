@@ -55,10 +55,27 @@ jobs:
         echo "✅ Yandex XCFramework downloaded to plugin directory"
         ls -la
 
-    - name: Skip Plugin Compilation (Godot will compile automatically)
+    - name: Compile iOS Plugins
       run: |
-        echo "📝 Godot will compile .mm files automatically during iOS export"
-        echo "✅ Skipping manual compilation step"
+        echo "🔨 Compiling iOS plugins..."
+        cd ios
+        
+        # Make script executable
+        chmod +x build_plugins.sh
+        
+        # Run compilation
+        ./build_plugins.sh
+        
+        echo "✅ Plugins compiled"
+        
+        # Verify xcframeworks were created
+        if [ -d "plugins/yandex_ads/yandex_ads.xcframework" ]; then
+          echo "✅ yandex_ads.xcframework created"
+          ls -la plugins/yandex_ads/yandex_ads.xcframework
+        else
+          echo "❌ yandex_ads.xcframework NOT created"
+          exit 1
+        fi
 
     - name: Install CocoaPods
       run: |

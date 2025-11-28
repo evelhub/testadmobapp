@@ -2,16 +2,23 @@
 #import <UIKit/UIKit.h>
 #import <MyTargetSDK/MyTargetSDK.h>
 
+#ifdef __cplusplus
 extern "C" {
-    // Forward declarations
-    void vk_ads_init();
-    void vk_ads_deinit();
-    void vk_ads_load_banner(int slot_id, bool on_top);
-    void vk_ads_show_banner();
-    void vk_ads_hide_banner();
-    void vk_ads_load_rewarded(int slot_id);
-    void vk_ads_show_rewarded();
+#endif
+
+// Forward declarations
+void vk_ads_init();
+void vk_ads_deinit();
+void vk_ads_load_banner(int slot_id, bool on_top);
+void vk_ads_show_banner();
+void vk_ads_hide_banner();
+void vk_ads_load_rewarded(int slot_id);
+void vk_ads_show_rewarded();
+bool vk_ads_is_initialized();
+
+#ifdef __cplusplus
 }
+#endif
 
 // Global variables
 static MTRGAdView *g_bannerView = nil;
@@ -221,29 +228,39 @@ void vk_ads_show_rewarded() {
     });
 }
 
-// Callback setters
-extern "C" {
-    void vk_ads_set_banner_loaded_callback(BannerLoadedCallback callback) {
-        g_banner_loaded_callback = callback;
-    }
-    
-    void vk_ads_set_banner_failed_callback(BannerFailedCallback callback) {
-        g_banner_failed_callback = callback;
-    }
-    
-    void vk_ads_set_rewarded_loaded_callback(RewardedLoadedCallback callback) {
-        g_rewarded_loaded_callback = callback;
-    }
-    
-    void vk_ads_set_rewarded_failed_callback(RewardedFailedCallback callback) {
-        g_rewarded_failed_callback = callback;
-    }
-    
-    void vk_ads_set_rewarded_earned_callback(RewardedEarnedCallback callback) {
-        g_rewarded_earned_callback = callback;
-    }
-    
-    void vk_ads_set_rewarded_closed_callback(RewardedClosedCallback callback) {
-        g_rewarded_closed_callback = callback;
-    }
+bool vk_ads_is_initialized() {
+    return g_isInitialized;
 }
+
+// Callback setters
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void vk_ads_set_banner_loaded_callback(BannerLoadedCallback callback) {
+    g_banner_loaded_callback = callback;
+}
+
+void vk_ads_set_banner_failed_callback(BannerFailedCallback callback) {
+    g_banner_failed_callback = callback;
+}
+
+void vk_ads_set_rewarded_loaded_callback(RewardedLoadedCallback callback) {
+    g_rewarded_loaded_callback = callback;
+}
+
+void vk_ads_set_rewarded_failed_callback(RewardedFailedCallback callback) {
+    g_rewarded_failed_callback = callback;
+}
+
+void vk_ads_set_rewarded_earned_callback(RewardedEarnedCallback callback) {
+    g_rewarded_earned_callback = callback;
+}
+
+void vk_ads_set_rewarded_closed_callback(RewardedClosedCallback callback) {
+    g_rewarded_closed_callback = callback;
+}
+
+#ifdef __cplusplus
+}
+#endif
