@@ -227,39 +227,45 @@ jobs:
         # Create Frameworks directory in app
         mkdir -p "$APP_PATH/Frameworks"
         
-        # Find Swift libraries - try multiple locations
-        SWIFT_LIBS=""
-        for path in \
-          "/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos" \
-          "/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos" \
-          "$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos" \
-          "$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"; do
-          if [ -d "$path" ] && [ -f "$path/libswiftCore.dylib" ]; then
-            SWIFT_LIBS="$path"
-            break
-          fi
-        done
+        # Use Xcode's built-in script to copy Swift libraries
+        # This is the official way and handles all edge cases
+        echo "📋 Using Xcode tooling to copy Swift standard libraries..."
         
-        if [ -z "$SWIFT_LIBS" ]; then
-          echo "❌ Swift libraries not found, searching..."
-          find /Applications/Xcode_15.4.app -name "libswiftCore.dylib" 2>/dev/null | head -5
+        # Xcode provides a script for this exact purpose
+        SWIFT_STDLIB_TOOL="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-stdlib-tool"
+        
+        if [ ! -f "$SWIFT_STDLIB_TOOL" ]; then
+          echo "❌ swift-stdlib-tool not found"
           exit 1
         fi
         
-        echo "📂 Swift libraries path: $SWIFT_LIBS"
+        # Copy Swift standard libraries using official tool
+        echo "📝 Scanning executable: $APP_PATH/$PROJ_NAME"
         
-        # Copy required Swift libraries
-        echo "📋 Copying Swift runtime libraries..."
-        for lib in libswiftCore.dylib libswiftFoundation.dylib libswiftUIKit.dylib \
-                   libswiftCoreGraphics.dylib libswiftDispatch.dylib libswiftObjectiveC.dylib \
-                   libswift_Concurrency.dylib libswiftCoreFoundation.dylib libswiftDarwin.dylib \
-                   libswiftCompatibility50.dylib libswiftCompatibility51.dylib \
-                   libswiftCompatibilityDynamicReplacements.dylib; do
-          if [ -f "$SWIFT_LIBS/$lib" ]; then
-            cp "$SWIFT_LIBS/$lib" "$APP_PATH/Frameworks/"
-            echo "  ✅ Copied $lib"
-          fi
-        done
+        if "$SWIFT_STDLIB_TOOL" \
+          --copy \
+          --verbose \
+          --scan-executable "$APP_PATH/$PROJ_NAME" \
+          --scan-folder "$APP_PATH/Frameworks" \
+          --platform iphoneos \
+          --destination "$APP_PATH/Frameworks"; then
+          echo "✅ Swift libraries copied using swift-stdlib-tool"
+        else
+          echo "⚠️  swift-stdlib-tool failed, checking if Swift libs already present..."
+        fi
+        
+        echo "📂 Frameworks directory after copy:"
+        ls -lh "$APP_PATH/Frameworks/" | grep swift || echo "No Swift libraries found"
+        
+        # Verify critical library exists
+        if [ ! -f "$APP_PATH/Frameworks/libswiftCore.dylib" ]; then
+          echo "❌ libswiftCore.dylib not found in Frameworks!"
+          echo "📂 Full Frameworks contents:"
+          ls -la "$APP_PATH/Frameworks/"
+          exit 1
+        fi
+        
+        echo "✅ libswiftCore.dylib verified"
         
         echo "✅ Swift libraries copied"
         echo "📂 Frameworks directory:"
