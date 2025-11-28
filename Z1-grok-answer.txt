@@ -1,140 +1,96 @@
-Привет! Я разобрал твою проблему на основе официальной документации Godot 4.4.1 (включая раздел по iOS плагинам), форумов и аналогичных случаев (например, linking errors из-за name mangling в C++/Objective-C++). Кратко: ошибка возникает из-за несоответствия в name mangling. Твоя функция `yandex_ads_init` компилируется с `extern "C"` (C-style имя: `_yandex_ads_init`), но Godot генерирует `dummy.cpp` (C++ файл), где вызов `yandex_ads_init()` ожидает C++-mangled имя (например, `_Z18yandex_ads_initv`), потому что нет declaration с `extern "C"`. Линкер видит C-символ в `.a`, но не может связать с mangled запросом из `dummy.o`. Это классическая проблема interoperability C/C++ (подтверждено в похожих кейсах на Godot форумах и Stack Overflow).
+Привет! Я проанализировал твою проблему на основе официальной документации Apple (Xcode 15.4, iOS SDK 17.5/18.x), GitHub Actions guides и аналогичных кейсов (включая issues по embedding Swift runtime в unsigned builds). Кратко: Ошибка краша на iOS 18.4.1 (swift::fatalError в libswiftCore.dylib) указывает на несовместимый или отсутствующий Swift runtime (вероятно, берётся старая версия из toolchain для iOS 12.2, которая не совместима с iOS 18). Это классическая проблема unsigned builds: Apple не позволяет полноценно embed Swift stdlibs без signing, так как dylibs (типа libswiftCore.dylib) требуют codesign для валидации. Твои попытки (ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES, manual copy, swift-stdlib-tool) берут старые версии, потому что по умолчанию toolchain fallback на минимальную supported iOS (12.x в Xcode 15.4).
 
-Yandex SDK (7.5.0 через CocoaPods) здесь не при чём — проблема чисто в плагине. CocoaPods правильно добавляет SDK (если post_install hook настроен для embedding Swift runtime, как в твоих попытках), но linking падает на твоём символе. Forward declarations OK, но нужен header и пост-процессинг для фикса.
+**Самый простой и надёжный способ в CI без локального Mac**: Перейди на signed IPA с development certificate. Unsigned builds не предназначены для runtime embedding (Apple docs подчёркивают, что для distribution нужен sign). Это работает в GitHub Actions (macos-14 runner), не требует модификации Godot, и совместимо с Yandex SDK 7.5.0 (Swift 5). Static linkage в CocoaPods помогает, но не полностью решает для runtime dylibs — они всё равно требуют embed/sign. Если настаиваешь на unsigned — фикс с swift-stdlib-tool возможен, но хрупкий (см. ниже).
 
-Вот ответы на вопросы с конкретными инструкциями. Это позволит собрать IPA в GitHub Actions (macos-14, Xcode 15.4). Решение работает без модификации Godot engine, фокусируется на CI-workflow (простой патч `dummy.cpp` после экспорта).
+Вот конкретные ответы и инструкции. Всё адаптировано для твоей конфигурации (Godot 4.4.1, Xcode 15.4, iOS 13.0+, macos-14).
 
-### 1. Как правильно экспортировать C функции из Objective-C++ файла для Godot 4.4.1?
-- Да, используй `extern "C"` (как у тебя), чтобы избежать C++ mangling и сделать символы C-compatible (Godot ожидает именно C-символы для init/deinit).
-- Но ключ: Добавь header (.h) с declarations — это позволит линкеру правильно resolve символы. Без .h компилятор в `dummy.cpp` не знает о `extern "C"` и предполагает C++ linkage.
-- Компиляцию оставь как есть (Objective-C++ via clang++), но включи .h в процесс и XCFramework.
+### 1. Где находятся правильные Swift libraries для iOS 17.5/18.4 в Xcode 15.4?
+- **Основной путь к stdlibs**: В Xcode 15.4 Swift runtime libraries (.dylib) для конкретных iOS версий находятся в toolchain: `/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos/` (или swift-5.10 для новых, но в 15.4 — swift-5.0).
+  - Здесь версии для minimal deployment (iOS 12.2+), но для iOS 17.5/18.4 берётся актуальная (back-deployed для compatibility). Нет отдельных .dylib per iOS version — runtime unified, но back-compat modules в `/usr/lib/swift/` внутри SDK.
+- **В iOS SDK**: Stubs (.tbd) в `/Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/swift/` — это link-time stubs, не runtime dylibs. Реальные runtime dylibs копируются из toolchain во время build/archive.
+- **Почему берётся старая версия (iOS 12.2)**: В unsigned build swift-stdlib-tool/manual copy fallback на minimal supported (12.2 в Xcode 15.4 iOS SDK 17.5). Для iOS 18 нужно указывать --minimum-deployment-target или использовать signed build, где embed automatic.
 
-**Инструкции:**
-- Создай `yandex_ads.h` в `ios/plugins/yandex_ads/`:
-  ```objective-c
-  #ifndef YANDEX_ADS_H
-  #define YANDEX_ADS_H
-
-  #ifdef __cplusplus
-  extern "C" {
-  #endif
-
-  void yandex_ads_init();
-  void yandex_ads_deinit();
-
-  #ifdef __cplusplus
-  }
-  #endif
-
-  #endif
-  ```
-- В `yandex_ads.mm` добавь `#include "yandex_ads.h"` в начало (после imports).
-- Обнови `build_plugins.sh` (компиляция + headers в XCFramework):
+### 2. Как правильно копировать Swift libraries для unsigned IPA?
+- **Официальный способ**: Используй `swift-stdlib-tool` с параметрами для target version. Но в unsigned build это не всегда работает идеально (Apple рекомендует sign для embed dylibs). Добавь --minimum-deployment-target=17.0 (или 18.0) и --toolchain для правильного toolchain.
+- **Точная команда в CI (после xcodebuild build, перед packaging в IPA)**:
   ```bash
-  # Компилируем в .o (добавь -I. для local headers, если нужно)
-  xcrun clang++ \
-      -x objective-c++ \
-      -std=c++17 \
-      -arch arm64 \
-      -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
-      -mios-version-min=13.0 \
-      -c yandex_ads.mm \
-      -o yandex_ads_device.o \
-      -fobjc-arc
-
-  # Создаём статическую библиотеку
-  ar rcs libyandex_ads_device.a yandex_ads_device.o
-
-  # Создаём headers директорию (копируем .h)
-  mkdir -p headers
-  cp yandex_ads.h headers/
-
-  # Создаём XCFramework с headers (для public access в XCode)
-  xcodebuild -create-xcframework \
-      -library libyandex_ads_device.a \
-      -headers headers \
-      -output yandex_ads.xcframework
+  APP_PATH="path/to/your.app"  # Путь к .app в build/Release-iphoneos/
+  SWIFT_TOOLCHAIN="/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain"
+  
+  swift-stdlib-tool \
+    --copy \
+    --scan-executable "$APP_PATH/ios_xcode" \
+    --scan-folder "$APP_PATH/Frameworks" \
+    --platform iphoneos \
+    --toolchain "$SWIFT_TOOLCHAIN" \
+    --minimum-deployment-target 17.0 \  # Или 18.0 для compatibility
+    --destination "$APP_PATH/Frameworks"
   ```
-- Для симулятора: Повтори с `-sdk iphonesimulator -arch arm64` (или x86_64), создай отдельную .a, затем объедини в XCFramework с несколькими -library.
-
-Это сделает символы видимыми как C (без mangling), и headers позволят XCode/Godot знать о них.
-
-### 2. Нужен ли header файл (.h) с объявлениями для .gdip?
-- Да, обязателен для правильной линковки в Godot 4.4.1. `.gdip` не обрабатывает declarations — он только указывает на binary и имена функций. Без .h в XCFramework компилятор в generated коде (dummy.cpp) не видит `extern "C"`, что приводит к mangling mismatch.
-- Включи .h как выше (в headers при create-xcframework). Godot/XCode автоматически добавит -F для фреймворка, но для вызова в dummy.cpp всё равно нужен патч (см. ниже), так как Godot не генерирует #include автоматически.
-
-Обнови `.gdip` (добавь зависимости для Yandex, если не через CocoaPods):
-```ini
-[config]
-name="YandexAds"
-binary="yandex_ads.xcframework"
-initialization="yandex_ads_init"
-deinitialization="yandex_ads_deinit"
-
-[dependencies]
-embedded=[]
-system=["UIKit.framework", "Foundation.framework"]
-linker_flags=["-ObjC"]
-```
-
-### 3. Может ли проблема быть в том, что Godot генерирует dummy.cpp который не знает про extern "C"?
-- Да, именно это! Godot 4.4.1 генерирует `dummy.cpp` (или аналогичный файл, как `GodotPluginDummy.cpp` в экспортированном проекте) с вызовами init/deinit как обычными C++ функциями, без `extern "C"` или #include твоего .h. Компилятор предполагает C++ linkage (mangling), но твоя .a имеет C-символы. Результат: linker error.
-- Это известная проблема в Godot iOS plugins (форумы упоминают подобное для 4.x; docs помечены как WIP и не детализируют фикс).
-
-### 4. Как заставить Godot генерировать правильные объявления в dummy.cpp?
-- Godot не позволяет кастомизировать generated код напрямую (это internal). Workaround: Пост-процессинг `dummy.cpp` в GitHub Actions после экспорта проекта. Добавь `extern "C"` declarations перед вызовами — это заставит компилятор использовать C linkage.
-- Альтернатива: Перейди на GDExtension (рекомендуется в Godot 4+, но для iOS требует recompilation engine с scons). Или используй полный Xcode проект для плагина вместо command line (с public headers).
-
-**Инструкции для патча в GitHub Actions (.yml):**
-- После шага экспорта Godot (предполагаю, генерируешь `ios_xcode.xcodeproj` в `path/to/exported/`):
-  ```yaml
-  - name: Patch dummy.cpp for extern "C"
-    run: |
-      DUMMY_FILE=$(find path/to/exported -name "*dummy.cpp" | head -1)  # Найди dummy.cpp (обычно src/dummy.cpp или src/godot_ios_plugins.cpp)
-      if [ -f "$DUMMY_FILE" ]; then
-        sed -i '' '/void godot_ios_plugins_initialize()/i \
-        extern "C" void yandex_ads_init();\
-        extern "C" void yandex_ads_deinit();\
-        ' "$DUMMY_FILE"
-        echo "Patched $DUMMY_FILE"
-      else
-        echo "dummy.cpp not found!"
-        exit 1
-      fi
-  ```
-- Затем продолжай с `pod install` (для Yandex SDK) и `xcodebuild`:
+  - Это скопирует актуальные .dylib (из swift-5.0 для iOS 17+). Затем codesign stubs (но для unsigned — пропусти или используй ldid для fake sign, но это неофициально и рискованно для CI).
+- **Другой способ**: Manual copy из правильного пути:
   ```bash
-  # ... (pod install если используешь CocoaPods)
-  xcodebuild -workspace ios_xcode.xcworkspace \
-      -scheme ios_xcode \
-      -configuration Release \
-      -sdk iphoneos \
-      build
+  SWIFT_LIBS="/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos"
+  cp -r "$SWIFT_LIBS"/*.dylib "$APP_PATH/Frameworks/"
   ```
-- Если используешь CocoaPods: В post_install hook (в Podfile) добавь:
+  - Но добавь strip для версии: `lipo -thin arm64 -output libswiftCore.dylib libswiftCore.dylib` (для arm64 only).
+- **Проблема**: Без signing dylibs не валидируются на iOS 18.4 (fatalError). Лучше signed.
+
+### 3. Альтернативные подходы
+- **Signed IPA с development certificate в GitHub Actions** (рекомендую — это идеальное решение для CI):
+  - Да, возможно без локального Mac: Загрузи cert и provisioning profile как secrets. GitHub docs описывают процесс.
+  - **Шаги**:
+    1. На локальном Mac (один раз): Создай development cert в Keychain (Certificates > Request from CA), экспортируй .p12 (с password). Создай provisioning profile (developer.apple.com > Profiles > Development) для твоего app ID и devices.
+    2. В repo settings > Secrets: Добавь APPLE_CERT_P12_BASE64 (base64-encoded .p12), APPLE_CERT_PASSWORD, PROVISIONING_PROFILE_BASE64 (base64-encoded .mobileprovision).
+    3. В .yml workflow (macos-14):
+       ```yaml
+       - name: Import Apple Certificate
+         env:
+           CERT_P12_BASE64: ${{ secrets.APPLE_CERT_P12_BASE64 }}
+           CERT_PASSWORD: ${{ secrets.APPLE_CERT_PASSWORD }}
+           PROVISIONING_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
+         run: |
+           echo "$CERT_P12_BASE64" | base64 --decode > certificate.p12
+           security create-keychain -p pwd ~/Library/Keychains/temp.keychain
+           security default-keychain -s ~/Library/Keychains/temp.keychain
+           security unlock-keychain -p pwd ~/Library/Keychains/temp.keychain
+           security import certificate.p12 -k ~/Library/Keychains/temp.keychain -P "$CERT_PASSWORD" -T /usr/bin/codesign
+           echo "$PROVISIONING_BASE64" | base64 --decode > profile.mobileprovision
+           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+           cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+       
+       - name: Build and Archive
+         run: |
+           xcodebuild -workspace ios_xcode.xcworkspace \
+             -scheme ios_xcode \
+             -configuration Release \
+             -sdk iphoneos \
+             -archivePath build/YourApp.xcarchive \
+             archive \
+             CODE_SIGN_IDENTITY="iPhone Developer" \  # Или твой cert name
+             PROVISIONING_PROFILE_SPECIFIER="YourProfileName" \  # Из .mobileprovision
+             ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES  # Теперь работает с sign
+       
+       - name: Export IPA
+         run: |
+           xcodebuild -exportArchive \
+             -archivePath build/YourApp.xcarchive \
+             -exportPath build/YourApp.ipa \
+             -exportOptionsPlist ExportOptions.plist  # Plist с method=development, compileBitcode=NO
+       ```
+    - Это embed Swift runtime автоматически (для iOS 17.5/18.4). Установи на iPhone через Sideloadly (с тем же cert).
+- **Заставить CocoaPods embed правильно**: В Podfile используй `use_frameworks! :linkage => :static` — это statically links Swift code, минимизируя runtime dylibs. Но для Yandex SDK (mixed) некоторые dylibs остаются — добавь в post_install:
   ```ruby
-  post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      if target.name == 'Pods-ios_xcode'
-        target.build_configurations.each do |config|
-          config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
-          config.build_settings['OTHER_LDFLAGS'] ||= ['-ObjC']
-        end
-      end
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
+      config.build_settings['SWIFT_VERSION'] = '5.0'  # Для Yandex 7.5.0
     end
   end
   ```
-  Это обеспечит embedding Swift runtime для Yandex 7.5.0 (mixed Obj-C/Swift).
+  - Затем pod install в CI. Но для unsigned — всё равно нужен sign для dylibs.
+- **Сборка локально на Mac и использование в CI**: Не нужно — CI на macos-14 эквивалентен локальному Mac. Если для теста: Собери локально signed, upload artifact в CI для дальнейших шагов.
 
-### Ожидаемое решение: Полная последовательность
-1. **Подготовь файлы**: Добавь `yandex_ads.h`, обнови `yandex_ads.mm` и `build_plugins.sh` (как выше). Commit в repo.
-2. **В CI**: 
-   - Build плагин (`build_plugins.sh`).
-   - Экспорт Godot: `godot --export-release "iOS" path/to/exported.xcodeproj --headless`.
-   - Патч `dummy.cpp` (как выше).
-   - `pod install` (если Yandex через Pods).
-   - `xcodebuild build` (как у тебя).
-3. **Тест**: Собери IPA, установи на iPhone (Sideloadly). В логах (idevicesyslog) ищи "SDK initialized". Если OK — плагин инициализирован, символы найдены.
-4. **Если error persists**: Проверь nm libyandex_ads_device.a | grep yandex_ads_init — должен показать _yandex_ads_init (C-style). Если mangled — удали extern "C" из реализации (но оставь в declarations).
+### 4. Почему CocoaPods не embeds Swift libraries автоматически?
+- С `use_frameworks! :linkage => :static` CocoaPods statically links pod code (включая Swift), но Swift runtime (core dylibs) — это system-level, не pod-specific. Он embeds только если ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES и build signed (codesign required для dylib validation). Для Yandex (Swift 5) runtime не fully static — остаются dynamic parts для compatibility. Static linkage уменьшает размер, но не устраняет runtime embed.
 
-Это решит за 30-60 мин (тест в CI). Если нужны детали Podfile или полный .yml — кинь. Удачи!
+**Рекомендация**: Начни с signed IPA (п.3) — это решит краш на iOS 18.4.1 (runtime embedded correctly). Если unsigned критичен — используй обновлённый swift-stdlib-tool + ldid для fake sign dylibs (но нестабильно). Если ошибки в CI — кинь логи, уточню.

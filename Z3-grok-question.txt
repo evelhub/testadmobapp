@@ -1,147 +1,87 @@
-# Вопрос для Grok: Проблема линковки iOS плагина в Godot 4.4.1
+# Вопрос для Grok: Unsigned iOS IPA с Swift libraries для iOS 18.4
 
 ## Контекст
-Разрабатываем iOS native plugin для Godot 4.4.1 для интеграции Yandex Mobile Ads SDK.
-
-## Структура проекта
-```
-ios/plugins/yandex_ads/
-├── yandex_ads.mm          # C bridge с extern "C"
-├── yandex_ads.gdip        # Godot plugin descriptor
-└── yandex_ads.xcframework # Скомпилированный плагин
-```
+Собираем unsigned IPA в GitHub Actions (Xcode 15.4, macos-14) для Godot 4.4.1 с Yandex Mobile Ads SDK 7.5.0 (Swift).
 
 ## Проблема
-При финальной сборке IPA в GitHub Actions получаем ошибку линковки:
-
+Приложение крашится на iPhone iOS 18.4.1 с ошибкой:
 ```
-Undefined symbols for architecture arm64:
-  "yandex_ads_init()", referenced from:
-      godot_ios_plugins_initialize() in dummy.o
-   NOTE: found '_yandex_ads_init' in libyandex_ads_device.a[2](yandex_ads_device.o), 
-   declaration possibly missing 'extern "C"'
+swift::fatalError -> checkVersion() -> abort()
+libswiftCore.dylib UUID: ad0cad3b-1b51-3327-8644-8be1ff1f0ae9
 ```
 
-## Что мы делаем
+Это означает что Swift library несовместима с iOS 18.4.
 
-### 1. yandex_ads.mm (C bridge)
-```objc
-#import <Foundation/Foundation.h>
+## Что пробовали
 
-// Forward declarations (SDK не импортируется)
-@class YMABannerView;
-@interface YMAMobileAds : NSObject
-+ (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
-@end
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void yandex_ads_init();
-void yandex_ads_deinit();
-
-#ifdef __cplusplus
-}
-#endif
-
-void yandex_ads_init() {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [YMAMobileAds initializeSDKWithCompletionHandler:^{
-            NSLog(@"SDK initialized");
-        }];
-    });
-}
-
-void yandex_ads_deinit() {
-    // cleanup
-}
+### Попытка 1: ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES
+```ruby
+# Podfile post_install
+config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
 ```
+**Результат:** Не работает при `CODE_SIGNING_ALLOWED=NO` (unsigned build)
 
-### 2. yandex_ads.gdip
-```ini
-[config]
-name="YandexAds"
-binary="yandex_ads.xcframework"
-initialization="yandex_ads_init"
-deinitialization="yandex_ads_deinit"
-
-[dependencies]
-embedded=[]
-system=["UIKit.framework", "Foundation.framework"]
-linker_flags=["-ObjC"]
-```
-
-### 3. Компиляция плагина (build_plugins.sh)
+### Попытка 2: Ручное копирование из toolchain
 ```bash
-# Компилируем в .o файл
-xcrun clang++ \
-    -x objective-c++ \
-    -std=c++17 \
-    -arch arm64 \
-    -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
-    -mios-version-min=13.0 \
-    -c yandex_ads.mm \
-    -o yandex_ads_device.o \
-    -fobjc-arc
-
-# Создаём статическую библиотеку
-ar rcs libyandex_ads_device.a yandex_ads_device.o
-
-# Создаём XCFramework
-xcodebuild -create-xcframework \
-    -library libyandex_ads_device.a \
-    -output yandex_ads.xcframework
+SWIFT_LIBS="/Applications/Xcode_15.4.app/.../usr/lib/swift-5.0/iphoneos"
+cp "$SWIFT_LIBS/libswiftCore.dylib" "$APP_PATH/Frameworks/"
 ```
+**Результат:** Скопировались старые библиотеки для iOS 12.2
 
-### 4. Godot экспорт
-Godot экспортирует проект и создаёт `dummy.cpp`:
-```cpp
-// Godot генерирует это автоматически
-void godot_ios_plugins_initialize() {
-    yandex_ads_init();  // Вызов как C++ функции
-}
-
-void godot_ios_plugins_deinitialize() {
-    yandex_ads_deinit();
-}
+### Попытка 3: swift-stdlib-tool
+```bash
+swift-stdlib-tool \
+  --copy \
+  --scan-executable "$APP_PATH/ios_xcode" \
+  --scan-folder "$APP_PATH/Frameworks" \
+  --platform iphoneos \
+  --destination "$APP_PATH/Frameworks"
 ```
+**Результат:** Та же ошибка - старые библиотеки
 
-### 5. Финальная сборка (xcodebuild)
+## Build configuration
 ```bash
 xcodebuild -workspace ios_xcode.xcworkspace \
-    -scheme ios_xcode \
-    -configuration Release \
-    -sdk iphoneos \
-    build
+  -scheme ios_xcode \
+  -configuration Release \
+  -sdk iphoneos \
+  CODE_SIGN_IDENTITY="" \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGNING_ALLOWED=NO \
+  build
 ```
 
-## Ошибка
-Линкер находит `_yandex_ads_init` (C symbol) в `.a` файле, но `dummy.o` ищет `yandex_ads_init()` (C++ mangled symbol).
-
-## Что мы пробовали
-1. ✅ Использовали `extern "C"` в yandex_ads.mm
-2. ✅ Forward declarations вместо импорта SDK
-3. ✅ CocoaPods для установки Yandex SDK 7.5.0
-4. ✅ post_install hook для линковки frameworks
-5. ❌ Но линкер всё равно не находит символы
-
 ## Вопросы
-1. Как правильно экспортировать C функции из Objective-C++ файла для Godot 4.4.1?
-2. Нужен ли header файл (.h) с объявлениями для .gdip?
-3. Может ли проблема быть в том, что Godot генерирует dummy.cpp который не знает про extern "C"?
-4. Как заставить Godot генерировать правильные объявления в dummy.cpp?
+
+1. **Где находятся правильные Swift libraries для iOS 17.5/18.4 в Xcode 15.4?**
+   - Не в toolchain (там старые для iOS 12.2)
+   - Не в iOS SDK (там только .tbd stubs)
+   - Где реальные dylib для текущей iOS версии?
+
+2. **Как правильно копировать Swift libraries для unsigned IPA?**
+   - `swift-stdlib-tool` копирует старые версии
+   - Есть ли другой официальный способ?
+   - Может нужны дополнительные параметры для `swift-stdlib-tool`?
+
+3. **Альтернативные подходы:**
+   - Можно ли использовать signed IPA с development certificate в GitHub Actions?
+   - Можно ли заставить CocoaPods embedded Swift libraries правильно?
+   - Есть ли способ собрать IPA локально на Mac и использовать в CI?
+
+4. **Почему CocoaPods не embedded Swift libraries автоматически?**
+   - Используем `use_frameworks! :linkage => :static`
+   - Yandex SDK требует Swift
+   - Почему static linkage не включает Swift runtime?
+
+## Цель
+Получить работающий unsigned IPA с правильными Swift libraries для iOS 18.4, собранный в GitHub Actions.
 
 ## Дополнительная информация
+- Xcode 15.4 (Build 15F31d)
+- iOS SDK 17.5
+- iPhone iOS 18.4.1
 - Godot 4.4.1
-- Xcode 15.4
-- iOS 13.0+
-- GitHub Actions (macos-14)
-- Yandex Mobile Ads SDK 7.5.0 (через CocoaPods)
+- Yandex Mobile Ads 7.5.0 (Swift 5)
+- GitHub Actions runner: macos-14
 
-## Ожидаемое решение
-Нужно чтобы:
-1. Плагин скомпилировался в .xcframework
-2. Godot правильно вызвал функции инициализации
-3. Линкер нашёл все символы при финальной сборке
-4. IPA собралась успешно
+Нужно конкретное решение которое работает в CI/CD без локального Mac.

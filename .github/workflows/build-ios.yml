@@ -242,12 +242,16 @@ jobs:
         # Copy Swift standard libraries using official tool
         echo "📝 Scanning executable: $APP_PATH/$PROJ_NAME"
         
+        SWIFT_TOOLCHAIN="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain"
+        
         if "$SWIFT_STDLIB_TOOL" \
           --copy \
           --verbose \
           --scan-executable "$APP_PATH/$PROJ_NAME" \
           --scan-folder "$APP_PATH/Frameworks" \
           --platform iphoneos \
+          --toolchain "$SWIFT_TOOLCHAIN" \
+          --minimum-deployment-target 17.0 \
           --destination "$APP_PATH/Frameworks"; then
           echo "✅ Swift libraries copied using swift-stdlib-tool"
         else
