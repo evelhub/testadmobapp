@@ -96,16 +96,15 @@ jobs:
           echo "📂 Framework dir: $FRAMEWORK_DIR"
           echo "📂 XCFramework dir: $XCFRAMEWORK_DIR"
           
-          # Use -F with parent directory of XCFramework (Grok's solution)
-          PARENT_DIR=$(dirname "$FRAMEWORK_PATH")
-          echo "📂 Parent dir for -F: $PARENT_DIR"
+          # Use -F. to point to current directory where XCFramework is located
+          echo "📂 Using -F. (current directory contains XCFramework)"
           
           xcrun clang -x objective-c++ \
             -arch arm64 \
             -fobjc-arc \
             -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
             -miphoneos-version-min=13.0 \
-            -F"$PARENT_DIR" \
+            -F. \
             -c yandex_ads.mm -o yandex_ads.o
           
           # Create static library
