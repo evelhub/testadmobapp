@@ -1,4 +1,44 @@
- cd /Users/runner/work/testadmobapp/testadmobapp/build
+   cd /Users/runner/work/testadmobapp/testadmobapp/build
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-non-framework-target-headers.hmap
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/all-product-headers.yaml (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/all-product-headers.yaml
+Libtool /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Pods_ios_xcode normal (in target 'Pods-ios_xcode' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only arm64 -D -syslibroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk/usr/lib/swift -filelist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods_ios_xcode.LinkFileList -framework Foundation -dependency_info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/Pods-ios_xcode.build/Objects-normal/arm64/Pods_ios_xcode_libtool_dependency_info.dat 
+CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework (in target 'Pods-ios_xcode' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Pods_ios_xcode --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Frameworks --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/PlugIns --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/SystemExtensions --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Extensions --scan-folder /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework --platform iphoneos --toolchain /Applications/Xcode_15.4.app/Contents/Deve
+Failed to scan executable: /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework/Pods_ios_xcode
+Ignoring --strip-bitcode because --sign was not passed
+Exiting early, found no Swift version in executables.
+RegisterExecutionPolicyException /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework (in target 'Pods-ios_xcode' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-RegisterExecutionPolicyException /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework
+Touch /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework (in target 'Pods-ios_xcode' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /usr/bin/touch -c /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/Pods_ios_xcode.framework
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-8F1F13196D5771724E0CA2B6.sh (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-8F1F13196D5771724E0CA2B6.sh
+PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-8F1F13196D5771724E0CA2B6.sh (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    /bin/sh -c /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Script-8F1F13196D5771724E0CA2B6.sh
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/ios_xcode.LinkFileList (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/ios_xcode.LinkFileList
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/82b82416624d2658e5098eb0a28c15c5-common-args.resp (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/82b82416624d2658e5098eb0a28c15c5-common-args.resp
+-target arm64-apple-ios13.0 '-std=gnu++11' '-stdlib=libc++' -fmodules -gmodules '-fmodules-cache-path=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex' -fpascal-strings -Os '-DCOCOAPODS=1' -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -g '-fvisibility=hidden' -fvisibility-inlines-hidden -iquote /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-generated-files.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-own-target-headers.hmap -I/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/ios_xcode-all-non-framework-target-headers.hmap -ivfsoverlay /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Int
+GenerateAssetSymbols /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --platform iphoneos --compile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets --bundle-identifier com.example.game --generate-objc-asset-symbols /Users/runner/work/testadmobapp/testadmobapp/build/Deri
+/* com.apple.actool.compilation-results */
+/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/DerivedSources/GeneratedAssetSymbols.h
+CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode.pck /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.pck (in target 'ios_xcode' from project 'ios_xcode')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
     builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode.pck /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app
 CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/PrivacyInfo.xcprivacy (in target 'ios_xcode' from project 'ios_xcode')
     cd /Users/runner/work/testadmobapp/testadmobapp/build
@@ -13,66 +53,18 @@ CompileStoryboard /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/L
 CompileAssetCatalog /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets (in target 'ios_xcode' from project 'ios_xcode')
     cd /Users/runner/work/testadmobapp/testadmobapp/build
     /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --platform iphoneos --compile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/Images.xcassets
-/* com.apple.actool.compilation-results */
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/AppIcon60x60@2x.png
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/AppIcon76x76@2x~ipad.png
-/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Assets.car
 CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/dummy.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler (in target 'ios_xcode' from project 'ios_xcode')
     cd /Users/runner/work/testadmobapp/testadmobapp/build
     /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -ivfsstatcache /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/SDKStatCaches.noindex/iphoneos17.5-21F77-f0fa7969d082b13145125136a829df3a.sdkstatcache -fmessage-length\=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit\=0 -fno-color-diagnostics -fmodules-prune-interval\=86400 -fmodules-prune-after\=345600 -fbuild-session-file\=/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror\=non-modular-include-in-framework-module -Wno-trigraphs -Wno-missing-field-initializers -Wno-missing-prototypes -Werror\=return-type -Werror\=deprecated-objc-isa-usage -Werror\=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-p
-Ld /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode normal (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -Xlinker -reproducible -target arm64-apple-ios13.0 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk -Os -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -L/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk/usr/lib/swift -L. -LDerivedData -LMoltenVK.xcframework -LPods -Lios_xcode -Lios_xcode.xcframework -Lios_xcode.xcworkspace -LDerivedData/Build -LDerivedData/Logs -LMoltenVK.xcframework/ios-arm64 -LMoltenVK.xcframework/ios-arm64_x86_64-maccatalyst -LMoltenVK.xcframework/ios-arm64_x86_64-simulator -LPods/A
+/Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/dummy.cpp:48:8: error: expected unqualified-id
+extern "C" void yandex_ads_init();
+       ^
+/Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/dummy.cpp:49:8: error: expected unqualified-id
 ** BUILD FAILED **
+extern "C" void yandex_ads_deinit();
+       ^
+2 errors generated.
 The following build commands failed:
-	Ld /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/ios_xcode normal (in target 'ios_xcode' from project 'ios_xcode')
+	CompileC /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Objects-normal/arm64/dummy.o /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/dummy.cpp normal arm64 c++ com.apple.compilers.llvm.clang.1_0.compiler (in target 'ios_xcode' from project 'ios_xcode')
 (1 failure)
-ld: warning: ignoring duplicate libraries: '-lc++'
-ld: warning: Could not find or use auto-linked framework 'AudioUnit': framework 'AudioUnit' not found
-ld: warning: Could not find or use auto-linked framework 'CoreAudioTypes': framework 'CoreAudioTypes' not found
-ld: warning: Could not find or use auto-linked framework 'MACAVPlayer': framework 'MACAVPlayer' not found
-ld: warning: Could not find or use auto-linked framework 'MACAdsQuality': framework 'MACAdsQuality' not found
-ld: warning: Could not find or use auto-linked framework 'MACAnalytics': framework 'MACAnalytics' not found
-ld: warning: Could not find or use auto-linked framework 'MACBase': framework 'MACBase' not found
-ld: warning: Could not find or use auto-linked framework 'MACBaseUI': framework 'MACBaseUI' not found
-ld: warning: Could not find or use auto-linked framework 'MACCAChallengeHandler': framework 'MACCAChallengeHandler' not found
-ld: warning: Could not find or use auto-linked framework 'MACClientBidding': framework 'MACClientBidding' not found
-ld: warning: Could not find or use auto-linked framework 'MACConsent': framework 'MACConsent' not found
-ld: warning: Could not find or use auto-linked framework 'MACConstants': framework 'MACConstants' not found
-ld: warning: Could not find or use auto-linked framework 'MACCrashlytics': framework 'MACCrashlytics' not found
-ld: warning: Could not find or use auto-linked framework 'MACDebugPanel': framework 'MACDebugPanel' not found
-ld: warning: Could not find or use auto-linked framework 'MACDependenciesUmbrella': framework 'MACDependenciesUmbrella' not found
-ld: warning: Could not find or use auto-linked framework 'MACDivKit': framework 'MACDivKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACEncryption': framework 'MACEncryption' not found
-ld: warning: Could not find or use auto-linked framework 'MACEventTracking': framework 'MACEventTracking' not found
-ld: warning: Could not find or use auto-linked framework 'MACFalseClickKit': framework 'MACFalseClickKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACHeaderBidding': framework 'MACHeaderBidding' not found
-ld: warning: Could not find or use auto-linked framework 'MACLogging': framework 'MACLogging' not found
-ld: warning: Could not find or use auto-linked framework 'MACMediation': framework 'MACMediation' not found
-ld: warning: Could not find or use auto-linked framework 'MACMraid': framework 'MACMraid' not found
-ld: warning: Could not find or use auto-linked framework 'MACNative': framework 'MACNative' not found
-ld: warning: Could not find or use auto-linked framework 'MACNetworking': framework 'MACNetworking' not found
-ld: warning: Could not find or use auto-linked framework 'MACPlatformDescription': framework 'MACPlatformDescription' not found
-ld: warning: Could not find or use auto-linked framework 'MACSDKConfiguration': framework 'MACSDKConfiguration' not found
-ld: warning: Could not find or use auto-linked framework 'MACStoreKit': framework 'MACStoreKit' not found
-ld: warning: Could not find or use auto-linked framework 'MACTimeTracking': framework 'MACTimeTracking' not found
-ld: warning: Could not find or use auto-linked framework 'MACVASTKit': framework 'MACVASTKit' not found
-ld: warning: Could not find or use auto-linked framework 'MobileAdsCore': framework 'MobileAdsCore' not found
-ld: warning: Could not find or use auto-linked framework 'YandexMobileAds_Private': framework 'YandexMobileAds_Private' not found
-Undefined symbols for architecture arm64:
-  "yandex_ads_init()", referenced from:
-      godot_ios_plugins_initialize() in dummy.o
-   NOTE: found '_yandex_ads_init' in libyandex_ads_device.a[2](yandex_ads_device.o), declaration possibly missing 'extern "C"'
-  "yandex_ads_deinit()", referenced from:
-      godot_ios_plugins_deinitialize() in dummy.o
-   NOTE: found '_yandex_ads_deinit' in libyandex_ads_device.a[2](yandex_ads_device.o), declaration possibly missing 'extern "C"'
-ld: symbol(s) not found for architecture arm64
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-LinkStoryboards (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --module ios_xcode --target-device iphone --target-device ipad --minimum-deployment-target 13.0 --output-format human-readable-text --link /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Launch\ Screen.storyboardc
-ProcessInfoPlistFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Info.plist /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/ios_xcode-Info.plist (in target 'ios_xcode' from project 'ios_xcode')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build
-    builtin-infoPlistUtility /Users/runner/work/testadmobapp/testadmobapp/build/ios_xcode/ios_xcode-Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -additionalcontentfile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/Launch\ Screen-SBPartialInfo.plist -additionalcontentfile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/ios_xcode.build/Release-iphoneos/ios_xcode.build/assetcatalog_generated_info.plist -requiredArchitecture arm64 -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Info.plist
 Error: Process completed with exit code 65.
