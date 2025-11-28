@@ -110,10 +110,10 @@ build_plugin() {
 }
 
 # Build Yandex Ads plugin
-if [ -f "$PLUGINS_DIR/yandex_ads/YandexAdsPlugin.mm" ]; then
-    build_plugin "yandex_ads" "YandexAdsPlugin.mm"
+if [ -f "$PLUGINS_DIR/yandex_ads/yandex_ads.mm" ]; then
+    build_plugin "yandex_ads" "yandex_ads.mm"
 else
-    echo -e "${RED}❌ YandexAdsPlugin.mm not found${NC}"
+    echo -e "${RED}❌ yandex_ads.mm not found${NC}"
     exit 1
 fi
 

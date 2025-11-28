@@ -30,7 +30,26 @@ Undefined symbols for architecture arm64:
 
 ### 1. ios/Podfile.template
 ```ruby
+# Версия SDK
 pod 'YandexMobileAds', '7.5.0'  # Было: '~> 7.17.1'
+
+# Добавлен post_install hook для линковки frameworks
+post_install do |installer|
+  # ... existing code ...
+  
+  # Add Yandex frameworks to main app target
+  installer.aggregate_targets.each do |aggregate_target|
+    aggregate_target.user_project.targets.each do |target|
+      if target.name == 'PROJECT_NAME_PLACEHOLDER'
+        target.build_configurations.each do |config|
+          config.build_settings['OTHER_LDFLAGS'] ||= ['$(inherited)']
+          config.build_settings['OTHER_LDFLAGS'] << '-framework YandexMobileAds'
+          # ... other frameworks
+        end
+      end
+    end
+  end
+end
 ```
 
 ### 2. ios/plugins/yandex_ads/yandex_ads.mm
@@ -45,6 +64,15 @@ pod 'YandexMobileAds', '7.5.0'  # Было: '~> 7.17.1'
 + (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
 @end
 // ... и т.д.
+```
+
+### 3. ios/build_plugins.sh
+```bash
+# Было:
+build_plugin "yandex_ads" "YandexAdsPlugin.mm"
+
+# Стало:
+build_plugin "yandex_ads" "yandex_ads.mm"
 ```
 
 ## Как это работает

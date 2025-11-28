@@ -33,4 +33,27 @@ post_install do |installer|
       end
     end
   end
+  
+  # Add Yandex frameworks to main app target
+  installer.aggregate_targets.each do |aggregate_target|
+    aggregate_target.user_project.targets.each do |target|
+      # Only modify the main app target (not Pods targets)
+      if target.name == 'PROJECT_NAME_PLACEHOLDER'
+        target.build_configurations.each do |config|
+          # Add framework search paths
+          config.build_settings['FRAMEWORK_SEARCH_PATHS'] ||= ['$(inherited)']
+          config.build_settings['FRAMEWORK_SEARCH_PATHS'] << '$(PROJECT_DIR)/Pods/YandexMobileAds/static'
+          config.build_settings['FRAMEWORK_SEARCH_PATHS'] << '$(BUILT_PRODUCTS_DIR)'
+          
+          # Add linker flags for Yandex frameworks
+          config.build_settings['OTHER_LDFLAGS'] ||= ['$(inherited)']
+          config.build_settings['OTHER_LDFLAGS'] << '-framework YandexMobileAds'
+          config.build_settings['OTHER_LDFLAGS'] << '-framework AppMetricaCore'
+          config.build_settings['OTHER_LDFLAGS'] << '-framework VGSLFundamentals'
+          config.build_settings['OTHER_LDFLAGS'] << '-framework VGSL'
+          config.build_settings['OTHER_LDFLAGS'] << '-framework DivKit'
+        end
+      end
+    end
+  end
 end
