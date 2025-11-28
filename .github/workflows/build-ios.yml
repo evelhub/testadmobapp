@@ -113,8 +113,17 @@ jobs:
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         echo "📝 Project name: $PROJ_NAME"
         
-        # Copy Podfile template and replace project name
-        cp ../../ios/Podfile.template ./Podfile
+        # Copy Podfile template from workspace root
+        WORKSPACE_ROOT="${GITHUB_WORKSPACE}"
+        echo "📂 Workspace root: $WORKSPACE_ROOT"
+        
+        if [ ! -f "$WORKSPACE_ROOT/ios/Podfile.template" ]; then
+          echo "❌ Podfile.template not found at $WORKSPACE_ROOT/ios/Podfile.template"
+          ls -la "$WORKSPACE_ROOT/ios/"
+          exit 1
+        fi
+        
+        cp "$WORKSPACE_ROOT/ios/Podfile.template" ./Podfile
         sed -i '' "s/PROJECT_NAME_PLACEHOLDER/$PROJ_NAME/g" Podfile
         
         echo "📄 Podfile content:"
