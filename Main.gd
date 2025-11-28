@@ -132,11 +132,14 @@ func _init_ios_ads():
 
 func _init_yandex_ios():
 	print("🟡 Initializing Yandex Ads (iOS)...")
+	update_status("Loading Yandex iOS class...")
 	
 	var YandexAdsIOSClass = load("res://addons/yandex_ads_ios/yandex_ads_ios.gd")
 	if YandexAdsIOSClass:
+		update_status("Yandex class loaded! Creating instance...")
 		yandex_ads = YandexAdsIOSClass.new()
 		add_child(yandex_ads)
+		update_status("Yandex instance created!")
 		
 		# Set test IDs
 		yandex_ads.banner_id = "demo-banner-yandex"
@@ -151,15 +154,19 @@ func _init_yandex_ios():
 		yandex_ads.rewarded.connect(_on_yandex_rewarded_earned)
 		
 		# Load banners
+		update_status("Loading Yandex banner...")
 		yandex_ads.load_banner()
 		yandex_ads.show_banner()
 		
 		# Load rewarded
+		update_status("Loading Yandex rewarded...")
 		yandex_ads.load_rewarded_video()
 		
 		print("✅ Yandex Ads (iOS) initialized")
+		update_status("✅ Yandex iOS ready!")
 	else:
 		print("❌ Yandex iOS class not found")
+		update_status("❌ Yandex class NOT FOUND!")
 		yandex_button.disabled = true
 
 func _init_vk_ios():
