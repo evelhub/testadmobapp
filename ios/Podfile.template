@@ -40,6 +40,9 @@ post_install do |installer|
       # Only modify the main app target (not Pods targets)
       if target.name == 'PROJECT_NAME_PLACEHOLDER'
         target.build_configurations.each do |config|
+          # CRITICAL: Embed Swift standard libraries
+          config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
+          
           # Add framework search paths
           config.build_settings['FRAMEWORK_SEARCH_PATHS'] ||= ['$(inherited)']
           config.build_settings['FRAMEWORK_SEARCH_PATHS'] << '$(PROJECT_DIR)/Pods/YandexMobileAds/static'

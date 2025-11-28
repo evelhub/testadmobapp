@@ -96,21 +96,28 @@ xcodebuild -create-xcframework \
 6. ❌ post_install hook → всё равно не линкуется
 7. ❌ Текущая проблема → extern "C" vs C++ linkage
 
-## 🔧 Текущее исправление
+## ❌ Проблема: Swift libraries не включены в IPA
 
-### Проблема: sed вставлял объявления после строки
-Патч вставлял `extern "C"` объявления ПОСЛЕ `void godot_ios_plugins_initialize()`, что приводило к ошибке компиляции.
+### Crash report показал точную причину:
+```
+Library not loaded: @rpath/libswiftCore.dylib
+Referenced from: /ios_xcode.app/Frameworks/libswift_Concurrency.dylib
+Reason: tried: '/ios_xcode.app/Frameworks/libswiftCore.dylib' (no such file)
+```
 
-### Решение: использовать awk
-Заменил sed на awk, который вставляет объявления ПЕРЕД функцией `godot_ios_plugins_initialize()`.
+**Проблема:** Yandex SDK использует Swift, но Swift runtime libraries не скопировались в IPA.
+
+### Решение:
+Добавить `ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES` для главного app target в Podfile post_install hook.
 
 ### Что сделано:
-1. ✅ Создан header файл `ios/plugins/yandex_ads/yandex_ads.h`
-2. ✅ Обновлён `build_plugins.sh` - headers в XCFramework
-3. ✅ Исправлен патч dummy.cpp - теперь использует awk вместо sed
+1. ✅ IPA собралась
+2. ✅ Патч dummy.cpp работает
+3. ✅ Получен crash report
+4. ✅ Исправлен Podfile - добавлен ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES для app target
 
 ### Следующий шаг:
-Коммит и тест в GitHub Actions
+Коммит и пересборка IPA
 
 ## 📂 Файлы документации
 
