@@ -1,497 +1,241 @@
-Nov 28 19:02:17 iPhone-KILURSELF maild(Network)[312] <Error>: [C33860 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:17 iPhone-KILURSELF maild(Network)[312] <Error>: [C33860 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:17 iPhone-KILURSELF maild(Network)[312] <Error>: [C33860 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring forced cancel
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WeightAvgLQM rssi=-58 snr=30 txRate=292500 rxRate=453375
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxCrsGlitch=1 rxBphyCrsGlitch=0 rxStart=232 rxBadPLCP=1 rxBphyBadPLCP=0 rxBadFCS=5 rxFifo0Ovfl=0 rxFifo1Ovfl=0 rx_nobuf=0 rxAnyErr=25 rxResponseTimeout=0 rxNoDelim=24 rxFrmTooLong=0 rxFrmTooShort=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) txRTSFrm=4 txRTSFail=0 rxCTSUcast=4 rxRTSUcast=31 txCTSFrm=31 txAMPDU=0 rxBACK=0 txPhyError=0 txAllFrm=47 txMPDU=0 txUcast=4 rxACKUcast=4 OfdmDesense=0 dB
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: RX AMPDU (HighBand) rxAmpdu=10 txBACK(Ucode)=8 rxMpduInAmpdu=21 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0 rxRetryNoBA=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WME RX MPDUs (rxPER 0 %) in tids 0:15, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): bt5g_status=0x3 bt5g_defer_cnt=0 bt5g_no_defer_cnt=0 bt5g_defer_max_switch_dur=0 bt5g_no_defer_max_switch_dur=0 bt5g_switch_succ_cnt=0 bt5g_switch_fail_cnt=0 bt5g_switch_reason_bm=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDur=0ms(0%) status=0x0 reqTypeMap=0x0 req=0 gnt=0 abort=0 rx1ovfl=0 latency=0 pmAttempt=0 sucPM=0 sucCTS2S=0 wlanTXPreempt=0 wlanRXPreempt=0 apTXafterPM=0 gntAudio=0 denyAudio=0 gntA2DP=0 denyA2DP=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxToss=0 rxLastTossRsn=0 rxNoFrag=0 rxNoCmplId=0 rxNoHaddr=0 rxMulti=0 rxUndec=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): CrtPriCnt=0 PriCnt=0 gntSniff=0 denySniff=0 antGrant0~10ms=0 antGrant10~30ms=0 antGrant30~60ms=0 antGrant>60ms=0 APLeakiness=0 rr_cnt=0 rr_succ_cnt=0
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDurAir=0ms(0%) desenseMode=0 wlrssi=0 btrssi=0 profile2gActive=-1 profile5gActive=-1 inactiveDur=15330 btPmAttemptNoackCnt=0 status2=0x0 [5084ms]
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
-Nov 28 19:02:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: L3 Control VO TX(00:00:00:00:00:00) Success=0 NoACK=0 Expired=0 OtherErr=0
-Nov 28 19:02:17 iPhone-KILURSELF dasd[80] <Error>: 'com.apple.sessionkit.wake:E0A26F' could not be marked completed because can't find rate limit configuration liveactivitiesd
-Nov 28 19:02:18 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2D] -> [34-3]
-Nov 28 19:02:18 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2D] -> [34-3]
-Nov 28 19:02:18 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:18 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:19 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29249) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60704a960>>], frame not updated
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60704a960>>], frame not updated
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60704a960>>], frame not updated
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60704a960>>], frame not updated
-Nov 28 19:02:19 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2E] -> [34-3]
-Nov 28 19:02:19 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2E] -> [34-3]
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:19 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29250) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29250] Launch assertion invalidated: <NSError: 0x60db44300; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(RunningBoardServices)[34] <Error>: Error acquiring assertion: <Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29250 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29250 does not exist}>
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29250] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29250 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29250 does not exist}
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x60e9b4420; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
-    NSUnderlyingError = <NSError: 0x60d87cc00; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
-        NSUnderlyingError = <NSError: 0x60d87ed30; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
-            NSUnderlyingError = <NSError: 0x60d87dbc0; domain: dyld; code: 1; 1>;
-Nov 28 19:02:19 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:19 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29249 with errno 3
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:19 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29249 with errno 3
-Nov 28 19:02:19 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:19 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:19 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:19 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:19 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:19 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:19 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> could not find `cpu-avg-limiter-input-w2r property
-Nov 28 19:02:19 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> Failed to read `cpu-avg-limiter-input-w2r
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:19 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:20 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:20 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:20 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
-Nov 28 19:02:20 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2F] -> [34-3]
-Nov 28 19:02:20 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B2F] -> [34-3]
-Nov 28 19:02:20 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:20 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
-Nov 28 19:02:20 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
-Nov 28 19:02:20 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:20 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:21 iPhone-KILURSELF SpringBoard(SpringBoardHome)[34] <Error>: -[SBHWidgetViewController waitForContentReadyWithTimeout:completion:]_block_invoke Error waiting for non-placeholder content to appear: Timed out waiting for content to be ready.
-Nov 28 19:02:21 iPhone-KILURSELF nanotimekitcompaniond(ClockKit)[29251] <Error>: Creating a CLKDevice without an NRDevice: (null)
-Nov 28 19:02:21 iPhone-KILURSELF nanotimekitcompaniond(ClockKit)[29251] <Error>: <private>has no material, defaulting to light aluminum
-Nov 28 19:02:21 iPhone-KILURSELF nanotimekitcompaniond[29251] <Error>: Couldn't find bridge record - Error Domain=NSOSStatusErrorDomain Code=-10814 "(null)" UserInfo={_LSLine=1796, _LSFunction=runEvaluator}
-Nov 28 19:02:21 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: attention client lost event tag is not a number: (null)
-Nov 28 19:02:21 iPhone-KILURSELF rapportd(CoreUtils)[92] <Error>: Could not find BT ID for IDS DeviceID: test from client CLinkClient, CID 0x40A70002, FL 0x0 < >, CF 0x10006 < BLE iWiFi BLEScreenOff >, No device, BLEScreenOffRescanInterval 900, bleScreenOffScanRate Background, deviceFilter [
-Nov 28 19:02:22 iPhone-KILURSELF trustd(Security)[134] <Error>: SecKeyVerifySignature failed: Error Domain=NSOSStatusErrorDomain Code=-67808 "RSA signature verification failed, no match" UserInfo={numberOfErrorsDeep=0, NSDescription=RSA signature verification failed, no match}
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:22 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29252) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:22 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29252 with errno 3
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dd9fa80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x609dc9680>>], frame not updated
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dd9fa80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x609dc9680>>], frame not updated
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dd9fa80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x609dc9680>>], frame not updated
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dd9fa80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x609dc9680>>], frame not updated
-Nov 28 19:02:22 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B30] -> [34-3]
-Nov 28 19:02:22 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B30] -> [34-3]
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dd9fa80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x609dc9680>>], frame not updated
-Nov 28 19:02:22 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29253) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29253] Launch assertion invalidated: <NSError: 0x60db45350; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(RunningBoardServices)[34] <Error>: Error acquiring assertion: <Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29253 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29253 does not exist}>
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29253] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29253 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29253 does not exist}
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x60c5bd020; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
-    NSUnderlyingError = <NSError: 0x60db445d0; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
-        NSUnderlyingError = <NSError: 0x60db461c0; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
-            NSUnderlyingError = <NSError: 0x60db45da0; domain: dyld; code: 1; 1>;
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:22 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29252 with errno 3
-Nov 28 19:02:22 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:22 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:22 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:22 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown AppStateTracker, pid 29252, uuid (null) display identifier com.example.game.CQR5T5N8PD foreground 1
-Nov 28 19:02:22 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxCrsGlitch=0 rxBphyCrsGlitch=0 rxStart=241 rxBadPLCP=11 rxBphyBadPLCP=0 rxBadFCS=4 rxFifo0Ovfl=0 rxFifo1Ovfl=0 rx_nobuf=0 rxAnyErr=27 rxResponseTimeout=0 rxNoDelim=16 rxFrmTooLong=0 rxFrmTooShort=1
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) rxBeaconMbss=49 rxBeaconObss=9 rxDataUcastMbss=16 rxMgmtUcastMbss=0 rxCNTRLUcast=45 txACKFrm=0 txBACK=8 ctxFifoFull=0 ctxFifo2Full=0 rxDataMcast=0 rxMgmtMcast=58
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: RX AMPDU (HighBand) rxAmpdu=6 txBACK(Ucode)=8 rxMpduInAmpdu=10 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0 rxRetryNoBA=0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WME RX MPDUs (rxPER 0 %) in tids 0:16, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): bt5g_status=0x3 bt5g_defer_cnt=0 bt5g_no_defer_cnt=0 bt5g_defer_max_switch_dur=0 bt5g_no_defer_max_switch_dur=0 bt5g_switch_succ_cnt=0 bt5g_switch_fail_cnt=0 bt5g_switch_reason_bm=0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDur=0ms(0%) status=0x0 reqTypeMap=0x0 req=0 gnt=0 abort=0 rx1ovfl=0 latency=0 pmAttempt=0 sucPM=0 sucCTS2S=0 wlanTXPreempt=0 wlanRXPreempt=0 apTXafterPM=0 gntAudio=0 denyAudio=0 gntA2DP=0 denyA2DP=0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxToss=0 rxLastTossRsn=0 rxNoFrag=0 rxNoCmplId=0 rxNoHaddr=0 rxMulti=0 rxUndec=0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): CrtPriCnt=0 PriCnt=0 gntSniff=0 denySniff=0 antGrant0~10ms=0 antGrant10~30ms=0 antGrant30~60ms=0 antGrant>60ms=0 APLeakiness=0 rr_cnt=0 rr_succ_cnt=0
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDurAir=0ms(0%) desenseMode=0 wlrssi=0 btrssi=0 profile2gActive=-1 profile5gActive=-1 inactiveDur=33939 btPmAttemptNoackCnt=0 status2=0x0 [5491ms]
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: L3 Control VO TX(00:00:00:00:00:00) Success=0 NoACK=0 Expired=0 OtherErr=0
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:22 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:22 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
-Nov 28 19:02:22 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B31] -> [34-3]
-Nov 28 19:02:22 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B31] -> [34-3]
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
-Nov 28 19:02:22 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
-Nov 28 19:02:22 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:22 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:23 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: [end]   id=9466 name=saveObjects client=(null) warning: operation peaked near limit of 10MB (start: 8.5MB, peak: 9.0MB, end: 8.5MB)
-Nov 28 19:02:23 iPhone-KILURSELF maild(Network)[312] <Error>: [C33861 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:23 iPhone-KILURSELF maild(Network)[312] <Error>: [C33861 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:23 iPhone-KILURSELF maild(Network)[312] <Error>: [C33861 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring forced cancel
-Nov 28 19:02:24 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: attention client lost event tag is not a number: (null)
-Nov 28 19:02:24 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> could not find `cpu-avg-limiter-input-w2r property
-Nov 28 19:02:24 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> Failed to read `cpu-avg-limiter-input-w2r
-Nov 28 19:02:25 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: WiFiLQAMgrLinkRecommendationNotify: channel score: chq=3, tx-lat=5, rx-lat=5, tx-loss=5, rx-loss=5, txPer=0.0%, p95-lat=2, RT=0x0, link-recommendation=0x0
-Nov 28 19:02:25 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: duetexpertd(338) deny(1) file-read-metadata /private/var/mobile/Library/Biome/FlexibleStorage
-Nov 28 19:02:25 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: duetexpertd(338) deny(1) file-read-metadata /private/var/mobile/Library/Biome/FlexibleStorage/registrations.db
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         CHHapticEngine.mm:861   -[CHHapticEngine updateEngineBehaviorWithError:]: Setting player's behavior to 0x5
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticPlayer.mm:332   -[AVHapticPlayer setBehavior:error:]: clientID: 0x1000022 behavior: 5
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         CHHapticEngine.mm:861   -[CHHapticEngine updateEngineBehaviorWithError:]: Setting player's behavior to 0x4
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticPlayer.mm:332   -[AVHapticPlayer setBehavior:error:]: clientID: 0x2000022 behavior: 4
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(libAudioIssueDetector.dylib)[107] <Notice>: [Detector.cpp:54    rtaid::Detector:0xc68a68600] initialized with error = 0
-Nov 28 19:02:26 iPhone-KILURSELF rtcreportingd[3637] <Error>: gap in hierarchy: <private> level 1
-Nov 28 19:02:26 iPhone-KILURSELF trustd(Security)[134] <Error>: SecKeyVerifySignature failed: Error Domain=NSOSStatusErrorDomain Code=-67808 "RSA signature verification failed, no match" UserInfo={numberOfErrorsDeep=0, NSDescription=RSA signature verification failed, no match}
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:26 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29254) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:26 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29254 with errno 3
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60e73f400>>], frame not updated
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60e73f400>>], frame not updated
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60e73f400>>], frame not updated
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60e73f400>>], frame not updated
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29254] Launch assertion invalidated: <NSError: 0x60c0943c0; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
-Nov 28 19:02:26 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B32] -> [34-3]
-Nov 28 19:02:26 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B32] -> [34-3]
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60dcc7180; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60e73f400>>], frame not updated
-Nov 28 19:02:26 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29255) deny(1) sysctl-read kern.bootargs
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>:        HALS_AHPPlugIn.cpp:126    HALS_AHPPlugIn::ObjectSetPropertyData: got an error from the plug-in routine [<private>/<private>/0], Error: 560226676 (<private>)
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:26 iPhone-KILURSELF powerd[46] <Error>: processInfoCreate: proc_name look-up unsuccessful for pid 29255
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(Security)[34] <Notice>: SecTaskLoadEntitlements: failed to get cs_flags, error=3, pid=29255
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(BaseBoard)[34] <Error>: Unable to get entitlements for client task. Error: Error Domain=NSPOSIXErrorDomain Code=3 "No such process"
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(Security)[34] <Notice>: SecTaskLoadEntitlements: failed to get cs_flags, error=3, pid=29255
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(BaseBoard)[34] <Error>: Unable to get entitlements for client task. Error: Error Domain=NSPOSIXErrorDomain Code=3 "No such process"
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(BaseBoard)[34] <Error>: Unable to get short BSD proc info for 29255: No such process
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>:        HALS_AHPPlugIn.cpp:119    HALS_AHPPlugIn::ObjectGetPropertyData: got an error from the plug-in routine [<private>/<private>/0], Error: 2003332927 (<private>)
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Error>:            AQMEIO_HAL.cpp:893   kAudioDevicePropertyMute returned err 2003332927
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Error>:              AQIONode.cpp:544   client <SynthNodeClient@0xc68642300 mHaptic 0>: could not fetch audio session mode (err = 1768843583)
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(libAudioIssueDetector.dylib)[107] <Notice>: [Detector.cpp:54    rtaid::Detector:0xc68a77000] initialized with error = 0
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1451  -[AVHapticClient clientCompletedWithError:]: Client-side (async) finish completion callback for client 0x1000022 called from server
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1456  -[AVHapticClient clientCompletedWithError:]_block_invoke: Async dispatch: preparing to call completionCallback for client 0x1000022
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1458  -[AVHapticClient clientCompletedWithError:]_block_invoke: Calling completionCallback 0x60e41a820 and then setting to nil
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:         AVHapticServer.mm:2433  -[AVHapticServer listener:shouldAcceptNewConnection:]_block_invoke: <Calling clientCompletedWithError: on client delegate>
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Error>: -MX_RunningBoardServices- mx_runningBoardServices_getApplicationStateFromCache: PID cannot be nil nor zero! pid=0
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Error>: -MX_RunningBoardServices- mx_runningBoardServices_getApplicationStateFromCache: PID cannot be nil nor zero! pid=0
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29255] Launch assertion invalidated: <NSError: 0x60c097c60; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(RunningBoardServices)[34] <Error>: Error acquiring assertion: <Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29255 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29255 does not exist}>
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29255] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29255 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29255 does not exist}
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x60a05dda0; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
-    NSUnderlyingError = <NSError: 0x60c096550; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
-        NSUnderlyingError = <NSError: 0x60c094270; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
-            NSUnderlyingError = <NSError: 0x60c0970f0; domain: dyld; code: 1; 1>;
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501023, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501046, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501110, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501111, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501121, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501148, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501169, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501181, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501219, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501232, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501242, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501244, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501248, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501280, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501287, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501303, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501307, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501317, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501343, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501348, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501355, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501390, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501399, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501401, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501405, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501409, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29254 with errno 3
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501430, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501443, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501460, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501519, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501525, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501549, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501623, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501631, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501712, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501727, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501734, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501737, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501753, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501755, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501765, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501774, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501777, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501785, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501788, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501797, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501895, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501912, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501941, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501944, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501949, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501959, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501972, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501982, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501983, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501984, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501988, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561501995, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502015, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502023, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502029, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502030, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502031, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502037, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502042, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502045, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502051, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502052, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502118, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502202, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502203, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502204, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502205, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502224, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502225, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502226, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502235, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502240, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502245, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502261, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502283, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502290, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502304, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502306, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502312, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502315, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502317, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502328, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502369, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502370, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502371, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502388, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502389, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502411, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502425, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502426, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502427, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502435, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502436, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502438, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502439, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502440, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502453, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502454, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502458, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502459, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502460, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502461, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502462, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502463, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502464, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502491, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502492, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502493, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502495, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502496, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502497, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502498, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502499, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502500, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502501, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502545, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502606, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=459561502608, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=5854040424450, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=20186346291202, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=32126355374082, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=37293201031170, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=41815801593858, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=41815801593859, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=45049911967747, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=45049911967748, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=45049911967749, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=45049911967750, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=46334107189250, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=53626961657859, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=59876139073538, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=72975789326338, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=73744588472322, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=73997991542787, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=74710956113921, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=74745315852289, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=79388175499266, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=84679575207939, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=87050397155330, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=87729001988098, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=94373316395009, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=101344048316418, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=115577569935362, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=117630564302850, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:26 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:26 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:26 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:26 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown AppStateTracker, pid 29254, uuid (null) display identifier com.example.game.CQR5T5N8PD foreground 1
-Nov 28 19:02:26 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
-Nov 28 19:02:26 iPhone-KILURSELF rtcreportingd[3637] <Error>: gap in hierarchy: <private> level 1
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500680 }
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SiriActivation)[34] <Error>: -[SASBluetoothEndpointUtility _setEndpointTypeWithNotification:]_block_invoke Endpoint type is not found from AVSystemController, setting it to Unspecified.
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500695 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500697 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500715 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500756 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500757 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500761 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500765 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500767 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500787 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500788 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500814 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500815 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500836 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500874 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500875 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500879 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500895 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500932 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561500998 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561501018 }
-Nov 28 19:02:26 iPhone-KILURSELF audioanalyticsd[3632] <Error>: Session not found! Abandoning message. { reporterID=459561501022 }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:         AVHapticServer.mm:2433  -[AVHapticServer listener:shouldAcceptNewConnection:]_block_invoke: <Calling clientCompletedWithError: on client delegate>
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1451  -[AVHapticClient clientCompletedWithError:]: Client-side (async) finish completion callback for client 0x1000022 called from server
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1463  -[AVHapticClient clientCompletedWithError:]_block_invoke: strongSelf.completionCallback is nil
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1451  -[AVHapticClient clientCompletedWithError:]: Client-side (async) finish completion callback for client 0x2000022 called from server
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1456  -[AVHapticClient clientCompletedWithError:]_block_invoke: Async dispatch: preparing to call completionCallback for client 0x2000022
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1458  -[AVHapticClient clientCompletedWithError:]_block_invoke: Calling completionCallback 0x60a176c70 and then setting to nil
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:         AVHapticServer.mm:2433  -[AVHapticServer listener:shouldAcceptNewConnection:]_block_invoke: <Calling clientCompletedWithError: on client delegate>
-Nov 28 19:02:26 iPhone-KILURSELF heard(HearingCore)[1500] <Notice>: -[HCXPCClient sendMessage:errorBlock:]_block_invoke:107 Not sending 0, 1, 1 = Error Domain=AXCoreUtilitiesXPCError Code=0 "No XPC dictionary" UserInfo={NSLocalizedDescription=No XPC dictionary} ==== <HCXPCMessage: 0x91a3a5260> [1 | (null)] {(null)} - Client: <HCXPCClient: 0x91a36a100> [34]
-Nov 28 19:02:26 iPhone-KILURSELF heard(HearingUtilities)[1500] <Notice>: -[AXHeardController sendMessage:withError:]_block_invoke:845 Error: Error Domain=AXCoreUtilitiesXPCError Code=0 "No XPC dictionary" UserInfo={NSLocalizedDescription=No XPC dictionary}
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1451  -[AVHapticClient clientCompletedWithError:]: Client-side (async) finish completion callback for client 0x2000022 called from server
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1456  -[AVHapticClient clientCompletedWithError:]_block_invoke: Async dispatch: preparing to call completionCallback for client 0x2000022
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(CoreHaptics)[34] <Notice>:         AVHapticClient.mm:1463  -[AVHapticClient clientCompletedWithError:]_block_invoke: strongSelf.completionCallback is nil
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Notice>:         AVHapticServer.mm:2433  -[AVHapticServer listener:shouldAcceptNewConnection:]_block_invoke: <Calling clientCompletedWithError: on client delegate>
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioToolbox)[107] <Error>:              AQIONode.cpp:544   client <SynthNodeClient@0xc68642300 mHaptic 0>: could not fetch audio session mode (err = 1768843583)
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>: HALS_IOContext_Legacy_Impl.cpp:2039   HALS_IOContext_Legacy_Impl::IOWorkLoopDeinit: 10371 Speaker (VAD [vdef] AggDev 638): stopping with error 0
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=146028888066, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=146028888066, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(AudioAnalytics)[107] <Error>: Message send exceeds rate-limit threshold and will be dropped. { reporterID=146028888066, rateLimit=32hz }
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Error>: -MX_RunningBoardServices- mx_runningBoardServices_getApplicationStateFromCache: PID cannot be nil nor zero! pid=0
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Error>: -MX_RunningBoardServices- mx_runningBoardServices_getApplicationStateFromCache: PID cannot be nil nor zero! pid=0
-Nov 28 19:02:26 iPhone-KILURSELF SpringBoard(SiriActivation)[34] <Error>: -[SASBluetoothEndpointUtility _setEndpointTypeWithNotification:]_block_invoke Endpoint type is not found from AVSystemController, setting it to Unspecified.
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd[20530] <Notice>: -[CSSpeechManager audioProviderWithContext:error:] context = recordType[CSAudioRecordTypeVoiceTrigger] deviceId[(null)] turnIdentifier[(null)] alwaysUseBuiltInMic[0] isRequestDuringActiveCall[0] triggerEventInfo[(null)] spokenNotification [0] isTriggerless [0] speechEvent [0]
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:123   -[AVVoiceController setContext:streamType:error:] : start: 2025-11-28 19:02:26.555106 end: 2025-11-28 19:02:26.556053 duration 0.95 ms
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd[20530] <Notice>: -[CSSpeechManager audioProviderWithContext:error:]_block_invoke_2 For Context : recordType[CSAudioRecordTypeVoiceTrigger] deviceId[(null)] turnIdentifier[(null)] alwaysUseBuiltInMic[0] isRequestDuringActiveCall[0] triggerEventInfo[(null)] spokenNotification [0] isTriggerless [0] speechEvent [0], audioStreamId(32769) has allocated
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd[20530] <Notice>: -[CSSpeechManager audioProviderWithContext:error:]_block_invoke has match with audio stream handle id : 32769
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioProvider _audioStreamWithRequest:streamName:error:] CSAudioProvider[3DE4FE15-C8D5-4872-90C9-CC7FA3424AD2]:audioStreamWithRequest for stream <CSBuiltInVoiceTrigger-B0B44E46-3F74-4666-8C77-D412E0FE69E2>
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioProvider _prepareAudioStreamSync:request:error:] CSAudioProvider[3DE4FE15-C8D5-4872-90C9-CC7FA3424AD2]:Asking AudioRecorder prepareAudioStreamRecord
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder prepareAudioStreamRecord:recordDeviceIndicator:error:] Calling AVVC prepareRecordForStream(32769) : {
-Nov 28 19:02:26 iPhone-KILURSELF heard(HearingCore)[1500] <Notice>: -[HCXPCClient sendMessage:errorBlock:]_block_invoke:107 Not sending 0, 1, 1 = Error Domain=AXCoreUtilitiesXPCError Code=0 "No XPC dictionary" UserInfo={NSLocalizedDescription=No XPC dictionary} ==== <HCXPCMessage: 0x91a3a5e00> [1 | (null)] {(null)} - Client: <HCXPCClient: 0x91a36a100> [34]
-Nov 28 19:02:26 iPhone-KILURSELF heard(HearingUtilities)[1500] <Notice>: -[AXHeardController sendMessage:withError:]_block_invoke:845 Error: Error Domain=AXCoreUtilitiesXPCError Code=0 "No XPC dictionary" UserInfo={NSLocalizedDescription=No XPC dictionary}
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>: HALS_IOContext_Legacy_Impl.cpp:2039   HALS_IOContext_Legacy_Impl::IOWorkLoopDeinit: 129 Actuator (VAD [vzzz] AggDev 2): stopping with error 0
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:123   -[AVVoiceController prepareRecordForStream:error:] : start: 2025-11-28 19:02:26.556631 end: 2025-11-28 19:02:26.557569 duration 0.94 ms
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder prepareAudioStreamRecord:recordDeviceIndicator:error:] prepareRecordForStream elapsed time = 0.001068
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:      AVVoiceController.mm:1838  ### getPlaybackRouteForStream:withError: streamHandle(32769)
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setPropertiesInternal:usingErrorHandlingStrategy:outPropertiesErrors:]: Session 'sid:0x6bb18, corespeechd(20530), 'prim'' is setting properties batch
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder startAudioStreamWithOption:recordDeviceIndicator:error:] success
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder startAudioStreamWithOption:recordDeviceIndicator:error:] Calling AVVC startRecordForStream : [streamHandleId = 32769][startHostTime = 0][startAlert = 0][stopAlert = 0][stopOnErrorAlert = 0][skipAlert = YES]
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(IsolatedCoreAudioClient)[107] <Error>: ServerSideAudioSwitchboard.cpp:96    ServerSideAudioSwitchboard::addClient - Client 1936290409 already present in map!
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>:         HALS_UCPlugIn.cpp:1176   HALS_UCPlugIn::ObjectGetPropertyData: failed:  [<private>/<private>/0], Error: 2003332927 (<private>)
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(libAudioIssueDetector.dylib)[107] <Notice>: [Detector.cpp:54    rtaid::Detector:0xc6b553600] initialized with error = 0
-Nov 28 19:02:26 iPhone-KILURSELF audiomxd(libAudioIssueDetector.dylib)[107] <Notice>: [Detector.cpp:54    rtaid::Detector:0xc6b553600] initialized with error = 0
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder voiceControllerDidStartRecording:forStream:successfully:error:] Received didStartRecording : 0xc28773900, forStream:32769, successfully:1, error:(null)
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:123   -[AVVoiceController startRecordForStream:error:] : start: 2025-11-28 19:02:26.559885 end: 2025-11-28 19:02:26.735484 duration 175.60 ms
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder startAudioStreamWithOption:recordDeviceIndicator:error:] startRecordForStream elapsed time = 0.176940
-Nov 28 19:02:26 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioProvider _handleDidStartAudioStreamWithResult:error:] CSAudioProvider[3DE4FE15-C8D5-4872-90C9-CC7FA3424AD2]:Leaving dispatch group for recordingWillStartGroup
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
-Nov 28 19:02:26 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
-Nov 28 19:02:26 iPhone-KILURSELF kernel(AOPAudioDriver)[0] <Error>: AOPCommandInterface: ret = performCommand(packet, outPayload, outPayloadSize) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/AOPAudioDriver/service/AOPAudioCommandInterface/AOPAudioCommandInterface.cpp, line: 150
-Nov 28 19:02:26 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: AOPAudioService: ret = inCommand.process(getCommandInterface()) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/service/IOPAudioService/IOPAudioService.cpp, line: 154
-Nov 28 19:02:26 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: IOPAudioController: ret = mIOPAudioService->performCommand(inCommand) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/controller/IOPAudioController/IOPAudioController.cpp, line: 364
-Nov 28 19:02:26 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: audio-haptic-leap: ret = mController->transferCommand(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/nub/IOPAudioNode/IOPAudioNode.cpp, line: 280
-Nov 28 19:02:26 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudio::LEAPControlDevice::Helper: ret = inNode->memoryAccess(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDeviceHelpers.cpp, line: 160
-Nov 28 19:02:26 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudioHapticsLEAPControlDevice: ret = PrivateAPI::handleMemoryAccessRequest( getNodeInterface(), inRequest, inParentRequestType) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDevice.cpp, line: 117
-Nov 28 19:02:27 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
-Nov 28 19:02:27 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
-Nov 28 19:02:27 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B33] -> [34-3]
-Nov 28 19:02:27 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B33] -> [34-3]
-Nov 28 19:02:27 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
-Nov 28 19:02:27 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
-Nov 28 19:02:27 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
-Nov 28 19:02:27 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:27 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
-Nov 28 19:02:27 iPhone-KILURSELF kernel(AOPAudioDriver)[0] <Error>: AOPCommandInterface: ret = performCommand(packet, outPayload, outPayloadSize) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/AOPAudioDriver/service/AOPAudioCommandInterface/AOPAudioCommandInterface.cpp, line: 150
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: IOPAudioCommandInterface: ret = registerRead(inDescriptor.getNodeID(), kPayload.addressSize, kPayload.address, kPayload.dataElementSize, &dataSize, kPayload.modifiableData, kPayload.qualifier, kPayload.optionBits) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/core/IOPAudioCommandInterface/IOPAudioCommandInterface.cpp, line: 90
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: AOPAudioService: ret = inCommand.process(getCommandInterface()) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/service/IOPAudioService/IOPAudioService.cpp, line: 154
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: IOPAudioController: ret = mIOPAudioService->performCommand(inCommand) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/controller/IOPAudioController/IOPAudioController.cpp, line: 364
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: audio-haptic-leap: ret = mController->transferCommand(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/nub/IOPAudioNode/IOPAudioNode.cpp, line: 280
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudio::LEAPControlDevice::Helper: ret = inNode->memoryAccess(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDeviceHelpers.cpp, line: 160
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudioHapticsLEAPControlDevice: ret = PrivateAPI::handleMemoryAccessRequest( getNodeInterface(), inRequest, inParentRequestType) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDevice.cpp, line: 117
-Nov 28 19:02:27 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder stopAudioStreamWithRecordDeviceIndicator:error:] Calling AVVC stopRecordForStream
-Nov 28 19:02:27 iPhone-KILURSELF audiomxd(CoreAudio)[107] <Notice>: HALS_IOContext_Legacy_Impl.cpp:2039   HALS_IOContext_Legacy_Impl::IOWorkLoopDeinit: 249 AOP Audio-1 (VAD [vodd_1] AggDev 11): stopping with error 0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WeightAvgLQM rssi=-62 snr=29 txRate=292500 rxRate=511875
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) txRTSFrm=0 txRTSFail=0 rxCTSUcast=0 rxRTSUcast=0 txCTSFrm=0 txAMPDU=0 rxBACK=0 txPhyError=0 txAllFrm=0 txMPDU=0 txUcast=0 rxACKUcast=0 OfdmDesense=0 dB
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) rxBeaconMbss=33 rxBeaconObss=0 rxDataUcastMbss=0 rxMgmtUcastMbss=0 rxCNTRLUcast=0 txACKFrm=0 txBACK=0 ctxFifoFull=0 ctxFifo2Full=0 rxDataMcast=0 rxMgmtMcast=33
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: RX AMPDU (HighBand) rxAmpdu=0 txBACK(Ucode)=0 rxMpduInAmpdu=0 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0 rxRetryNoBA=0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WME RX MPDUs (rxPER 0 %) in tids 0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): bt5g_status=0x3 bt5g_defer_cnt=0 bt5g_no_defer_cnt=0 bt5g_defer_max_switch_dur=0 bt5g_no_defer_max_switch_dur=0 bt5g_switch_succ_cnt=0 bt5g_switch_fail_cnt=0 bt5g_switch_reason_bm=0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDur=0ms(0%) status=0x0 reqTypeMap=0x0 req=0 gnt=0 abort=0 rx1ovfl=0 latency=0 pmAttempt=0 sucPM=0 sucCTS2S=0 wlanTXPreempt=0 wlanRXPreempt=0 apTXafterPM=0 gntAudio=0 denyAudio=0 gntA2DP=0 denyA2DP=0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxToss=0 rxLastTossRsn=0 rxNoFrag=0 rxNoCmplId=0 rxNoHaddr=0 rxMulti=0 rxUndec=0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): CrtPriCnt=0 PriCnt=0 gntSniff=0 denySniff=0 antGrant0~10ms=0 antGrant10~30ms=0 antGrant30~60ms=0 antGrant>60ms=0 APLeakiness=0 rr_cnt=0 rr_succ_cnt=0
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDurAir=0ms(0%) desenseMode=0 wlrssi=0 btrssi=0 profile2gActive=-1 profile5gActive=-1 inactiveDur=10386 btPmAttemptNoackCnt=0 status2=0x0 [5075ms]
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5002ms)
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5002ms)
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5002ms)
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5002ms)
-Nov 28 19:02:27 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: L3 Control VO TX(00:00:00:00:00:00) Success=0 NoACK=0 Expired=0 OtherErr=0
-Nov 28 19:02:27 iPhone-KILURSELF securityd[141] <Notice>: trustd[134]/1#16 LF=0 copy_parent_certificates Error Domain=NSOSStatusErrorDomain Code=-34018 "Client has neither application-identifier nor keychain-access-groups entitlements" UserInfo={numberOfErrorsDeep=0, NSDescription=Client has neither application-identifier nor keychain-access-groups entitlements}
-Nov 28 19:02:27 iPhone-KILURSELF mobile_diagnostics_relay(libxpc.dylib)[29256] <Notice>: [0xb90058200] failed to do a bootstrap look-up: xpc_error=[3: No such process]
-Nov 28 19:02:27 iPhone-KILURSELF kernel(AOPAudioDriver)[0] <Error>: AOPCommandInterface: ret = performCommand(packet, outPayload, outPayloadSize) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/AOPAudioDriver/service/AOPAudioCommandInterface/AOPAudioCommandInterface.cpp, line: 150
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: IOPAudioCommandInterface: ret = registerRead(inDescriptor.getNodeID(), kPayload.addressSize, kPayload.address, kPayload.dataElementSize, &dataSize, kPayload.modifiableData, kPayload.qualifier, kPayload.optionBits) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/core/IOPAudioCommandInterface/IOPAudioCommandInterface.cpp, line: 90
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: AOPAudioService: ret = inCommand.process(getCommandInterface()) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/service/IOPAudioService/IOPAudioService.cpp, line: 154
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: IOPAudioController: ret = mIOPAudioService->performCommand(inCommand) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/controller/IOPAudioController/IOPAudioController.cpp, line: 364
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioDriverFamily)[0] <Error>: audio-haptic-leap: ret = mController->transferCommand(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDriverFamily/src/kext/IOPAudioDriverFamily/nub/IOPAudioNode/IOPAudioNode.cpp, line: 280
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudio::LEAPControlDevice::Helper: ret = inNode->memoryAccess(descriptor) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDeviceHelpers.cpp, line: 160
-Nov 28 19:02:27 iPhone-KILURSELF kernel(IOPAudioLEAPControlDevice)[0] <Error>: IOPAudioHapticsLEAPControlDevice: ret = PrivateAPI::handleMemoryAccessRequest( getNodeInterface(), inRequest, inParentRequestType) == 0 ,  file: /Library/Caches/com.apple.xbs/Sources/IOPAudioDrivers/src/kext/LEAPControlDevice/LEAPControlDevice.cpp, line: 117
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(IsolatedCoreAudioClient)[20530] <Error>: ClientSideAudioSwitchboardIOThread.mm:67    ClientSideAudioSwitchboardIOThread::TranslateKernelError - Semaphores timed out!!! Exiting the workloop
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:123   -[AVVoiceController stopRecordForStream:error:] : start: 2025-11-28 19:02:27.634725 end: 2025-11-28 19:02:28.135039 duration 500.32 ms
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder stopAudioStreamWithRecordDeviceIndicator:error:] stopRecordForStream elapsed time = 0.500425
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Error>: AVVCHACRecordingEngine.mm:277   AVVCHACRecordingEngine::handleAudioLapse: status(1751215220) streamState(Stopped)
-Nov 28 19:02:28 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setPropertiesInternal:usingErrorHandlingStrategy:outPropertiesErrors:]: Session 'sid:0x6bb18, corespeechd(20530), 'prim'' is setting properties batch
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder setRecordMode:streamHandleId:error:] Calling AVVC setRecordMode to mode : Listening, streamId: 32769
-Nov 28 19:02:28 iPhone-KILURSELF audiomxd(MediaExperience)[107] <Notice>: -MXSession- -[MXSession(InterfaceImpl) setPropertiesInternal:usingErrorHandlingStrategy:outPropertiesErrors:]: Session 'sid:0x6bb18, corespeechd(20530), 'prim'' is setting properties batch
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:113   -[AVVCSessionManager setIsUsingBuiltInMicForRecording:error:] : setIsUsingBuiltInMicForRecording : start: 2025-11-28 19:02:28.137181 end: 2025-11-28 19:02:28.137888 duration 0.71 ms
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(AVFAudio)[20530] <Notice>:                AVVC_Log.h:123   -[AVVoiceController setRecordModeForStream:recordMode:error:] : start: 2025-11-28 19:02:28.137010 end: 2025-11-28 19:02:28.138102 duration 1.09 ms
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder setRecordMode:streamHandleId:error:] AVVC successfully setRecordMode
-Nov 28 19:02:28 iPhone-KILURSELF corespeechd(CoreSpeechFoundation)[20530] <Notice>: -[CSAudioRecorder setRecordMode:streamHandleId:error:] setRecordMode elapsed time = 0.001267
-Nov 28 19:02:28 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: attention client lost event tag is not a number: (null)
-Nov 28 19:02:28 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: duetexpertd(338) deny(1) file-read-metadata /private/var/mobile/Library/Biome/FlexibleStorage
-Nov 28 19:02:28 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: System Policy: duetexpertd(338) deny(1) file-read-metadata /private/var/mobile/Library/Biome/FlexibleStorage/registrations.db
-Nov 28 19:02:29 iPhone-KILURSELF maild(Network)[312] <Error>: [C33862 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:29 iPhone-KILURSELF maild(Network)[312] <Error>: [C33862 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring cancel
-Nov 28 19:02:29 iPhone-KILURSELF maild(Network)[312] <Error>: [C33862 Hostname#48903d69:993 tcp, bundle id: com.apple.mobilemail, account id: 1ec457d1, tls, attribution: website] is already cancelled, ignoring forced cancel
-Nov 28 19:02:29 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> could not find `cpu-avg-limiter-input-w2r property
-Nov 28 19:02:29 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> Failed to read `cpu-avg-limiter-input-w2r
+Nov 28 19:29:14 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q4744] Sent 128-byte query #1 to BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x0100 (Q/Query, RD, NoError), counts: 1/0/0/1, BBikeyWg IN HTTPS?, . OPT 512 0 {EDE, code: 0}, {Padding, [70 B]}
+Nov 28 19:29:14 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q60243] Sent 128-byte query #1 to BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x0100 (Q/Query, RD, NoError), counts: 1/0/0/1, BBikeyWg IN A?, . OPT 512 0 {EDE, code: 0}, {Padding, [70 B]}
+Nov 28 19:29:14 iPhone-KILURSELF wifid(CoreWiFi)[50] <Notice>: [corewifi] AUTO-JOIN: Auto-join aborted (requeued=0, cancelled=0, error=(37 'Already associated, and network transition not permitted'))
+Nov 28 19:29:14 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q60243] Received acceptable 468-byte response from BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x8180 (R/Query, RD, RA, NoError), counts: 1/6/0/1, BBikeyWg IN A?, 20 IN CNAME BBwTCoLP, 20 IN A BBrgjlLJ, 20 IN A BBMjUJsK, 20 IN A BBqmnPvB, 20 IN A BBMYHEDX, 20 IN A BBsExfPQ, . OPT 1232 0 {Padding, [292 B]}
+Nov 28 19:29:14 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q4744] Received acceptable 468-byte response from BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x8180 (R/Query, RD, RA, NoError), counts: 1/1/1/1, BBikeyWg IN HTTPS?, 30 IN CNAME BBwTCoLP, BBpEUoUZ 180 IN SOA BBOkIFKf BBkkrDyy 1741200000 90000 90000 90000 180, . OPT 1232 0 {Padding, [309 B]}
+Nov 28 19:29:14 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q43462] Received acceptable 468-byte response from BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x8180 (R/Query, RD, RA, NoError), counts: 1/0/1/1, BBwTCoLP IN HTTPS?, BBpEUoUZ 62 IN SOA BBOkIFKf BBkkrDyy 1741200000 90000 90000 90000 180, . OPT 1232 0 {Padding, [339 B]}
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: WiFiLQAMgrLinkRecommendationNotify: channel score: chq=3, tx-lat=5, rx-lat=5, tx-loss=5, rx-loss=5, txPer=0.0%, p95-lat=2, RT=0x0, link-recommendation=0x0
+Nov 28 19:29:14 iPhone-KILURSELF dasd[80] <Error>: 'com.apple.sessionkit.wake:1DFE1D' could not be marked completed because can't find rate limit configuration liveactivitiesd
+Nov 28 19:29:14 iPhone-KILURSELF nanotimekitcompaniond(ClockKit)[29600] <Error>: Creating a CLKDevice without an NRDevice: (null)
+Nov 28 19:29:14 iPhone-KILURSELF nanotimekitcompaniond(ClockKit)[29600] <Error>: <private>has no material, defaulting to light aluminum
+Nov 28 19:29:14 iPhone-KILURSELF nanotimekitcompaniond[29600] <Error>: Couldn't find bridge record - Error Domain=NSOSStatusErrorDomain Code=-10814 "(null)" UserInfo={_LSLine=1796, _LSFunction=runEvaluator}
+Nov 28 19:29:14 iPhone-KILURSELF trustd(Security)[134] <Error>: SecKeyVerifySignature failed: Error Domain=NSOSStatusErrorDomain Code=-67808 "RSA signature verification failed, no match" UserInfo={numberOfErrorsDeep=0, NSDescription=RSA signature verification failed, no match}
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WeightAvgLQM rssi=-62 snr=29 txRate=292500 rxRate=351000
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxCrsGlitch=0 rxBphyCrsGlitch=0 rxStart=279 rxBadPLCP=6 rxBphyBadPLCP=0 rxBadFCS=3 rxFifo0Ovfl=0 rxFifo1Ovfl=0 rx_nobuf=0 rxAnyErr=12 rxResponseTimeout=2 rxNoDelim=6 rxFrmTooLong=0 rxFrmTooShort=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) txRTSFrm=16 txRTSFail=0 rxCTSUcast=15 rxRTSUcast=17 txCTSFrm=17 txAMPDU=15 rxBACK=15 txPhyError=0 txAllFrm=88 txMPDU=0 txUcast=37 rxACKUcast=21 OfdmDesense=0 dB
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: (HighBand) rxBeaconMbss=70 rxBeaconObss=10 rxDataUcastMbss=19 rxMgmtUcastMbss=0 rxCNTRLUcast=69 txACKFrm=0 txBACK=17 ctxFifoFull=0 ctxFifo2Full=0 rxDataMcast=0 rxMgmtMcast=80
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: RX AMPDU (HighBand) rxAmpdu=17 txBACK(Ucode)=17 rxMpduInAmpdu=19 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0 rxRetryNoBA=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: WME RX MPDUs (rxPER 0 %) in tids 0:10, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): bt5g_status=0x3 bt5g_defer_cnt=0 bt5g_no_defer_cnt=0 bt5g_defer_max_switch_dur=0 bt5g_no_defer_max_switch_dur=0 bt5g_switch_succ_cnt=0 bt5g_switch_fail_cnt=0 bt5g_switch_reason_bm=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDur=0ms(0%) status=0x0 reqTypeMap=0x0 req=0 gnt=0 abort=0 rx1ovfl=0 latency=0 pmAttempt=0 sucPM=0 sucCTS2S=0 wlanTXPreempt=0 wlanRXPreempt=0 apTXafterPM=0 gntAudio=0 denyAudio=0 gntA2DP=0 denyA2DP=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi:  (HighBand) rxToss=0 rxLastTossRsn=0 rxNoFrag=0 rxNoCmplId=0 rxNoHaddr=0 rxMulti=0 rxUndec=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): CrtPriCnt=0 PriCnt=0 gntSniff=0 denySniff=0 antGrant0~10ms=0 antGrant10~30ms=0 antGrant30~60ms=0 antGrant>60ms=0 APLeakiness=0 rr_cnt=0 rr_succ_cnt=0
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: Stats12(5G): btDurAir=0ms(0%) desenseMode=0 wlrssi=0 btrssi=0 profile2gActive=-1 profile5gActive=-1 inactiveDur=15939 btPmAttemptNoackCnt=0 status2=0x0 [5088ms]
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<4 0 0 0 0 0 0 0 0 0 0> (5000ms)
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: TX(00:00:00:00:00:00) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5000ms)
+Nov 28 19:29:14 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: LQM-WiFi: L3 Control VO TX(00:00:00:00:00:00) Success=0 NoACK=0 Expired=0 OtherErr=0
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:14 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29601) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:14 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29601 with errno 3
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60e9bdc80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x608ddec20>>], frame not updated
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60e9bdc80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x608ddec20>>], frame not updated
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60e9bdc80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x608ddec20>>], frame not updated
+Nov 28 19:29:14 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B74] -> [34-3]
+Nov 28 19:29:14 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B74] -> [34-3]
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60e9bdc80; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x608ddec20>>], frame not updated
+Nov 28 19:29:14 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29602) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29602] Launch assertion invalidated: <NSError: 0x60ed8fb70; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29602] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29602 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29602 does not exist}
+Nov 28 19:29:14 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x60c5facd0; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
+    NSUnderlyingError = <NSError: 0x60ed8ef10; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
+        NSUnderlyingError = <NSError: 0x60ed8f570; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
+            NSUnderlyingError = <NSError: 0x60ed8c990; domain: dyld; code: 1; 1>;
+Nov 28 19:29:15 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29601 with errno 3
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
+Nov 28 19:29:15 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:15 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:15 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:15 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:15 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown AppStateTracker, pid 29601, uuid (null) display identifier com.example.game.CQR5T5N8PD foreground 1
+Nov 28 19:29:15 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
+Nov 28 19:29:15 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
+Nov 28 19:29:15 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5750.1.1.1:3] flags=[R.] seq=221555, ack=271439585, win=63743 state=FIN_WAIT_2 rcv_nxt=221555, snd_una=271439585
+Nov 28 19:29:15 iPhone-KILURSELF apsd[138] <Notice>: <private> Calling configuration completion blocks, expiration date Fri Nov 28 22:29:15 2025 error: (null)
+Nov 28 19:29:15 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q3859] Sent 128-byte query #1 to BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x0100 (Q/Query, RD, NoError), counts: 1/0/0/1, BBqbUPRm IN A?, . OPT 512 0 {EDE, code: 0}, {Padding, [64 B]}
+Nov 28 19:29:15 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q3859] Received acceptable 468-byte response from BBzGBZMs over HTTPS via utun4/27 -- id: 0x0000 (0), flags: 0x8180 (R/Query, RD, RA, NoError), counts: 1/9/0/1, BBqbUPRm IN A?, 28767 IN CNAME BBeiOgYA, 27 IN CNAME BBEFGlFC, 27 IN A BBbVJXic, 27 IN A BBhdzoNO, 27 IN A BBqpOuqx, 27 IN A BBJqzDnx, 27 IN A BBBKjHXJ, 27 IN A BBeOqCiP, 27 IN A BBPznvqi, . OPT 1232 0 {Padding, [207 B]}
+Nov 28 19:29:15 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:15 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:15 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
+Nov 28 19:29:15 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B75] -> [34-3]
+Nov 28 19:29:15 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B75] -> [34-3]
+Nov 28 19:29:15 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:15 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
+Nov 28 19:29:15 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
+Nov 28 19:29:15 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:15 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:16 iPhone-KILURSELF apsd[138] <Notice>: <private> Calling configuration completion blocks, expiration date Fri Nov 28 20:00:26 2025 error: (null)
+Nov 28 19:29:16 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q47150] Sent 43-byte query #1 to <IPv4:BBMtFPpP> over UDP via pdp_ip0/6 -- id: 0xB752 (46930), flags: 0x0100 (Q/Query, RD, NoError), counts: 1/0/0/0, BBDVfzmd IN A?
+Nov 28 19:29:16 iPhone-KILURSELF timed[71] <Error>: Command 'TMSetAuthenticatedSourceTime' included mach time when not expected, forcing conversion
+Nov 28 19:29:16 iPhone-KILURSELF timed[71] <Notice>: cmd,ntp_adjtime:in,modes,2017,offset_us,6676,freq_scaled,-1640640,maxerror_us,42497
+Nov 28 19:29:16 iPhone-KILURSELF timed[71] <Notice>: cmd,ntp_adjtime:out,modes,2017,offset_us,6676,freq_scaled,-1640640,maxerror_us,42497
+Nov 28 19:29:16 iPhone-KILURSELF dasd[80] <Error>: Insufficient history window for deviceActivityLikelihood stream ((null) < Tue Nov 25 19:29:16 2025)
+Nov 28 19:29:16 iPhone-KILURSELF dasd[80] <Error>: deviceActivityLikelihood returned a nil timeline
+Nov 28 19:29:16 iPhone-KILURSELF amsaccountsd(AppleMediaServices)[3688] <Error>: AMSDPushRegisterTask: [A007D894] === Failed === -> error = { Error domain=AMSErrorDomain, code=11
+Nov 28 19:29:16 iPhone-KILURSELF amsaccountsd[3688] <Error>: AMSDPushService: [A007D894] Failed to post push tokens. { Error domain=AMSErrorDomain, code=11
+Nov 28 19:29:16 iPhone-KILURSELF amsaccountsd(AppleMediaServices)[3688] <Error>: AMSDPushRegisterTask: [A007D894] === Failed === -> error = { Error domain=AMSErrorDomain, code=11
+Nov 28 19:29:16 iPhone-KILURSELF amsaccountsd(AppleMediaServices)[3688] <Error>: AMSDPushRegisterTask: [A007D894] === Failed === -> error = { Error domain=AMSErrorDomain, code=11
+Nov 28 19:29:16 iPhone-KILURSELF amsaccountsd(AppleMediaServices)[3688] <Error>: AMSDPushRegisterTask: [A007D894] === Failed === -> error = { Error domain=AMSErrorDomain, code=11
+Nov 28 19:29:16 iPhone-KILURSELF mDNSResponder[210] <Notice>: [Q47150] Received acceptable 233-byte response from <IPv4:BBMtFPpP> over UDP via pdp_ip0/6 -- id: 0xB752 (46930), flags: 0x8180 (R/Query, RD, RA, NoError), counts: 1/8/0/0, BBDVfzmd IN A?, 23390 IN CNAME BBWILnxs, 41 IN CNAME BBMmvpnn, 41 IN A BBvjOioI, 41 IN A BByQQZQW, 41 IN A BBMaIBmP, 41 IN A BByLJMXu, 41 IN A BBZRKpdr, 41 IN A BBuFhfbf
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.1:2] flags=[R.] seq=0, ack=713228664, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=713228663
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5752.1.1:1][0xbb2852600] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.1 IPv4#fb8b2d5e:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.1 IPv4#fb8b2d5e:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.274s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF PerfPowerServices(PowerlogLiteOperators)[25362] <Error>: NWPath does not have valid interface: satisfied (Path is satisfied), interface: utun4, ipv4, dns, uses wifi
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.2:2] flags=[R.] seq=0, ack=4228287554, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=4228287553
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5752.1.2:1][0xbb2851c00] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.2 IPv4#930df191:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.2 IPv4#930df191:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.329s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.3:2] flags=[R.] seq=0, ack=969158595, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=969158594
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5752.1.3:1][0xbb2851000] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.3 IPv4#bbfff05d:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.3 IPv4#bbfff05d:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.369s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.4:2] flags=[R.] seq=0, ack=1380905651, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=1380905650
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5752.1.4:1][0xbb22fe800] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.4 IPv4#abdfe753:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.4 IPv4#abdfe753:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.409s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.5:2] flags=[R.] seq=0, ack=1166072210, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=1166072209
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5752.1.5:1][0xbb22ff600] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.5 IPv4#05effc3b:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.5 IPv4#05effc3b:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.444s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5752.1.6:2] flags=[R.] seq=0, ack=3572447252, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=3572447251
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.6 IPv4#bbed1fe1:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5752.1.6 IPv4#bbed1fe1:5223 failed channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.484s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5752.1.6 IPv4#bbed1fe1:5223 cancelled channel-flow ((null))] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C5752] reporting state waiting error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C5752] reporting state cancelled error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd[138] <Notice>: <private>: Stream error occurred for <private> onInterface WWAN: Error Domain=NSPOSIXErrorDomain Code=61 UserInfo={NSDescription=<private>}
+Nov 28 19:29:16 iPhone-KILURSELF apsd[138] <Notice>: <private>: Calling into AWD for ConnectionDisconnected (withError)
+Nov 28 19:29:16 iPhone-KILURSELF apsd[138] <Notice>: <private>: AWD for ConnectionDisconnected (withError) finished
+Nov 28 19:29:16 iPhone-KILURSELF apsd[138] <Notice>: <private> Calling configuration completion blocks, expiration date Fri Nov 28 20:00:26 2025 error: (null)
+Nov 28 19:29:16 iPhone-KILURSELF trustd(Security)[134] <Error>: SecKeyVerifySignature failed: Error Domain=NSOSStatusErrorDomain Code=-67808 "RSA signature verification failed, no match" UserInfo={numberOfErrorsDeep=0, NSDescription=RSA signature verification failed, no match}
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:16 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29603) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:16 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29603 with errno 3
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ed19200; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x6097916e0>>], frame not updated
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ed19200; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x6097916e0>>], frame not updated
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ed19200; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x6097916e0>>], frame not updated
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ed19200; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x6097916e0>>], frame not updated
+Nov 28 19:29:16 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B76] -> [34-3]
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libusrtcp.dylib)[138] <Error>: tcp_input [C5754:2] flags=[R.] seq=0, ack=1659405639, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=1659405638
+Nov 28 19:29:16 iPhone-KILURSELF apsd(libboringssl.dylib)[138] <Notice>: nw_protocol_boringssl_error(2005) [C5754:1][0xbb22ff800] Lower protocol stack error pre TLS handshake. [61: <private>]
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_read_request_report [C5754] Receive failed with error "Connection refused"
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Error>: nw_endpoint_flow_failed_with_error [C5754 IPv4#12f3243f:5223 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] already failing, returning
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: [C5754 IPv4#12f3243f:5223 waiting parent-flow (satisfied (Path is satisfied), viable, interface: pdp_ip0[lte], scoped, ipv4, dns, expensive, uses cell)] event: flow:failed_connect @0.047s, error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C5754] reporting state waiting error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF apsd(Network)[138] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C5754] reporting state cancelled error Connection refused
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ed19200; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x6097916e0>>], frame not updated
+Nov 28 19:29:16 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29604) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(BaseBoard)[34] <Error>: Unable to get short BSD proc info for 29604: No such process
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29604] Launch assertion invalidated: <NSError: 0x60d87e040; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(RunningBoardServices)[34] <Error>: Error acquiring assertion: <Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29604 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29604 does not exist}>
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29604] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29604 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29604 does not exist}
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x609db4db0; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
+    NSUnderlyingError = <NSError: 0x60d87c180; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
+        NSUnderlyingError = <NSError: 0x60d87e760; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
+            NSUnderlyingError = <NSError: 0x60d87c570; domain: dyld; code: 1; 1>;
+Nov 28 19:29:16 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
+Nov 28 19:29:16 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29603 with errno 3
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
+Nov 28 19:29:16 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29604 with errno 3
+Nov 28 19:29:16 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:16 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:16 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29604 with errno 3
+Nov 28 19:29:16 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:16 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:16 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown AppStateTracker, pid 29603, uuid (null) display identifier com.example.game.CQR5T5N8PD foreground 1
+Nov 28 19:29:16 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
+Nov 28 19:29:16 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: Insufficient history window for deviceActivityLikelihood stream ((null) < Tue Nov 25 19:29:17 2025)
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: deviceActivityLikelihood returned a nil timeline
+Nov 28 19:29:17 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: Error obtaining RBS process handle: Error Domain=RBSRequestErrorDomain Code=3 UserInfo={NSLocalizedFailureReason=<private>}
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: Insufficient history window for deviceActivityLikelihood stream ((null) < Tue Nov 25 19:29:17 2025)
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: deviceActivityLikelihood returned a nil timeline
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: Insufficient history window for deviceActivityLikelihood stream ((null) < Tue Nov 25 19:29:17 2025)
+Nov 28 19:29:17 iPhone-KILURSELF dasd[80] <Error>: deviceActivityLikelihood returned a nil timeline
+Nov 28 19:29:17 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B77] -> [34-3]
+Nov 28 19:29:17 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B77] -> [34-3]
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
+Nov 28 19:29:17 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:17 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:17 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> could not find `cpu-avg-limiter-input-w2r property
+Nov 28 19:29:17 iPhone-KILURSELF thermalmonitord[64] <Error>: <Error> Failed to read `cpu-avg-limiter-input-w2r
+Nov 28 19:29:17 iPhone-KILURSELF trustd(Security)[134] <Error>: SecKeyVerifySignature failed: Error Domain=NSOSStatusErrorDomain Code=-67808 "RSA signature verification failed, no match" UserInfo={numberOfErrorsDeep=0, NSDescription=RSA signature verification failed, no match}
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:17 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29605) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:17 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29605 with errno 3
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ec4c900; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60dfe04e0>>], frame not updated
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ec4c900; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60dfe04e0>>], frame not updated
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29605] Launch assertion invalidated: <NSError: 0x60d87c5a0; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ec4c900; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60dfe04e0>>], frame not updated
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ec4c900; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60dfe04e0>>], frame not updated
+Nov 28 19:29:17 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B78] -> [34-3]
+Nov 28 19:29:17 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B78] -> [34-3]
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(SpringBoardUI)[34] <Error>: Live host view super view[(null)] not matching container view[<UIView: 0x60ec4c900; frame = (0 0; 402 874); clipsToBounds = YES; layer = <CALayer: 0x60dfe04e0>>], frame not updated
+Nov 28 19:29:17 iPhone-KILURSELF kernel(Sandbox)[0] <Error>: Sandbox: ios_xcode(29606) deny(1) sysctl-read kern.bootargs
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(BaseBoard)[34] <Error>: Unable to get short BSD proc info for 29606: No such process
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(UIKitCore)[34] <Error>: Error creating the CFMessagePort needed to communicate with PPT.
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Notice>: [app<com.example.game.CQR5T5N8PD>:29606] Launch assertion invalidated: <NSError: 0x60ed8f4b0; domain: RBSAssertionErrorDomain; code: 1; "Assertions were invalidated">
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(RunningBoardServices)[34] <Error>: Error acquiring assertion: <Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29606 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29606 does not exist}>
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [app<com.example.game.CQR5T5N8PD>:29606] Workspace assertion failed: Error Domain=RBSAssertionErrorDomain Code=2 "Specified target process 29606 does not exist" UserInfo={NSLocalizedFailureReason=Specified target process 29606 does not exist}
+Nov 28 19:29:17 iPhone-KILURSELF SpringBoard(FrontBoard)[34] <Error>: [(FBSceneManager):sceneID:com.example.game.CQR5T5N8PD-default] Update failed: <NSError: 0x60d87c600; domain: FBSceneErrorDomain; code: 1 ("operation-failed"); "Scene update failed."> {
+    NSUnderlyingError = <NSError: 0x60ed8f570; domain: FBWorkspaceScene; code: 1; "Unable to establish XPC connection."> {
+        NSUnderlyingError = <NSError: 0x60ed8f150; domain: FBProcessExit; code: 128 ("other"); "The process exited."> {
+            NSUnderlyingError = <NSError: 0x60ed8e370; domain: dyld; code: 1; 1>;
+Nov 28 19:29:17 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29605 with errno 3
+Nov 28 19:29:17 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29606 with errno 3
+Nov 28 19:29:17 iPhone-KILURSELF runningboardd(RunningBoardServices)[33] <Error>: proc_pidpath failed for 29606 with errno 3
+Nov 28 19:29:17 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:17 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:17 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Data type not yet set for stream APRSBiomeAppKillEvent, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:17 iPhone-KILURSELF dasd(BiomeStorage)[80] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:17 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
+Nov 28 19:29:17 iPhone-KILURSELF symptomsd(SymptomEvaluator)[186] <Error>: Process state is unknown (null)
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash[29039] <Error>: Unable to extract info plist from binary
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:18 iPhone-KILURSELF powerd[46] <Error>: Async client id is not found for id 0x9d69
+Nov 28 19:29:18 iPhone-KILURSELF powerd[46] <Error>: Async client id is not found for id 0x9d6b
+Nov 28 19:29:18 iPhone-KILURSELF powerd[46] <Error>: Async client id is not found for id 0x9d6c
+Nov 28 19:29:18 iPhone-KILURSELF powerd[46] <Error>: Async client id is not found for id 0x9d6d
+Nov 28 19:29:18 iPhone-KILURSELF apsd[138] <Notice>: <private>: Core Telephony acknowledged keep alive event with error (null)
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(MetricKitSource)[29039] <Error>: Failed to create bundle record for bundleID <private> and error <private>
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Error>: Unable to parse payload for <private> in namespace DIAGNOSTIC_PATTERN_MATCHING_CRASH as type CrashPatternDefinition
+Nov 28 19:29:18 iPhone-KILURSELF ReportCrash(CoreDiagnostics)[29039] <Notice>: look for known pattern error: <private>
+Nov 28 19:29:18 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Data type not yet set for stream blendingUIHomeScreen, please switch to APIs that take eventDataClass as a parameter.
+Nov 28 19:29:18 iPhone-KILURSELF SpringBoard(BiomeStorage)[34] <Error>: Event class '<private>' missing from NSKeyedUnarchiver allowedClasses
+Nov 28 19:29:18 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: -[WiFiTimeDeferredNetworksAJManager setScanResultsWithAutoJoinSessionCompletion:complete:]: no scan results
+Nov 28 19:29:18 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B79] -> [34-3]
+Nov 28 19:29:18 iPhone-KILURSELF backboardd(BackBoardHIDEventFoundation)[68] <Error>: cycle detected between [34-B79] -> [34-3]
+Nov 28 19:29:18 iPhone-KILURSELF SpringBoard(RemoteTextInput)[34] <Error>: -[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Nov 28 19:29:18 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Unable to retrieve any SBDeviceApplicationSceneEntity-s from the provided SBDeviceApplicationSceneHandle-s: {(
+Nov 28 19:29:18 iPhone-KILURSELF SpringBoard(SpringBoard)[34] <Error>: Error while attempting to disconnect scene: Error Domain=SBWorkspaceErrorDomain Code=1 UserInfo={NSDebugDescription=<private>}
+Nov 28 19:29:18 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:18 iPhone-KILURSELF contextstored(CoreDuet)[65] <Error>: Simulating crash. Reason: <private>
+Nov 28 19:29:19 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: WiFiLQAMgrObssMitInfoNotify OBSS MIT -> time = 457148 sec, shouldApply = 0, IsApplied = 0, currBw = 2, mitBw = 2, plcp 3, fcs 25, rxframes 19 rxPer 0%
+Nov 28 19:29:19 iPhone-KILURSELF wifid(WiFiPolicy)[50] <Error>: WiFiLQAMgrObssMitInfoNotify OBSS MIT -> soi (-63, -62), pwr0 (-94, 1, -94, -94, 0, 0, 0, 0)

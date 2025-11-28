@@ -96,28 +96,28 @@ xcodebuild -create-xcframework \
 6. ❌ post_install hook → всё равно не линкуется
 7. ❌ Текущая проблема → extern "C" vs C++ linkage
 
-## ❌ Проблема: Swift libraries не включены в IPA
+## ❌ Проблема: Swift libraries не копируются при unsigned build
 
-### Crash report показал точную причину:
+### Crash report (повторяется):
 ```
 Library not loaded: @rpath/libswiftCore.dylib
-Referenced from: /ios_xcode.app/Frameworks/libswift_Concurrency.dylib
 Reason: tried: '/ios_xcode.app/Frameworks/libswiftCore.dylib' (no such file)
 ```
 
-**Проблема:** Yandex SDK использует Swift, но Swift runtime libraries не скопировались в IPA.
+**Корневая причина:** При unsigned build (`CODE_SIGNING_ALLOWED=NO`) xcodebuild не копирует Swift libraries в Frameworks/, даже с `ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES`.
 
 ### Решение:
-Добавить `ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES` для главного app target в Podfile post_install hook.
+Явно копировать Swift libraries из Xcode toolchain в app Frameworks/ после сборки, перед созданием IPA.
 
 ### Что сделано:
 1. ✅ IPA собралась
 2. ✅ Патч dummy.cpp работает
-3. ✅ Получен crash report
-4. ✅ Исправлен Podfile - добавлен ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES для app target
+3. ✅ Получен crash report (дважды - та же ошибка)
+4. ❌ Podfile fix не сработал (unsigned build игнорирует ALWAYS_EMBED)
+5. ✅ Добавлен шаг "Copy Swift Libraries" в workflow - копирует libswiftCore.dylib и другие из Xcode toolchain
 
 ### Следующий шаг:
-Коммит и пересборка IPA
+Коммит и пересборка IPA с явным копированием Swift libraries
 
 ## 📂 Файлы документации
 

@@ -211,6 +211,49 @@ jobs:
         
         echo "✅ Build completed"
 
+    - name: Copy Swift Libraries
+      run: |
+        echo "📚 Copying Swift standard libraries..."
+        cd "$XCODE_PROJECT_DIR"
+        
+        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
+        APP_PATH="DerivedData/Build/Products/Release-iphoneos/${PROJ_NAME}.app"
+        
+        if [ ! -d "$APP_PATH" ]; then
+          echo "❌ App not found at $APP_PATH"
+          exit 1
+        fi
+        
+        # Create Frameworks directory in app
+        mkdir -p "$APP_PATH/Frameworks"
+        
+        # Find Swift toolchain path
+        SWIFT_LIBS="/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"
+        
+        if [ ! -d "$SWIFT_LIBS" ]; then
+          echo "❌ Swift libraries not found at $SWIFT_LIBS"
+          exit 1
+        fi
+        
+        echo "📂 Swift libraries path: $SWIFT_LIBS"
+        
+        # Copy required Swift libraries
+        echo "📋 Copying Swift runtime libraries..."
+        for lib in libswiftCore.dylib libswiftFoundation.dylib libswiftUIKit.dylib \
+                   libswiftCoreGraphics.dylib libswiftDispatch.dylib libswiftObjectiveC.dylib \
+                   libswift_Concurrency.dylib libswiftCoreFoundation.dylib libswiftDarwin.dylib; do
+          if [ -f "$SWIFT_LIBS/$lib" ]; then
+            cp "$SWIFT_LIBS/$lib" "$APP_PATH/Frameworks/"
+            echo "  ✅ Copied $lib"
+          else
+            echo "  ⚠️  $lib not found (may not be required)"
+          fi
+        done
+        
+        echo "✅ Swift libraries copied"
+        echo "📂 Frameworks directory:"
+        ls -lh "$APP_PATH/Frameworks/"
+
     - name: Create IPA
       run: |
         echo "📦 Creating IPA package..."
