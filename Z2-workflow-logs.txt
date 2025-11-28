@@ -1,50 +1,18 @@
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework/Headers (in target 'VGSLFundamentals' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals.build/Objects-normal/arm64/VGSLFundamentals.LinkFileList (in target 'VGSLFundamentals' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework/Headers
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals.build/Objects-normal/arm64/VGSLFundamentals.LinkFileList
 
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework (in target 'VGSLFundamentals' from project 'Pods')
+CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework/VGSLFundamentalsPrivacyInfo.bundle /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentalsPrivacyInfo.bundle (in target 'VGSLFundamentals' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentalsPrivacyInfo.bundle /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSLFundamentals/VGSLFundamentals.framework
 
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework/Headers (in target 'VGSL' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework/Headers
+CreateBuildDirectory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    builtin-create-build-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit
 
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework (in target 'VGSL' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/VGSL/VGSL.framework
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework/Headers (in target 'DivKit_Serialization' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework/Headers
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework (in target 'DivKit_Serialization' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_Serialization/Serialization.framework
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework/Headers (in target 'DivKit_LayoutKitInterface' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework/Headers
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework (in target 'DivKit_LayoutKitInterface' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKitInterface/LayoutKitInterface.framework
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework/Headers (in target 'DivKit_LayoutKit' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework/Headers
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework (in target 'DivKit_LayoutKit' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit_LayoutKit/LayoutKit.framework
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework/Headers (in target 'DivKitBinaryCompatibilityFacade' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework/Headers
-
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework (in target 'DivKitBinaryCompatibilityFacade' from project 'Pods')
-    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKitBinaryCompatibilityFacade/DivKitBinaryCompatibilityFacade.framework
+CreateBuildDirectory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization
+    cd /Users/runner/work/testadmobapp/testadmobapp/build
+    builtin-create-build-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization
 
 MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework/Headers (in target 'DivKit' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
@@ -54,91 +22,140 @@ MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Produ
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
     /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/DivKit/DivKit.framework
 
-ProcessXCFramework /Users/runner/work/testadmobapp/testadmobapp/build/MoltenVK.xcframework /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/libMoltenVK.a ios
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.bundle (in target 'AppMetricaSynchronization-AppMetricaSynchronization' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.bundle
+
+CreateBuildDirectory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    builtin-process-xcframework --xcframework /Users/runner/work/testadmobapp/testadmobapp/build/MoltenVK.xcframework --platform ios --target-path /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos
+    builtin-create-build-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils
 
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Frameworks (in target 'ios_xcode' from project 'ios_xcode')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.framework/Headers (in target 'AppMetricaSynchronization' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.framework (in target 'AppMetricaSynchronization' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaSynchronization/AppMetricaSynchronization.framework
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.bundle (in target 'AppMetricaStorageUtils-AppMetricaStorageUtils' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.bundle
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.framework/Headers (in target 'AppMetricaStorageUtils' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.framework/Headers
+
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.framework (in target 'AppMetricaStorageUtils' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaStorageUtils/AppMetricaStorageUtils.framework
+
+CreateBuildDirectory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app/Frameworks
+    builtin-create-build-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils
 
-MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app (in target 'ios_xcode' from project 'ios_xcode')
+CreateBuildDirectory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf
     cd /Users/runner/work/testadmobapp/testadmobapp/build
-    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/ios_xcode.app
+    builtin-create-build-directory /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/all-product-headers.yaml (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.bundle (in target 'AppMetricaProtobufUtils-AppMetricaProtobufUtils' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/all-product-headers.yaml
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.bundle
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.framework/Headers (in target 'AppMetricaProtobufUtils' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo.hmap
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.framework/Headers
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-project-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.framework (in target 'AppMetricaProtobufUtils' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-project-headers.hmap
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobufUtils/AppMetricaProtobufUtils.framework
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-own-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-own-target-headers.hmap
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-generated-files.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework/Headers (in target 'AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-generated-files.hmap
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework/Headers
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+MkDir /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework (in target 'AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-target-headers.hmap
+    /bin/mkdir -p /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.framework
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-non-framework-target-headers.hmap (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/all-product-headers.yaml (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/YandexMobileAds_PrivacyInfo-all-non-framework-target-headers.hmap
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/all-product-headers.yaml
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/all-product-headers.yaml (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/all-product-headers.yaml
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf.hmap
 
-ProcessInfoPlistFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Info.plist /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/YandexMobileAds/ResourceBundle-YandexMobileAds_PrivacyInfo-YandexMobileAds-Info.plist (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-project-headers.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    builtin-infoPlistUtility /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/YandexMobileAds/ResourceBundle-YandexMobileAds_PrivacyInfo-YandexMobileAds-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Info.plist
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-project-headers.hmap
 
-CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/Pods/YandexMobileAds/static/YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/PrivacyInfo.xcprivacy (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-own-target-headers.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/Pods/YandexMobileAds/static/YandexMobileAds.xcframework/ios-arm64/YandexMobileAds.framework/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-own-target-headers.hmap
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-generated-files.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo.hmap
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-generated-files.hmap
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-project-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-all-target-headers.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-project-headers.hmap
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-all-target-headers.hmap
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-own-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-all-non-framework-target-headers.hmap (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-own-target-headers.hmap
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/AppMetricaProtobuf-all-non-framework-target-headers.hmap
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-generated-files.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/all-product-headers.yaml (in target 'AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-generated-files.hmap
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/all-product-headers.yaml
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+ProcessInfoPlistFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/Info.plist /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/AppMetricaProtobuf/ResourceBundle-AppMetricaProtobuf-AppMetricaProtobuf-Info.plist (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-target-headers.hmap
+    builtin-infoPlistUtility /Users/runner/work/testadmobapp/testadmobapp/build/Pods/Target\ Support\ Files/AppMetricaProtobuf/ResourceBundle-AppMetricaProtobuf-AppMetricaProtobuf-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/Info.plist
 
-WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-non-framework-target-headers.hmap (in target 'VGSLFundamentals-VGSLFundamentalsPrivacyInfo' from project 'Pods')
+CpResource /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/Pods/AppMetricaProtobuf/AppMetricaProtobuf/Sources/Resources/PrivacyInfo.xcprivacy (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/VGSLFundamentals-VGSLFundamentalsPrivacyInfo.build/VGSLFundamentalsPrivacyInfo-all-non-framework-target-headers.hmap
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/testadmobapp/testadmobapp/build/Pods/AppMetricaProtobuf/AppMetricaProtobuf/Sources/Resources/PrivacyInfo.xcprivacy /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle
 
-CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
     cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
-    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/YandexMobileAds_PrivacyInfo --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Frameworks --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/PlugIns --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/SystemExtensions --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Extensions --platform iphoneos --toolchain /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/YandexMobileAds-YandexMobileAds_PrivacyInfo.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-concurrency
-error: Build input file cannot be found: '/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle/YandexMobileAds_PrivacyInfo'. Did you forget to declare this file as an output of a script phase or custom build rule which produces it? (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-project-headers.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-own-target-headers.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-generated-files.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-all-target-headers.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-all-non-framework-target-headers.hmap (in target 'AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    write-file /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf.build/AppMetricaProtobuf-all-non-framework-target-headers.hmap
+
+CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
+    cd /Users/runner/work/testadmobapp/testadmobapp/build/Pods
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/AppMetricaProtobuf --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/Frameworks --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/PlugIns --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/SystemExtensions --scan-folder /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/Extensions --platform iphoneos --toolchain /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/AppMetricaProtobuf-AppMetricaProtobuf.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-concurrency
+error: Build input file cannot be found: '/Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle/AppMetricaProtobuf'. Did you forget to declare this file as an output of a script phase or custom build rule which produces it? (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
 
 ** BUILD FAILED **
 
 
 The following build commands failed:
-	CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/YandexMobileAds/YandexMobileAds_PrivacyInfo.bundle (in target 'YandexMobileAds-YandexMobileAds_PrivacyInfo' from project 'Pods')
-(1 failure)
+	PhaseScriptExecution [CP]\ Copy\ XCFrameworks /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Intermediates.noindex/Pods.build/Release-iphoneos/myTrackerSDK.build/Script-BA10F7CA2EC363D507A7BC90472114E4.sh (in target 'myTrackerSDK' from project 'Pods')
+	CopySwiftLibs /Users/runner/work/testadmobapp/testadmobapp/build/DerivedData/Build/Products/Release-iphoneos/AppMetricaProtobuf/AppMetricaProtobuf.bundle (in target 'AppMetricaProtobuf-AppMetricaProtobuf' from project 'Pods')
+(2 failures)
 Error: Process completed with exit code 65.
