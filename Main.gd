@@ -6,9 +6,9 @@ extends Control
 @onready var admob_button: Button = $ScrollContainer/VBoxContainer/AdMobButton
 @onready var status_label: Label = $ScrollContainer/VBoxContainer/StatusLabel
 
-# Ad Networks
-var yandex_ads: YandexAds
-var vk_ads: VkAds
+# Ad Networks (no type hints - will be set dynamically based on platform)
+var yandex_ads
+var vk_ads
 var admob_rewarded_ad: RewardedAd
 var admob_rewarded_callback: RewardedAdLoadCallback
 
