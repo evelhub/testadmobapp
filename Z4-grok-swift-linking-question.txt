@@ -1,0 +1,164 @@
+# ВОПРОС ДЛЯ GROK: Yandex Mobile Ads Swift Linking в Godot iOS Plugin
+
+## ЦЕЛЬ
+Запустить тестовые рекламные баннеры Yandex Mobile Ads на iPhone через Godot 4.4.1 iOS plugin.
+
+## КОНТЕКСТ
+
+### Что уже сделано ✅
+1. **Создан iOS plugin** для Godot с forward declarations (без импорта SDK headers)
+2. **Плагин успешно компилируется** в `.xcframework` через GitHub Actions
+3. **Godot экспортирует** Xcode проект с плагином
+4. **Yandex SDK скачивается** и добавляется в проект
+
+### Текущая проблема ❌
+**Линковка падает** с ошибками Swift runtime symbols:
+
+```
+"__swift_FORCE_LOAD_$_swift_errno", referenced from:
+    __swift_FORCE_LOAD_$_swift_errno_$_YandexMobileAds in YandexMobileAds[8](AdInfo.o)
+"__swift_FORCE_LOAD_$_swift_math", referenced from:
+    __swift_FORCE_LOAD_$_swift_math_$_YandexMobileAds
+"_kAMADeviceIDKey", referenced from:
+    MACAnalytics.MACMetricaRawIdentifiersLoader.loadRawIndentifiers
+"_swift_willThrowTypedImpl", referenced from:
+    _swift_willThrowTyped in YandexMobileAds[844](Result+Extension.o)
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1
+```
+
+**Причина**: Yandex Mobile Ads SDK 7.17.1 написан на Swift и требует Swift runtime libraries.
+
+## ЧТО МЫ ПРОБОВАЛИ
+
+### Попытка 1: Добавить Swift flags в .gdip ❌
+```
+linker_flags=["-ObjC", "-lswiftCore", "-lswiftFoundation", "-lswiftUIKit", ...]
+```
+**Результат**: Godot игнорирует эти флаги, ошибка линковки остаётся.
+
+### Попытка 2: Добавить Swift flags в xcodebuild ⏳
+```bash
+xcodebuild ... \
+  ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES \
+  OTHER_LDFLAGS="-ObjC -lswiftCore -lswiftFoundation ..." \
+  build
+```
+**Статус**: Пока не протестировано, но есть сомнения что сработает.
+
+## ВОПРОСЫ К GROK
+
+### 1. Правильный подход для Godot iOS plugins со Swift SDK?
+- Как правильно линковать Swift frameworks в Godot 4.4.1 iOS plugins?
+- Поддерживает ли Godot автоматическую линковку Swift libraries?
+- Есть ли документация или примеры?
+
+### 2. Альтернатива: Старая версия Yandex SDK?
+- Какая последняя версия Yandex Mobile Ads SDK написана на **Objective-C** (без Swift)?
+- Где скачать эту версию? (прямая ссылка на XCFramework)
+- Совместим ли API с текущим кодом плагина?
+
+### 3. CocoaPods решение?
+Можно ли использовать CocoaPods для автоматической линковки Swift dependencies?
+```ruby
+pod 'YandexMobileAds', '~> 7.17.1'
+```
+Как интегрировать это с Godot export?
+
+### 4. Custom Export Template?
+Нужно ли создавать custom Godot export template с Swift support?
+- Насколько это сложно?
+- Есть ли готовые решения?
+
+### 5. Другие рекламные SDK?
+Если Yandex слишком сложен, есть ли альтернативы для российского рынка:
+- VK Ads (MyTarget) - написан на Objective-C?
+- Другие SDK без Swift зависимостей?
+
+## ТЕКУЩАЯ КОНФИГУРАЦИЯ
+
+### Структура проекта:
+```
+ios/plugins/yandex_ads/
+├── YandexAdsPlugin.h           # Header с интерфейсом
+├── YandexAdsPlugin.mm          # Реализация с forward declarations
+├── yandex_ads.gdip             # Godot plugin config
+├── yandex_ads.xcframework/     # Скомпилированный плагин ✅
+└── YandexMobileAds.xcframework/ # Yandex SDK (Swift) ⚠️
+```
+
+### yandex_ads.gdip:
+```
+[config]
+name="YandexAds"
+binary="yandex_ads.xcframework"
+initialization="yandex_ads_init"
+deinitialization="yandex_ads_deinit"
+
+[dependencies]
+embedded=["YandexMobileAds.xcframework"]
+system=["UIKit.framework", "Foundation.framework", ...]
+linker_flags=["-ObjC", "-lswiftCore", "-lswiftFoundation", ...]
+```
+
+### GitHub Actions workflow:
+- macOS-14 runner
+- Xcode 15.4
+- Godot 4.4.1
+- CocoaPods 1.15.2
+- Unsigned IPA build
+
+## ЧТО РАБОТАЕТ
+
+✅ Android версия (Yandex + VK Ads) - полностью функциональна
+✅ iOS AdMob plugin - работает (Objective-C, без Swift)
+✅ Компиляция iOS плагина в .xcframework
+✅ Godot export в Xcode проект
+✅ Скачивание Yandex SDK
+
+## ЧТО НЕ РАБОТАЕТ
+
+❌ Линковка Swift runtime libraries
+❌ Сборка IPA с Yandex SDK
+❌ Запуск рекламы на устройстве
+
+## ИДЕАЛЬНОЕ РЕШЕНИЕ
+
+Нужно **простое и надёжное** решение которое:
+1. Работает в GitHub Actions (без локального Mac)
+2. Не требует модификации Godot engine
+3. Позволяет использовать актуальный Yandex SDK
+4. Легко поддерживать и обновлять
+
+## ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+
+- Целевая платформа: iOS 13.0+
+- Устройство для тестирования: iPhone (российский регион)
+- Цель: Показать тестовые баннеры Yandex Ads
+- Бюджет времени: Хотим решить как можно быстрее
+
+## ВОПРОС
+
+**Какой самый простой и надёжный способ заставить Yandex Mobile Ads SDK работать в Godot iOS plugin?**
+
+Варианты:
+A) Исправить линковку Swift libraries (как?)
+B) Использовать старую Objective-C версию SDK (какую?)
+C) Другой подход (какой?)
+
+Пожалуйста, дай конкретные инструкции с примерами кода/команд.
+
+---
+
+## ЛОГИ ОШИБКИ
+
+Полные логи линковки в файле Z2-workflow-logs.txt (последние 80 строк показывают Swift symbols errors).
+
+## ПРЕДЫДУЩАЯ ПОМОЩЬ GROK
+
+Grok уже помогал нам с:
+- Структурой iOS плагинов для Godot 4.x
+- Forward declarations вместо импорта SDK
+- Компиляцией .mm в .xcframework
+
+Ответ в файле Z1-grok-answer.txt был очень полезен!

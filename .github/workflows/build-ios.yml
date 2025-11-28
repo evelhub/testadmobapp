@@ -39,21 +39,10 @@ jobs:
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
         echo "✅ Export templates installed"
 
-    - name: Download Yandex Mobile Ads XCFramework
+    - name: Skip Manual SDK Download (CocoaPods will handle it)
       run: |
-        echo "📥 Downloading Yandex Mobile Ads XCFramework..."
-        
-        # Download to plugin directory BEFORE Godot export
-        mkdir -p ios/plugins/yandex_ads
-        cd ios/plugins/yandex_ads
-        
-        # Download official Yandex Mobile Ads 7.17.1 XCFramework from S3
-        wget -q https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAds/7.17.1/spm/5177c6a0-8b16-4da1-8d24-8cb968316b04.zip -O YandexMobileAds.zip
-        unzip -q YandexMobileAds.zip
-        rm YandexMobileAds.zip
-        
-        echo "✅ Yandex XCFramework downloaded to plugin directory"
-        ls -la
+        echo "📝 Yandex SDK will be installed via CocoaPods after Godot export"
+        echo "✅ Skipping manual download"
 
     - name: Compile iOS Plugins
       run: |
@@ -117,22 +106,26 @@ jobs:
 
     - name: Install CocoaPods Dependencies
       run: |
-        echo "📦 Installing Pods (VK SDK)..."
+        echo "📦 Installing Pods (Yandex + VK SDK)..."
         cd "$XCODE_PROJECT_DIR"
-        
-        # Copy Podfile
-        cp ../ios/Podfile .
         
         # Get project name
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         echo "📝 Project name: $PROJ_NAME"
         
-        # Update Podfile with correct project name
-        sed -i '' "s/TestAdMobApp/$PROJ_NAME/g" Podfile
+        # Copy Podfile template and replace project name
+        cp ../../ios/Podfile.template ./Podfile
+        sed -i '' "s/PROJECT_NAME_PLACEHOLDER/$PROJ_NAME/g" Podfile
         
-        # Install pods (only VK SDK now)
+        echo "📄 Podfile content:"
+        cat Podfile
+        
+        # Install pods (Yandex + VK SDK with Swift support)
         pod install --repo-update
+        
         echo "✅ Pods installed"
+        echo "📂 Workspace created:"
+        ls -la *.xcworkspace
 
     - name: Build IPA (unsigned)
       run: |
@@ -141,24 +134,23 @@ jobs:
         
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         
-        # After pod install, MUST use workspace
-        if [ -d "Pods/${PROJ_NAME}.xcworkspace" ]; then
-          BUILD_TARGET="-workspace Pods/${PROJ_NAME}.xcworkspace"
-          echo "✅ Using workspace from Pods"
-        elif [ -d "${PROJ_NAME}.xcworkspace" ]; then
-          BUILD_TARGET="-workspace ${PROJ_NAME}.xcworkspace"
-          echo "✅ Using workspace"
-        else
-          BUILD_TARGET="-project ${PROJ_NAME}.xcodeproj"
-          echo "⚠️ Using project (no workspace found)"
+        # After pod install, MUST use workspace (CocoaPods creates it)
+        WORKSPACE="${PROJ_NAME}.xcworkspace"
+        
+        if [ ! -d "$WORKSPACE" ]; then
+          echo "❌ Workspace not found: $WORKSPACE"
+          echo "📂 Available files:"
+          ls -la
+          exit 1
         fi
         
-        echo "📝 Build target: $BUILD_TARGET"
+        echo "✅ Using workspace: $WORKSPACE"
         echo "📝 Scheme: $PROJ_NAME"
         
-        # Build without code signing (Yandex XCFramework embedded by Godot)
-        xcodebuild $BUILD_TARGET \
-          -scheme $PROJ_NAME \
+        # Build without code signing
+        # CocoaPods automatically handles Swift libraries!
+        xcodebuild -workspace "$WORKSPACE" \
+          -scheme "$PROJ_NAME" \
           -configuration Release \
           -sdk iphoneos \
           -derivedDataPath DerivedData \

@@ -1,0 +1,30 @@
+# Podfile for Godot iOS export with Yandex Mobile Ads
+# This will be copied to exported Xcode project
+
+platform :ios, '13.0'
+
+# Project name will be replaced by workflow
+target 'PROJECT_NAME_PLACEHOLDER' do
+  use_frameworks!
+
+  # Yandex Mobile Ads SDK (with Swift support)
+  pod 'YandexMobileAds', '~> 7.17.1'
+  
+  # VK Ads (MyTarget) SDK (optional)
+  pod 'myTargetSDK', '~> 5.21.8'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      
+      # Swift compatibility
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+      
+      # Ensure Swift libraries are embedded
+      config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
+    end
+  end
+end
