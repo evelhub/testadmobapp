@@ -92,15 +92,35 @@ static YandexBannerDelegate *g_bannerDelegate = nil;
 
 static YandexRewardedDelegate *g_rewardedDelegate = nil;
 
+// File logging helper
+void log_to_file(NSString *message) {
+    NSString *logPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] 
+                         stringByAppendingPathComponent:@"yandex_ads_log.txt"];
+    NSString *timestamp = [NSString stringWithFormat:@"[%@] ", [NSDate date]];
+    NSString *logMessage = [NSString stringWithFormat:@"%@%@\n", timestamp, message];
+    
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:logPath];
+    if (fileHandle) {
+        [fileHandle seekToEndOfFile];
+        [fileHandle writeData:[logMessage dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle closeFile];
+    } else {
+        [logMessage writeToFile:logPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
+}
+
 // Implementation
 void yandex_ads_init() {
     NSLog(@"🟡 [YANDEX] Initializing Yandex Mobile Ads SDK...");
-    NSLog(@"🟡 [YANDEX] Plugin loaded and init called");
+    log_to_file(@"🟡 [YANDEX] yandex_ads_init() CALLED!");
+    log_to_file(@"🟡 [YANDEX] Plugin loaded and init called");
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        log_to_file(@"🟡 [YANDEX] Starting SDK initialization...");
         [YMAMobileAds enableLogging];
         [YMAMobileAds initializeSDKWithCompletionHandler:^{
             NSLog(@"✅ [YANDEX] Yandex Mobile Ads SDK initialized successfully");
+            log_to_file(@"✅ [YANDEX] SDK initialized successfully");
             g_isInitialized = true;
         }];
         
@@ -108,6 +128,7 @@ void yandex_ads_init() {
         g_rewardedDelegate = [[YandexRewardedDelegate alloc] init];
         
         NSLog(@"✅ [YANDEX] Delegates created");
+        log_to_file(@"✅ [YANDEX] Delegates created");
     });
 }
 
