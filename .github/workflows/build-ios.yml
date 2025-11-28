@@ -227,11 +227,22 @@ jobs:
         # Create Frameworks directory in app
         mkdir -p "$APP_PATH/Frameworks"
         
-        # Find Swift toolchain path
-        SWIFT_LIBS="/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"
+        # Find Swift libraries - try multiple locations
+        SWIFT_LIBS=""
+        for path in \
+          "/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos" \
+          "/Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos" \
+          "$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.0/iphoneos" \
+          "$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"; do
+          if [ -d "$path" ] && [ -f "$path/libswiftCore.dylib" ]; then
+            SWIFT_LIBS="$path"
+            break
+          fi
+        done
         
-        if [ ! -d "$SWIFT_LIBS" ]; then
-          echo "❌ Swift libraries not found at $SWIFT_LIBS"
+        if [ -z "$SWIFT_LIBS" ]; then
+          echo "❌ Swift libraries not found, searching..."
+          find /Applications/Xcode_15.4.app -name "libswiftCore.dylib" 2>/dev/null | head -5
           exit 1
         fi
         
@@ -241,12 +252,12 @@ jobs:
         echo "📋 Copying Swift runtime libraries..."
         for lib in libswiftCore.dylib libswiftFoundation.dylib libswiftUIKit.dylib \
                    libswiftCoreGraphics.dylib libswiftDispatch.dylib libswiftObjectiveC.dylib \
-                   libswift_Concurrency.dylib libswiftCoreFoundation.dylib libswiftDarwin.dylib; do
+                   libswift_Concurrency.dylib libswiftCoreFoundation.dylib libswiftDarwin.dylib \
+                   libswiftCompatibility50.dylib libswiftCompatibility51.dylib \
+                   libswiftCompatibilityDynamicReplacements.dylib; do
           if [ -f "$SWIFT_LIBS/$lib" ]; then
             cp "$SWIFT_LIBS/$lib" "$APP_PATH/Frameworks/"
             echo "  ✅ Copied $lib"
-          else
-            echo "  ⚠️  $lib not found (may not be required)"
           fi
         done
         

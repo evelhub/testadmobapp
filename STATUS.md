@@ -96,28 +96,26 @@ xcodebuild -create-xcframework \
 6. ❌ post_install hook → всё равно не линкуется
 7. ❌ Текущая проблема → extern "C" vs C++ linkage
 
-## ❌ Проблема: Swift libraries не копируются при unsigned build
+## 🔧 Исправление: Поиск Swift libraries в правильном пути
 
-### Crash report (повторяется):
-```
-Library not loaded: @rpath/libswiftCore.dylib
-Reason: tried: '/ios_xcode.app/Frameworks/libswiftCore.dylib' (no such file)
-```
-
-**Корневая причина:** При unsigned build (`CODE_SIGNING_ALLOWED=NO`) xcodebuild не копирует Swift libraries в Frameworks/, даже с `ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES`.
+### Проблема в предыдущей сборке:
+Скрипт искал Swift libraries в `/usr/lib/swift/iphoneos`, но они не найдены. В Frameworks/ уже есть `libswift_Concurrency.dylib` (от CocoaPods), но нет `libswiftCore.dylib`.
 
 ### Решение:
-Явно копировать Swift libraries из Xcode toolchain в app Frameworks/ после сборки, перед созданием IPA.
+Обновить скрипт для поиска Swift libraries в нескольких возможных путях:
+- `/usr/lib/swift-5.0/iphoneos` (Swift 5.0 runtime)
+- `/usr/lib/swift/iphoneos` (новые версии)
+- Использовать `xcode-select -p` для динамического определения пути
 
 ### Что сделано:
 1. ✅ IPA собралась
 2. ✅ Патч dummy.cpp работает
-3. ✅ Получен crash report (дважды - та же ошибка)
-4. ❌ Podfile fix не сработал (unsigned build игнорирует ALWAYS_EMBED)
-5. ✅ Добавлен шаг "Copy Swift Libraries" в workflow - копирует libswiftCore.dylib и другие из Xcode toolchain
+3. ✅ Добавлен шаг копирования Swift libraries
+4. ❌ Библиотеки не найдены в указанном пути
+5. ✅ Обновлён скрипт - проверяет несколько путей и ищет libswiftCore.dylib
 
 ### Следующий шаг:
-Коммит и пересборка IPA с явным копированием Swift libraries
+Коммит и пересборка с исправленным поиском Swift libraries
 
 ## 📂 Файлы документации
 
