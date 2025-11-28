@@ -104,6 +104,41 @@ jobs:
         echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
         echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
 
+    - name: Patch dummy.cpp for extern C
+      run: |
+        echo "🔧 Patching dummy.cpp to add extern C declarations..."
+        cd "$XCODE_PROJECT_DIR"
+        
+        # Find dummy.cpp
+        DUMMY_FILE=$(find . -name "dummy.cpp" -o -name "*dummy*.cpp" -o -name "godot_plugin*.cpp" | head -1)
+        
+        if [ -z "$DUMMY_FILE" ]; then
+          echo "⚠️  dummy.cpp not found, searching..."
+          DUMMY_FILE=$(find . -type f -name "*.cpp" | xargs grep -l "godot_ios_plugins_initialize" | head -1)
+        fi
+        
+        if [ -n "$DUMMY_FILE" ]; then
+          echo "📝 Found: $DUMMY_FILE"
+          
+          # Create patch content
+          cat > /tmp/patch.txt << 'PATCH_EOF'
+        // Extern C declarations for iOS plugins
+        extern "C" void yandex_ads_init();
+        extern "C" void yandex_ads_deinit();
+        
+        PATCH_EOF
+          
+          # Insert before godot_ios_plugins_initialize
+          sed -i '' '/void godot_ios_plugins_initialize()/r /tmp/patch.txt' "$DUMMY_FILE"
+          
+          echo "✅ Patched $DUMMY_FILE"
+          grep -A 3 "extern \"C\" void yandex" "$DUMMY_FILE" || true
+        else
+          echo "❌ Could not find dummy.cpp!"
+          find . -name "*.cpp" -type f
+          exit 1
+        fi
+
     - name: Install CocoaPods Dependencies
       run: |
         echo "📦 Installing Pods (Yandex + VK SDK)..."

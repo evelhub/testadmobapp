@@ -22,3 +22,10 @@ ios/plugins/*/vk_ads.xcframework/
 # Editor
 *.swp
 *~
+
+# Temporary documentation (keep only STATUS.md, README.md, PROJECT_ROADMAP.md)
+FIX_*.md
+GROK_*.md
+IOS_*.md
+FINAL_*.md
+CURRENT_*.md

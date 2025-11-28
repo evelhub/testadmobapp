@@ -92,15 +92,35 @@ build_plugin() {
     
     ar rcs "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_simulator.a" "$BUILD_PLUGIN_DIR/${PLUGIN_NAME}_simulator.o"
     
-    # Create XCFramework
+    # Prepare headers directory
+    echo "  📄 Preparing headers..."
+    mkdir -p "$BUILD_PLUGIN_DIR/headers"
+    if [ -f "$PLUGIN_DIR/${PLUGIN_NAME}.h" ]; then
+        cp "$PLUGIN_DIR/${PLUGIN_NAME}.h" "$BUILD_PLUGIN_DIR/headers/"
+        echo "  ✅ Header copied: ${PLUGIN_NAME}.h"
+    fi
+    
+    # Create XCFramework with headers
     echo "  📦 Creating XCFramework..."
-    xcodebuild -create-xcframework \
-        -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_device.a" \
-        -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_simulator.a" \
-        -output "$PLUGIN_DIR/${PLUGIN_NAME}.xcframework" || {
-            echo -e "${RED}❌ XCFramework creation failed${NC}"
-            return 1
-        }
+    if [ -d "$BUILD_PLUGIN_DIR/headers" ] && [ "$(ls -A $BUILD_PLUGIN_DIR/headers)" ]; then
+        xcodebuild -create-xcframework \
+            -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_device.a" \
+            -headers "$BUILD_PLUGIN_DIR/headers" \
+            -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_simulator.a" \
+            -headers "$BUILD_PLUGIN_DIR/headers" \
+            -output "$PLUGIN_DIR/${PLUGIN_NAME}.xcframework" || {
+                echo -e "${RED}❌ XCFramework creation failed${NC}"
+                return 1
+            }
+    else
+        xcodebuild -create-xcframework \
+            -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_device.a" \
+            -library "$BUILD_PLUGIN_DIR/lib${PLUGIN_NAME}_simulator.a" \
+            -output "$PLUGIN_DIR/${PLUGIN_NAME}.xcframework" || {
+                echo -e "${RED}❌ XCFramework creation failed${NC}"
+                return 1
+            }
+    fi
     
     echo -e "${GREEN}✅ $PLUGIN_NAME built successfully!${NC}"
     

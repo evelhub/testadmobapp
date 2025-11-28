@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#include "yandex_ads.h"
 
 // Forward declarations for Yandex SDK classes (avoid importing SDK during compilation)
 @class YMABannerView;

@@ -1,0 +1,147 @@
+# Вопрос для Grok: Проблема линковки iOS плагина в Godot 4.4.1
+
+## Контекст
+Разрабатываем iOS native plugin для Godot 4.4.1 для интеграции Yandex Mobile Ads SDK.
+
+## Структура проекта
+```
+ios/plugins/yandex_ads/
+├── yandex_ads.mm          # C bridge с extern "C"
+├── yandex_ads.gdip        # Godot plugin descriptor
+└── yandex_ads.xcframework # Скомпилированный плагин
+```
+
+## Проблема
+При финальной сборке IPA в GitHub Actions получаем ошибку линковки:
+
+```
+Undefined symbols for architecture arm64:
+  "yandex_ads_init()", referenced from:
+      godot_ios_plugins_initialize() in dummy.o
+   NOTE: found '_yandex_ads_init' in libyandex_ads_device.a[2](yandex_ads_device.o), 
+   declaration possibly missing 'extern "C"'
+```
+
+## Что мы делаем
+
+### 1. yandex_ads.mm (C bridge)
+```objc
+#import <Foundation/Foundation.h>
+
+// Forward declarations (SDK не импортируется)
+@class YMABannerView;
+@interface YMAMobileAds : NSObject
++ (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
+@end
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void yandex_ads_init();
+void yandex_ads_deinit();
+
+#ifdef __cplusplus
+}
+#endif
+
+void yandex_ads_init() {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [YMAMobileAds initializeSDKWithCompletionHandler:^{
+            NSLog(@"SDK initialized");
+        }];
+    });
+}
+
+void yandex_ads_deinit() {
+    // cleanup
+}
+```
+
+### 2. yandex_ads.gdip
+```ini
+[config]
+name="YandexAds"
+binary="yandex_ads.xcframework"
+initialization="yandex_ads_init"
+deinitialization="yandex_ads_deinit"
+
+[dependencies]
+embedded=[]
+system=["UIKit.framework", "Foundation.framework"]
+linker_flags=["-ObjC"]
+```
+
+### 3. Компиляция плагина (build_plugins.sh)
+```bash
+# Компилируем в .o файл
+xcrun clang++ \
+    -x objective-c++ \
+    -std=c++17 \
+    -arch arm64 \
+    -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
+    -mios-version-min=13.0 \
+    -c yandex_ads.mm \
+    -o yandex_ads_device.o \
+    -fobjc-arc
+
+# Создаём статическую библиотеку
+ar rcs libyandex_ads_device.a yandex_ads_device.o
+
+# Создаём XCFramework
+xcodebuild -create-xcframework \
+    -library libyandex_ads_device.a \
+    -output yandex_ads.xcframework
+```
+
+### 4. Godot экспорт
+Godot экспортирует проект и создаёт `dummy.cpp`:
+```cpp
+// Godot генерирует это автоматически
+void godot_ios_plugins_initialize() {
+    yandex_ads_init();  // Вызов как C++ функции
+}
+
+void godot_ios_plugins_deinitialize() {
+    yandex_ads_deinit();
+}
+```
+
+### 5. Финальная сборка (xcodebuild)
+```bash
+xcodebuild -workspace ios_xcode.xcworkspace \
+    -scheme ios_xcode \
+    -configuration Release \
+    -sdk iphoneos \
+    build
+```
+
+## Ошибка
+Линкер находит `_yandex_ads_init` (C symbol) в `.a` файле, но `dummy.o` ищет `yandex_ads_init()` (C++ mangled symbol).
+
+## Что мы пробовали
+1. ✅ Использовали `extern "C"` в yandex_ads.mm
+2. ✅ Forward declarations вместо импорта SDK
+3. ✅ CocoaPods для установки Yandex SDK 7.5.0
+4. ✅ post_install hook для линковки frameworks
+5. ❌ Но линкер всё равно не находит символы
+
+## Вопросы
+1. Как правильно экспортировать C функции из Objective-C++ файла для Godot 4.4.1?
+2. Нужен ли header файл (.h) с объявлениями для .gdip?
+3. Может ли проблема быть в том, что Godot генерирует dummy.cpp который не знает про extern "C"?
+4. Как заставить Godot генерировать правильные объявления в dummy.cpp?
+
+## Дополнительная информация
+- Godot 4.4.1
+- Xcode 15.4
+- iOS 13.0+
+- GitHub Actions (macos-14)
+- Yandex Mobile Ads SDK 7.5.0 (через CocoaPods)
+
+## Ожидаемое решение
+Нужно чтобы:
+1. Плагин скомпилировался в .xcframework
+2. Godot правильно вызвал функции инициализации
+3. Линкер нашёл все символы при финальной сборке
+4. IPA собралась успешно

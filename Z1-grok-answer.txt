@@ -1,126 +1,140 @@
-Привет! Я проанализировал твою проблему на основе актуальной информации (на 28 ноября 2025 года) из официальной документации Godot 4.4.1, Yandex Ads SDK (версия 7.17.1), форумов Godot и GitHub issues (например, linker errors в iOS plugins). Ключевой момент: Yandex Mobile Ads SDK смешан (Objective-C + Swift), и Swift части требуют embedding runtime libraries (swiftCore, swiftFoundation и т.д.), которые Godot не линкит автоматически в плагинах. Твои попытки с linker_flags в .gdip игнорируются, потому что .gdip обрабатывает только базовые зависимости, а не Swift-specific настройки.
+Привет! Я разобрал твою проблему на основе официальной документации Godot 4.4.1 (включая раздел по iOS плагинам), форумов и аналогичных случаев (например, linking errors из-за name mangling в C++/Objective-C++). Кратко: ошибка возникает из-за несоответствия в name mangling. Твоя функция `yandex_ads_init` компилируется с `extern "C"` (C-style имя: `_yandex_ads_init`), но Godot генерирует `dummy.cpp` (C++ файл), где вызов `yandex_ads_init()` ожидает C++-mangled имя (например, `_Z18yandex_ads_initv`), потому что нет declaration с `extern "C"`. Линкер видит C-символ в `.a`, но не может связать с mangled запросом из `dummy.o`. Это классическая проблема interoperability C/C++ (подтверждено в похожих кейсах на Godot форумах и Stack Overflow).
 
-**Самый простой и надёжный способ**: Вариант C (другой подход) — интегрировать Yandex SDK через CocoaPods в пост-экспорт шаге GitHub Actions. Это обходит проблемы линковки, так как CocoaPods автоматически добавляет Swift runtime и флаги (включая ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES). Работает без модификации Godot engine, в CI (macOS runner), с актуальной версией SDK. Это проще, чем фикс linking вручную или custom template, и легко поддерживать (обновляй pod версию). Твоя Android версия работает — аналогично, iOS будет.
+Yandex SDK (7.5.0 через CocoaPods) здесь не при чём — проблема чисто в плагине. CocoaPods правильно добавляет SDK (если post_install hook настроен для embedding Swift runtime, как в твоих попытках), но linking падает на твоём символе. Forward declarations OK, но нужен header и пост-процессинг для фикса.
 
-Почему не A/B:
-- **A (фикс linking)**: Возможен, но хрупкий — требует скриптов для модификации .xcodeproj (xcodeproj gem), и не всегда стабильен в Godot 4.4.1 (форумы показывают recurring issues).
-- **B (старая Obj-C версия)**: Нет чистой Obj-C версии после 4.x (SDK перешёл на mixed/Swift с 5.0.0 в 2023; последняя "чисто Obj-C" — 4.4.0, но API изменился, и совместимость с твоим кодом низкая; нет XCFramework для старых).
+Вот ответы на вопросы с конкретными инструкциями. Это позволит собрать IPA в GitHub Actions (macos-14, Xcode 15.4). Решение работает без модификации Godot engine, фокусируется на CI-workflow (простой патч `dummy.cpp` после экспорта).
 
-Теперь конкретные инструкции. Я опираюсь на твою текущую конфигурацию (Godot 4.4.1, macOS-14 runner, Xcode 15.4, CocoaPods 1.15.2). Твой плагин (yandex_ads.xcframework) остаётся как есть — он forward-declares, без импорта SDK headers, чтобы избежать compilation issues.
+### 1. Как правильно экспортировать C функции из Objective-C++ файла для Godot 4.4.1?
+- Да, используй `extern "C"` (как у тебя), чтобы избежать C++ mangling и сделать символы C-compatible (Godot ожидает именно C-символы для init/deinit).
+- Но ключ: Добавь header (.h) с declarations — это позволит линкеру правильно resolve символы. Без .h компилятор в `dummy.cpp` не знает о `extern "C"` и предполагает C++ linkage.
+- Компиляцию оставь как есть (Objective-C++ via clang++), но включи .h в процесс и XCFramework.
 
-### Шаг 1: Обнови .gdip (убери Swift linker_flags, так как CocoaPods их обработает)
-В res://ios/plugins/yandex_ads/yandex_ads.gdip:
-```
+**Инструкции:**
+- Создай `yandex_ads.h` в `ios/plugins/yandex_ads/`:
+  ```objective-c
+  #ifndef YANDEX_ADS_H
+  #define YANDEX_ADS_H
+
+  #ifdef __cplusplus
+  extern "C" {
+  #endif
+
+  void yandex_ads_init();
+  void yandex_ads_deinit();
+
+  #ifdef __cplusplus
+  }
+  #endif
+
+  #endif
+  ```
+- В `yandex_ads.mm` добавь `#include "yandex_ads.h"` в начало (после imports).
+- Обнови `build_plugins.sh` (компиляция + headers в XCFramework):
+  ```bash
+  # Компилируем в .o (добавь -I. для local headers, если нужно)
+  xcrun clang++ \
+      -x objective-c++ \
+      -std=c++17 \
+      -arch arm64 \
+      -isysroot $(xcrun --sdk iphoneos --show-sdk-path) \
+      -mios-version-min=13.0 \
+      -c yandex_ads.mm \
+      -o yandex_ads_device.o \
+      -fobjc-arc
+
+  # Создаём статическую библиотеку
+  ar rcs libyandex_ads_device.a yandex_ads_device.o
+
+  # Создаём headers директорию (копируем .h)
+  mkdir -p headers
+  cp yandex_ads.h headers/
+
+  # Создаём XCFramework с headers (для public access в XCode)
+  xcodebuild -create-xcframework \
+      -library libyandex_ads_device.a \
+      -headers headers \
+      -output yandex_ads.xcframework
+  ```
+- Для симулятора: Повтори с `-sdk iphonesimulator -arch arm64` (или x86_64), создай отдельную .a, затем объедини в XCFramework с несколькими -library.
+
+Это сделает символы видимыми как C (без mangling), и headers позволят XCode/Godot знать о них.
+
+### 2. Нужен ли header файл (.h) с объявлениями для .gdip?
+- Да, обязателен для правильной линковки в Godot 4.4.1. `.gdip` не обрабатывает declarations — он только указывает на binary и имена функций. Без .h в XCFramework компилятор в generated коде (dummy.cpp) не видит `extern "C"`, что приводит к mangling mismatch.
+- Включи .h как выше (в headers при create-xcframework). Godot/XCode автоматически добавит -F для фреймворка, но для вызова в dummy.cpp всё равно нужен патч (см. ниже), так как Godot не генерирует #include автоматически.
+
+Обнови `.gdip` (добавь зависимости для Yandex, если не через CocoaPods):
+```ini
 [config]
 name="YandexAds"
-binary="yandex_ads.xcframework"  ; Твой скомпилированный плагин
+binary="yandex_ads.xcframework"
 initialization="yandex_ads_init"
 deinitialization="yandex_ads_deinit"
 
 [dependencies]
-embedded=[]  ; Убери YandexMobileAds.xcframework — CocoaPods добавит его
-system=["UIKit.framework", "Foundation.framework", "CoreGraphics.framework", "AdSupport.framework", "AppTrackingTransparency.framework"]
-linker_flags=["-ObjC"]  ; Оставь только это
+embedded=[]
+system=["UIKit.framework", "Foundation.framework"]
+linker_flags=["-ObjC"]
 ```
-- Это предотвратит конфликты; SDK будет из Pods.
 
-### Шаг 2: Добавь Podfile в проект
-Создай файл res://ios/Podfile (или в корне проекта, но res://ios/ удобнее для Godot):
-```ruby
-platform :ios, '13.0'  ; Твоя минимальная iOS
+### 3. Может ли проблема быть в том, что Godot генерирует dummy.cpp который не знает про extern "C"?
+- Да, именно это! Godot 4.4.1 генерирует `dummy.cpp` (или аналогичный файл, как `GodotPluginDummy.cpp` в экспортированном проекте) с вызовами init/deinit как обычными C++ функциями, без `extern "C"` или #include твоего .h. Компилятор предполагает C++ linkage (mangling), но твоя .a имеет C-символы. Результат: linker error.
+- Это известная проблема в Godot iOS plugins (форумы упоминают подобное для 4.x; docs помечены как WIP и не детализируют фикс).
 
-target 'YourGodotProjectName' do  ; Замени на имя твоего проекта (из export presets)
-  use_frameworks!
+### 4. Как заставить Godot генерировать правильные объявления в dummy.cpp?
+- Godot не позволяет кастомизировать generated код напрямую (это internal). Workaround: Пост-процессинг `dummy.cpp` в GitHub Actions после экспорта проекта. Добавь `extern "C"` declarations перед вызовами — это заставит компилятор использовать C linkage.
+- Альтернатива: Перейди на GDExtension (рекомендуется в Godot 4+, но для iOS требует recompilation engine с scons). Или используй полный Xcode проект для плагина вместо command line (с public headers).
 
-  pod 'YandexMobileAds', '~> 7.17.1'  ; Актуальная версия
-end
-```
-- Если нужно VK Ads (альтернатива, см. ниже): Добавь `pod 'MyTargetSDK', '~> 5.24.1'` (VK Ad Network SDK).
+**Инструкции для патча в GitHub Actions (.yml):**
+- После шага экспорта Godot (предполагаю, генерируешь `ios_xcode.xcodeproj` в `path/to/exported/`):
+  ```yaml
+  - name: Patch dummy.cpp for extern "C"
+    run: |
+      DUMMY_FILE=$(find path/to/exported -name "*dummy.cpp" | head -1)  # Найди dummy.cpp (обычно src/dummy.cpp или src/godot_ios_plugins.cpp)
+      if [ -f "$DUMMY_FILE" ]; then
+        sed -i '' '/void godot_ios_plugins_initialize()/i \
+        extern "C" void yandex_ads_init();\
+        extern "C" void yandex_ads_deinit();\
+        ' "$DUMMY_FILE"
+        echo "Patched $DUMMY_FILE"
+      else
+        echo "dummy.cpp not found!"
+        exit 1
+      fi
+  ```
+- Затем продолжай с `pod install` (для Yandex SDK) и `xcodebuild`:
+  ```bash
+  # ... (pod install если используешь CocoaPods)
+  xcodebuild -workspace ios_xcode.xcworkspace \
+      -scheme ios_xcode \
+      -configuration Release \
+      -sdk iphoneos \
+      build
+  ```
+- Если используешь CocoaPods: В post_install hook (в Podfile) добавь:
+  ```ruby
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == 'Pods-ios_xcode'
+        target.build_configurations.each do |config|
+          config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'YES'
+          config.build_settings['OTHER_LDFLAGS'] ||= ['-ObjC']
+        end
+      end
+    end
+  end
+  ```
+  Это обеспечит embedding Swift runtime для Yandex 7.5.0 (mixed Obj-C/Swift).
 
-Commit этот файл в repo.
+### Ожидаемое решение: Полная последовательность
+1. **Подготовь файлы**: Добавь `yandex_ads.h`, обнови `yandex_ads.mm` и `build_plugins.sh` (как выше). Commit в repo.
+2. **В CI**: 
+   - Build плагин (`build_plugins.sh`).
+   - Экспорт Godot: `godot --export-release "iOS" path/to/exported.xcodeproj --headless`.
+   - Патч `dummy.cpp` (как выше).
+   - `pod install` (если Yandex через Pods).
+   - `xcodebuild build` (как у тебя).
+3. **Тест**: Собери IPA, установи на iPhone (Sideloadly). В логах (idevicesyslog) ищи "SDK initialized". Если OK — плагин инициализирован, символы найдены.
+4. **Если error persists**: Проверь nm libyandex_ads_device.a | grep yandex_ads_init — должен показать _yandex_ads_init (C-style). Если mangled — удали extern "C" из реализации (но оставь в declarations).
 
-### Шаг 3: Обнови GitHub Actions workflow (.yml)
-После шага экспорта Godot (где ты генерируешь .xcodeproj), добавь CocoaPods интеграцию и build .xcworkspace (не .xcodeproj, так как Pods создаст workspace).
-
-Пример полного шага (предполагаю, у тебя уже есть setup с Godot export):
-```yaml
-jobs:
-  build-ios:
-    runs-on: macos-14  ; Твой runner
-    steps:
-      - uses: actions/checkout@v4
-      
-      # ... (твои шаги: setup Godot 4.4.1, export проект в path/to/exported.xcodeproj)
-      
-      - name: Setup CocoaPods
-        run: gem install cocoapods  ; Если не установлен; твоя версия 1.15.2 OK
-      
-      - name: Install Pods
-        run: |
-          cd path/to/exported  ; Директория с .xcodeproj и Podfile (скопируй Podfile сюда, если нужно)
-          pod install  ; Создаст Pods/ и .xcworkspace
-      
-      - name: Build IPA (unsigned)
-        run: |
-          xcodebuild -workspace path/to/exported.xcworkspace \
-            -scheme YourSchemeName  ; Из .xcodeproj
-            -sdk iphoneos \
-            -configuration Release \
-            -archivePath build/YourApp.xcarchive \
-            archive \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES  ; Fallback, но CocoaPods добавит это автоматически
-      
-      - name: Export IPA
-        run: |
-          xcodebuild -exportArchive \
-            -archivePath build/YourApp.xcarchive \
-            -exportPath build/YourApp.ipa \
-            -exportOptionsPlist ExportOptions.plist  ; Создай plist с allowThinning=NO, method=development для unsigned
-      
-      # ... (upload artifact для IPA)
-```
-- Если Podfile в res://ios/: В шаге export Godot используй `--export "iOS" path/to/exported --headless`, затем `cp res://ios/Podfile path/to/exported/`.
-- Тестируй: В логах ищи "Pods-YandexMobileAds" — это подтвердит интеграцию.
-- Если ошибки: Добавь `pod repo update` перед install. Для VK: Аналогично.
-
-### Шаг 4: Обнови код плагина (если нужно)
-Твой .mm с forward declarations OK, но убедись, что init использует SDK на main queue (как в твоём примере). Добавь логи для теста:
-```objective-c
-#include "YandexAdsPlugin.h"  // Твой header с declarations
-
-void yandex_ads_init() {
-    NSLog(@"🟡 [YANDEX] Initializing Yandex Mobile Ads SDK...");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [YMAMobileAds enableLogging];
-        [YMAMobileAds initializeSDKWithCompletionHandler:^{
-            NSLog(@"✅ [YANDEX] SDK initialized successfully");
-            // Твой код для тестового баннера: Создай YMABannerView с test ID "demo-banner-yandexads"
-            YMABannerView *banner = [[YMABannerView alloc] initWithBlockID:@"demo-banner-yandexads" size:kYMABannerAdSize_320x100];
-            [banner loadAd];
-            NSLog(@"🟢 [YANDEX] Test banner loaded");
-        }];
-    });
-}
-```
-- В GDScript вызови singleton: `Engine.get_singleton("YandexAds").init()` если нужно manual, но initialization вызовет автоматически при app start.
-
-### Шаг 5: Тестирование
-- Собери unsigned IPA в CI, установи через Sideloadly на iPhone (российский регион).
-- Логи: Используй idevicesyslog (как в предыдущих чатах) — ищи "[YANDEX]" для подтверждения init и баннера.
-- Тест баннер: Используй demo ID "demo-banner-yandexads" (из Yandex docs) для показа без реального аккаунта.
-
-### Ответы на твои вопросы
-1. **Правильный подход для Swift SDK**: Godot 4.4.1 не поддерживает автоматическую линковку Swift (доки не обновлены для этого). Нужно пост-процессинг в CI (CocoaPods или скрипты). Документация: https://docs.godotengine.org/en/4.4/tutorials/platform/ios/ios_plugin.html — только базовые .a/.xcframework, нет Swift. Примеры: GitHub godot-ios-plugins issues (e.g., #70) — фиксят вручную в Xcode.
-   
-2. **Старая версия Yandex SDK**: Последняя преимущественно Obj-C — 4.4.0 (2022; с 5.0.0 в 2023 добавлен Swift). Скачать: Нет официального XCFramework для старых (только source на GitHub archive: https://github.com/yandexmobile/yandex-ads-sdk-ios/archive/refs/tags/4.4.0.zip). API совместим частично (init SDK похож), но устарел (нет новых фич, как Creative ID). Не рекомендую — лучше актуальная с CocoaPods.
-
-3. **CocoaPods решение**: Да, как выше. Интегрируй после export — CocoaPods handles Swift linking. В Podfile добавь pod, в CI pod install + build .xcworkspace.
-
-4. **Custom Export Template**: Сложно (recompile Godot с scons platform=ios, добавь Swift flags в engine). Готовых нет для Swift. Избегай — не нужно для твоего случая.
-
-5. **Другие SDK**: VK Ads (MyTarget SDK 5.24.1) — mixed Obj-C/Swift (fixed compatibility в 2024), требует похожего linking. Альтернативы для RU: AppLovin (Obj-C compatible, pod 'AppLovinSDK'), IronSource (mixed, но работает в Godot plugins). Если Yandex слишком, перейди на AppLovin — проще, без Swift issues.
-
-Это должно решить за 1-2 часа (тест в CI). Если ошибки в логах после — кинь новые, уточню!
+Это решит за 30-60 мин (тест в CI). Если нужны детали Podfile или полный .yml — кинь. Удачи!
