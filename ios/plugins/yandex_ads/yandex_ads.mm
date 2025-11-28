@@ -1,6 +1,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+// Temporary: direct include for compilation
+#ifdef COMPILING_PLUGIN
+#import "YandexMobileAds.h"
+#else
 #import <YandexMobileAds/YandexMobileAds.h>
+#endif
 
 extern "C" {
     // Forward declarations

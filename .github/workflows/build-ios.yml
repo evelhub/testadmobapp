@@ -100,7 +100,8 @@ jobs:
             -arch arm64 \
             -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
             -mios-version-min=13.0 \
-            -F"$XCFRAMEWORK_DIR" \
+            -DCOMPILING_PLUGIN \
+            -I"$HEADERS_PATH" \
             -c yandex_ads.mm -o yandex_ads.o
           
           # Create static library
