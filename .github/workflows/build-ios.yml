@@ -242,20 +242,30 @@ jobs:
         # Copy Swift standard libraries using official tool
         echo "📝 Scanning executable: $APP_PATH/$PROJ_NAME"
         
-        SWIFT_TOOLCHAIN="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain"
-        
+        # Try with minimum-deployment-target first
         if "$SWIFT_STDLIB_TOOL" \
           --copy \
           --verbose \
           --scan-executable "$APP_PATH/$PROJ_NAME" \
           --scan-folder "$APP_PATH/Frameworks" \
           --platform iphoneos \
-          --toolchain "$SWIFT_TOOLCHAIN" \
-          --minimum-deployment-target 17.0 \
+          --resource-destination "$APP_PATH" \
           --destination "$APP_PATH/Frameworks"; then
           echo "✅ Swift libraries copied using swift-stdlib-tool"
         else
-          echo "⚠️  swift-stdlib-tool failed, checking if Swift libs already present..."
+          echo "⚠️  swift-stdlib-tool failed, trying manual copy from SDK..."
+          
+          # Fallback: manual copy from iOS SDK usr/lib/swift
+          SDK_PATH=$(xcrun --sdk iphoneos --show-sdk-path)
+          SWIFT_SDK_LIBS="$SDK_PATH/../../../../../../Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"
+          
+          if [ -d "$SWIFT_SDK_LIBS" ] && [ -f "$SWIFT_SDK_LIBS/libswiftCore.dylib" ]; then
+            echo "📂 Copying from: $SWIFT_SDK_LIBS"
+            cp "$SWIFT_SDK_LIBS"/libswift*.dylib "$APP_PATH/Frameworks/" 2>/dev/null || true
+            echo "✅ Manual copy completed"
+          else
+            echo "❌ Could not find Swift libraries"
+          fi
         fi
         
         echo "📂 Frameworks directory after copy:"
