@@ -1,6 +1,61 @@
 #import "YandexAdsPlugin.h"
-#import <YandexMobileAds/YandexMobileAds.h>
 #import <UIKit/UIKit.h>
+
+// Forward declarations to avoid importing SDK during compilation
+// Real SDK will be linked at runtime via embedded framework
+@class YMABannerView;
+@class YMARewardedAd;
+@class YMAAdSize;
+@class YMAAdRequestConfiguration;
+@protocol YMABannerViewDelegate;
+@protocol YMARewardedAdDelegate;
+@protocol YMAReward;
+
+// Declare SDK classes we need
+@interface YMAMobileAds : NSObject
++ (void)enableLogging;
++ (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
+@end
+
+@interface YMABannerView : UIView
+- (instancetype)initWithAdUnitID:(NSString *)adUnitID adSize:(YMAAdSize *)adSize;
+@property (nonatomic, weak) id<YMABannerViewDelegate> delegate;
+- (void)loadAd;
+@end
+
+@interface YMAAdSize : NSObject
++ (YMAAdSize *)stickyAdSizeWithContainerWidth:(CGFloat)width;
+@end
+
+@interface YMARewardedAd : NSObject
++ (void)loadWithRequestConfiguration:(YMAAdRequestConfiguration *)configuration
+                    completionHandler:(void (^)(YMARewardedAd *ad, NSError *error))completionHandler;
+@property (nonatomic, weak) id<YMARewardedAdDelegate> delegate;
+- (void)showFromViewController:(UIViewController *)viewController;
+@end
+
+@interface YMAAdRequestConfiguration : NSObject
+- (instancetype)initWithAdUnitID:(NSString *)adUnitID;
+@end
+
+// Protocol declarations
+@protocol YMAReward <NSObject>
+@property (nonatomic, readonly) NSNumber *amount;
+@property (nonatomic, readonly) NSString *type;
+@end
+
+@protocol YMABannerViewDelegate <NSObject>
+@optional
+- (void)bannerViewDidLoad:(YMABannerView *)bannerView;
+- (void)bannerView:(YMABannerView *)bannerView didFailLoadingWithError:(NSError *)error;
+@end
+
+@protocol YMARewardedAdDelegate <NSObject>
+@optional
+- (void)rewardedAd:(YMARewardedAd *)rewardedAd didReward:(id<YMAReward>)reward;
+- (void)rewardedAdDidDismiss:(YMARewardedAd *)rewardedAd;
+- (void)rewardedAd:(YMARewardedAd *)rewardedAd didFailToPresentWithError:(NSError *)error;
+@end
 
 @interface YandexAdsPlugin () <YMABannerViewDelegate, YMARewardedAdDelegate>
 @property (nonatomic, strong) YMABannerView *bannerView;

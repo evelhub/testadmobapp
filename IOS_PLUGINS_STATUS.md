@@ -1,130 +1,41 @@
-# 🍎 iOS Plugins - Текущий статус
+# iOS Plugins Status
 
-## 🔥 НОВАЯ СТРАТЕГИЯ: XCFramework + CocoaPods
+## Current Status: 🔨 Compiling in GitHub Actions
 
-**Проблема:** Yandex SDK через CocoaPods не компилируется в GitHub Actions из-за VGSLFundamentals Swift 6 несовместимости.
+## Solution
 
-**Решение:** 
-- ✅ Yandex Mobile Ads - прямая интеграция XCFramework (обход компиляции)
-- ✅ VK Ads (MyTarget) - через CocoaPods (работает отлично)
+**Problem:** Godot 4.4.1 doesn't compile `.mm` files. Needs `.xcframework`.
 
-## ✅ ЧТО ГОТОВО:
+**Solution:** 
+1. Use forward declarations (no SDK import during compilation)
+2. Compile in GitHub Actions with `ios/build_plugins.sh`
+3. Real SDK links at runtime via `.gdip`
 
-### 1. Native Objective-C++ код
-- ✅ `ios/plugins/yandex_ads/yandex_ads.mm` (300+ строк)
-  - Инициализация SDK
-  - Загрузка баннеров (adaptive size)
-  - Загрузка rewarded видео
-  - Delegates для callbacks
-  - Управление памятью
-  
-- ✅ `ios/plugins/vk_ads/vk_ads.mm` (250+ строк)
-  - Инициализация SDK
-  - Загрузка баннеров
-  - Загрузка rewarded видео
-  - Delegates для callbacks
-  - Управление памятью
+## Key Technical Detail
 
-### 2. Plugin конфигурации
-- ✅ `ios/plugins/yandex_ads/yandex_ads.gdip`
-  - Указаны зависимости (YandexMobileAds)
-  - Указаны system frameworks
-  - Настроены plist permissions
-  
-- ✅ `ios/plugins/vk_ads/vk_ads.gdip`
-  - Указаны зависимости (MyTargetSDK)
-  - Указаны system frameworks
-  - Настроены plist permissions
-
-### 3. GDScript обертки
-- ✅ `addons/yandex_ads_ios/yandex_ads_ios.gd`
-  - Проверка платформы (iOS only)
-  - Вызовы native функций через singleton
-  - Fallback для тестирования
-  - Все signals подключены
-  
-- ✅ `addons/vk_ads_ios/vk_ads_ios.gd`
-  - Проверка платформы (iOS only)
-  - Вызовы native функций через singleton
-  - Fallback для тестирования
-  - Все signals подключены
-
-### 4. SDK интеграция
-- ✅ `ios/Podfile`
-  - myTargetSDK ~> 5.35.1 (через CocoaPods)
-  - iOS 13.0+ deployment target
-- ✅ Yandex Mobile Ads 7.5.0 (прямая загрузка XCFramework в workflow)
-
-### 5. Main.gd интеграция
-- ✅ Поддержка iOS платформы
-- ✅ Автоматическая загрузка плагинов
-- ✅ Fallback на AdMob если плагины недоступны
-
-## ⏳ ЧТО ОСТАЛОСЬ:
-
-### 1. GitHub Actions Workflow
-- [x] Добавить прямую загрузку Yandex XCFramework ✅
-- [x] Добавить `pod install` для VK SDK ✅
-- [x] Включить iOS plugins в export ✅
-- [x] Настроить unsigned IPA сборку ✅
-- [x] Добавить upload artifacts ✅
-
-### 2. Тестирование
-- [ ] Push в GitHub
-- [ ] Дождаться сборки IPA
-- [ ] Скачать из Artifacts
-- [ ] Установить через Sideloadly на iPhone
-- [ ] Проверить Yandex баннеры
-- [ ] Проверить VK баннеры
-- [ ] Проверить Yandex rewarded
-- [ ] Проверить VK rewarded
-
-## 📋 СТРУКТУРА ПРОЕКТА:
-
-```
-testadmobapp/
-├── addons/
-│   ├── GodotAndroidYandexAds/     # Android Yandex (готово)
-│   ├── GodotAndroidVkAds/         # Android VK (готово)
-│   ├── yandex_ads_ios/            # iOS Yandex wrapper (готово)
-│   │   └── yandex_ads_ios.gd
-│   ├── vk_ads_ios/                # iOS VK wrapper (готово)
-│   │   └── vk_ads_ios.gd
-│   └── admob/                     # AdMob (готово)
-│
-├── ios/
-│   ├── Podfile                    # CocoaPods deps (готово)
-│   └── plugins/
-│       ├── yandex_ads/            # Native Yandex (готово)
-│       │   ├── yandex_ads.mm
-│       │   └── yandex_ads.gdip
-│       └── vk_ads/                # Native VK (готово)
-│           ├── vk_ads.mm
-│           └── vk_ads.gdip
-│
-├── Main.gd                        # Главный код (готово)
-├── Main.tscn                      # UI (готово)
-└── MultiAdTest.apk                # Android APK (готово)
+```objc
+// Instead of: #import <YandexMobileAds/YandexMobileAds.h>
+// Use forward declarations:
+@class YMABannerView;
+@interface YMAMobileAds : NSObject
++ (void)initializeSDKWithCompletionHandler:(void (^)(void))completionHandler;
+@end
 ```
 
-## 🎯 СЛЕДУЮЩИЙ ШАГ:
+## Check Logs on Device (3uTools)
 
-**Обновить GitHub Actions workflow!**
+Keywords:
+- `YANDEX-PLUGIN` - plugin logs
+- `YANDEX-C-BRIDGE` - init calls
+- `YMA` - SDK logs
 
-Это последний шаг перед тестированием на iPhone.
+Expected:
+```
+🟡 [YANDEX-C-BRIDGE] yandex_ads_init() called
+✅ [YANDEX-PLUGIN] SDK initialized successfully
+```
 
-## 🔥 РЕЗУЛЬТАТ:
+## References
 
-После завершения у нас будет:
-
-**Android (96 MB APK):**
-- ✅ Yandex Ads (баннеры + rewarded)
-- ✅ VK Ads (баннеры + rewarded)
-- ✅ AdMob (rewarded)
-
-**iOS (IPA через GitHub Actions):**
-- ✅ Yandex Ads (баннеры + rewarded)
-- ✅ VK Ads (баннеры + rewarded)
-- ✅ AdMob (rewarded)
-
-**Все работает в России! 🇷🇺**
+- [Grok analysis](Z1-grok-answer.txt)
+- [Build script](ios/build_plugins.sh)
