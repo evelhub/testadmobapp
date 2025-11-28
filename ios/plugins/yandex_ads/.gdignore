@@ -1,0 +1,4 @@
+# Ignore XCFrameworks - they should not be imported by Godot
+*.xcframework
+YandexMobileAds.xcframework/
+yandex_ads.xcframework/

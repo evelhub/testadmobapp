@@ -1,0 +1,3 @@
+# Ignore XCFrameworks - they should not be imported by Godot
+*.xcframework
+vk_ads.xcframework/

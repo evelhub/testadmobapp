@@ -4,8 +4,17 @@
 
 # iOS build artifacts
 /ios/bin/
+/ios/build/
 *.ipa
 *.dSYM
+
+# Downloaded XCFrameworks (will be downloaded in CI)
+ios/plugins/*/YandexMobileAds.xcframework/
+ios/plugins/*/MyTargetSDK.xcframework/
+
+# Compiled plugin frameworks (will be built in CI)
+ios/plugins/*/yandex_ads.xcframework/
+ios/plugins/*/vk_ads.xcframework/
 
 # macOS
 .DS_Store
