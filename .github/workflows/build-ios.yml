@@ -63,14 +63,16 @@ jobs:
         cd ios/plugins/yandex_ads
         echo "📝 Compiling yandex_ads.mm..."
         
+        # Find XCFramework headers
+        FRAMEWORK_PATH=$(find . -name "YandexMobileAds.xcframework" -type d | head -1)
+        echo "📂 Framework path: $FRAMEWORK_PATH"
+        
         xcrun clang -x objective-c++ \
           -arch arm64 \
           -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
           -mios-version-min=13.0 \
           -F. \
-          -framework YandexMobileAds \
-          -framework UIKit \
-          -framework Foundation \
+          -I"$FRAMEWORK_PATH/ios-arm64/YandexMobileAds.framework/Headers" \
           -c yandex_ads.mm -o yandex_ads.o
         
         # Create static library
@@ -87,8 +89,6 @@ jobs:
           -arch arm64 \
           -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
           -mios-version-min=13.0 \
-          -framework UIKit \
-          -framework Foundation \
           -c vk_ads.mm -o vk_ads.o
         
         ar rcs vk_ads.a vk_ads.o

@@ -1,0 +1,50 @@
+Run echo "🔨 Compiling iOS plugins (.mm to .a)..."
+  echo "🔨 Compiling iOS plugins (.mm to .a)..."
+  
+  # Compile Yandex plugin
+  cd ios/plugins/yandex_ads
+  echo "📝 Compiling yandex_ads.mm..."
+  
+  xcrun clang -x objective-c++ \
+    -arch arm64 \
+    -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+    -mios-version-min=13.0 \
+    -F. \
+    -framework YandexMobileAds \
+    -framework UIKit \
+    -framework Foundation \
+    -c yandex_ads.mm -o yandex_ads.o
+  
+  # Create static library
+  ar rcs yandex_ads.a yandex_ads.o
+  
+  echo "✅ yandex_ads.a created"
+  ls -la yandex_ads.a
+  
+  # Compile VK plugin
+  cd ../vk_ads
+  echo "📝 Compiling vk_ads.mm..."
+  
+  xcrun clang -x objective-c++ \
+    -arch arm64 \
+    -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+    -mios-version-min=13.0 \
+    -framework UIKit \
+    -framework Foundation \
+    -c vk_ads.mm -o vk_ads.o
+  
+  ar rcs vk_ads.a vk_ads.o
+  
+  echo "✅ vk_ads.a created"
+  ls -la vk_ads.a
+  shell: /bin/bash -e {0}
+🔨 Compiling iOS plugins (.mm to .a)...
+📝 Compiling yandex_ads.mm...
+clang: warning: -framework YandexMobileAds: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -framework UIKit: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -framework Foundation: 'linker' input unused [-Wunused-command-line-argument]
+yandex_ads.mm:3:9: fatal error: 'YandexMobileAds/YandexMobileAds.h' file not found
+#import <YandexMobileAds/YandexMobileAds.h>
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+Error: Process completed with exit code 1.
