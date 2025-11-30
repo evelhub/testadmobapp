@@ -96,27 +96,130 @@ xcodebuild -create-xcframework \
 6. ❌ post_install hook → всё равно не линкуется
 7. ❌ Текущая проблема → extern "C" vs C++ linkage
 
-## 🔧 Решение от Grok: Добавить --minimum-deployment-target
+## ✅ РЕШЕНИЕ НАЙДЕНО: Free Apple ID Signing
 
-### Проблема найдена:
-`swift-stdlib-tool` копировал из `swift-5.0/iphoneos` (iOS 12.2) потому что не указан `--minimum-deployment-target`.
+### Проблема unsigned build:
+Все 5 попыток провалились - Apple блокирует unsigned IPA с Swift на iOS 18.4.
+Всегда копируется старая библиотека (iOS 12.2) → crash.
 
 ### Решение от Grok:
-Добавить параметры в `swift-stdlib-tool`:
-- `--toolchain` - явно указать toolchain
-- `--minimum-deployment-target 17.0` - копировать для iOS 17+
+**Free Apple ID signing** - работает без paid Developer Account ($99/год)!
 
-Это заставит инструмент копировать правильные версии Swift libraries.
+### Что нужно:
+1. ✅ **Удалённый Mac** (есть доступ)
+2. ✅ **Free Apple ID** (создать на appleid.apple.com)
+3. ✅ **iPhone UDID** (получить на Manjaro: `idevice_id -l`)
+4. ✅ **10 минут на Mac** для создания certificate
 
-### Альтернатива (если не сработает):
-**Signed IPA** с development certificate в GitHub Actions - Grok дал полную инструкцию.
+### План действий:
 
-### Что сделано:
-1. ✅ Добавлен `--minimum-deployment-target 17.0` в swift-stdlib-tool
-2. ✅ Добавлен `--toolchain` параметр
+#### Шаг 1: На удалённом Mac (10 мин)
+- Подключиться через VNC/TeamViewer
+- Xcode → Preferences → Accounts → Add Apple ID
+- Generate Development Certificate
+- Export .p12 (с паролем)
+- Скачать .p12 файл
 
-### Следующий шаг:
-Коммит и тест. Если не сработает - переходим на signed IPA.
+#### Шаг 2: Получить UDID iPhone (5 мин)
+```bash
+# На Manjaro
+sudo pacman -S libimobiledevice
+idevice_id -l  # Покажет UDID
+```
+
+#### Шаг 3: Создать Provisioning Profile (5 мин)
+- developer.apple.com → Certificates → Profiles
+- Create → iOS App Development
+- Добавить UDID iPhone
+- Download .mobileprovision
+
+#### Шаг 4: GitHub Secrets (5 мин)
+```bash
+# Конвертировать в base64
+base64 certificate.p12 > cert.txt
+base64 profile.mobileprovision > profile.txt
+```
+Добавить в GitHub Secrets:
+- `CERT_P12_BASE64`
+- `CERT_PASSWORD`
+- `PROVISIONING_BASE64`
+
+#### Шаг 5: Обновить workflow (я сделаю)
+Изменить на signed build с free certificate.
+
+#### Шаг 6: Тестирование
+- Push → GitHub Actions → Signed IPA
+- Скачать IPA
+- Установить через Sideloadly на Manjaro/Windows
+
+## 🎯 ТЕКУЩИЙ ЭТАП: Настройка Apple ID и Signing
+
+### Что выяснили:
+- ❌ Твой Apple ID показал "We are unable to process your request" при "Enroll today"
+- ✅ Это НОРМАЛЬНО! Это про paid program ($99/год) который заблокирован для РФ
+- ✅ Free development signing работает БЕЗ регистрации в program
+
+### План действий:
+
+#### 1. Проверить твой Apple ID на Mac (СНАЧАЛА)
+```
+1. Подключиться к удалённому Mac
+2. Xcode → Preferences → Accounts → Add Apple ID
+3. Попробовать создать "Apple Development" certificate
+4. Если получится → используй свой Apple ID!
+```
+
+#### 2. Если не работает - создать новый Apple ID
+```
+1. VPN (США)
+2. appleid.apple.com → Create Apple ID
+3. Данные:
+   - Регион: United States
+   - Email: новый Gmail
+   - Телефон: можно +7 российский
+   - Адрес: 123 Main St, Los Angeles, CA 90210
+```
+
+#### 3. Получить UDID iPhone
+```bash
+sudo pacman -S libimobiledevice
+idevice_id -l  # Скопировать UDID
+```
+
+#### 4. Создать Provisioning Profile
+```
+1. VPN (США)
+2. developer.apple.com/account
+3. Devices → Add Device (UDID)
+4. Profiles → Create → iOS App Development
+5. Download .mobileprovision
+```
+
+#### 5. Export Certificate (.p12)
+```
+1. На Mac: Keychain Access
+2. My Certificates → "Apple Development"
+3. Export → certificate.p12 (с паролем)
+4. Скачать к себе
+```
+
+#### 6. GitHub Secrets
+```bash
+base64 -w 0 certificate.p12 > cert.txt
+base64 -w 0 profile.mobileprovision > profile.txt
+```
+Добавить в GitHub:
+- `CERT_P12_BASE64`
+- `CERT_PASSWORD`
+- `PROVISIONING_BASE64`
+
+### Текущий статус:
+🔄 Ожидаем доступ к удалённому Mac
+
+### Важно:
+- ✅ Mac нужен только на 10 минут
+- ✅ iPhone подключать к Mac НЕ НУЖНО
+- ⏰ Certificate истекает через 7 дней (обновляется легко)
 
 ## 📂 Файлы документации
 
