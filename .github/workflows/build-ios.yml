@@ -1,4 +1,4 @@
-name: Build iOS IPA with Yandex & VK Ads
+name: Build iOS IPA (Clean - No Ads)
 
 on:
   push:
@@ -15,10 +15,9 @@ jobs:
     
     - name: Setup Xcode
       run: |
-        echo "🔧 Setting up Xcode..."
+        echo "🔧 Xcode version:"
         xcodebuild -version
         swift --version
-        echo "✅ Xcode ready"
 
     - name: Download Godot
       run: |
@@ -39,40 +38,6 @@ jobs:
         mv templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
         echo "✅ Export templates installed"
 
-    - name: Skip Manual SDK Download (CocoaPods will handle it)
-      run: |
-        echo "📝 Yandex SDK will be installed via CocoaPods after Godot export"
-        echo "✅ Skipping manual download"
-
-    - name: Compile iOS Plugins
-      run: |
-        echo "🔨 Compiling iOS plugins..."
-        cd ios
-        
-        # Make script executable
-        chmod +x build_plugins.sh
-        
-        # Run compilation
-        ./build_plugins.sh
-        
-        echo "✅ Plugins compiled"
-        
-        # Verify xcframeworks were created
-        if [ -d "plugins/yandex_ads/yandex_ads.xcframework" ]; then
-          echo "✅ yandex_ads.xcframework created"
-          ls -la plugins/yandex_ads/yandex_ads.xcframework
-        else
-          echo "❌ yandex_ads.xcframework NOT created"
-          exit 1
-        fi
-
-    - name: Install CocoaPods
-      run: |
-        echo "📦 Installing CocoaPods..."
-        sudo gem install cocoapods -v 1.15.2
-        pod --version
-        echo "✅ CocoaPods installed"
-
     - name: Export iOS Xcode Project
       run: |
         echo "🔨 Exporting iOS Xcode project..."
@@ -80,20 +45,9 @@ jobs:
         ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/ios_xcode
         echo "✅ Xcode project exported"
 
-    - name: List exported files
-      run: |
-        echo "📂 Checking exported files..."
-        ls -la build/
-        if [ -d "build/ios_xcode" ]; then
-          ls -la build/ios_xcode/
-        fi
-
     - name: Find Xcode Project
       run: |
-        echo "🔍 Searching for Xcode project..."
-        find build -name "*.xcodeproj" -type d
-        
-        # Find the actual xcodeproj
+        echo "🔍 Finding Xcode project..."
         XCODE_PROJ=$(find build -name "*.xcodeproj" -type d | head -1)
         if [ -z "$XCODE_PROJ" ]; then
           echo "❌ No .xcodeproj found!"
@@ -104,100 +58,16 @@ jobs:
         echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
         echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
 
-    - name: Patch dummy.cpp for extern C
-      run: |
-        echo "🔧 Patching dummy.cpp to add extern C declarations..."
-        cd "$XCODE_PROJECT_DIR"
-        
-        # Find dummy.cpp
-        DUMMY_FILE=$(find . -name "dummy.cpp" -o -name "*dummy*.cpp" -o -name "godot_plugin*.cpp" | head -1)
-        
-        if [ -z "$DUMMY_FILE" ]; then
-          echo "⚠️  dummy.cpp not found, searching..."
-          DUMMY_FILE=$(find . -type f -name "*.cpp" | xargs grep -l "godot_ios_plugins_initialize" | head -1)
-        fi
-        
-        if [ -n "$DUMMY_FILE" ]; then
-          echo "📝 Found: $DUMMY_FILE"
-          echo "📄 Original content around godot_ios_plugins_initialize:"
-          grep -B 2 -A 2 "void godot_ios_plugins_initialize()" "$DUMMY_FILE" || true
-          
-          # Insert extern C declarations at the top of file (after includes)
-          # Find first function and insert before it
-          awk '/^void godot_ios_plugins_initialize\(\)/ {
-            print "// Extern C declarations for iOS plugins"
-            print "extern \"C\" void yandex_ads_init();"
-            print "extern \"C\" void yandex_ads_deinit();"
-            print ""
-          }
-          {print}' "$DUMMY_FILE" > "$DUMMY_FILE.tmp"
-          
-          mv "$DUMMY_FILE.tmp" "$DUMMY_FILE"
-          
-          echo "✅ Patched $DUMMY_FILE"
-          echo "📄 Patched content:"
-          grep -B 1 -A 5 "extern \"C\" void yandex" "$DUMMY_FILE" || true
-        else
-          echo "❌ Could not find dummy.cpp!"
-          find . -name "*.cpp" -type f
-          exit 1
-        fi
-
-    - name: Install CocoaPods Dependencies
-      run: |
-        echo "📦 Installing Pods (Yandex + VK SDK)..."
-        cd "$XCODE_PROJECT_DIR"
-        
-        # Get project name
-        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
-        echo "📝 Project name: $PROJ_NAME"
-        
-        # Copy Podfile template from workspace root
-        WORKSPACE_ROOT="${GITHUB_WORKSPACE}"
-        echo "📂 Workspace root: $WORKSPACE_ROOT"
-        
-        if [ ! -f "$WORKSPACE_ROOT/ios/Podfile.template" ]; then
-          echo "❌ Podfile.template not found at $WORKSPACE_ROOT/ios/Podfile.template"
-          ls -la "$WORKSPACE_ROOT/ios/"
-          exit 1
-        fi
-        
-        cp "$WORKSPACE_ROOT/ios/Podfile.template" ./Podfile
-        sed -i '' "s/PROJECT_NAME_PLACEHOLDER/$PROJ_NAME/g" Podfile
-        
-        echo "📄 Podfile content:"
-        cat Podfile
-        
-        # Install pods (Yandex + VK SDK with Swift support)
-        pod install --repo-update
-        
-        echo "✅ Pods installed"
-        echo "📂 Workspace created:"
-        ls -la *.xcworkspace
-
     - name: Build IPA (unsigned)
       run: |
         echo "🔨 Building unsigned IPA..."
         cd "$XCODE_PROJECT_DIR"
         
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
-        
-        # After pod install, MUST use workspace (CocoaPods creates it)
-        WORKSPACE="${PROJ_NAME}.xcworkspace"
-        
-        if [ ! -d "$WORKSPACE" ]; then
-          echo "❌ Workspace not found: $WORKSPACE"
-          echo "📂 Available files:"
-          ls -la
-          exit 1
-        fi
-        
-        echo "✅ Using workspace: $WORKSPACE"
-        echo "📝 Scheme: $PROJ_NAME"
+        echo "📝 Project: $PROJ_NAME"
         
         # Build without code signing
-        # CocoaPods automatically handles Swift libraries!
-        xcodebuild -workspace "$WORKSPACE" \
+        xcodebuild -project "$XCODE_PROJECT_PATH" \
           -scheme "$PROJ_NAME" \
           -configuration Release \
           -sdk iphoneos \
@@ -211,9 +81,9 @@ jobs:
         
         echo "✅ Build completed"
 
-    - name: Copy Swift Libraries
+    - name: Create IPA
       run: |
-        echo "📚 Copying Swift standard libraries..."
+        echo "📦 Creating IPA..."
         cd "$XCODE_PROJECT_DIR"
         
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
@@ -224,111 +94,26 @@ jobs:
           exit 1
         fi
         
-        # Create Frameworks directory in app
-        mkdir -p "$APP_PATH/Frameworks"
-        
-        # Use Xcode's built-in script to copy Swift libraries
-        # This is the official way and handles all edge cases
-        echo "📋 Using Xcode tooling to copy Swift standard libraries..."
-        
-        # Xcode provides a script for this exact purpose
-        SWIFT_STDLIB_TOOL="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-stdlib-tool"
-        
-        if [ ! -f "$SWIFT_STDLIB_TOOL" ]; then
-          echo "❌ swift-stdlib-tool not found"
-          exit 1
-        fi
-        
-        # Copy Swift standard libraries using official tool
-        echo "📝 Scanning executable: $APP_PATH/$PROJ_NAME"
-        
-        # Try with minimum-deployment-target first
-        if "$SWIFT_STDLIB_TOOL" \
-          --copy \
-          --verbose \
-          --scan-executable "$APP_PATH/$PROJ_NAME" \
-          --scan-folder "$APP_PATH/Frameworks" \
-          --platform iphoneos \
-          --resource-destination "$APP_PATH" \
-          --destination "$APP_PATH/Frameworks"; then
-          echo "✅ Swift libraries copied using swift-stdlib-tool"
-        else
-          echo "⚠️  swift-stdlib-tool failed, trying manual copy from SDK..."
-          
-          # Fallback: manual copy from iOS SDK usr/lib/swift
-          SDK_PATH=$(xcrun --sdk iphoneos --show-sdk-path)
-          SWIFT_SDK_LIBS="$SDK_PATH/../../../../../../Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"
-          
-          if [ -d "$SWIFT_SDK_LIBS" ] && [ -f "$SWIFT_SDK_LIBS/libswiftCore.dylib" ]; then
-            echo "📂 Copying from: $SWIFT_SDK_LIBS"
-            cp "$SWIFT_SDK_LIBS"/libswift*.dylib "$APP_PATH/Frameworks/" 2>/dev/null || true
-            echo "✅ Manual copy completed"
-          else
-            echo "❌ Could not find Swift libraries"
-          fi
-        fi
-        
-        echo "📂 Frameworks directory after copy:"
-        ls -lh "$APP_PATH/Frameworks/" | grep swift || echo "No Swift libraries found"
-        
-        # Verify critical library exists
-        if [ ! -f "$APP_PATH/Frameworks/libswiftCore.dylib" ]; then
-          echo "❌ libswiftCore.dylib not found in Frameworks!"
-          echo "📂 Full Frameworks contents:"
-          ls -la "$APP_PATH/Frameworks/"
-          exit 1
-        fi
-        
-        echo "✅ libswiftCore.dylib verified"
-        
-        echo "✅ Swift libraries copied"
-        echo "📂 Frameworks directory:"
-        ls -lh "$APP_PATH/Frameworks/"
-
-    - name: Create IPA
-      run: |
-        echo "📦 Creating IPA package..."
-        cd "$XCODE_PROJECT_DIR"
-        
-        PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
-        
-        # Create Payload directory
+        # Create Payload
         mkdir -p Payload
-        
-        # Copy .app to Payload
-        APP_PATH="DerivedData/Build/Products/Release-iphoneos/${PROJ_NAME}.app"
-        if [ -d "$APP_PATH" ]; then
-          cp -r "$APP_PATH" Payload/
-          echo "✅ App copied to Payload"
-        else
-          echo "❌ App not found at $APP_PATH"
-          echo "📂 Searching for .app..."
-          find DerivedData -name "*.app" -type d
-          exit 1
-        fi
+        cp -r "$APP_PATH" Payload/
         
         # Create IPA
         zip -r TestAdMobApp.ipa Payload
-        echo "✅ IPA created"
         
-        # Show IPA size
+        echo "✅ IPA created"
         ls -lh TestAdMobApp.ipa
 
     - name: Upload IPA
       uses: actions/upload-artifact@v4
       with:
-        name: TestAdMobApp-iOS
+        name: TestAdMobApp-iOS-Clean
         path: ${{ env.XCODE_PROJECT_DIR }}/TestAdMobApp.ipa
         if-no-files-found: error
 
     - name: Build Summary
       if: success()
       run: |
-        echo "🎉 Build successful!"
-        echo "📱 Download IPA from Artifacts"
-        echo "🔧 Install via Sideloadly"
-        echo ""
-        echo "✅ Included SDKs:"
-        echo "  - Yandex Mobile Ads"
-        echo "  - VK Ads (MyTarget)"
-        echo "  - AdMob"
+        echo "🎉 Clean iOS build successful!"
+        echo "📱 No ads included (plugins disabled)"
+        echo "🔧 Install via Sideloadly or 3uTools"

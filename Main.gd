@@ -116,90 +116,89 @@ func _init_vk_android():
 # iOS INITIALIZATION
 # ============================================
 func _init_ios_ads():
-	print("📱 Initializing iOS ads...")
-	update_status("Initializing iOS ads...")
+	print("📱 iOS detected - ads disabled (no signing yet)")
+	update_status("iOS - ads disabled")
 	
-	# Initialize Yandex Ads (iOS)
-	_init_yandex_ios()
+	# Disable all buttons on iOS for now
+	yandex_button.disabled = true
+	vk_button.disabled = true
+	admob_button.disabled = true
 	
-	# Initialize VK Ads (iOS)
-	_init_vk_ios()
-	
-	# Initialize AdMob (for testing)
-	_init_admob()
-	
-	update_status("iOS ads ready!")
+	update_status("iOS ready (ads disabled)")
 
-func _init_yandex_ios():
-	print("🟡 Initializing Yandex Ads (iOS)...")
-	update_status("Loading Yandex iOS class...")
-	
-	var YandexAdsIOSClass = load("res://addons/yandex_ads_ios/yandex_ads_ios.gd")
-	if YandexAdsIOSClass:
-		update_status("Yandex class loaded! Creating instance...")
-		yandex_ads = YandexAdsIOSClass.new()
-		add_child(yandex_ads)
-		update_status("Yandex instance created!")
-		
-		# Set test IDs
-		yandex_ads.banner_id = "demo-banner-yandex"
-		yandex_ads.rewarded_id = "demo-rewarded-yandex"
-		yandex_ads.banner_on_top = true
-		
-		# Connect signals
-		yandex_ads.banner_loaded.connect(_on_yandex_banner_loaded)
-		yandex_ads.banner_failed_to_load.connect(_on_yandex_banner_failed)
-		yandex_ads.rewarded_video_loaded.connect(_on_yandex_rewarded_loaded)
-		yandex_ads.rewarded_video_failed_to_load.connect(_on_yandex_rewarded_failed)
-		yandex_ads.rewarded.connect(_on_yandex_rewarded_earned)
-		
-		# Load banners
-		update_status("Loading Yandex banner...")
-		yandex_ads.load_banner()
-		yandex_ads.show_banner()
-		
-		# Load rewarded
-		update_status("Loading Yandex rewarded...")
-		yandex_ads.load_rewarded_video()
-		
-		print("✅ Yandex Ads (iOS) initialized")
-		update_status("✅ Yandex iOS ready!")
-	else:
-		print("❌ Yandex iOS class not found")
-		update_status("❌ Yandex class NOT FOUND!")
-		yandex_button.disabled = true
+# DISABLED: iOS ads functions (will be re-enabled when signing is ready)
+# Uncomment these when you have signing certificate and want to enable ads
 
-func _init_vk_ios():
-	print("🔵 Initializing VK Ads (iOS)...")
-	
-	var VkAdsIOSClass = load("res://addons/vk_ads_ios/vk_ads_ios.gd")
-	if VkAdsIOSClass:
-		vk_ads = VkAdsIOSClass.new()
-		add_child(vk_ads)
-		
-		# Set test IDs
-		vk_ads.banner_id = 44987  # Demo banner slot
-		vk_ads.rewarded_id = 44988  # Demo rewarded slot
-		vk_ads.banner_on_top = false  # Bottom banner
-		
-		# Connect signals
-		vk_ads.banner_loaded.connect(_on_vk_banner_loaded)
-		vk_ads.banner_failed_to_load.connect(_on_vk_banner_failed)
-		vk_ads.rewarded_video_loaded.connect(_on_vk_rewarded_loaded)
-		vk_ads.rewarded_video_failed_to_load.connect(_on_vk_rewarded_failed)
-		vk_ads.rewarded.connect(_on_vk_rewarded_earned)
-		
-		# Load banners
-		vk_ads.load_banner()
-		vk_ads.show_banner()
-		
-		# Load rewarded
-		vk_ads.load_rewarded_video()
-		
-		print("✅ VK Ads (iOS) initialized")
-	else:
-		print("❌ VK iOS class not found")
-		vk_button.disabled = true
+#func _init_yandex_ios():
+#	print("🟡 Initializing Yandex Ads (iOS)...")
+#	update_status("Loading Yandex iOS class...")
+#	
+#	var YandexAdsIOSClass = load("res://addons/yandex_ads_ios/yandex_ads_ios.gd")
+#	if YandexAdsIOSClass:
+#		update_status("Yandex class loaded! Creating instance...")
+#		yandex_ads = YandexAdsIOSClass.new()
+#		add_child(yandex_ads)
+#		update_status("Yandex instance created!")
+#		
+#		# Set test IDs
+#		yandex_ads.banner_id = "demo-banner-yandex"
+#		yandex_ads.rewarded_id = "demo-rewarded-yandex"
+#		yandex_ads.banner_on_top = true
+#		
+#		# Connect signals
+#		yandex_ads.banner_loaded.connect(_on_yandex_banner_loaded)
+#		yandex_ads.banner_failed_to_load.connect(_on_yandex_banner_failed)
+#		yandex_ads.rewarded_video_loaded.connect(_on_yandex_rewarded_loaded)
+#		yandex_ads.rewarded_video_failed_to_load.connect(_on_yandex_rewarded_failed)
+#		yandex_ads.rewarded.connect(_on_yandex_rewarded_earned)
+#		
+#		# Load banners
+#		update_status("Loading Yandex banner...")
+#		yandex_ads.load_banner()
+#		yandex_ads.show_banner()
+#		
+#		# Load rewarded
+#		update_status("Loading Yandex rewarded...")
+#		yandex_ads.load_rewarded_video()
+#		
+#		print("✅ Yandex Ads (iOS) initialized")
+#		update_status("✅ Yandex iOS ready!")
+#	else:
+#		print("❌ Yandex iOS class not found")
+#		update_status("❌ Yandex class NOT FOUND!")
+#		yandex_button.disabled = true
+#
+#func _init_vk_ios():
+#	print("🔵 Initializing VK Ads (iOS)...")
+#	
+#	var VkAdsIOSClass = load("res://addons/vk_ads_ios/vk_ads_ios.gd")
+#	if VkAdsIOSClass:
+#		vk_ads = VkAdsIOSClass.new()
+#		add_child(vk_ads)
+#		
+#		# Set test IDs
+#		vk_ads.banner_id = 44987  # Demo banner slot
+#		vk_ads.rewarded_id = 44988  # Demo rewarded slot
+#		vk_ads.banner_on_top = false  # Bottom banner
+#		
+#		# Connect signals
+#		vk_ads.banner_loaded.connect(_on_vk_banner_loaded)
+#		vk_ads.banner_failed_to_load.connect(_on_vk_banner_failed)
+#		vk_ads.rewarded_video_loaded.connect(_on_vk_rewarded_loaded)
+#		vk_ads.rewarded_video_failed_to_load.connect(_on_vk_rewarded_failed)
+#		vk_ads.rewarded.connect(_on_vk_rewarded_earned)
+#		
+#		# Load banners
+#		vk_ads.load_banner()
+#		vk_ads.show_banner()
+#		
+#		# Load rewarded
+#		vk_ads.load_rewarded_video()
+#		
+#		print("✅ VK Ads (iOS) initialized")
+#	else:
+#		print("❌ VK iOS class not found")
+#		vk_button.disabled = true
 
 # ============================================
 # ADMOB INITIALIZATION (iOS + Android)
