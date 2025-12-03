@@ -42,36 +42,53 @@ jobs:
       run: |
         echo "🔨 Exporting iOS Xcode project..."
         mkdir -p build
-        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/ios_xcode
+        ~/bin/Godot.app/Contents/MacOS/Godot --headless --export-debug "iOS" build/ios_export
         echo "✅ Xcode project exported"
+        
+        echo "📂 Checking what was exported:"
+        ls -la build/
+        if [ -d "build/ios_export" ]; then
+          echo "📂 Contents of ios_export:"
+          ls -la build/ios_export/
+        fi
 
     - name: Find Xcode Project
       run: |
         echo "🔍 Finding Xcode project..."
+        
+        # Godot exports to a directory, find .xcodeproj inside
         XCODE_PROJ=$(find build -name "*.xcodeproj" -type d | head -1)
+        
         if [ -z "$XCODE_PROJ" ]; then
           echo "❌ No .xcodeproj found!"
+          echo "📂 Searching in build directory:"
+          find build -type d -maxdepth 3
           exit 1
         fi
         
         echo "✅ Found: $XCODE_PROJ"
+        XCODE_PROJECT_DIR=$(dirname "$XCODE_PROJ")
+        
         echo "XCODE_PROJECT_PATH=$XCODE_PROJ" >> $GITHUB_ENV
-        echo "XCODE_PROJECT_DIR=$(dirname $XCODE_PROJ)" >> $GITHUB_ENV
+        echo "XCODE_PROJECT_DIR=$XCODE_PROJECT_DIR" >> $GITHUB_ENV
+        
+        echo "📝 Project path: $XCODE_PROJ"
+        echo "📝 Project dir: $XCODE_PROJECT_DIR"
 
     - name: Build IPA (unsigned)
       run: |
         echo "🔨 Building unsigned IPA..."
-        cd "$XCODE_PROJECT_DIR"
         
         PROJ_NAME=$(basename "$XCODE_PROJECT_PATH" .xcodeproj)
         echo "📝 Project: $PROJ_NAME"
+        echo "📝 Project path: $XCODE_PROJECT_PATH"
         
-        # Build without code signing
+        # Build without code signing (use absolute path)
         xcodebuild -project "$XCODE_PROJECT_PATH" \
           -scheme "$PROJ_NAME" \
           -configuration Release \
           -sdk iphoneos \
-          -derivedDataPath DerivedData \
+          -derivedDataPath "$XCODE_PROJECT_DIR/DerivedData" \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO \
